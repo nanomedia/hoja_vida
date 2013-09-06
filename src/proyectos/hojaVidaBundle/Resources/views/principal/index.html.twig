@@ -33,321 +33,304 @@
 
 
 
-                $('#prog').progressbar({value: 0});
+                        $('#prog').progressbar({value: 0});
 
-                $("#add-datos-personales").dialog({
-                    autoOpen: false,
-                    resizable: false,
-                    height: 200,
-                    modal: true,
-                    buttons: {
-                        "SI": function() {
-                            frm_datos_personales();
-                            $(this).dialog("close");
+                        $("#add-datos-personales").dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            height: 200,
+                            modal: true,
+                            buttons: {
+                                "SI": function() {
+                                    frm_datos_personales();
+                                    $(this).dialog("close");
 
-                        },
-                        "NO": function() {
-                            $(this).dialog("close");
-                        }}
-                });
+                                },
+                                "NO": function() {
+                                    $(this).dialog("close");
+                                }}
+                        });
 
-                $("#add-datos-postulante").dialog({
-                    autoOpen: false,
-                    resizable: false,
-                    height: 200,
-                    modal: true,
-                    buttons: {
-                        "SI": function() {
-                            frm_como_postulante();
-                            $(this).dialog("close");
-                        },
-                        "NO": function() {
-                            $(this).dialog("close");
-                        }}
-                });
+                        $("#add-datos-postulante").dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            height: 200,
+                            modal: true,
+                            buttons: {
+                                "SI": function() {
+                                    frm_como_postulante();
+                                    $(this).dialog("close");
+                                },
+                                "NO": function() {
+                                    $(this).dialog("close");
+                                }}
+                        });
 
-                $("#add-datos-academicos").dialog({
-                    autoOpen: false,
-                    resizable: false,
-                    height: 200,
-                    modal: true,
-                    buttons: {
-                        "SI": function() {
-                            frm_datos_academicos();
-                            $(this).dialog("close");
-                        },
-                        "NO": function() {
-                            $(this).dialog("close");
-                        }}
-                });
-                $("#add-exp-profesional").dialog({
-                    autoOpen: false,
-                    resizable: false,
-                    height: 200,
-                    modal: true,
-                    buttons: {
-                        "SI": function() {
-                            frm_exp_profesional();
-                            $(this).dialog("close");
-                        },
-                        "NO": function() {
-                            $(this).dialog("close");
-                        }}
-                });
+                        $("#add-datos-academicos").dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            height: 200,
+                            modal: true,
+                            buttons: {
+                                "SI": function() {
+                                    frm_datos_academicos();
+                                    $(this).dialog("close");
+                                },
+                                "NO": function() {
+                                    $(this).dialog("close");
+                                }}
+                        });
+                        $("#add-exp-profesional").dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            height: 200,
+                            modal: true,
+                            buttons: {
+                                "SI": function() {
+                                    frm_exp_profesional();
+                                    $(this).dialog("close");
+                                },
+                                "NO": function() {
+                                    $(this).dialog("close");
+                                }}
+                        });
 
-                $("#add-conducta").dialog({
-                    autoOpen: false,
-                    resizable: false,
-                    height: 200,
-                    modal: true,
-                    buttons: {
-                        "SI": function() {
-                            frm_conducta();
-                            $(this).dialog("close");
-                        },
-                        "NO": function() {
-                            $(this).dialog("close");
-                        }}
-                });
+                        $("#add-conducta").dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            height: 200,
+                            modal: true,
+                            buttons: {
+                                "SI": function() {
+                                    frm_conducta();
+                                    $(this).dialog("close");
+                                },
+                                "NO": function() {
+                                    $(this).dialog("close");
+                                }}
+                        });
 
-                $("#frm-datos-personales").validate({
-                    rules: {
-                        txt_nombres: "required",
-                        txt_apellidos: "required",
-                        txt_lugarNac: {
-                            required: true,
-                            minlength: 5
-                        },
-                        txt_fechaNac: "required",
-                        file_foto: "required",
-                        txt_dni: {
-                            required: true,
-                            number: true,
-                            minlength: 8,
-                            maxlength: 8
-                        }
-                    },
-                    submitHandler: function() {
-                        $("#add-datos-personales").dialog("open");
-                    }
-                });
-
-                $("#frm-como-postulante").validate({
-                    rules: {
-                        txt_cargoAPostular: "required",
-                        txt_condicion: "required",
-                        txt_nota: {
-                            required: true,
-                            number: true
-                        },
-                        txt_prePromedio: {
-                            required: true,
-                            number: true
-
-                        },
-                        txt_ordenMerito: {
-                            required: true,
-                            number: true
-                        },
-                        txt_plazasVacantes: {
-                            required: true,
-                            number: true,
-                        },
-                        txt_ex_cono: "required",
-                        afi_curr: "required"
-                    },
-                    submitHandler: function() {
-                        $("#add-datos-postulante").dialog("open");
-                    }
-                });
-
-
-
-                $("#guardar_frm").click(function() {
-
-
-                    var frm = $(this).attr("rel");
-
-                    switch (frm) {
-                        case "frm-datos-personales":
-                            $("#frm-datos-personales").submit();
-                            break;
-
-                        case "frm-como-postulante":
-                            $("#frm-como-postulante").submit();
-                            break;
-
-                        case "frm-datos-academicos":
-                            $("#add-datos-academicos").dialog("open");
-                            break;
-                        case "frm-exp-profesional":
-                            $("#add-exp-profesional").dialog("open");
-                            break;
-                        case "frm-conducta":
-                            $("#add-conducta").dialog("open");
-                            break;
-                    }
-                });
-
-                function frm_datos_personales() {
-                    var archivos = document.getElementById("file_foto");
-                    var archivo = archivos.files;
-                    var data = new FormData();
-
-                    var nombres = $("input:text[name='txt_nombres']").val();
-                    var apellidos = $("input:text[name='txt_apellidos']").val();
-                    var lugarnac = $("input:text[name='txt_lugarNac']").val();
-                    var fechanac = $("input:text[name='txt_fechaNac']").val();
-                    var edad = $("input:text[name='txt_edad']").val();
-                    var dni = $("input:text[name='txt_dni']").val();
-                    var foto = archivo[0];
-                    var discapacidad = $("input:radio[name='rad_discapacidad']:checked").val();
-                    var certificado = $("input:text[name='txt_certDiscapacidad']").val();
-
-                    data.append("txt_nombres", nombres);
-                    data.append("txt_apellidos", apellidos);
-                    data.append("txt_lugarNac", lugarnac);
-                    data.append("txt_fechaNac", fechanac);
-                    data.append("txt_edad", edad);
-                    data.append("txt_dni", dni);
-                    data.append("file_foto", foto);
-                    data.append("rad_discapacidad", discapacidad);
-                    data.append("txt_certDiscapacidad", certificado);
-
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosPersonales')}}",
-                        data: data,
-                        async: "true",
-                        contentType: false,
-                        processData: false,
-                        cache: false,
-                        success: function(e) {
-                            $("#id_cod").val(e);
-                            $("#tabs1").tabs("disable", 0);
-                            $("#tabs1").tabs("enable", 1);
-                            $("#tabs1").tabs("option", "active", 1);
-                            $("#guardar_frm").attr("rel", "frm-como-postulante");
-                            $("#pos-apellidos").html(apellidos);
-                            $("#pos-nombres").html(nombres);
-                            $("#pos-dni").html(dni);
-                            $("#foto-personal").attr("src", "{{asset('fotos/')}}" + dni + ".jpg");
-                        }
-                    });
-
-                }
-                function frm_como_postulante() {
-                    var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosPostulante')}}",
-                        data: form,
-                        /*success: function(e) {
-                         $("#id_pos").val(e);
-                         $("#tabs1").tabs("disable", 1);
-                         $("#tabs1").tabs("enable", 2);
-                         $("#tabs1").tabs("option", "active", 2);
-                         $("#guardar_frm").attr("rel", "frm-datos-academicos");
-                         },*/
-                        progress: function(e) {
-                            if (e.lengthComputable) {
-                                var pct = (e.loaded / e.total) * 100;
-                                alert(pct);
-                                $('#prog')
-                                        .progressbar('option', 'value', pct)
-                                        .children('.ui-progressbar-value')
-                                        .html(pct.toPrecision(3) + '%')
-                                        .css('display', 'block');
-                            } else {
-                                console.warn('Content Length not reported!');
+                        $("#frm-datos-personales").validate({
+                            rules: {
+                                txt_nombres: "required",
+                                txt_apellidos: "required",
+                                txt_lugarNac: {
+                                    required: true,
+                                    minlength: 5
+                                },
+                                txt_fechaNac: "required",
+                                file_foto: "required",
+                                txt_dni: {
+                                    required: true,
+                                    number: true,
+                                    minlength: 8,
+                                    maxlength: 8
+                                }
+                            },
+                            submitHandler: function() {
+                                $("#add-datos-personales").dialog("open");
                             }
-                        }
-                    });
+                        });
 
+                        $("#frm-como-postulante").validate({
+                            rules: {
+                                txt_cargoAPostular: "required",
+                                txt_condicion: "required",
+                                txt_nota: {
+                                    required: true,
+                                    number: true
+                                },
+                                txt_prePromedio: {
+                                    required: true,
+                                    number: true
 
-                    $.ajax({
-                        method: 'GET',
-                        url: 'data/bird.json',
-                        dataType: 'json',
-                        success: function() {
-                            console.log('YAYE!', arguments[0]);
-                        },
-                        error: function() {
-                            console.log('AWWW!');
-                        },
-                        progress: function(e) {
-                            if (e.lengthComputable) {
-                                var pct = (e.loaded / e.total) * 100;
-
-                                $('#prog')
-                                        .progressbar('option', 'value', pct)
-                                        .children('.ui-progressbar-value')
-                                        .html(pct.toPrecision(3) + '%')
-                                        .css('display', 'block');
-                            } else {
-                                console.warn('Content Length not reported!');
+                                },
+                                txt_ordenMerito: {
+                                    required: true,
+                                    number: true
+                                },
+                                txt_plazasVacantes: {
+                                    required: true,
+                                    number: true,
+                                },
+                                txt_ex_cono: "required",
+                                afi_curr: "required"
+                            },
+                            submitHandler: function() {
+                                $("#add-datos-postulante").dialog("open");
                             }
+                        });
+
+                        $("#frm-datos-academicos").validate({
+                            rules: {
+                                txt_fechaIncorporacion: "required",
+                                txt_tituloOtros: "required",
+                                txt_tesisTitular: "required"
+                            },
+                            submitHandler: function() {
+                                $("#add-datos-academicos").dialog("open");
+                            }
+                        });
+
+                        $("#frm-exp-profesional").validate({
+                            rules: {
+                                txt_resolucion: "required",
+                                txt_fec_res: "required",
+                                txt_tesisTitular: "required",
+                                situacion_laboral_actual: "required",
+                                text_area_JurFis: "required"
+                            },
+                            submitHandler: function() {
+                                 $("#add-exp-profesional").dialog("open");
+                            }
+                        });
+
+                        $("#guardar_frm").click(function() {
+
+
+                            var frm = $(this).attr("rel");
+
+                            switch (frm) {
+                                case "frm-datos-personales":
+                                    $("#frm-datos-personales").submit();
+                                    break;
+
+                                case "frm-como-postulante":
+                                    $("#frm-como-postulante").submit();
+                                    break;
+
+                                case "frm-datos-academicos":
+                                    $("#frm-datos-academicos").submit();
+                                    break;
+
+                                case "frm-exp-profesional":
+                                    $("#frm-exp-profesional").submit();
+                                    break;
+                                case "frm-conducta":
+                                    $("#add-conducta").dialog("open");
+                                    break;
+                            }
+                        });
+
+                        function frm_datos_personales() {
+                            var archivos = document.getElementById("file_foto");
+                            var archivo = archivos.files;
+                            var data = new FormData();
+
+                            var nombres = $("input:text[name='txt_nombres']").val();
+                            var apellidos = $("input:text[name='txt_apellidos']").val();
+                            var lugarnac = $("input:text[name='txt_lugarNac']").val();
+                            var fechanac = $("input:text[name='txt_fechaNac']").val();
+                            var edad = $("input:text[name='txt_edad']").val();
+                            var dni = $("input:text[name='txt_dni']").val();
+                            var foto = archivo[0];
+                            var discapacidad = $("input:radio[name='rad_discapacidad']:checked").val();
+                            var certificado = $("input:text[name='txt_certDiscapacidad']").val();
+
+                            data.append("txt_nombres", nombres);
+                            data.append("txt_apellidos", apellidos);
+                            data.append("txt_lugarNac", lugarnac);
+                            data.append("txt_fechaNac", fechanac);
+                            data.append("txt_edad", edad);
+                            data.append("txt_dni", dni);
+                            data.append("file_foto", foto);
+                            data.append("rad_discapacidad", discapacidad);
+                            data.append("txt_certDiscapacidad", certificado);
+
+
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newDatosPersonales')}}",
+                                data: data,
+                                async: "true",
+                                contentType: false,
+                                processData: false,
+                                cache: false,
+                                success: function(e) {
+                                    $("#id_cod").val(e);
+                                    $("#tabs1").tabs("disable", 0);
+                                    $("#tabs1").tabs("enable", 1);
+                                    $("#tabs1").tabs("option", "active", 1);
+                                    $("#guardar_frm").attr("rel", "frm-como-postulante");
+                                    $("#pos-apellidos").html(apellidos);
+                                    $("#pos-nombres").html(nombres);
+                                    $("#pos-dni").html(dni);
+                                    $("#foto-personal").attr("src", "{{asset('fotos/')}}" + dni + ".jpg");
+                                }
+                            });
+
+                        }
+                        function frm_como_postulante() {
+                            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newDatosPostulante')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#id_pos").val(e);
+                                    $("#tabs1").tabs("disable", 1);
+                                    $("#tabs1").tabs("enable", 2);
+                                    $("#tabs1").tabs("option", "active", 2);
+                                    $("#guardar_frm").attr("rel", "frm-datos-academicos");
+                                },
+                            });
+
+
+
+                        }
+
+                        function frm_datos_academicos() {
+
+                            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
+
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newDatosAcademicos')}}",
+                                data: form,
+                                success: function(e) {
+                                    console.log(e);
+                                    $("#tabs1").tabs("disable", 2);
+                                    $("#tabs1").tabs("enable", 3);
+                                    $("#tabs1").tabs("option", "active", 3);
+                                    $("#guardar_frm").attr("rel", "frm-exp-profesional");
+                                }
+
+                            });
+                        }
+                        function frm_exp_profesional() {
+
+                            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
+
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newExpProfesional')}}",
+                                data: form,
+                                success: function(e) {
+                                    console.log(e);
+                                    $("#tabs1").tabs("disable", 3);
+                                    $("#tabs1").tabs("enable", 4);
+                                    $("#tabs1").tabs("option", "active", 4);
+                                    $("#guardar_frm").attr("rel", "frm-conducta");
+                                }
+
+                            });
+
+                        }
+                        function frm_conducta() {
+                            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
+
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newConducta')}}",
+                                data: form,
+                                success: function(e) {
+                                    alert(e);
+                                    // $("#guardar_frm").attr("rel", "frm-datos-academicos");
+                                }
+
+                            });
                         }
                     });
-
-
-
-
-                }
-
-                function frm_datos_academicos() {
-
-                    var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosAcademicos')}}",
-                        data: form,
-                        success: function(e) {
-                            console.log(e);
-                            $("#tabs1").tabs("disable", 2);
-                            $("#tabs1").tabs("enable", 3);
-                            $("#tabs1").tabs("option", "active", 3);
-                            $("#guardar_frm").attr("rel", "frm-exp-profesional");
-                        }
-
-                    });
-                }
-                function frm_exp_profesional() {
-
-                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newExpProfesional')}}",
-                        data: form,
-                        success: function(e) {
-                            console.log(e);
-                            $("#tabs1").tabs("disable", 3);
-                            $("#tabs1").tabs("enable", 4);
-                            $("#tabs1").tabs("option", "active", 4);
-                            $("#guardar_frm").attr("rel", "frm-conducta");
-                        }
-
-                    });
-
-                }
-                function frm_conducta() {
-                    var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newConducta')}}",
-                        data: form,
-                        success: function(e) {
-                            alert(e);
-                            // $("#guardar_frm").attr("rel", "frm-datos-academicos");
-                        }
-
-                    });
-                }
-            });
 
 
             </script>

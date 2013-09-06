@@ -1,10 +1,4 @@
 
-    $.jqplot('chartdiv', [[[1, 2], [3, 5.12], [5, 13.1], [7, 33.6], [9, 85.9], [11, 219.9]]],
-            {title: 'Exponential Line',
-                axes: {yaxis: {renderer: $.jqplot.LogAxisRenderer, tickDistribution: 'power'}},
-                series: [{color: '#5FAB78'}]
-            });
-
     var universidades = "";
     universidades += '["Universidad Nacional del Callao (UNAC) (Bellavista)",';
     universidades += '"Universidad Nacional Mayor de San Marcos (UNMSM) (El Cercado)",';
@@ -151,8 +145,8 @@
 
     $("#cues").buttonset();
     $(".button").button();
-    $("#tabs1").tabs({disabled: [1, 2, 3, 4]});
-    // $("#tabs1").tabs();
+    //$("#tabs1").tabs({disabled: [1, 2, 3, 4]});
+    $("#tabs1").tabs();
     $("#tab-cuestionario").tabs();
     $("#tabs2").tabs();
     $("#tabs3").tabs();
@@ -196,3 +190,12 @@
         }
     });
     
+    var icons = {header: "ui-icon-circle-arrow-e", activeHeader: "ui-icon-circle-arrow-s"};
+    
+    $( "#accordion" ).accordion({
+      icons: icons,
+      collapsible: true,
+      heightStyle: "content"
+      });
+      
+   

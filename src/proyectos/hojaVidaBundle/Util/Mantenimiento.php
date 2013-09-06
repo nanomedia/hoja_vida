@@ -53,7 +53,7 @@ class Mantenimiento {
         $em->persist($dp);
         $em->flush();
 
-        return "Se agrego datos Personales."; //$dp->getIdDatPersonal();
+        return $dp->getIdDatPersonal(); 
     }
 
     public function insertarDatosPostulante($c, $request) {
