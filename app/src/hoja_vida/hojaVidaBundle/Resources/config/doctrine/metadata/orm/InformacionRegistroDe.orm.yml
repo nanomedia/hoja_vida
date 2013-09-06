@@ -1,0 +1,35 @@
+InformacionRegistroDe:
+    type: entity
+    table: informacion_registro_de
+    fields:
+        pkInformacionRegDeu:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_INFORMACION_REG_DEU
+            generator:
+                strategy: IDENTITY
+        deudoresAlimentarios:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DEUDORES_ALIMENTARIOS
+        complementaria:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: COMPLEMENTARIA
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

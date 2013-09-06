@@ -1,0 +1,49 @@
+Patrimonio:
+    type: entity
+    table: patrimonio
+    fields:
+        pkPatrimonio:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PATRIMONIO
+            generator:
+                strategy: IDENTITY
+        tipoPatrimonio:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO_PATRIMONIO
+        tipoBien:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO_BIEN
+        ubicacion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: UBICACION
+        fecha:
+            type: string
+            length: 10
+            fixed: false
+            nullable: true
+            column: FECHA
+        monto:
+            type: float
+            nullable: true
+            column: MONTO
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,64 @@
+LicenciasOtorgadas:
+    type: entity
+    table: licencias_otorgadas
+    fields:
+        pkLicenciasOtor:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_LICENCIAS_OTOR
+            generator:
+                strategy: IDENTITY
+        anio:
+            type: string
+            length: 4
+            fixed: false
+            nullable: true
+            column: ANIO
+        enfermedad:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ENFERMEDAD
+        vacaciones:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: VACACIONES
+        capacitacion:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: CAPACITACION
+        onomastico:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ONOMASTICO
+        licenciaGoce:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: LICENCIA_GOCE
+        motivosPersonales:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: MOTIVOS_PERSONALES
+        totalLicencias:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TOTAL_LICENCIAS
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

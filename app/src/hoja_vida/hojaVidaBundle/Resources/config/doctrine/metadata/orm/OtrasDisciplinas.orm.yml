@@ -1,0 +1,47 @@
+OtrasDisciplinas:
+    type: entity
+    table: otras_disciplinas
+    fields:
+        pkOtrasDisc:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_OTRAS_DISC
+            generator:
+                strategy: IDENTITY
+        universidad:
+            type: string
+            length: 80
+            fixed: false
+            nullable: true
+            column: UNIVERSIDAD
+        nivel:
+            type: string
+            length: 20
+            fixed: false
+            nullable: true
+            column: NIVEL
+        mension:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: MENSION
+        anio:
+            type: string
+            length: 2013
+            fixed: false
+            nullable: true
+            column: ANIO
+    manyToOne:
+        pkDatAcademicos:
+            targetEntity: DatosAcademicos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_ACADEMICOS:
+                    referencedColumnName: PK_DAT_ACADEMICOS
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

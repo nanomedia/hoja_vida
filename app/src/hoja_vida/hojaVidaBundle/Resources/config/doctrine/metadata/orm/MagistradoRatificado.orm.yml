@@ -1,0 +1,53 @@
+MagistradoRatificado:
+    type: entity
+    table: magistrado_ratificado
+    fields:
+        pkExpMagRat:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_EXP_MAG_RAT
+            generator:
+                strategy: IDENTITY
+        respuesta1:
+            type: string
+            length: 2
+            fixed: false
+            nullable: true
+            column: RESPUESTA1
+        respuesta2:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: RESPUESTA2
+        resolucion:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: RESOLUCION
+        fechaRes:
+            type: string
+            length: 10
+            fixed: false
+            nullable: true
+            column: FECHA_RES
+        respuesta3:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: RESPUESTA3
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

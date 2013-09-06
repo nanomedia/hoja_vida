@@ -1,0 +1,56 @@
+ProcesosEnMinPub:
+    type: entity
+    table: procesos_en_min_pub
+    fields:
+        pkProcesosPoderJud:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PROCESOS_PODER_JUD
+            generator:
+                strategy: IDENTITY
+        estado:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ESTADO
+        tipo:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO
+        idInstitucion:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ID_INSTITUCION
+        expediente:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: EXPEDIENTE
+        quejas:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: QUEJAS
+        motivo:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: MOTIVO
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,40 @@
+ProdJurFiscal:
+    type: entity
+    table: prod_jur_fiscal
+    fields:
+        pkProdJurFiscal:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PROD_JUR_FISCAL
+            generator:
+                strategy: IDENTITY
+        respuesta:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: RESPUESTA
+        detRespuesta:
+            type: string
+            length: 200
+            fixed: false
+            nullable: false
+            column: DET_RESPUESTA
+        pkExpProfesional:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: PK_EXP_PROFESIONAL
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

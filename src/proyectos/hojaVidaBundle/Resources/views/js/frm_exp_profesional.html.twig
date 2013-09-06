@@ -1,0 +1,221 @@
+
+    $("#cboMagRatificado").change(function() {
+        var opcion = $(this).val();
+        switch (opcion) {
+            case "0":
+                $("#opc").css("display", "none");
+                $("#opc2").css("display", "block");
+                break;
+            case "1":
+                $("#opc").css("display", "block");
+                $("#opc2").css("display", "block");
+                break;
+            default :
+                $("#opc").css("display", "none");
+                $("#opc2").css("display", "none");
+        }
+
+    });
+    var num_rows_ddp = 0;
+    $("#add_row_ddp").click(function() {
+        if (num_rows_ddp < 15) {
+            num_rows_ddp++;
+            add_row_ddp();
+            actualizar_table_ddp();
+        }
+    });
+    $("#doc_des_profesional").delegate(".remove_row_ddp", "click", function() {
+        if (num_rows_ddp > 0) {
+            var row_position = ($(".remove_row_ddp").index($(this)) + 1);
+            $("#doc_des_profesional tbody tr").eq(row_position).remove();
+            num_rows_ddp--;
+            actualizar_table_ddp();
+        }
+    });
+    function actualizar_table_ddp() {
+        for (var i = 1; i <= num_rows_ddp; i++) {
+            $("#doc_des_profesional tbody tr:eq(" + i + ") td:eq(0)").html(i + 1);
+        }
+
+    }
+    function add_row_ddp() {
+        var new_row = '<tr>';
+        new_row += '<td></td>';
+        new_row += '<td><input name="txt_num_exp[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_ddas[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_ddae[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_materia[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_espec[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal1[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal2[]" class="row-edit" type="text"></td>';
+        new_row += '<td align="center"><input type="button" class="remove_row_ddp" value="-"></td>';
+        new_row += '</tr>';
+
+        $("#doc_des_profesional tbody").append(new_row);
+
+    }
+
+
+
+    var num_rows_cdj = 0;
+    $("#add_row_cdj").click(function() {
+        if (num_rows_cdj < 15) {
+            num_rows_cdj++;
+            add_row_cdj();
+            actualizar_table_cdj();
+        }
+    });
+
+    $("#calidad_des_jud").delegate(".remove_row_cdj", "click", function() {
+        if (num_rows_cdj > 0) {
+            var row_position = ($(".remove_row_cdj").index($(this)) + 1);
+            $("#calidad_des_jud tbody tr").eq(row_position).remove();
+            num_rows_cdj--;
+            actualizar_table_cdj();
+        }
+    });
+
+
+
+    function add_row_cdj() {
+        var new_row = '<tr>';
+
+        new_row += '<td></td>';
+        new_row += '<td><input name="txt_cal_numExp[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_tipResolucion[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_fechaRes[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_ddagraviado[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_especialidad[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_nota[]" class="row-edit" type="text"></td>';
+        new_row += '<td align="center"><input class="remove_row_cdj" type="button" value="-"></td>';
+
+        new_row += '</tr>';
+
+        $("#calidad_des_jud tbody").append(new_row);
+
+    }
+
+    function actualizar_table_cdj() {
+        for (var i = 1; i <= num_rows_cdj; i++) {
+            $("#calidad_des_jud tbody tr:eq(" + i + ") td:eq(0)").html(i + 1);
+        }
+
+    }
+
+
+
+    var num_rows_docuni = 0;
+    $("#add_docuni").click(function() {
+        if (num_rows_docuni < 4) {
+            num_rows_docuni++;
+            add_rows_docuni();
+        }
+    });
+
+    $("#table_docuni").delegate(".remove_docuni", "click", function() {
+        if (num_rows_docuni > 0) {
+            var row_position = ($(".remove_docuni").index($(this)) + 1);
+            $(".rowdocuni").eq(row_position).remove();
+            num_rows_docuni--;
+        }
+    });
+
+    function add_rows_docuni() {
+        var new_row = '<tr class="rowdocuni">';
+        new_row += '            <td>';
+        new_row += '                <table border="1" cellspacing="0"  class="ui-widget ui-widget-content">';
+        new_row += '                    <tr>';
+        new_row += '                        <td width="180px" class="ui-widget-header">';
+        new_row += '                            Universidad:';
+        new_row += '                        </td>';
+        new_row += '                        <td>';
+        new_row += '                            <select name="cbo_univ_docuni[]" class="combo-univ"></select>';
+        new_row += '                        </td>';
+        new_row += '                    </tr>';
+        new_row += '                    <tr>';
+        new_row += '                        <td class="ui-widget-header">Facultad:</td>';
+        new_row += '                        <td>';
+        new_row += '                            <input name="txt_facu_docuni[]" type="text" class="row-edit"> ';
+        new_row += '            </td>';
+        new_row += '        </tr>';
+        new_row += '        <tr>';
+        new_row += '            <td class="ui-widget-header">Condici&oacute;n</td>';
+        new_row += '            <td>';
+        new_row += '                <div id="rad-condicion">';
+        new_row += '                    <select name="cbo_condicion_docuni[]">';
+        new_row += '                        <option value="Nombrado">Nombrado</option>';
+        new_row += '                        <option value="Contratado">Contratado</option>';
+        new_row += '                    </select>';
+        new_row += '                </div>';
+        new_row += '            </td>';
+        new_row += '        </tr>';
+        new_row += '        <tr>';
+        new_row += '            <td class="ui-widget-header">Categoria</td>';
+        new_row += '            <td>';
+        new_row += '                <select name="cbo_categoria_docuni[]">';
+        new_row += '                    <option value="Principal">Principal</option>';
+        new_row += '                    <option value="Asociado">Asociado</option>';
+        new_row += '                    <option value="Auxiliar">Auxiliar</option>';
+        new_row += '                </select> ';
+        new_row += '            </td>';
+        new_row += '        </tr>';
+        new_row += '        <tr>';
+        new_row += '            <td class="ui-widget-header">Cursos</td>';
+        new_row += '            <td><input name="txt_cursos_docuni[]" type="text" class="row-edit"></td>';
+        new_row += '        </tr>';
+        new_row += '        <tr>';
+        new_row += '            <td class="ui-widget-header">Periodo</td>';
+        new_row += '            <td><input name="txt_per_docuni[]" type="text" class="row-edit"></td>';
+        new_row += '        </tr>';
+        new_row += '    </table>';
+        new_row += '</td>';
+        new_row += '<td><input type="button"  value="-" class="remove_docuni"></td>';
+        new_row += '</tr>';
+
+        $("#bodyDocuni").append(new_row);
+        comboUniv();
+    }
+    var d = new Date();
+    var anio = (parseInt(d.getFullYear()));
+    var temp_anio = anio - 5;
+    var contentLic = "";
+    for (temp_anio; temp_anio < anio; temp_anio++) {
+        //console.log(temp_anio);
+        var html = '<tr><td><input name="hd_anio[]" type="hidden" value="' + temp_anio + '">' + temp_anio + '</td><td>Enfermedad</td>';
+        html += '<td><input name="txt_enfermedad[]" type="text" size="5" value="0"></td>';
+        html += '<td rowspan="6"><input name="txt_total_lic[]" type="text" class="textbox"></td>';
+        html += '</tr><tr><td></td>';
+        html += '<td>Vacaciones</td>';
+        html += '<td><input name="txt_vacaciones[]" type="text" size="5" value="0"></td>';
+        html += '</tr><tr>';
+        html += '<td></td>';
+        html += '<td>Capacitación</td>';
+        html += '<td><input name="txt_capacitacion[]" type="text" size="5" value="0"></td>';
+        html += '</tr><tr>';
+        html += '<td></td>';
+        html += '<td>Onomástico</td>';
+        html += '<td><input name="txt_onomastico[]" type="text" class="spinner2" size="5" value="0"></td>';
+        html += '</tr>';
+        html += '<tr>';
+        html += '    <td></td>';
+        html += '    <td>Lic. Con Goce de haber</td>';
+        html += '    <td><input name="txt_lic_goce[]" type="text" class="spinner2" size="5" value="0"></td>';
+        html += ' </tr><tr>';
+        html += '<td></td>';
+        html += '<td>Motivos personales</td>';
+        html += '<td><input name="txt_mot_personales[]" type="text" class="spinner2" size="5" value="0"></td>';
+        html += '</tr>';
+
+        contentLic += html;
+    }
+    var total = '  <tr>';
+    total += '<td>TOTAL</td>';
+    total += '<td><input type="text" class="row-edit"></td>';
+    total += '<td><input type="text" class="row-edit"></td>';
+    total += '<td><input type="text" class="row-edit"></td>';
+    total += '</tr>';
+    $("#lic-otrogadas").append(contentLic + total);
+
+

@@ -1,0 +1,56 @@
+PatrimonioBienesConyuge:
+    type: entity
+    table: patrimonio_bienes_conyuge
+    fields:
+        pkPatBienesConyuge:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PAT_BIENES_CONYUGE
+            generator:
+                strategy: IDENTITY
+        tipo:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO
+        descripcion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DESCRIPCION
+        fechaModo:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: FECHA_MODO
+        ultValor:
+            type: float
+            nullable: true
+            column: ULT_VALOR
+        datosRegPublicos:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DATOS_REG_PUBLICOS
+        fechaModoTransferencia:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: FECHA_MODO_TRANSFERENCIA
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

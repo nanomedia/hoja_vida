@@ -1,0 +1,58 @@
+ProcesosJudiciales:
+    type: entity
+    table: procesos_judiciales
+    fields:
+        pkProcesosJud:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PROCESOS_JUD
+            generator:
+                strategy: IDENTITY
+        tipo:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO
+        expediente:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: EXPEDIENTE
+        organo:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: ORGANO
+        demandadoAgresor:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DEMANDADO_AGRESOR
+        materia:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: MATERIA
+        estado:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: ESTADO
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

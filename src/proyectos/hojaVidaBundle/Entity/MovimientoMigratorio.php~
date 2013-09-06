@@ -1,0 +1,56 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MovimientoMigratorio
+ *
+ * @ORM\Table(name="movimiento_migratorio")
+ * @ORM\Entity
+ */
+class MovimientoMigratorio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_MOVIMIENTO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkMovimiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO", type="integer", nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FECHA", type="string", length=10, nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESTINO_PROCEDENCIA", type="string", length=250, nullable=true)
+     */
+    private $destinoProcedencia;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

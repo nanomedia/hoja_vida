@@ -1,0 +1,39 @@
+SistemaFinanciero:
+    type: entity
+    table: sistema_financiero
+    fields:
+        pkSistemaFinanciero:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_SISTEMA_FINANCIERO
+            generator:
+                strategy: IDENTITY
+        clase:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: CLASE
+        entidad:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: ENTIDAD
+        valor:
+            type: float
+            nullable: true
+            column: VALOR
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,39 @@
+Acreencias:
+    type: entity
+    table: acreencias
+    fields:
+        pkAcreencias:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_ACREENCIAS
+            generator:
+                strategy: IDENTITY
+        naturaleza:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: NATURALEZA
+        entidad:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: ENTIDAD
+        valor:
+            type: float
+            nullable: true
+            column: VALOR
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

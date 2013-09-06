@@ -1,0 +1,53 @@
+Publicaciones:
+    type: entity
+    table: publicaciones
+    fields:
+        pkPublicaciones:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PUBLICACIONES
+            generator:
+                strategy: IDENTITY
+        librosTextosUniv:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: LIBROS_TEXTOS_UNIV
+        invJuridicas:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: INV_JURIDICAS
+        ensayosJuridico:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: ENSAYOS_JURIDICO
+        articulosJuridicos:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: ARTICULOS_JURIDICOS
+        articulosNoJuridicos:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: ARTICULOS_NO_JURIDICOS
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

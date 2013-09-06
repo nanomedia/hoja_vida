@@ -1,0 +1,59 @@
+DocenciaUniversitaria:
+    type: entity
+    table: docencia_universitaria
+    fields:
+        pkDocUniversitaria:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_DOC_UNIVERSITARIA
+            generator:
+                strategy: IDENTITY
+        universidad:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: UNIVERSIDAD
+        facultad:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: FACULTAD
+        condicion:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: CONDICION
+        categoria:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: CATEGORIA
+        cursos:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: CURSOS
+        periodo:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: PERIODO
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

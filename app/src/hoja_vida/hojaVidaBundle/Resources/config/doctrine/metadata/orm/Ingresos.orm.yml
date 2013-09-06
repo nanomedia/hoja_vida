@@ -1,0 +1,39 @@
+Ingresos:
+    type: entity
+    table: ingresos
+    fields:
+        pkIngresos:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_INGRESOS
+            generator:
+                strategy: IDENTITY
+        anoEje:
+            type: float
+            nullable: true
+            column: ANO_EJE
+        remuneracion:
+            type: float
+            nullable: true
+            column: REMUNERACION
+        dietas:
+            type: float
+            nullable: true
+            column: DIETAS
+        total:
+            type: float
+            nullable: true
+            column: TOTAL
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

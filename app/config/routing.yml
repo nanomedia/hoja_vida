@@ -1,0 +1,6 @@
+hoja_vida:
+    resource: "@hojaVidaBundle/Controller/"
+    type:     annotation
+    prefix:   /hojavida
+
+

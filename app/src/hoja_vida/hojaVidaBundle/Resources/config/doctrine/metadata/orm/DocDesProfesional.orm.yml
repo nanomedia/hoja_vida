@@ -1,0 +1,60 @@
+DocDesProfesional:
+    type: entity
+    table: doc_des_profesional
+    fields:
+        pkExpProfesional:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_EXP_PROFESIONAL
+            generator:
+                strategy: IDENTITY
+        numExp:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: NUM_EXP
+        ddas:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: DDAS
+        ddae:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: DDAE
+        materia:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: MATERIA
+        especialidad:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: ESPECIALIDAD
+        calificacion1:
+            type: float
+            nullable: true
+            column: CALIFICACION1
+        calificacion2:
+            type: float
+            nullable: true
+            column: CALIFICACION2
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

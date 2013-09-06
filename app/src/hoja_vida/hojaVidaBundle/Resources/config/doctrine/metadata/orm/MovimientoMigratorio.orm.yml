@@ -1,0 +1,40 @@
+MovimientoMigratorio:
+    type: entity
+    table: movimiento_migratorio
+    fields:
+        pkMovimiento:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_MOVIMIENTO
+            generator:
+                strategy: IDENTITY
+        tipo:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO
+        fecha:
+            type: string
+            length: 10
+            fixed: false
+            nullable: true
+            column: FECHA
+        destinoProcedencia:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DESTINO_PROCEDENCIA
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

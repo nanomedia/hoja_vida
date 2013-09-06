@@ -1,0 +1,51 @@
+InfoPatConyugePersonal:
+    type: entity
+    table: info_pat_conyuge_personal
+    fields:
+        pkPatConPersonal:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PAT_CON_PERSONAL
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: NOMBRE
+        ocupacion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: OCUPACION
+        regimen:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: REGIMEN
+        nroDependientes:
+            type: float
+            nullable: true
+            column: NRO_DEPENDIENTES
+        observacion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: OBSERVACION
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

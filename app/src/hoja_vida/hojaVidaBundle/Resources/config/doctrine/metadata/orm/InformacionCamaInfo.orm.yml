@@ -1,0 +1,29 @@
+InformacionCamaInfo:
+    type: entity
+    table: informacion_cama_info
+    fields:
+        pkInformacionCamaInfo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_INFORMACION_CAMA_INFO
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DESCRIPCION
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

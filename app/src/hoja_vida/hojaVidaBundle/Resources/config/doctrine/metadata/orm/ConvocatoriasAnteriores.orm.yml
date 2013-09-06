@@ -1,0 +1,41 @@
+ConvocatoriasAnteriores:
+    type: entity
+    table: convocatorias_anteriores
+    fields:
+        pkConvAnteriores:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_CONV_ANTERIORES
+            generator:
+                strategy: IDENTITY
+        convocatoria:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: CONVOCATORIA
+        plaza:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: PLAZA
+        etapa:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: ETAPA
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

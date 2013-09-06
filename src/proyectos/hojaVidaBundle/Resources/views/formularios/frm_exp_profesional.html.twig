@@ -1,0 +1,379 @@
+<div id="tabs1-4">
+    <div class="area-registro">
+
+        <div class="tab-title">EXPERIENCIA PROFESIONAL</div>
+        <form id="frm-exp-profesional">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td >
+                        
+                        <label class="labelText">
+                            1. Documentos Calificados de DESEMPEÑO PROFESIONAL:
+                        </label>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td >
+                        <div id="add_row_ddp" class="add-icon" >Nueva fila</div><br><br>
+                        <table border="1" id="doc_des_profesional" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th width="40px">N°</th>
+                                    <th>N° Exp.</th>
+                                    <th>Demandante/<br>Denunciante/<br>Agraviado/<br>Solicitante</th>
+                                    <th>Demandado/<br>Denunciado/<br>Agresor/<br>Entidad</th>
+                                    <th>Materia</th>
+                                    <th>Especialidad</th>
+                                    <th>1° Calificación</th>
+                                    <th>2° Calificación (R.R)</th>
+                                    <th width="40px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><input name="txt_num_exp[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_ddas[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_ddae[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_materia[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_espec[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal1[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal2[]" class="row-edit" type="text"></td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+
+
+                        </table> 
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label class="labelText">
+                            2. Magistrado Ratificado:
+                        </label>
+                    </td>
+                </tr>
+                <tr>    
+                    <td align="center">
+                        <table>
+                            <tr>
+                                <td>
+                                    <select name="rad-resp1" id="cboMagRatificado">
+                                        <option value="0">NO</option>
+                                        <option value="1">SI</option>
+                                        <option value="2">Aún no ha sido objeto de proceso</option>
+                                        <option value="3">En convocatoria</option>
+                                    </select>    
+                                </td>
+                                <td>
+                                    <div id="opc" style="display:none;">
+                                        <input type="radio" id="opc1" name="rad-resp2" value="Por Unanimidad" checked="checked" /><label for="opc1">Por Unanimidad</label>
+                                        <input type="radio" id="opc2" name="rad-resp2" value="Por Mayoría"/><label for="opc2">Por Mayoría</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span id="opc2">
+                                        Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
+                                    </span>
+                                    <select name="cbo-resp3">
+                                        <option value="Aún no ha sido objeto de Proceso de Ratificación">Aún no ha sido objeto de Proceso de Ratificación</option>
+                                        <option value="En convocatoria">En convocatoria</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                    </td>
+
+                </tr>
+                <tr>    
+                    <td >
+                        <label class="labelText">
+                            3. Calidad de sus Decisiones Judiciales y Fiscales (En caso de Magistrados Ratificados o No Ratificados):
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="add_row_cdj" class="add-icon" >Nueva fila</div><br><br>
+                        <table border="1" id="calidad_des_jud" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th width="40px">N°</th>
+                                    <th>N° Exp.</th>
+                                    <th>Tipo de Resolución</th>
+                                    <th>Fecha de Res.</th>
+                                    <th>Demandante/<br>Denunciante/<br>Agraviado</th>
+                                    <th>Demandado/<br>Denunciado/<br>Agresor</th>
+                                    <th>Materia</th>
+                                    <th>Especialidad</th>
+                                    <th>Nota</th>
+                                    <th width="40px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><input name="txt_cal_numExp[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_tipResolucion[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_fechaRes[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_ddagraviado[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_especialidad[]" class="row-edit" type="text"></td>
+                                    <td><input name="txt_cal_nota[]" class="row-edit" type="text"></td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+                        </table> 
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            4. SITUACIÓN LABORAL ACTUAL:
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="situacion_laboral_actual" type="text" class="textbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        (tres &uacute;ltimas)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                            <tr>
+                                <td width="180px" class="ui-widget-header">
+                                    Centro de Trabajo:
+                                </td>
+                                <td>
+                                    <input name="txtctrabajo[]" type="text" class="row-edit">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Cargo:</td>
+                                <td>
+                                    <input  name="txtcargo[]" type="text" class="row-edit"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Periodo</td>
+                                <td><input name="txtperiodo[]" type="text" class="row-edit"></td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                            <tr>
+                                <td width="180px" class="ui-widget-header">
+                                    Centro de Trabajo:
+                                </td>
+                                <td>
+                                    <input name="txtctrabajo[]" type="text" class="row-edit">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Cargo:</td>
+                                <td>
+                                    <input name="txtcargo[]" type="text" class="row-edit"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Periodo</td>
+                                <td><input name="txtperiodo[]" type="text" class="row-edit"></td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                            <tr>
+                                <td width="180px" class="ui-widget-header">
+                                    Centro de Trabajo:
+                                </td>
+                                <td>
+                                    <input name="txtctrabajo[]" type="text" class="row-edit">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Cargo:</td>
+                                <td>
+                                    <input name="txtcargo[]" type="text" class="row-edit"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Periodo</td>
+                                <td><input name="txtperiodo[]" type="text" class="row-edit"></td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            5. DOCENCIA UNIVERSITARIA:
+                        </label>&nbsp;&nbsp;<div id="add_docuni" class="add-icon" >Agregar</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id="table_docuni" align="center">
+                            <tbody id="bodyDocuni">
+                                <tr class="rowdocuni">
+                                    <td>
+                                        <table border="1" cellspacing="0"  class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">
+                                                    Universidad:
+                                                </td>
+                                                <td>
+                                                    <select name="cbo_univ_docuni[]" class="combo-univ"></select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Facultad:</td>
+                                                <td>
+                                                    <input name="txt_facu_docuni[]" type="text" class="row-edit"> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Condici&oacute;n</td>
+                                                <td>
+                                                    <div id="rad-condicion">
+                                                        <select name="cbo_condicion_docuni[]">
+                                                            <option value="Nombrado">Nombrado</option>
+                                                            <option value="Contratado">Contratado</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Categoria</td>
+                                                <td>
+                                                    <select name="cbo_categoria_docuni[]">
+                                                        <option value="Principal">Principal</option>
+                                                        <option value="Asociado">Asociado</option>
+                                                        <option value="Auxiliar">Auxiliar</option>
+                                                    </select> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Cursos</td>
+                                                <td><input name="txt_cursos_docuni[]" type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Periodo</td>
+                                                <td><input name="txt_per_docuni[]" type="text" class="row-edit"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            6. PUBLICACIONES:
+                        </label>
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        Libros o textos Universitarios:<br>
+                        <input  name="txt_ltUni" type="text" class="textbox">
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        Investigaciones Jurídicas Doctrinarias o de Campo:<br>
+                        <input name="txt_invJurDoc" type="text" class="textbox">
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        Ensayos en materia Jurídica:<br>
+                        <input name="txt_EnMaJur" type="text" class="textbox">
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        Artículos en materia Jurídica:<br>
+                        <input name="txt_amJur" type="text" class="textbox">
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        Artículos en materia No Jurídica:<br>
+                        <input name="txtamNoJur" type="text" class="textbox">
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            7. Producción Jurisdiccional o Fiscal:
+                        </label>
+                        <select name="cbo_JurFis">
+                            <option value="PODER JUDICIAL">PODER JUDICIAL</option>
+                            <option value="MINISTERIO P&Uacute;BLICO">MINISTERIO P&Uacute;BLICO</option>
+                        </select>
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="text_area_JurFis" class="text-area"></textarea>
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            8. Licencias Otorgadas (de los últimos cinco años)
+                        </label>
+                    </td>                                    
+                </tr>
+                <tr>
+                    <td>
+                        <table id="lic-otrogadas" border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th>AÑO</th>
+                                    <th>MOTIVO</th>
+                                    <th>Nº DIAS</th>
+                                    <th>TOTAL LICENCIAS (en días)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div> 
+</div>

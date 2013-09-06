@@ -1,0 +1,27 @@
+
+
+    $(".rad_discapacidad").click(function() {
+        if ($(this).is(":checked")) {
+            $(".txt_certDiscapacidad").val("");
+
+            if ($(this).val() === "SI") {
+                $(".certi_discapacidad").css("display", "block");
+            } else {
+                $(".certi_discapacidad").css("display", "none");
+            }
+        }
+    });
+    function edad(data) {
+        var fec = data.split("/");
+        var fecha = new Date(fec[2] + "/" + fec[1] + "/" + fec[0]);
+        var hoy = new Date();
+        var ed = parseInt((hoy - fecha) / 365 / 24 / 60 / 60 / 1000);
+        return ed;
+    }
+
+    $(".txt_fechaNac").change(function() {
+        $(".txt_edad").val(edad($(this).val()));
+        $("#lbledad").html(edad($(this).val()));
+    });
+
+

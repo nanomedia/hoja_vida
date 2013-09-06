@@ -1,0 +1,82 @@
+
+<div id="tabs1-2">
+    <div class="area-registro">
+        <div class="tab-title">DATOS COMO POSTULANTE</div>
+        <form id="frm-como-postulante">
+            <table width="65%" border="0" cellspacing="15px" align="center">
+                <tr >
+                    <td width="35%"><label class="labelText">Cargo al que postula:</label></td>
+                    <td><input type="text" name="txt_cargoAPostular" class="textbox"></td>
+                </tr>
+                <tr>
+                    <td><label class="labelText">Condicion:</label></td>
+                    <td><input type="text" name="txt_condicion" class="textbox"></td>
+                </tr>
+                <tr>
+                    <td><label class="labelText">Curso de PROFA o Ascenso en la AMAG:</label></td>
+                    <td>
+                        <select name="cbo_tipoCurso">
+                            <option>PROFA</option>
+                            <option>Ascenso</option>
+                        </select>
+                        &nbsp;&nbsp;&nbsp;
+                        <label class="labelText">Nota:</label>
+                        <input type="text" name="txt_nota" size="5" >
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="labelText">Pre-Promedio:</label></td>
+                    <td><input type="text" name="txt_prePromedio"  size="5" ></td>
+                </tr>
+                <tr>
+                    <td><label class="labelText">Orden de merito:</label></td>
+                    <td><input type="text"  name="txt_ordenMerito" size="5" ></td>
+                </tr>
+                <tr>
+                    <td><label class="labelText">Plazas vacantes:</label></td>
+                    <td><input type="text"  name="txt_plazasVacantes"  size="5" ></td>
+                </tr>
+
+                <tr>
+                    <td><label class="labelText">Examen de conocimientos</label></td>
+                    <td><input type="text" name="txt_ex_cono" class="textbox"></td>
+                </tr>
+                <tr>
+                    <td><label class="labelText">Afiliaci&oacute;n curricular</label></td>
+                    <td><input type="text" name="afi_curr" class="textbox"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label class="labelText">Postulación en Convocatorias anteriores:</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div  class="add-icon" id="add_canteriores" >Nueva fila</div><br><br>
+                        <table  id="table_canteriores" align="center" class="ui-widget ui-widget-content" border="1" cellspacing="0">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th width="40px"></th>
+                                    <th width="80px">CONVOCATORIA</th>
+                                    <th width="400px">PLAZA</th>
+                                    <th width="80px">ETAPA</th>
+                                    <th width="40px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="center">1</td>
+                                    <td><input type="text" name="convocatoria[]" class="row-edit"></td>
+                                    <td><input type="text" name="plaza[]" class="row-edit"></td>
+                                    <td><input type="text" name="etapa[]" class="row-edit"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+    </div>
+</div> 

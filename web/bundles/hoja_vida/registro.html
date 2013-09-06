@@ -1,0 +1,1924 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+
+
+        <script src="jquery-ui/js/jquery-1.9.1.js"></script>
+        <script src="jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+        <script src="campos.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".button").button();
+                $("#tabs1").tabs();
+                $("#tabs2").tabs();
+                $("#tabs3").tabs();
+                $("#tabs4").tabs();
+                $("#rad-disc").buttonset();
+                $("#rad-condicion").buttonset();
+                $("#rad-categoria").buttonset();
+                $("#si-no").buttonset();
+                $("#opc").buttonset();
+
+
+
+
+                $(".spinner").spinner({
+                    min: 18,
+                    max: 45
+                });
+
+                $(".year-spinner").spinner({
+                    min: 1970,
+                    max: 2013
+                });
+
+                $(".spinner2").spinner({
+                    min: 1,
+                    max: 30
+                });
+                $.datepicker.regional['es'] = {
+                    closeText: 'Cerrar',
+                    prevText: '<Ant',
+                    nextText: 'Sig>',
+                    currentText: 'Hoy',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                    weekHeader: 'Sm',
+                    dateFormat: 'dd/mm/yy',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+                $.datepicker.setDefaults($.datepicker.regional['es']);
+                $(".datepicker").datepicker({
+                    minDate: new Date(1900, 1 - 1, 1), maxDate: '-18Y',
+                    dateFormat: 'dd/mm/yy',
+                    defaultDate: new Date(1970, 1 - 1, 1),
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: '-110:-18'
+                });
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div id="hoja-registro">
+            <div>
+                <div class="logo"></div> 
+                <div class="main-title">Consejo Nacional de la Magistratura</div>
+                <div class="single-title">Dirección de Selección y Nombramiento</div>
+                <div class="main-theme">Convocatoria N° 001-2013-SN/CNM</div>
+                <div class="single-theme">HOJA DE VIDA</div>
+            </div>
+
+
+            <div id="tabs1">
+                <ul>
+                    <li><a href="#tabs1-1">DATOS PERSONALES</a></li>
+                    <li><a href="#tabs1-2">DATOS COMO POSTULANTE</a></li>
+                    <li><a href="#tabs1-3">DATOS ACADEMICOS</a></li>
+                    <li><a href="#tabs1-4">EXPERIENCIA PROFESIONAL</a></li>
+                    <li><a href="#tabs1-5">CONDUCTA</a></li>
+
+                </ul>
+                <div id="tabs1-1">
+                    <div class="area-registro">
+                        <div class="tab-title">DATOS PERSONALES</div>
+                        <form id="frm-datos-personales">
+                            <table width="65%" border="0" cellspacing="10px" align="center">
+                                <tr >
+                                    <td width="37%"><label class="labelText">Nombres:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Apellidos:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Departamento:</label></td>
+                                    <td>
+                                        <select>
+                                            <option>Lima</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Direccion:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Fecha de Nacimiento:</label></td>
+                                    <td><input type="text" class="datepicker textbox-datepicker"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Edad (a la fecha de Entrevista):</label></td>
+                                    <td><input type="text" class="spinner" size="5" value="18" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Persona con discapacidad:</label></td>
+                                    <td>
+                                        <div id="rad-disc">
+                                            <input type="radio" id="rad-disc1" name="discapacitado" /><label for="rad-disc1">SI</label>
+                                            <input type="radio" id="rad-disc2" name="discapacitado" checked="checked" /><label for="rad-disc2">NO</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Certificación de Discapacidad/<br>Resolución CONADIS:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="button" class="button" value="Limpiar"></td>
+                                </tr>
+
+                            </table>
+                        </form>
+
+                    </div>
+
+
+                </div>
+                <div id="tabs1-2">
+                    <div class="area-registro">
+                        <div class="tab-title">DATOS COMO POSTULANTE</div>
+                        <form id="frm-como-postulante">
+                            <table width="65%" border="0" cellspacing="15px" align="center">
+                                <tr >
+                                    <td width="35%"><label class="labelText">Cargo al que postula:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Condicion:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Curso de PROFA o Ascenso en la AMAG:</label></td>
+                                    <td>
+                                        <select>
+                                            <option>PROFA</option>
+                                            <option>Ascenso</option>
+                                        </select>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <label class="labelText">Nota:</label>
+                                        <input type="text" class="spinner2" size="5" value="0">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Pre-Promedio:</label></td>
+                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Orden de merito:</label></td>
+                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Plazas vacantes:</label></td>
+                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                </tr>
+
+                                <tr>
+                                    <td><label class="labelText">Examen de conocimientos:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="labelText">Afiliacion curricular:</label></td>
+                                    <td><input type="text" class="textbox"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><label class="labelText">Postulación en Convocatorias anteriores:</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table width="90%" align="center" class="ui-widget ui-widget-content" border="1" cellspacing="0">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th>CONVOCATORIA</th>
+                                                    <th>PLAZA</th>
+                                                    <th>ETAPA</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+
+                                    </td>
+                                </tr>
+
+                                <!--Postulación en Convocatorias anteriores-->
+
+                            </table>
+                        </form>
+
+                    </div>
+                </div>  
+
+                <div id="tabs1-3">
+                    <div class="area-registro">
+                        <div class="tab-title"> DATOS ACAD&Eacute;MICOS</div>
+                        <form id="frm-datos-academicos">
+                            <table width="65%"  cellspacing="15px" align="center">
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="labelText">Universidad de Procedencia:</label>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <select class="combo-univ"></select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="labelText">Colegio Profesional y fecha de incorporación:</label>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td> 
+                                        <select>
+                                            <option>------</option>
+                                        </select>
+                                        <input type="text" class="datepicker textbox-datepicker">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2"><label class="labelText">Doctorado en Derecho:</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="110px" class="ui-widget-header">Universidad:</td>
+                                                <td>
+                                                    <select class="combo-univ"></select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Nivel:</td>
+                                                <td>
+                                                    <select>
+                                                        <option>TITULADO</option>
+                                                        <option>EGRESADO</option>
+                                                        <option>ESTUDIOS INCOMPLETOS</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Mensi&oacute;n</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">A&ntilde;o:</td>
+                                                <td><input type="text" class="year-spinner" size="5" value="1990" disabled></td>
+                                            </tr>
+
+                                        </table>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><label class="labelText">Maestría en Derecho:</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="110px" class="ui-widget-header">Universidad:</td>
+                                                <td>
+                                                    <select class="combo-univ"></select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Nivel:</td>
+                                                <td>
+                                                    <select>
+                                                        <option>TITULADO</option>
+                                                        <option>EGRESADO</option>
+                                                        <option>ESTUDIOS INCOMPLETOS</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Mensi&oacute;n:</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">A&ntilde;o:</td>
+                                                <td><input type="text" class="year-spinner" size="5" value="1990" disabled></td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><label class="labelText">Doctorado / Maestría en otras Disciplinas:</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="110px" class="ui-widget-header">Universidad:</td>
+                                                <td>
+                                                    <select class="combo-univ"></select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Nivel:</td>
+                                                <td>
+                                                    <select>
+                                                        <option>TITULADO</option>
+                                                        <option>EGRESADO</option>
+                                                        <option>ESTUDIOS INCOMPLETOS</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Mensi&oacute;n:</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">A&ntilde;o:</td>
+                                                <td><input type="text" class="year-spinner" size="5" value="1990" disabled></td>
+                                            </tr>
+                                        </table> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><label class="labelText">Título Profesional en Otras Disciplinas:</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><textarea class="text-area"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><label class="labelText">Tesis para obtener el Título Profesional:</label></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><textarea class="text-area"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="labelText">Méritos Universitarios:</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <select>
+                                            <option>PRIMER PUESTO</option>
+                                            <option>QUINTO SUPERIOR</option>
+                                            <option>TERCER SUPERIOR</option>
+                                        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label class="labelText">A&ntilde;o:</label>
+                                        <input type="text" class="year-spinner" size="5" value="1990" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <select class="combo-univ"></select>
+
+                                    </td>
+                                </tr>
+
+
+
+
+
+
+                            </table>
+                        </form>
+
+                    </div>  
+                </div>
+                <div id="tabs1-4">
+                    <div class="area-registro">
+
+                        <div class="tab-title">EXPERIENCIA PROFESIONAL</div>
+                        <form id="frm-exp-profesional">
+                            <table width="100%" border="0" cellspacing="10px" align="center">
+                                <tr>
+                                    <td >
+                                        <label class="labelText">
+                                            Documentos Calificados de DESEMPEÑO PROFESIONAL:
+                                        </label>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <table border="1" cellspacing="0" align="center" width="100%" class="ui-widget ui-widget-content">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th width="40px">N°</th>
+                                                    <th>N° Exp.</th>
+                                                    <th>Demandante/<br>Denunciante/<br>Agraviado/<br>Solicitante</th>
+                                                    <th>Demandado/<br>Denunciado/<br>Agresor/<br>Entidad</th>
+                                                    <th>Materia</th>
+                                                    <th>Especialidad</th>
+                                                    <th>1° Calificación</th>
+                                                    <th>2° Calificación (R.R)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                </tr>
+                                            </tbody>
+
+
+                                        </table> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <label class="labelText">
+                                            Magistrado Ratificado:
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>    
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div id="si-no">
+                                                        <input type="radio" id="si-no1" name="rad-sino" checked="checked" /><label for="si-no1">SI</label>
+                                                        <input type="radio" id="si-no2" name="rad-sino" /><label for="si-no2">NO</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="opc">
+                                                        <input type="radio" id="opc1" name="rad-opc" checked="checked" /><label for="opc1">Por Unanimidad</label>
+                                                        <input type="radio" id="opc2" name="rad-opc" /><label for="opc2">Por Mayoría</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Resolución N° ….de fecha <input type="text" class="datepicker">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td colspan="3">
+                                                    <select>
+                                                        <option>Aún no ha sido objeto de Proceso de Ratificación</option>
+                                                        <option>En convocatoria</option>
+
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+
+                                </tr>
+                                <tr>    
+                                    <td >
+                                        <label class="labelText">
+                                            Calidad de sus Decisiones Judiciales y Fiscales <br>(En caso de Magistrados Ratificados o No Ratificados):
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="100%" class="ui-widget ui-widget-content">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th width="40px">N°</th>
+                                                    <th>N° Exp.</th>
+                                                    <th>Tipo de Resolución</th>
+                                                    <th>Fecha de Res.</th>
+                                                    <th>Demandante/<br>Denunciante/<br>Agraviado</th>
+                                                    <th>Demandado/<br>Denunciado/<br>Agresor</th>
+                                                    <th>Materia</th>
+                                                    <th>Especialidad</th>
+                                                    <th>Nota</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                    <td><input class="row-edit" type="text"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table> 
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            SITUACIÓN LABORAL ACTUAL
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="textbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        (tres &uacute;ltimas)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">
+                                                    Centro de Trabajo:
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="row-edit">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Cargo:</td>
+                                                <td>
+                                                    <input type="text" class="row-edit"> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Periodo</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">
+                                                    Centro de Trabajo:
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="row-edit">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Cargo:</td>
+                                                <td>
+                                                    <input type="text" class="row-edit"> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Periodo</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+
+                                        </table>
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">
+                                                    Centro de Trabajo:
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="row-edit">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Cargo:</td>
+                                                <td>
+                                                    <input type="text" class="row-edit"> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Periodo</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            DOCENCIA UNIVERSITARIA:
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">
+                                                    Universidad:
+                                                </td>
+                                                <td>
+                                                    <select class="combo-univ"></select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Facultad:</td>
+                                                <td>
+                                                    <input type="text" class="row-edit"> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Condici&oacute;n</td>
+                                                <td>
+                                                    <div id="rad-condicion">
+                                                        <input type="radio" id="rad-condicion1" name="rad-condicion" checked="checked" /><label for="rad-condicion1">Nombrado</label>
+                                                        <input type="radio" id="rad-condicion2" name="rad-condicion" /><label for="rad-condicion2">Contratado</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Categoria</td>
+                                                <td>
+                                                    <div id="rad-categoria">
+                                                        <input type="radio" id="rad-categoria1" name="rad-categoria" checked="checked" /><label for="rad-categoria1">Principal</label>
+                                                        <input type="radio" id="rad-categoria2" name="rad-categoria" /><label for="rad-categoria2">Asociado</label>
+                                                        <input type="radio" id="rad-categoria3" name="rad-categoria" /><label for="rad-categoria3">Auxiliar</label>
+
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Cursos</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Periodo</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            PUBLICACIONES:
+                                        </label>
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Libros o textos Universitarios:<br>
+                                        <input type="text" class="textbox">
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Investigaciones Jurídicas Doctrinarias o de Campo:<br>
+                                        <input type="text" class="textbox">
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Ensayos en materia Jurídica:<br>
+                                        <input type="text" class="textbox">
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Artículos en materia Jurídica:<br>
+                                        <input type="text" class="textbox">
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Artículos en materia No Jurídica:<br>
+                                        <input type="text" class="textbox">
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            Producción Jurisdiccional o Fiscal:
+                                        </label>
+                                        <select>
+                                            <option>PODER JUDICIAL</option>
+                                            <option>MINISTERIO P&Uacute;BLICO</option>
+                                        </select>
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea class="text-area"></textarea>
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            Licencias Otorgadas (de los últimos cinco años)
+                                        </label>
+                                    </td>                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th>AÑO</th>
+                                                    <th>MOTIVO</th>
+                                                    <th>Nº DIAS</th>
+                                                    <th>TOTAL LICENCIAS (en días)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2009</td>
+                                                    <td>Enfermedad</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                                    <td rowspan="6"><input type="text" class="textbox"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Vacaciones</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Capacitación</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>                                               
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Onomástico</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Lic. Con Goce de haber</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Motivos personales</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>2010</td>
+                                                    <td>Enfermedad</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                                    <td rowspan="6"><input type="text" class="textbox"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Vacaciones</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Capacitación</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>                                               
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Onomástico</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Lic. Con Goce de haber</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Motivos personales</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>2011</td>
+                                                    <td>Enfermedad</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                                    <td rowspan="6"><input type="text" class="textbox"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Vacaciones</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Capacitación</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>                                               
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Onomástico</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Lic. Con Goce de haber</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Motivos personales</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>2012</td>
+                                                    <td>Enfermedad</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                                    <td rowspan="6"><input type="text" class="textbox"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Vacaciones</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Capacitación</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>                                               
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Onomástico</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Lic. Con Goce de haber</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Motivos personales</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>2013</td>
+                                                    <td>Enfermedad</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+                                                    <td rowspan="6"><input type="text" class="textbox"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Vacaciones</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Capacitación</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>                                               
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Onomástico</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Lic. Con Goce de haber</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Motivos personales</td>
+                                                    <td><input type="text" class="spinner2" size="5" value="0"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>TOTAL</td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </form>
+                    </div> 
+                </div>
+                <div id="tabs1-5">
+                    <div class="area-registro">
+
+                        <div class="tab-title">CONDUCTA</div>
+                        <form id="frm-conducta">
+                            <table width="100%" border="0" cellspacing="10px" align="center">
+                                <tr>
+                                    <td><label class="labelText">1. ANTECEDENTES PENALES, JUDICIALES Y POLICIALES:</label></td>
+                                </tr>    
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">Antecedentes Penales:</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">Antecedentes Judiciales:</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="180px" class="ui-widget-header">Antecedentes Policiales:</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">2.- PROCESOS JUDICIALES:</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        PROCESOS JUDICIALES CIVILES, PENALES, DE FAMILIA, LABORALES COMO DEMANDANTE / DENUNCIANTE:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Expediente</th>
+                                                    <th>Expediente Órgano</th>
+                                                    <th>Jurisdiccional</th>
+                                                    <th>Demandado / Denunciado</th>
+                                                    <th>Materia</th>
+                                                    <th>Estado</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        COMO DEMANDADO / DENUNCIADO:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Expediente</th>
+                                                    <th>Expediente Órgano</th>
+                                                    <th>Jurisdiccional</th>
+                                                    <th>Demandado / Denunciado</th>
+                                                    <th>Materia</th>
+                                                    <th>Estado</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        COMO AGRAVIADO:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Expediente</th>
+                                                    <th>Expediente Órgano</th>
+                                                    <th>Jurisdiccional</th>
+                                                    <th>Demandado / Denunciado</th>
+                                                    <th>Materia</th>
+                                                    <th>Estado</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            3. PROCEDIMIENTOS ADMINISTRATIVOS EN LA ADMINISTRACIÓN PÚBLICA EN GENERAL
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Institución </th>
+                                                    <th>Resolución</th>
+                                                    <th>Sanción</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option>PJ</option>
+                                                            <option>MP</option>
+                                                            <option>Otra Instituci&oacute;n</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            4. SANCIONES ADMINISTRATIVAS EN LA ADMINISTRACIÓN PÚBLICA GENERAL
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Institución </th>
+                                                    <th>Resolución</th>
+                                                    <th>Sanción</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option>PJ</option>
+                                                            <option>MP</option>
+                                                            <option>SERVIR</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            5. MEDIDAS DISCIPLINARIAS EN EL PODER JUDICIAL Y MINISTERIO PÚBLICO 
+                                        </label>Total:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Institución </th>
+                                                    <th>Resolución</th>
+                                                    <th>Sanción</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option>MP</option>
+                                                            <option>PJ</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            6. EN EL PODER JUDICIAL
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr><td><b>EN TRÁMITE:</b></td></tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            1. PROCESOS DISCIPLINARIOS
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Institución </th>
+                                                    <th>Expediente</th>
+                                                    <th>Motivo</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option>MP</option>
+                                                            <option>PJ</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
+                                        </label>Total:
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+
+
+
+
+                                                <tr class="ui-widget-header">
+                                                    <th>Nº</th>
+                                                    <th>Quejas, Visitas e Investigaciones</th>
+                                                    <th>Motivo</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            3. INVESTIGACIONES PRELIMINARES:
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th>Nº</th>
+                                                    <th>Motivo</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>CONCLUIDAS:</b></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            1. PROCESOS DISCIPLINARIOS EN EL MINISTERIO PÚBLICO
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th>Institución</th>
+                                                    <th>Expediente</th>
+                                                    <th>Motivo</th>
+                                                    <th>Estado</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option>PJ</option>
+                                                            <option>MP</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option>PJ</option>
+                                                            <option>MP</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="labelText">
+                                            2. DENUNCIAS Y/O QUEJAS ANTE LA FISCALÍA SUPREMA DE CONTROL INTERNO:
+                                        </label><br>Total:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                            <thead>
+                                                <tr class="ui-widget-header">
+                                                    <th>Nº</th>
+                                                    <th>Quejas, Visitas e Investigaciones</th>
+                                                    <th>Motivo</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit" value="1"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" class="row-edit" value="2"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                    <td><input type="text" class="row-edit"></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </form>
+                    </div>  
+                </div>
+
+            </div> 
+            <br>
+
+            <div id="tabs2">
+                <ul>
+                    <li><a href="#tabs2-1">INFORMACIÓN DE LA OFICINA DE <br>REGISTRO DE JUECES Y FISCALES DEL  CNM</a></li>
+                    <li><a href="#tabs2-2">INFORMACIÓN DE LA DIRECCIÓN DE <br>PROCESOS DISCIPLINARIOS DEL CNM</a></li>
+                    <li><a href="#tabs2-3">INFORMACIÓN DEL COLEGIO <br> DE ABOGADOS</a></li>
+
+                </ul>
+                <div id="tabs2-1">
+                    <div class="area-registro">
+                        <div class="tab-title">
+                            INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL  CNM
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <textarea style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>  
+
+                </div>
+                <div id="tabs2-2">
+                    <div class="area-registro">
+
+                        <div class="tab-title">
+                            INFORMACIÓN DE LA DIRECCIÓN DE PROCESOS DISCIPLINARIOS DEL CNM
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <textarea style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>  
+
+                </div>
+                <div id="tabs2-3">
+                    <div class="area-registro">
+                        <div class="tab-title">
+                            INFORMACIÓN DEL COLEGIO DE ABOGADOS
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <label class="labelText">1. DENUNCIAS, QUEJAS, PROCESOS DISCIPLINARIOS Y SANCIONES:</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+
+                </div>
+
+
+            </div> 
+            <br>
+
+            <div id="tabs3">
+                <ul>
+                    <li><a href="#tabs3-1">INFORMACIÓN PATRIMONIAL <br> (ECONÓMICA E INMOBILIARIA)</a></li>
+                    <li><a href="#tabs3-2">&nbsp;<br>MOVIMIENTO  MIGRATORIO </a></li>
+                    <li><a href="#tabs3-3">INFORMACIÓN DE LA CÁMARA DE COMERCIO,<br> INFOCORP Y SBS</a></li>
+
+                </ul>
+
+                <div id="tabs3-1">
+                    <div class="area-registro">
+
+                        <div class="tab-title">
+                            INFORMACIÓN PATRIMONIAL (ECONÓMICA E INMOBILIARIA)
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <label class="labelText">
+                                        1. Cuadro de Declaraciones Juradas de Bienes y Rentas
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+                                        <tr>
+                                            <td>Ingresos</td>
+                                            <td>
+                                                Año:<br>
+                                                Remuneración Bruta mensual (sector público):<br>
+                                                Dietas o similares
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>TOTAL:</td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                        <tr>
+                                            <td rowspan="3" align="center">Otros<br>Ingresos:</td>
+                                            <td class="ui-widget-header">Ingresos del declarante y de la sociedad de gananciales</td>
+                                            <td class="ui-widget-header" align="center">Valor S/.</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>TOTAL:</td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labelText">
+                                        2. Cuadro de su Patrimonio Inmobiliario
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+                                        <tr>
+                                            <td rowspan="3" align="center">Bienes<br> inmuebles:</td>
+                                            <td class="ui-widget-header" align="center">Tipo de Bien</td>
+                                            <td class="ui-widget-header" align="center">Ubicación</td>
+                                            <td class="ui-widget-header" align="center">Fecha de Adquisición</td>
+                                            <td class="ui-widget-header" align="center">Valor de<br> Autovalúo S/.</td>
+
+
+
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>TOTAL:</td>
+                                            <td colspan="3"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+                                        <tr>
+                                            <td rowspan="3" align="center">Bienes<br> muebles:</td>
+                                            <td class="ui-widget-header" align="center">Tipo de Bien</td>
+                                            <td class="ui-widget-header" align="center">Ubicación</td>
+                                            <td class="ui-widget-header" align="center">Fecha de Adquisición</td>
+                                            <td class="ui-widget-header" align="center">Valor de<br> Autovalúo S/.</td>
+
+
+
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>TOTAL:</td>
+                                            <td colspan="3"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+                                        <tr>
+                                            <td rowspan="2" align="center">Otros bienes:</td>
+                                            <td class="ui-widget-header" align="center">Detallar</td>
+                                            <td class="ui-widget-header" align="center">Valor</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+                                        <tr>
+                                            <td rowspan="2" align="center">Sistema Financiero</td>
+                                            <td class="ui-widget-header" align="center">Clase</td>
+                                            <td class="ui-widget-header" align="center">Entidad o Tercero</td>
+                                            <td class="ui-widget-header" align="center">Monto S/.</td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+
+                                        </tr>
+
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+                                        <tr>
+                                            <td rowspan="2" align="center">
+                                                Acreencias y<br> Obligaciones a su cargo
+                                            </td>
+                                            <td class="ui-widget-header" align="center">Naturaleza de la deuda</td>
+                                            <td class="ui-widget-header" align="center">Entidad o Tercero</td>
+                                            <td class="ui-widget-header" align="center">Monto S/.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>TOTAL:</td>
+                                            <td colspan="2"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+
+                </div>
+                <div id="tabs3-2">
+                    <div class="area-registro">                        
+                        <div class="tab-title">
+                            MOVIMIENTO MIGRATORIO
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                                        <thead>
+
+                                            <tr class="ui-widget-header">
+                                                <th  align="center">Movimiento</th>
+                                                <th  align="center">Fecha</th>
+                                                <th  align="center">Destino / Procedencia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Entrada</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Salida</td>
+                                                <td><input type="text" class="row-edit"></td>
+                                                <td><input type="text" class="row-edit"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+
+                </div>
+                <div id="tabs3-3">
+                    <div class="area-registro">
+                        <div class="tab-title">
+                            INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+
+
+                                        <tr>
+                                            <td class="ui-widget-header">Cámara de Comercio</td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="ui-widget-header">Infocorp</td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ui-widget-header">SBS</td>
+                                            <td><input type="text" class="row-edit"></td>
+                                            <td><input type="text" class="row-edit"></td>
+                                        </tr>
+
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+
+                </div>
+
+
+            </div> 
+            <br>
+
+            <div id="tabs4">
+                <ul>
+                    <li><a href="#tabs4-1">INFORMACIÓN DEL REGISTRO <br>DE DEUDORES ALIMENTARIOS MOROSOS - REDAM</a></li>
+                    <li><a href="#tabs4-2">INFORMACIÓN COMPLEMENTARIA <br> &nbsp;</a></li>
+
+                </ul>
+                <div id="tabs4-1">
+                    <div class="area-registro">
+
+                        <div class="tab-title">
+                            INFORMACIÓN DEL REGISTRO DE <br>DEUDORES ALIMENTARIOS MOROSOS - REDAM
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <textarea style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+
+                </div>
+                <div id="tabs4-2">
+                    <div class="area-registro">
+                        <div class="tab-title">
+                            INFORMACIÓN COMPLEMENTARIA
+                        </div>
+                        <table width="100%" border="0" cellspacing="10px" align="center">
+                            <tr>
+                                <td>
+                                    <textarea style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>  
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>
+</html>
+
+

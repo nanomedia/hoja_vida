@@ -1,0 +1,33 @@
+PatrimonioOtros:
+    type: entity
+    table: patrimonio_otros
+    fields:
+        pkPatrimonioOtros:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PATRIMONIO_OTROS
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DESCRIPCION
+        valor:
+            type: float
+            nullable: true
+            column: VALOR
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,47 @@
+DetSituacionLaboral:
+    type: entity
+    table: det_situacion_laboral
+    fields:
+        pkSitLaboral:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_SIT_LABORAL
+            generator:
+                strategy: IDENTITY
+        centroTrabajo:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: CENTRO_TRABAJO
+        cargo:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: CARGO
+        periodo:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: PERIODO
+        situacionLaboral:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+            column: SITUACION_LABORAL
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

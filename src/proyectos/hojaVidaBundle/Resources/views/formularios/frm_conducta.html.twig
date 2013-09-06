@@ -1,0 +1,485 @@
+<div id="tabs1-5">
+    <div class="area-registro">
+
+        <div class="tab-title">CONDUCTA</div>
+        <form id="frm-conducta">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td><label class="labelText">1. ANTECEDENTES PENALES, JUDICIALES Y POLICIALES:</label></td>
+                </tr>    
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="70%" class="ui-widget ui-widget-content">
+
+                            <tr>
+                                <td width="180px" class="ui-widget-header">Antecedentes Penales:</td>
+                                <td><input name="txt_apenales" type="text" class="row-edit"></td>
+                            </tr>
+                            <tr>
+                                <td width="180px" class="ui-widget-header">Antecedentes Judiciales:</td>
+                                <td><input name="txt_ajudiciales" type="text" class="row-edit"></td>
+                            </tr>
+                            <tr>
+                                <td width="180px" class="ui-widget-header">Antecedentes Policiales:</td>
+                                <td><input name="txt_apoliciales" type="text" class="row-edit"></td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">2.- PROCESOS JUDICIALES:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PROCESOS JUDICIALES CIVILES, PENALES, DE FAMILIA, LABORALES COMO DEMANDANTE / DENUNCIANTE:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Expediente</th>
+                                    <th>Expediente Órgano</th>
+                                    <th>Demandado / Denunciado</th>
+                                    <th>Materia</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input name="hd_tipo_jud[]" type="hidden" value="0">
+                                        <input name="txt_exp_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_exp_org_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_dem_agre_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_materia_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_estado_con[]" type="text" class="row-edit"></td>
+
+                                </tr>
+                                <tr>
+                                     <td><input name="hd_tipo_jud[]" type="hidden" value="0">
+                                        <input name="txt_exp_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_exp_org_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_dem_agre_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_materia_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_estado_con[]" type="text" class="row-edit"></td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        COMO DEMANDADO / DENUNCIADO:
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Expediente</th>
+                                    <th>Expediente Órgano</th>
+                                    <th>Demandado / Denunciado</th>
+                                    <th>Materia</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                     <td><input name="hd_tipo_jud[]" type="hidden" value="1">
+                                        <input name="txt_exp_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_exp_org_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_dem_agre_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_materia_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_estado_con[]" type="text" class="row-edit"></td>
+
+                                </tr>
+                                <tr>
+                                     <td><input name="hd_tipo_jud[]" type="hidden" value="1">
+                                        <input name="txt_exp_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_exp_org_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_dem_agre_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_materia_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_estado_con[]" type="text" class="row-edit"></td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       
+                        COMO AGRAVIADO:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Expediente</th>
+                                    <th>Órgano Jurisdiccional</th>
+                                    <th>Agresor</th>
+                                    <th>Materia</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input name="hd_tipo_jud[]" type="hidden" value="2">
+                                        <input name="txt_exp_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_exp_org_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_dem_agre_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_materia_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_estado_con[]" type="text" class="row-edit"></td>
+
+
+                                </tr>
+                                <tr>
+                                    <td><input name="hd_tipo_jud[]" type="hidden" value="2">
+                                        <input name="txt_exp_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_exp_org_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_dem_agre_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_materia_con[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_estado_con[]" type="text" class="row-edit"></td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            3. PROCEDIMIENTOS ADMINISTRATIVOS EN LA ADMINISTRACIÓN PÚBLICA EN GENERAL
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Institución </th>
+                                    <th>Resolución</th>
+                                    <th>Sanción</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>PJ</option>
+                                            <option>MP</option>
+                                            <option>Otra Instituci&oacute;n</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            4. SANCIONES ADMINISTRATIVAS EN LA ADMINISTRACIÓN PÚBLICA GENERAL
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Institución </th>
+                                    <th>Resolución</th>
+                                    <th>Sanci&oacute;n</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>PJ</option>
+                                            <option>MP</option>
+                                            <option>SERVIR</option>
+                                        </select>
+                                    </td>
+
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            5. MEDIDAS DISCIPLINARIAS EN EL PODER JUDICIAL Y MINISTERIO PÚBLICO 
+                        </label>Total:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Institución </th>
+                                    <th>Sanci&oacute;n</th>                                    
+                                    <th>Expediente, Resoluci&oacute;n y Motivo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>MP</option>
+                                            <option>PJ</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            6. EN EL PODER JUDICIAL
+                        </label>
+                    </td>
+                </tr>
+                <tr><td><b>EN TRÁMITE:</b></td></tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            1. PROCESOS DISCIPLINARIOS
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th>Institución </th>
+                                    <th>Expediente</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>MP</option>
+                                            <option>PJ</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
+                        </label>Total:
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+
+
+
+
+                                <tr class="ui-widget-header">
+                                    <th>Nº</th>
+                                    <th>Quejas, Visitas e Investigaciones</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            3. INVESTIGACIONES PRELIMINARES:
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th>Nº</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>CONCLUIDAS:</b></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            1. PROCESOS DISCIPLINARIOS EN EL MINISTERIO PÚBLICO
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th>Institución</th>
+                                    <th>Expediente</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>PJ</option>
+                                            <option>MP</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>PJ</option>
+                                            <option>MP</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="labelText">
+                            2. DENUNCIAS Y/O QUEJAS ANTE LA FISCALÍA SUPREMA DE CONTROL INTERNO:
+                        </label><br>Total:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th>Nº</th>
+                                    <th>Quejas, Visitas e Investigaciones</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="row-edit" value="1"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="row-edit" value="2"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                    <td><input type="text" class="row-edit"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>  
+</div>

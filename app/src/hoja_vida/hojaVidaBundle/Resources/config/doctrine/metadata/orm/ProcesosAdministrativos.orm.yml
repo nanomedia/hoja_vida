@@ -1,0 +1,57 @@
+ProcesosAdministrativos:
+    type: entity
+    table: procesos_administrativos
+    fields:
+        pkProcesosAdm:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_PROCESOS_ADM
+            generator:
+                strategy: IDENTITY
+        tipo:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO
+        idInstitucion:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ID_INSTITUCION
+        resolucion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: RESOLUCION
+        sancion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: SANCION
+        estado:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: ESTADO
+        expediente:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: EXPEDIENTE
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

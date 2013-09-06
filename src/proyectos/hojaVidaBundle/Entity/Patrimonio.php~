@@ -1,0 +1,70 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Patrimonio
+ *
+ * @ORM\Table(name="patrimonio")
+ * @ORM\Entity
+ */
+class Patrimonio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_PATRIMONIO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkPatrimonio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO_PATRIMONIO", type="integer", nullable=true)
+     */
+    private $tipoPatrimonio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO_BIEN", type="integer", nullable=true)
+     */
+    private $tipoBien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UBICACION", type="string", length=250, nullable=true)
+     */
+    private $ubicacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FECHA", type="string", length=10, nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="MONTO", type="float", nullable=true)
+     */
+    private $monto;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

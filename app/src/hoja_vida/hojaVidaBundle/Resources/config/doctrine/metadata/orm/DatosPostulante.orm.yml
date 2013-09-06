@@ -1,0 +1,71 @@
+DatosPostulante:
+    type: entity
+    table: datos_postulante
+    fields:
+        pkDatPostulante:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_DAT_POSTULANTE
+            generator:
+                strategy: IDENTITY
+        cargoAPostular:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: CARGO_A_POSTULAR
+        condicion:
+            type: string
+            length: 80
+            fixed: false
+            nullable: true
+            column: CONDICION
+        tipoCurso:
+            type: string
+            length: 8
+            fixed: false
+            nullable: true
+            column: TIPO_CURSO
+        nota:
+            type: float
+            nullable: true
+            column: NOTA
+        prePromedio:
+            type: float
+            nullable: true
+            column: PRE_PROMEDIO
+        ordenMerito:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ORDEN_MERITO
+        plazasVacantes:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: PLAZAS_VACANTES
+        examenConocimientos:
+            type: string
+            length: 80
+            fixed: false
+            nullable: false
+            column: EXAMEN_CONOCIMIENTOS
+        afiliacionCurricular:
+            type: string
+            length: 80
+            fixed: false
+            nullable: false
+            column: AFILIACION_CURRICULAR
+    manyToOne:
+        idDatPersonal:
+            targetEntity: DatosPersonales
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_DAT_PERSONAL:
+                    referencedColumnName: ID_DAT_PERSONAL
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

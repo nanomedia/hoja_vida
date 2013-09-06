@@ -1,0 +1,91 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LicenciasOtorgadas
+ *
+ * @ORM\Table(name="licencias_otorgadas")
+ * @ORM\Entity
+ */
+class LicenciasOtorgadas
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_LICENCIAS_OTOR", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkLicenciasOtor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ANIO", type="string", length=4, nullable=true)
+     */
+    private $anio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ENFERMEDAD", type="integer", nullable=true)
+     */
+    private $enfermedad;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="VACACIONES", type="integer", nullable=true)
+     */
+    private $vacaciones;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CAPACITACION", type="integer", nullable=true)
+     */
+    private $capacitacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ONOMASTICO", type="integer", nullable=true)
+     */
+    private $onomastico;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="LICENCIA_GOCE", type="integer", nullable=true)
+     */
+    private $licenciaGoce;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="MOTIVOS_PERSONALES", type="integer", nullable=true)
+     */
+    private $motivosPersonales;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TOTAL_LICENCIAS", type="integer", nullable=true)
+     */
+    private $totalLicencias;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

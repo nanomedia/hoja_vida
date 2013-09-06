@@ -1,0 +1,53 @@
+DatosAcademicos:
+    type: entity
+    table: datos_academicos
+    fields:
+        pkDatAcademicos:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: PK_DAT_ACADEMICOS
+            generator:
+                strategy: IDENTITY
+        univProcedencia:
+            type: string
+            length: 80
+            fixed: false
+            nullable: true
+            column: UNIV_PROCEDENCIA
+        colegioProfesional:
+            type: string
+            length: 80
+            fixed: false
+            nullable: true
+            column: COLEGIO_PROFESIONAL
+        fechaIncorporacion:
+            type: string
+            length: 10
+            fixed: false
+            nullable: true
+            column: FECHA_INCORPORACION
+        tituloOtros:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: TITULO_OTROS
+        tesisTitular:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: TESIS_TITULAR
+    manyToOne:
+        pkDatPostulante:
+            targetEntity: DatosPostulante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PK_DAT_POSTULANTE:
+                    referencedColumnName: PK_DAT_POSTULANTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
