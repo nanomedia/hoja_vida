@@ -21,6 +21,7 @@ use proyectos\hojaVidaBundle\Entity\LicenciasOtorgadas;
 use proyectos\hojaVidaBundle\Entity\Antecedentes;
 use proyectos\hojaVidaBundle\Entity\ProcesosJudiciales;
 use proyectos\hojaVidaBundle\Entity\ProcesosAdministrativos;
+use proyectos\hojaVidaBundle\Entity\ProcesosEnPoderJud;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
@@ -414,6 +415,7 @@ class Mantenimiento {
         $this->insertarAntecedentes($c, $request, $dp);
         $this->insertarProcesosJudiciales($c, $request, $dp);
         $this->insertarProcesosAdministrativos($c, $request, $dp);
+        $this->insertarProcesosEnPoderJud($c, $request, $dp);
         return "se inserto bien";
     }
 
@@ -512,6 +514,32 @@ class Mantenimiento {
         $em->persist($pa2);
         $em->persist($pa3);
         $em->flush();
+    }
+
+    public function insertarProcesosEnPoderJud($c, $request, $dp) {
+
+        $tipo_pjud = $request->request->get('tipo_pjud');
+        $tra_ins_pjud = $request->request->get('tra_ins_pjud');
+        $tra_exp_pjud = $request->request->get('tra_exp_pjud');
+        $tra_que_pjud = $request->request->get('tra_que_pjud');
+
+        $tra_mot_pjud = $request->request->get('tra_mot_pjud');
+        $tra_est_pjud = $request->request->get('tra_est_pjud');
+
+        for ($i = 0; $i < count($tipo_pjud); $i++) {
+            $pp = new ProcesosEnPoderJud();
+            $pp->setTipo($tipo_pjud[$i]);
+            $pp->setIdInstitucion($tra_ins_pjud[$i]);
+            $pp->setExpediente($tra_exp_pjud[$i]);
+            $pp->setQuejas($tra_que_pjud[$i]);
+            $pp->setMotivo($tra_mot_pjud[$i]);
+            $pp->setEstado($tra_est_pjud[$i]);
+            $pp->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pp);
+            $em->flush();
+        }
     }
 
 }
