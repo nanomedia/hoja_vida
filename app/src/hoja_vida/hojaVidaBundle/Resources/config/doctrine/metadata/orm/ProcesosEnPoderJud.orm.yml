@@ -43,6 +43,12 @@ ProcesosEnPoderJud:
             fixed: false
             nullable: true
             column: MOTIVO
+        estadoProc:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: ESTADO_PROC
     manyToOne:
         pkDatPostulante:
             targetEntity: DatosPostulante
