@@ -20,6 +20,8 @@ use proyectos\hojaVidaBundle\Entity\ProdJurFiscal;
 use proyectos\hojaVidaBundle\Entity\LicenciasOtorgadas;
 use proyectos\hojaVidaBundle\Entity\Antecedentes;
 use proyectos\hojaVidaBundle\Entity\ProcesosJudiciales;
+use proyectos\hojaVidaBundle\Entity\ProcesosAdministrativos;
+use proyectos\hojaVidaBundle\Entity\ProcesosEnPoderJud;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
@@ -35,8 +37,8 @@ class Mantenimiento {
         $rad_discapacidad = $request->request->get('rad_discapacidad');
         $txt_certDiscapacidad = $request->request->get('txt_certDiscapacidad');
         $uploadedFile = $request->files->get('file_foto');
-        
-        $destino = __DIR__.'/../../../../web/fotos';
+
+        $destino = __DIR__ . '/../../../../web/fotos';
         $uploadedFile->move($destino, "$txt_dni.jpg");
 
         $dp = new DatosPersonales();
@@ -48,12 +50,12 @@ class Mantenimiento {
         $dp->setDni($txt_dni);
         $dp->setDiscapacidad($rad_discapacidad);
         $dp->setCertDiscapacidad($txt_certDiscapacidad);
-        $dp->setFoto($txt_dni.".jpg");
+        $dp->setFoto($txt_dni . ".jpg");
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($dp);
         $em->flush();
 
-        return "Se agrego datos Personales."; //$dp->getIdDatPersonal();
+        return $dp->getIdDatPersonal();
     }
 
     public function insertarDatosPostulante($c, $request) {
@@ -412,6 +414,8 @@ class Mantenimiento {
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertarAntecedentes($c, $request, $dp);
         $this->insertarProcesosJudiciales($c, $request, $dp);
+        $this->insertarProcesosAdministrativos($c, $request, $dp);
+        $this->insertarProcesosEnPoderJud($c, $request, $dp);
         return "se inserto bien";
     }
 
@@ -460,6 +464,81 @@ class Mantenimiento {
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pj);
+            $em->flush();
+        }
+    }
+
+    public function insertarProcesosAdministrativos($c, $request, $dp) {
+        /*
+         * TIPO : PROCEDIMIENTOS 1, SANCIONES 2, MEDIDAS 3,
+         * ID_INSTITUCION: PJ 1, MP 2 ,Otra institución 3, SERVIR 4 
+         */
+
+        $cbo_ins_adm1 = $request->request->get('cbo_ins_adm1');
+        $txt_res_adm1 = $request->request->get('txt_res_adm1');
+        $txt_san_adm1 = $request->request->get('txt_san_adm1');
+        $txt_est_adm1 = $request->request->get('txt_est_adm1');
+        $pa1 = new ProcesosAdministrativos();
+        $pa1->setTipo(1);
+        $pa1->setIdInstitucion($cbo_ins_adm1);
+        $pa1->setResolucion($txt_res_adm1);
+        $pa1->setSancion($txt_san_adm1);
+        $pa1->setEstado($txt_est_adm1);
+        $pa1->setPkDatPostulante($dp);
+
+
+        $cbo_ins_adm2 = $request->request->get('cbo_ins_adm2');
+        $txt_res_adm2 = $request->request->get('txt_res_adm2');
+        $txt_san_adm2 = $request->request->get('txt_san_adm2');
+        $pa2 = new ProcesosAdministrativos();
+        $pa2->setTipo(2);
+        $pa2->setIdInstitucion($cbo_ins_adm2);
+        $pa2->setResolucion($txt_res_adm2);
+        $pa2->setSancion($txt_san_adm2);
+        $pa2->setPkDatPostulante($dp);
+
+
+        $cbo_ins_adm3 = $request->request->get('cbo_ins_adm3');
+        $txt_res_adm3 = $request->request->get('txt_res_adm3');
+        $txt_san_adm3 = $request->request->get('txt_san_adm3');
+
+        $pa3 = new ProcesosAdministrativos();
+        $pa3->setTipo(3);
+        $pa3->setIdInstitucion($cbo_ins_adm3);
+        $pa3->setResolucion($txt_res_adm3);
+        $pa3->setSancion($txt_san_adm3);
+        $pa3->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($pa1);
+        $em->persist($pa2);
+        $em->persist($pa3);
+        $em->flush();
+    }
+
+    public function insertarProcesosEnPoderJud($c, $request, $dp) {
+
+        $tipo_pjud = $request->request->get('tipo_pjud');
+        $tra_ins_pjud = $request->request->get('tra_ins_pjud');
+        $tra_exp_pjud = $request->request->get('tra_exp_pjud');
+        $tra_que_pjud = $request->request->get('tra_que_pjud');
+
+        $tra_mot_pjud = $request->request->get('tra_mot_pjud');
+        $tra_est_pjud = $request->request->get('tra_est_pjud');
+
+        for ($i = 0; $i < count($tipo_pjud); $i++) {
+            $pp = new ProcesosEnPoderJud();
+            $pp->setTipo($tipo_pjud[$i]);
+            $pp->setIdInstitucion($tra_ins_pjud[$i]);
+            $pp->setExpediente($tra_exp_pjud[$i]);
+            $pp->setQuejas($tra_que_pjud[$i]);
+            $pp->setMotivo($tra_mot_pjud[$i]);
+            $pp->setEstadoProc($tra_est_pjud[$i]);
+            $pp->setEstado(1);
+            $pp->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pp);
             $em->flush();
         }
     }

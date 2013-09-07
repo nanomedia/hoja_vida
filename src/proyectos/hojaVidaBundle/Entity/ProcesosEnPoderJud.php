@@ -64,6 +64,13 @@ class ProcesosEnPoderJud
     private $motivo;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO_PROC", type="string", length=250, nullable=true)
+     */
+    private $estadoProc;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -221,6 +228,29 @@ class ProcesosEnPoderJud
     public function getMotivo()
     {
         return $this->motivo;
+    }
+
+    /**
+     * Set estadoProc
+     *
+     * @param string $estadoProc
+     * @return ProcesosEnPoderJud
+     */
+    public function setEstadoProc($estadoProc)
+    {
+        $this->estadoProc = $estadoProc;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadoProc
+     *
+     * @return string 
+     */
+    public function getEstadoProc()
+    {
+        return $this->estadoProc;
     }
 
     /**

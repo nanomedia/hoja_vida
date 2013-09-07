@@ -6,7 +6,7 @@
         <link href="{{asset('bundles/hoja_vida/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
         <link href="{{asset('bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
         <script src="{{asset('bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
-        <script src="{{asset('bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.js')}}"></script>
+        <script src="{{asset('bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
         <script src="{{asset('bundles/hoja_vida/campos.js')}}"></script>
 
         <script type="text/javascript" src="{{asset('plugins/jqplop/jquery.jqplot.min.js')}}"></script>
@@ -31,9 +31,21 @@
                 {% include 'hojaVidaBundle:js:frm_exp_profesional.html.twig' %}
 
 
-
-
-                $('#prog').progressbar({value: 0});
+                function cargando() {
+                    $("#boton-guardar").css("display", "none");
+                    $("#cargando").css("display", "block");
+                    var val = 0;
+                    var interval = setInterval(function() {
+                        val++;
+                        $('#prog').progressbar({value: val});
+                        $("#prog_per").text(val + "%");
+                        if (val === 100) {
+                            clearInterval(interval);
+                            $("#cargando").css("display", "none");
+                            $("#boton-guardar").css("display", "block");
+                        }
+                    }, 25);
+                }
 
                 $("#add-datos-personales").dialog({
                     autoOpen: false,
@@ -161,11 +173,31 @@
                     }
                 });
 
+                $("#frm-datos-academicos").validate({
+                    rules: {
+                        txt_fechaIncorporacion: "required",
+                        txt_tituloOtros: "required",
+                        txt_tesisTitular: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-datos-academicos").dialog("open");
+                    }
+                });
 
+                $("#frm-exp-profesional").validate({
+                    rules: {
+                        txt_resolucion: "required",
+                        txt_fec_res: "required",
+                        txt_tesisTitular: "required",
+                        situacion_laboral_actual: "required",
+                        text_area_JurFis: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-exp-profesional").dialog("open");
+                    }
+                });
 
                 $("#guardar_frm").click(function() {
-
-
                     var frm = $(this).attr("rel");
 
                     switch (frm) {
@@ -178,10 +210,11 @@
                             break;
 
                         case "frm-datos-academicos":
-                            $("#add-datos-academicos").dialog("open");
+                            $("#frm-datos-academicos").submit();
                             break;
+
                         case "frm-exp-profesional":
-                            $("#add-exp-profesional").dialog("open");
+                            $("#frm-exp-profesional").submit();
                             break;
                         case "frm-conducta":
                             $("#add-conducta").dialog("open");
@@ -214,7 +247,7 @@
                     data.append("rad_discapacidad", discapacidad);
                     data.append("txt_certDiscapacidad", certificado);
 
-
+                    cargando();
                     $.ajax({
                         type: "POST",
                         url: "{{path('_newDatosPersonales')}}",
@@ -229,6 +262,7 @@
                             $("#tabs1").tabs("enable", 1);
                             $("#tabs1").tabs("option", "active", 1);
                             $("#guardar_frm").attr("rel", "frm-como-postulante");
+                            $("#titulo_save").text("DATOS POSTULANTE");
                             $("#pos-apellidos").html(apellidos);
                             $("#pos-nombres").html(nombres);
                             $("#pos-dni").html(dni);
@@ -239,58 +273,20 @@
                 }
                 function frm_como_postulante() {
                     var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
+                    cargando();
                     $.ajax({
                         type: "POST",
                         url: "{{path('_newDatosPostulante')}}",
                         data: form,
-                        /*success: function(e) {
-                         $("#id_pos").val(e);
-                         $("#tabs1").tabs("disable", 1);
-                         $("#tabs1").tabs("enable", 2);
-                         $("#tabs1").tabs("option", "active", 2);
-                         $("#guardar_frm").attr("rel", "frm-datos-academicos");
-                         },*/
-                        progress: function(e) {
-                            if (e.lengthComputable) {
-                                var pct = (e.loaded / e.total) * 100;
-                                alert(pct);
-                                $('#prog')
-                                        .progressbar('option', 'value', pct)
-                                        .children('.ui-progressbar-value')
-                                        .html(pct.toPrecision(3) + '%')
-                                        .css('display', 'block');
-                            } else {
-                                console.warn('Content Length not reported!');
-                            }
+                        success: function(e) {
+                            $("#id_pos").val(e);
+                            $("#tabs1").tabs("disable", 1);
+                            $("#tabs1").tabs("enable", 2);
+                            $("#tabs1").tabs("option", "active", 2);
+                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
+                            $("#titulo_save").text("DATOS ACADEMICOS");
                         }
                     });
-
-
-                    $.ajax({
-                        method: 'GET',
-                        url: 'data/bird.json',
-                        dataType: 'json',
-                        success: function() {
-                            console.log('YAYE!', arguments[0]);
-                        },
-                        error: function() {
-                            console.log('AWWW!');
-                        },
-                        progress: function(e) {
-                            if (e.lengthComputable) {
-                                var pct = (e.loaded / e.total) * 100;
-
-                                $('#prog')
-                                        .progressbar('option', 'value', pct)
-                                        .children('.ui-progressbar-value')
-                                        .html(pct.toPrecision(3) + '%')
-                                        .css('display', 'block');
-                            } else {
-                                console.warn('Content Length not reported!');
-                            }
-                        }
-                    });
-
 
 
 
@@ -299,17 +295,17 @@
                 function frm_datos_academicos() {
 
                     var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
-
+                    cargando();
                     $.ajax({
                         type: "POST",
                         url: "{{path('_newDatosAcademicos')}}",
                         data: form,
                         success: function(e) {
-                            console.log(e);
                             $("#tabs1").tabs("disable", 2);
                             $("#tabs1").tabs("enable", 3);
                             $("#tabs1").tabs("option", "active", 3);
                             $("#guardar_frm").attr("rel", "frm-exp-profesional");
+                            $("#titulo_save").text("EXPERIENCIA PROFESIONAL");
                         }
 
                     });
@@ -317,17 +313,18 @@
                 function frm_exp_profesional() {
 
                     var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
-
+                    cargando();
                     $.ajax({
                         type: "POST",
                         url: "{{path('_newExpProfesional')}}",
                         data: form,
                         success: function(e) {
-                            console.log(e);
+                           
                             $("#tabs1").tabs("disable", 3);
                             $("#tabs1").tabs("enable", 4);
                             $("#tabs1").tabs("option", "active", 4);
                             $("#guardar_frm").attr("rel", "frm-conducta");
+                            $("#titulo_save").text("CONDUCTA");
                         }
 
                     });
@@ -443,10 +440,14 @@
                     </div>
                 </div>
                 <div class="panel_guardar">
-                    <div id="prog" style="width: 180px;"></div>
-                    <input type="button" id="guardar_frm" rel="frm-datos-personales" class="button"value="Guardar">
-                    <input type="button" class="button"value="Salir">
-
+                    <div id="titulo_save" class="titulo_save">DATOS PERSONALES</div>
+                    <div id="cargando" style="display:none;">
+                        <div id="prog" style="margin: 0 5px 0 5px;"></div>
+                        <div id="prog_per"></div>
+                    </div>
+                    <div id="boton-guardar" style="text-align: center;">
+                        <input type="button" id="guardar_frm" rel="frm-datos-personales" class="button"value="Guardar">
+                    </div>
                 </div>
             </body>
         </html>
