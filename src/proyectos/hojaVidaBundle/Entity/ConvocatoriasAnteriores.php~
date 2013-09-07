@@ -1,0 +1,56 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ConvocatoriasAnteriores
+ *
+ * @ORM\Table(name="convocatorias_anteriores")
+ * @ORM\Entity
+ */
+class ConvocatoriasAnteriores
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_CONV_ANTERIORES", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkConvAnteriores;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CONVOCATORIA", type="string", length=50, nullable=true)
+     */
+    private $convocatoria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PLAZA", type="string", length=50, nullable=true)
+     */
+    private $plaza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ETAPA", type="string", length=50, nullable=true)
+     */
+    private $etapa;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

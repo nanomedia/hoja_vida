@@ -1,5 +1,7 @@
 body{
     background-color: #666666;
+    font-family: Arial;
+    font-size: 15px;
 }
 #hoja-registro{
     padding: 1px 10px 5px 10px;
@@ -118,4 +120,9 @@ body{
     color: #cc3300;
     font-style: italic;
     font-size: 11px;
+}
+.labelform{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial;
 }

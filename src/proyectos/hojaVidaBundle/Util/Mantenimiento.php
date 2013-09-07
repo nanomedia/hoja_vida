@@ -533,7 +533,8 @@ class Mantenimiento {
             $pp->setExpediente($tra_exp_pjud[$i]);
             $pp->setQuejas($tra_que_pjud[$i]);
             $pp->setMotivo($tra_mot_pjud[$i]);
-            $pp->setEstado($tra_est_pjud[$i]);
+            $pp->setEstadoProc($tra_est_pjud[$i]);
+            $pp->setEstado(1);
             $pp->setPkDatPostulante($dp);
 
             $em = $c->getDoctrine()->getEntityManager();

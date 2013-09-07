@@ -1,0 +1,42 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * InformacionCamaInfo
+ *
+ * @ORM\Table(name="informacion_cama_info")
+ * @ORM\Entity
+ */
+class InformacionCamaInfo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_INFORMACION_CAMA_INFO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkInformacionCamaInfo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

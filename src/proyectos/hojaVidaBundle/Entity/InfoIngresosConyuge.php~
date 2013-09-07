@@ -1,0 +1,70 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * InfoIngresosConyuge
+ *
+ * @ORM\Table(name="info_ingresos_conyuge")
+ * @ORM\Entity
+ */
+class InfoIngresosConyuge
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_PAT_CONYUGE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkPatConyuge;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ANO_EJE", type="integer", nullable=true)
+     */
+    private $anoEje;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOMBRE", type="string", length=250, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="INGRESO_MENSUAL_PROMEDIO", type="string", length=250, nullable=true)
+     */
+    private $ingresoMensualPromedio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DEPENDENCIA", type="string", length=250, nullable=true)
+     */
+    private $dependencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CARGO", type="string", length=250, nullable=true)
+     */
+    private $cargo;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

@@ -1,0 +1,84 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DocDesProfesional
+ *
+ * @ORM\Table(name="doc_des_profesional")
+ * @ORM\Entity
+ */
+class DocDesProfesional
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_EXP_PROFESIONAL", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkExpProfesional;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NUM_EXP", type="integer", nullable=true)
+     */
+    private $numExp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DDAS", type="string", length=30, nullable=true)
+     */
+    private $ddas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DDAE", type="string", length=30, nullable=true)
+     */
+    private $ddae;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MATERIA", type="string", length=30, nullable=true)
+     */
+    private $materia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESPECIALIDAD", type="string", length=30, nullable=true)
+     */
+    private $especialidad;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="CALIFICACION1", type="float", nullable=true)
+     */
+    private $calificacion1;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="CALIFICACION2", type="float", nullable=true)
+     */
+    private $calificacion2;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}
