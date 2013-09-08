@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="hidden" name="tipo_pjud[]" value="1">
+                    <td><input type="hidden" name="tra_tipo_pjud[]" value="1">
                         <select name="tra_ins_pjud[]">
                             <option value="1">MP</option>
                             <option value="2">PJ</option>
@@ -58,7 +58,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <input type="hidden" name="tipo_pjud[]" value="2">
+                        <input type="hidden" name="tra_tipo_pjud[]" value="2">
                         <input type="hidden"name="tra_ins_pjud[]">
                         <input type="text" name="tra_exp_pjud[]" class="row-edit">
                     </td>
@@ -68,7 +68,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="hidden" name="tipo_pjud[]" value="2">
+                        <input type="hidden" name="tra_tipo_pjud[]" value="2">
                         <input type="hidden"name="tra_ins_pjud[]">
                         <input type="text" name="tra_exp_pjud[]" class="row-edit">
                     </td>
@@ -97,7 +97,7 @@
 
                 <tr>
                     <td>
-                        <input type="hidden" name="tipo_pjud[]" value="3">
+                        <input type="hidden" name="tra_tipo_pjud[]" value="3">
                         <input type="hidden"name="tra_ins_pjud[]">
                         <input type="hidden" name="tra_que_pjud[]">
                         <input type="text" name="tra_exp_pjud[]" class="row-edit">
@@ -108,7 +108,7 @@
 
                 <tr>
                     <td>
-                        <input type="hidden" name="tipo_pjud[]" value="3">
+                        <input type="hidden" name="tra_tipo_pjud[]" value="3">
                         <input type="hidden"name="tra_ins_pjud[]">
                         <input type="hidden" name="tra_que_pjud[]">
                         <input type="text" name="tra_exp_pjud[]" class="row-edit">
@@ -119,7 +119,7 @@
 
                 <tr>
                     <td>
-                        <input type="hidden" name="tipo_pjud[]" value="3">
+                        <input type="hidden" name="tra_tipo_pjud[]" value="3">
                         <input type="hidden"name="tra_ins_pjud[]">
                         <input type="hidden" name="tra_que_pjud[]">
                         <input type="text" name="tra_exp_pjud[]" class="row-edit">
@@ -134,48 +134,42 @@
     <b>CONCLUIDAS:</b>
     <div style="padding: 13px 0 0 21px;">
         <label class="labelform">
-            1. PROCESOS DISCIPLINARIOS EN EL PODER JUDICIAL:
+            1. PROCESOS DISCIPLINARIOS:
         </label><br><br>
 
-        <table width="80%" class="table ui-widget ui-widget-content">
+        <table  width="80%" class="table ui-widget ui-widget-content">
             <thead>
+
                 <tr class="ui-widget-header">
-                    <th>Institución</th>
+                    <th>Institución </th>
                     <th>Expediente</th>
                     <th>Motivo</th>
                     <th>Estado</th>
-
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        <select>
-                            <option>PJ</option>
-                            <option>MP</option>
+                    <td><input type="hidden" name="con_tipo_pjud[]" value="1">
+                        <select name="con_ins_pjud[]">
+                            <option value="1">MP</option>
+                            <option value="2">PJ</option>
                         </select>
                     </td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
-                </tr>
-                <tr>
                     <td>
-                        <select>
-                            <option>PJ</option>
-                            <option>MP</option>
-                        </select>
+
+                        <input type="hidden" name="con_que_pjud[]">
+                        <input type="text" name="con_exp_pjud[]" class="row-edit">
                     </td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
+                    <td><input type="text" name="con_mot_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_est_pjud[]"class="row-edit"></td>
+
                 </tr>
 
             </tbody>
-        </table><br>
-
+        </table>
+        <br>
         <label class="labelform">
-            2. DENUNCIAS Y/O QUEJAS ANTE LA FISCALÍA SUPREMA DE CONTROL INTERNO:
+            2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
         </label>Total:<br><br>
 
         <table  width="80%" class="table ui-widget ui-widget-content">
@@ -189,17 +183,26 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" class="row-edit" value="1"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
+                    <td>
+                        <input type="hidden" name="con_tipo_pjud[]" value="2">
+                        <input type="hidden"name="con_ins_pjud[]">
+                        <input type="text" name="con_exp_pjud[]" class="row-edit">
+                    </td>
+                    <td><input type="text" name="con_que_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_mot_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_est_pjud[]"class="row-edit"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="row-edit" value="2"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
+                    <td>
+                        <input type="hidden" name="con_tipo_pjud[]" value="2">
+                        <input type="hidden"name="con_ins_pjud[]">
+                        <input type="text" name="con_exp_pjud[]" class="row-edit">
+                    </td>
+                    <td><input type="text" name="con_que_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_mot_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_est_pjud[]"class="row-edit"></td>
                 </tr>
+
 
             </tbody>
         </table><br>
@@ -217,18 +220,41 @@
                 </tr>
             </thead>
             <tbody>
+
                 <tr>
-                    <td><input type="text" class="row-edit" value="1"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
+                    <td>
+                        <input type="hidden" name="con_tipo_pjud[]" value="3">
+                        <input type="hidden"name="con_ins_pjud[]">
+                        <input type="hidden" name="con_que_pjud[]">
+                        <input type="text" name="con_exp_pjud[]" class="row-edit">
+                    </td>
+                    <td><input type="text" name="con_mot_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_est_pjud[]"class="row-edit"></td>
                 </tr>
+
                 <tr>
-                    <td><input type="text" class="row-edit" value="2"></td>
-                    <td><input type="text" class="row-edit"></td>
-                    <td><input type="text" class="row-edit"></td>
+                    <td>
+                        <input type="hidden" name="con_tipo_pjud[]" value="3">
+                        <input type="hidden"name="con_ins_pjud[]">
+                        <input type="hidden" name="con_que_pjud[]">
+                        <input type="text" name="con_exp_pjud[]" class="row-edit">
+                    </td>
+                    <td><input type="text" name="con_mot_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_est_pjud[]"class="row-edit"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="hidden" name="con_tipo_pjud[]" value="3">
+                        <input type="hidden"name="con_ins_pjud[]">
+                        <input type="hidden" name="con_que_pjud[]">
+                        <input type="text" name="con_exp_pjud[]" class="row-edit">
+                    </td>
+                    <td><input type="text" name="con_mot_pjud[]" class="row-edit"></td>
+                    <td><input type="text" name="con_est_pjud[]"class="row-edit"></td>
                 </tr>
 
             </tbody>
-        </table><br>
+        </table>
     </div>
 </div>

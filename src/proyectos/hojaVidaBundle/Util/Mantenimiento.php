@@ -22,6 +22,14 @@ use proyectos\hojaVidaBundle\Entity\Antecedentes;
 use proyectos\hojaVidaBundle\Entity\ProcesosJudiciales;
 use proyectos\hojaVidaBundle\Entity\ProcesosAdministrativos;
 use proyectos\hojaVidaBundle\Entity\ProcesosEnPoderJud;
+use proyectos\hojaVidaBundle\Entity\ProcesosEnMinPub;
+use proyectos\hojaVidaBundle\Entity\InformacionOficinas;
+use proyectos\hojaVidaBundle\Entity\Ingresos;
+use proyectos\hojaVidaBundle\Entity\OtrosIngresos;
+use proyectos\hojaVidaBundle\Entity\Patrimonio;
+use proyectos\hojaVidaBundle\Entity\PatrimonioOtros;
+use proyectos\hojaVidaBundle\Entity\SistemaFinanciero;
+use proyectos\hojaVidaBundle\Entity\Acreencias;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
@@ -416,7 +424,8 @@ class Mantenimiento {
         $this->insertarProcesosJudiciales($c, $request, $dp);
         $this->insertarProcesosAdministrativos($c, $request, $dp);
         $this->insertarProcesosEnPoderJud($c, $request, $dp);
-        return "se inserto bien";
+        $this->insertarProcesosEnMinisterioPublico($c, $request, $dp);
+        return $dp->getPkDatPostulante();
     }
 
     public function insertarAntecedentes($c, $request, $dp) {
@@ -517,8 +526,8 @@ class Mantenimiento {
     }
 
     public function insertarProcesosEnPoderJud($c, $request, $dp) {
-
-        $tipo_pjud = $request->request->get('tipo_pjud');
+        //EN TRAMITE
+        $tra_tipo_pjud = $request->request->get('tra_tipo_pjud');
         $tra_ins_pjud = $request->request->get('tra_ins_pjud');
         $tra_exp_pjud = $request->request->get('tra_exp_pjud');
         $tra_que_pjud = $request->request->get('tra_que_pjud');
@@ -526,9 +535,9 @@ class Mantenimiento {
         $tra_mot_pjud = $request->request->get('tra_mot_pjud');
         $tra_est_pjud = $request->request->get('tra_est_pjud');
 
-        for ($i = 0; $i < count($tipo_pjud); $i++) {
+        for ($i = 0; $i < count($tra_tipo_pjud); $i++) {
             $pp = new ProcesosEnPoderJud();
-            $pp->setTipo($tipo_pjud[$i]);
+            $pp->setTipo($tra_tipo_pjud[$i]);
             $pp->setIdInstitucion($tra_ins_pjud[$i]);
             $pp->setExpediente($tra_exp_pjud[$i]);
             $pp->setQuejas($tra_que_pjud[$i]);
@@ -541,6 +550,240 @@ class Mantenimiento {
             $em->persist($pp);
             $em->flush();
         }
+        //CONCLUIDAS
+        $con_tipo_pjud = $request->request->get('con_tipo_pjud');
+        $con_ins_pjud = $request->request->get('con_ins_pjud');
+        $con_exp_pjud = $request->request->get('con_exp_pjud');
+        $con_que_pjud = $request->request->get('con_que_pjud');
+        $con_mot_pjud = $request->request->get('con_mot_pjud');
+        $con_est_pjud = $request->request->get('con_est_pjud');
+
+        for ($i = 0; $i < count($con_tipo_pjud); $i++) {
+            $pp = new ProcesosEnPoderJud();
+            $pp->setTipo($con_tipo_pjud[$i]);
+            $pp->setIdInstitucion($con_ins_pjud[$i]);
+            $pp->setExpediente($con_exp_pjud[$i]);
+            $pp->setQuejas($con_que_pjud[$i]);
+            $pp->setMotivo($con_mot_pjud[$i]);
+            $pp->setEstadoProc($con_est_pjud[$i]);
+            $pp->setEstado(2);
+            $pp->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pp);
+            $em->flush();
+        }
+    }
+
+    public function insertarProcesosEnMinisterioPublico($c, $request, $dp) {
+        //EN TRAMITE
+        $tra_tipo_mpub = $request->request->get('tra_tipo_mpub');
+        $tra_ins_mpub = $request->request->get('tra_ins_mpub');
+        $tra_exp_mpub = $request->request->get('tra_exp_mpub');
+        $tra_que_mpub = $request->request->get('tra_que_mpub');
+
+        $tra_mot_mpub = $request->request->get('tra_mot_mpub');
+        $tra_est_mpub = $request->request->get('tra_est_mpub');
+
+        for ($i = 0; $i < count($tra_tipo_mpub); $i++) {
+            $pe = new ProcesosEnMinPub();
+            $pe->setTipo($tra_tipo_mpub[$i]);
+            $pe->setIdInstitucion($tra_ins_mpub[$i]);
+            $pe->setExpediente($tra_exp_mpub[$i]);
+            $pe->setQuejas($tra_que_mpub[$i]);
+            $pe->setMotivo($tra_mot_mpub[$i]);
+            $pe->setEstadoProc($tra_est_mpub[$i]);
+            $pe->setEstado(1);
+            $pe->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pe);
+            $em->flush();
+        }
+        //CONCLUIDAS
+        $con_tipo_mpub = $request->request->get('con_tipo_mpub');
+        $con_ins_mpub = $request->request->get('con_ins_mpub');
+        $con_exp_mpub = $request->request->get('con_exp_mpub');
+        $con_que_mpub = $request->request->get('con_que_mpub');
+        $con_mot_mpub = $request->request->get('con_mot_mpub');
+        $con_est_mpub = $request->request->get('con_est_mpub');
+
+        for ($i = 0; $i < count($con_tipo_mpub); $i++) {
+            $pe = new ProcesosEnMinPub();
+            $pe->setTipo($con_tipo_mpub[$i]);
+            $pe->setIdInstitucion($con_ins_mpub[$i]);
+            $pe->setExpediente($con_exp_mpub[$i]);
+            $pe->setQuejas($con_que_mpub[$i]);
+            $pe->setMotivo($con_mot_mpub[$i]);
+            $pe->setEstadoProc($con_est_mpub[$i]);
+            $pe->setEstado(2);
+            $pe->setPkDatPostulante($dp);
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pe);
+            $em->flush();
+        }
+    }
+
+    public function insertarinfojuefis($c, $request) {
+        $id_pos = $request->request->get('id_pos');
+        $tdescripcion = $request->request->get('tdescripcion');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+
+        $io = new InformacionOficinas();
+        $io->setIdOficina(1);
+        $io->setDescripcion($tdescripcion);
+        $io->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($io);
+        $em->flush();
+
+        return "se inserto";
+    }
+
+    public function insertardirecproc($c, $request) {
+        $id_pos = $request->request->get('id_pos');
+        $tdescripcion = $request->request->get('tdescripcion');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+
+        $io = new InformacionOficinas();
+        $io->setIdOficina(2);
+        $io->setDescripcion($tdescripcion);
+        $io->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($io);
+        $em->flush();
+
+        return "se inserto";
+    }
+
+    public function insertarinfo_colegio($c, $request) {
+        $id_pos = $request->request->get('id_pos');
+        $tdescripcion = $request->request->get('tdescripcion');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+
+        $io = new InformacionOficinas();
+        $io->setIdOficina(3);
+        $io->setDescripcion($tdescripcion);
+        $io->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($io);
+        $em->flush();
+
+        return "se inserto";
+    }
+
+    public function insertarinfo_patrimonial($c, $request) {
+        $id_pos = $request->request->get('id_pos');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $this->insertar_ingresos($c, $request, $dp);
+        $this->insertar_OtrosIngresos($c, $request, $dp);
+        $this->insertarPatrimonio($c, $request, $dp);
+        $this->insertarPatrimonioOtros($c, $request, $dp);
+        $this->insertarSistemaFinanciero($c, $request, $dp);
+        $this->insertarAcreencias($c, $request, $dp);
+        return $id_pos;
+    }
+
+    public function insertar_ingresos($c, $request, $dp) {
+        $txt_ing_anio = $request->request->get('txt_ing_anio');
+        $txt_ing_remu = $request->request->get('txt_ing_remu');
+        $txt_ing_dietas = $request->request->get('txt_ing_dietas');
+        $txt_ing_total = $request->request->get('txt_ing_total');
+        $in = new Ingresos();
+        $in->setAnoEje($txt_ing_anio);
+        $in->setRemuneracion($txt_ing_remu);
+        $in->setDietas($txt_ing_dietas);
+        $in->setTotal($txt_ing_total);
+        $in->setPkDatPostulante($dp);
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($in);
+        $em->flush();
+    }
+
+    public function insertar_OtrosIngresos($c, $request, $dp) {
+        $txt_otr_ing = $request->request->get('txt_otr_ing');
+        $txt_otr_val = $request->request->get('txt_otr_val');
+
+        for ($i = 0; $i < count($txt_otr_ing); $i++) {
+            $oi = new OtrosIngresos();
+            $oi->setDescripcion($txt_otr_ing[$i]);
+            $oi->setMonto($txt_otr_val[$i]);
+            $oi->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($oi);
+            $em->flush();
+        }
+    }
+
+    public function insertarPatrimonio($c, $request, $dp) {
+        $txt_tip_patrimonio = $request->request->get('txt_tip_patrimonio');
+        $txt_tip_bien = $request->request->get('txt_tip_bien');
+        $txt_ubic = $request->request->get('txt_ubic');
+        $txt_fec_pat = $request->request->get('txt_fec_pat');
+        $txt_monto_pat = $request->request->get('txt_monto_pat');
+
+        for ($i = 0; $i < count($txt_tip_patrimonio); $i++) {
+            $pa = new Patrimonio();
+            $pa->setTipoPatrimonio($txt_tip_patrimonio[$i]);
+            $pa->setTipoBien($txt_tip_bien[$i]);
+            $pa->setUbicacion($txt_ubic[$i]);
+            $pa->setFecha($txt_fec_pat[$i]);
+            $pa->setMonto($txt_monto_pat[$i]);
+            $pa->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pa);
+            $em->flush();
+        }
+    }
+
+    public function insertarPatrimonioOtros($c, $request, $dp) {
+        $txt_otr_descrip = $request->request->get('txt_otr_descrip');
+        $txt_otr_valor = $request->request->get('txt_otr_valor');
+        $po = new PatrimonioOtros();
+        $po->setDescripcion($txt_otr_descrip);
+        $po->setValor($txt_otr_valor);
+        $po->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($po);
+        $em->flush();
+    }
+
+    public function insertarSistemaFinanciero($c, $request, $dp) {
+        $txt_clase_sis = $request->request->get('txt_clase_sis');
+        $txt_enti_sis = $request->request->get('txt_enti_sis');
+        $txt_val_sis = $request->request->get('txt_val_sis');
+
+        $sis = new SistemaFinanciero();
+        $sis->setClase($txt_clase_sis);
+        $sis->setEntidad($txt_enti_sis);
+        $sis->setValor($txt_val_sis);
+        $sis->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($sis);
+        $em->flush();
+    }
+
+    public function insertarAcreencias($c, $request, $dp) {
+        $txt_nat_acre = $request->request->get('txt_nat_acre');
+        $txt_ent_acre = $request->request->get('txt_ent_acre');
+        $txt_mon_acre = $request->request->get('txt_mon_acre');
+
+        $ac = new Acreencias();
+        $ac->setNaturaleza($txt_nat_acre);
+        $ac->setEntidad($txt_ent_acre);
+        $ac->setValor($txt_mon_acre);
+        $ac->setPkDatPostulante($dp);
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($ac);
+        $em->flush();
     }
 
 }

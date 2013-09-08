@@ -7,7 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use proyectos\hojaVidaBundle\Util\Mantenimiento;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class MantenimientoController extends Controller {
 
@@ -61,6 +60,42 @@ class MantenimientoController extends Controller {
     public function insertarConducta(Request $request) {
         $m = new Mantenimiento();
         $res = $m->insertarConducta($this, $request);
+        return new Response($res);
+    }
+
+    /**
+     * @Route("/infojuefis",name="_infojuefis")
+     */
+    public function insertarinfojuefis(Request $request) {
+        $m = new Mantenimiento();
+        $res = $m->insertarinfojuefis($this, $request);
+        return new Response($res);
+    }
+
+    /**
+     * @Route("/direcproc",name="_direcproc")
+     */
+    public function insertardirecproc(Request $request) {
+        $m = new Mantenimiento();
+        $res = $m->insertardirecproc($this, $request);
+        return new Response($res);
+    }
+
+    /**
+     * @Route("/infocolegio",name="_infocolegio")
+     */
+    public function insertarinfocolegio(Request $request) {
+        $m = new Mantenimiento();
+        $res = $m->insertarinfo_colegio($this, $request);
+        return new Response($res);
+    }
+
+    /**
+     * @Route("/info_patrimonial",name="_info_patrimonial")
+     */
+    public function insertarinfo_patrimonial(Request $request) {
+        $m = new Mantenimiento();
+        $res = $m->insertarinfo_patrimonial($this, $request);
         return new Response($res);
     }
 

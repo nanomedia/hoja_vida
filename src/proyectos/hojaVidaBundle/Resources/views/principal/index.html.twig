@@ -3,20 +3,16 @@
     <head>
         <meta charset="utf-8">
         <title>.::HOJA DE VIDA::.</title>
-        <link href="{{asset('bundles/hoja_vida/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
-        <link href="{{asset('bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
-        <script src="{{asset('bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
-        <script src="{{asset('bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
-        <script src="{{asset('bundles/hoja_vida/campos.js')}}"></script>
+        <link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
+        <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
+        <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
+        <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+        <script src="{{asset('web/bundles/hoja_vida/campos.js')}}"></script>
 
-        <script type="text/javascript" src="{{asset('plugins/jqplop/jquery.jqplot.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('plugins/jqplop/jqplot.pointLabels.js')}}"></script>
-        <script type="text/javascript" src="{{asset('plugins/jqplop/jqplot.barRenderer.js')}}"></script>
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/jqplop/jquery.jqplot.css')}}" />
 
-        <script type="text/javascript" src="{{asset('plugins/jValidate/jquery.validate.js')}}"></script>
-        <script type="text/javascript" src="{{asset('plugins/jValidate/messages_es.js')}}"></script>
-        <script src="{{asset('bundles/hoja_vida/jquery-ui/js/jquery.ajax-progress.js')}}"></script>
+        <script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
+        <script type="text/javascript" src="{{asset('web/plugins/jValidate/messages_es.js')}}"></script>
+        <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery.ajax-progress.js')}}"></script>
 
         <script>
 
@@ -219,6 +215,19 @@
                         case "frm-conducta":
                             $("#add-conducta").dialog("open");
                             break;
+                        case "frm_info_jue_fis":
+                            frm_info_jue_fis();
+                            break;
+                        case "frm_direc_proc":
+                            frm_direc_proc();
+                            break;
+                        case "frm_info_colegio":
+                            frm_info_colegio();
+                            break;
+                        case "frm_info_patrimonial":
+                            frm_info_patrimonial();
+                            break;
+
                     }
                 });
 
@@ -266,7 +275,7 @@
                             $("#pos-apellidos").html(apellidos);
                             $("#pos-nombres").html(nombres);
                             $("#pos-dni").html(dni);
-                            $("#foto-personal").attr("src", "{{asset('fotos/')}}" + dni + ".jpg");
+                            $("#foto-personal").attr("src", "{{asset('web/fotos/')}}" + dni + ".jpg");
                         }
                     });
 
@@ -283,13 +292,12 @@
                             $("#tabs1").tabs("disable", 1);
                             $("#tabs1").tabs("enable", 2);
                             $("#tabs1").tabs("option", "active", 2);
-                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
+//                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
+                            $("#guardar_frm").attr("rel", "frm_info_patrimonial");
+
                             $("#titulo_save").text("DATOS ACADEMICOS");
                         }
                     });
-
-
-
                 }
 
                 function frm_datos_academicos() {
@@ -319,7 +327,7 @@
                         url: "{{path('_newExpProfesional')}}",
                         data: form,
                         success: function(e) {
-                           
+
                             $("#tabs1").tabs("disable", 3);
                             $("#tabs1").tabs("enable", 4);
                             $("#tabs1").tabs("option", "active", 4);
@@ -344,8 +352,51 @@
 
                     });
                 }
+                function frm_info_jue_fis() {
+                    var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_infojuefis')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
+                function frm_direc_proc() {
+                    var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_direcproc')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
+                function frm_info_colegio() {
+                    var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_infocolegio')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
+                function frm_info_patrimonial() {
+                    var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_info_patrimonial')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
             });
-
 
             </script>
         </head>
