@@ -22,6 +22,7 @@ use proyectos\hojaVidaBundle\Entity\Antecedentes;
 use proyectos\hojaVidaBundle\Entity\ProcesosJudiciales;
 use proyectos\hojaVidaBundle\Entity\ProcesosAdministrativos;
 use proyectos\hojaVidaBundle\Entity\ProcesosEnPoderJud;
+
 use proyectos\hojaVidaBundle\Entity\ProcesosEnMinPub;
 use proyectos\hojaVidaBundle\Entity\InformacionOficinas;
 use proyectos\hojaVidaBundle\Entity\Ingresos;
@@ -30,6 +31,7 @@ use proyectos\hojaVidaBundle\Entity\Patrimonio;
 use proyectos\hojaVidaBundle\Entity\PatrimonioOtros;
 use proyectos\hojaVidaBundle\Entity\SistemaFinanciero;
 use proyectos\hojaVidaBundle\Entity\Acreencias;
+
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
@@ -424,8 +426,10 @@ class Mantenimiento {
         $this->insertarProcesosJudiciales($c, $request, $dp);
         $this->insertarProcesosAdministrativos($c, $request, $dp);
         $this->insertarProcesosEnPoderJud($c, $request, $dp);
+
         $this->insertarProcesosEnMinisterioPublico($c, $request, $dp);
         return $dp->getPkDatPostulante();
+
     }
 
     public function insertarAntecedentes($c, $request, $dp) {
@@ -528,6 +532,7 @@ class Mantenimiento {
     public function insertarProcesosEnPoderJud($c, $request, $dp) {
         //EN TRAMITE
         $tra_tipo_pjud = $request->request->get('tra_tipo_pjud');
+
         $tra_ins_pjud = $request->request->get('tra_ins_pjud');
         $tra_exp_pjud = $request->request->get('tra_exp_pjud');
         $tra_que_pjud = $request->request->get('tra_que_pjud');
@@ -538,6 +543,7 @@ class Mantenimiento {
         for ($i = 0; $i < count($tra_tipo_pjud); $i++) {
             $pp = new ProcesosEnPoderJud();
             $pp->setTipo($tra_tipo_pjud[$i]);
+
             $pp->setIdInstitucion($tra_ins_pjud[$i]);
             $pp->setExpediente($tra_exp_pjud[$i]);
             $pp->setQuejas($tra_que_pjud[$i]);
@@ -550,6 +556,7 @@ class Mantenimiento {
             $em->persist($pp);
             $em->flush();
         }
+
         //CONCLUIDAS
         $con_tipo_pjud = $request->request->get('con_tipo_pjud');
         $con_ins_pjud = $request->request->get('con_ins_pjud');
@@ -784,6 +791,7 @@ class Mantenimiento {
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($ac);
         $em->flush();
+
     }
 
 }
