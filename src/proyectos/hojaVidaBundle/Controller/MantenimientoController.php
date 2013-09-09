@@ -99,4 +99,31 @@ class MantenimientoController extends Controller {
         return new Response($res);
     }
 
+    /**
+     * @Route("/mov_migratorio",name="_mov_migratorio")
+     */
+    public function insertarmov_migratorio(Request $request) {
+        $m = new Mantenimiento();
+        $res = $m->insertarMovimientoMigratorio($this, $request);
+        return new Response($res);
+    }
+
+    /**
+     * @Route("/info_camara",name="_info_camara")
+     */
+    public function insertarInformacionCamaInfo(Request $request) {
+         $m = new Mantenimiento();
+        $res = $m->insertarInformacionCamaInfo($this, $request);
+        return new Response($res);
+    }
+    
+    /**
+     * @Route("/info_registro",name="_info_registro")
+     */
+    public function insertarInformacionRegistroDe(Request $request) {
+         $m = new Mantenimiento();
+        $res = $m->insertarInformacionRegistroDe($this, $request);
+        return new Response($res);
+    }
+
 }

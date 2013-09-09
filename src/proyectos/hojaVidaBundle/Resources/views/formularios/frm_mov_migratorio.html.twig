@@ -3,35 +3,37 @@
         <div class="tab-title">
             MOVIMIENTO MIGRATORIO
         </div>
-        <table width="100%" border="0" cellspacing="10px" align="center">
-            <tr>
-                <td>
-                    <table border="1" cellspacing="0" align="center" width="80%" class="ui-widget ui-widget-content">
-                        <thead>
+        <form id="frm_mov_migratorio">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <table width="80%" class="table ui-widget ui-widget-content">
+                            <thead>
 
-                            <tr class="ui-widget-header">
-                                <th  align="center">Movimiento</th>
-                                <th  align="center">Fecha</th>
-                                <th  align="center">Destino / Procedencia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Entrada</td>
-                                <td><input type="text" class="row-edit"></td>
-                                <td><input type="text" class="row-edit"></td>
-                            </tr>
-                            <tr>
-                                <td>Salida</td>
-                                <td><input type="text" class="row-edit"></td>
-                                <td><input type="text" class="row-edit"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr class="ui-widget-header">
+                                    <th  align="center">Movimiento</th>
+                                    <th  align="center">Fecha</th>
+                                    <th  align="center">Destino / Procedencia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Entrada<input name="txt_tipo[]" value="1" type="hidden" ></td>
+                                    <td><input name="txt_fecha[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_destino[]" type="text" class="row-edit"></td>
+                                </tr>
+                                <tr>
+                                    <td>Salida<input name="txt_tipo[]" value="2" type="hidden" ></td>
+                                    <td><input name="txt_fecha[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_destino[]" type="text" class="row-edit"></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>  
 
 </div>

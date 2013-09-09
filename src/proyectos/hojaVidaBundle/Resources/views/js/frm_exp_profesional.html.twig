@@ -83,7 +83,7 @@
         new_row += '<td></td>';
         new_row += '<td><input name="txt_cal_numExp[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_cal_tipResolucion[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_fechaRes[]" class="row-edit" type="text"></td>';
+        new_row += '<td><input name="txt_cal_fechaRes[]" class="row-edit datepicker" type="text"></td>';
         new_row += '<td><input name="txt_cal_ddagraviado[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>';
@@ -94,6 +94,32 @@
         new_row += '</tr>';
 
         $("#calidad_des_jud tbody").append(new_row);
+        
+       $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '<Ant',
+        nextText: 'Sig>',
+        currentText: 'Hoy', monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(".datepicker").datepicker({
+        minDate: new Date(1900, 1 - 1, 1), maxDate: '-18Y',
+        dateFormat: 'dd/mm/yy',
+        defaultDate: new Date(1970, 1 - 1, 1),
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '-110:-18'
+    });
 
     }
 

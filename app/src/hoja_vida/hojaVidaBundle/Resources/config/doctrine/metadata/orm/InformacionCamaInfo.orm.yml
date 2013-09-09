@@ -10,6 +10,11 @@ InformacionCamaInfo:
             column: PK_INFORMACION_CAMA_INFO
             generator:
                 strategy: IDENTITY
+        tipo:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: TIPO
         descripcion:
             type: string
             length: 250

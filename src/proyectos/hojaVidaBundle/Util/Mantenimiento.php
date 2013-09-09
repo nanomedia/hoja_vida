@@ -22,7 +22,6 @@ use proyectos\hojaVidaBundle\Entity\Antecedentes;
 use proyectos\hojaVidaBundle\Entity\ProcesosJudiciales;
 use proyectos\hojaVidaBundle\Entity\ProcesosAdministrativos;
 use proyectos\hojaVidaBundle\Entity\ProcesosEnPoderJud;
-
 use proyectos\hojaVidaBundle\Entity\ProcesosEnMinPub;
 use proyectos\hojaVidaBundle\Entity\InformacionOficinas;
 use proyectos\hojaVidaBundle\Entity\Ingresos;
@@ -31,7 +30,9 @@ use proyectos\hojaVidaBundle\Entity\Patrimonio;
 use proyectos\hojaVidaBundle\Entity\PatrimonioOtros;
 use proyectos\hojaVidaBundle\Entity\SistemaFinanciero;
 use proyectos\hojaVidaBundle\Entity\Acreencias;
-
+use proyectos\hojaVidaBundle\Entity\MovimientoMigratorio;
+use proyectos\hojaVidaBundle\Entity\InformacionCamaInfo;
+use proyectos\hojaVidaBundle\Entity\InformacionRegistroDe;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
@@ -429,7 +430,6 @@ class Mantenimiento {
 
         $this->insertarProcesosEnMinisterioPublico($c, $request, $dp);
         return $dp->getPkDatPostulante();
-
     }
 
     public function insertarAntecedentes($c, $request, $dp) {
@@ -791,7 +791,62 @@ class Mantenimiento {
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($ac);
         $em->flush();
+    }
 
+    public function insertarMovimientoMigratorio($c, $request) {
+        $txt_tipo = $request->request->get('txt_tipo');
+        $txt_fecha = $request->request->get('txt_fecha');
+        $txt_destino = $request->request->get('txt_destino');
+
+        $id_pos = $request->request->get('id_pos');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+
+        for ($i = 0; $i < count($txt_tipo); $i++) {
+            $mm = new MovimientoMigratorio();
+            $mm->setTipo($txt_tipo[$i]);
+            $mm->setFecha($txt_fecha[$i]);
+            $mm->setDestinoProcedencia($txt_destino[$i]);
+            $mm->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($mm);
+            $em->flush();
+        }
+        return "se inserto";
+    }
+
+    public function insertarInformacionCamaInfo($c, $request) {
+
+        $hd_tipo = $request->request->get('hd_tipo');
+        $txt_descripcion = $request->request->get('txt_descripcion');
+        $id_pos = $request->request->get('id_pos');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+
+        for ($i = 0; $i < count($hd_tipo); $i++) {
+            $ic = new InformacionCamaInfo();
+            $ic->setTipo($hd_tipo[$i]);
+            $ic->setDescripcion($txt_descripcion[$i]);
+            $ic->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($ic);
+            $em->flush();
+        }
+    }
+
+    public function insertarInformacionRegistroDe($c, $request) {
+        $txt_deu = $request->request->get('txt_deu');
+        $txt_com = $request->request->get('txt_com');
+        $id_pos = $request->request->get('id_pos');
+        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $ir = new InformacionRegistroDe();
+
+        $ir->setDeudoresAlimentarios($txt_deu);
+        $ir->setComplementaria($txt_com);
+        $ir->setPkDatPostulante($dp);
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($ir);
+        $em->flush();
     }
 
 }

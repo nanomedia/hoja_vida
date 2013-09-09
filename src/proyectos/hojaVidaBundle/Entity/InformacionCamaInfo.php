@@ -22,6 +22,13 @@ class InformacionCamaInfo
     private $pkInformacionCamaInfo;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO", type="integer", nullable=true)
+     */
+    private $tipo;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
@@ -48,6 +55,29 @@ class InformacionCamaInfo
     public function getPkInformacionCamaInfo()
     {
         return $this->pkInformacionCamaInfo;
+    }
+
+    /**
+     * Set tipo
+     *
+     * @param integer $tipo
+     * @return InformacionCamaInfo
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipo
+     *
+     * @return integer 
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
     }
 
     /**

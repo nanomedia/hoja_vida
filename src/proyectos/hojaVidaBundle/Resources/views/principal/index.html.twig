@@ -13,6 +13,7 @@
         <script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
         <script type="text/javascript" src="{{asset('web/plugins/jValidate/messages_es.js')}}"></script>
         <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery.ajax-progress.js')}}"></script>
+        <script src="{{asset('web/plugins/jquery_numeric/jquery.numeric.js')}}"></script>
 
         <script>
 
@@ -27,7 +28,7 @@
                 {% include 'hojaVidaBundle:js:frm_exp_profesional.html.twig' %}
 
 
-
+                
                 function cargando() {
                     $("#boton-guardar").css("display", "none");
                     $("#cargando").css("display", "block");
@@ -228,6 +229,15 @@
                         case "frm_info_patrimonial":
                             frm_info_patrimonial();
                             break;
+                        case "frm_mov_migratorio":
+                            frm_mov_migratorio();
+                            break;
+                        case "frm_info_camara":
+                            frm_info_camara();
+                            break;
+                        case "frm_info_registro":
+                            frm_info_registro();
+                            break;
 
                     }
                 });
@@ -294,7 +304,7 @@
                             $("#tabs1").tabs("enable", 2);
                             $("#tabs1").tabs("option", "active", 2);
 //                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
-                            $("#guardar_frm").attr("rel", "frm_info_patrimonial");
+                            $("#guardar_frm").attr("rel", "frm_info_registro");
 
                             $("#titulo_save").text("DATOS ACADEMICOS");
                         }
@@ -378,6 +388,40 @@
                     $.ajax({
                         type: "POST",
                         url: "{{path('_info_patrimonial')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
+                function frm_mov_migratorio() {
+                    var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_mov_migratorio')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
+                function frm_info_camara() {
+                    var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_info_camara')}}",
+                        data: form,
+                        success: function(e) {
+                            alert(e);
+                        }
+                    });
+                }
+
+                function frm_info_registro() {
+                    var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_info_registro')}}",
                         data: form,
                         success: function(e) {
                             alert(e);
