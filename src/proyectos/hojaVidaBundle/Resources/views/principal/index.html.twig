@@ -29,622 +29,668 @@
 
 
 
-                        function cargando() {
-                            $("#titulo_save").text("GUARDANDO...");
-                            $("#boton-guardar").css("display", "none");
-                            $("#cargando").css("display", "block");
-                            var val = 0;
-                            var interval = setInterval(function() {
-                                val++;
-                                $('#prog').progressbar({value: val});
-                                $("#prog_per").text(val + "%");
-                                if (val === 100) {
-                                    clearInterval(interval);
-                                    $("#cargando").css("display", "none");
-                                    $("#boton-guardar").css("display", "block");
-                                }
-                            }, 25);
+                function cargando() {
+                    $("#titulo_save").text("GUARDANDO...");
+                    $("#boton-guardar").css("display", "none");
+                    $("#cargando").css("display", "block");
+                    var val = 0;
+                    var interval = setInterval(function() {
+                        val++;
+                        $('#prog').progressbar({value: val});
+                        $("#prog_per").text(val + "%");
+                        if (val === 100) {
+                            clearInterval(interval);
+                            $("#cargando").css("display", "none");
+                            $("#boton-guardar").css("display", "block");
                         }
+                    }, 25);
+                }
 
-                        $("#add-datos-personales").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_datos_personales();
-                                    $(this).dialog("close");
+                $("#add-datos-personales").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_datos_personales();
+                            $(this).dialog("close");
 
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-datos-postulante").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_como_postulante();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-datos-postulante").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_como_postulante();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-datos-academicos").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_datos_academicos();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
-                        $("#add-exp-profesional").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_exp_profesional();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-datos-academicos").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_datos_academicos();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
+                $("#add-exp-profesional").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_exp_profesional();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-conducta").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_conducta();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-conducta").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_conducta();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-info_jue_fis").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_info_jue_fis();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-info_jue_fis").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_info_jue_fis();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-direc_proc").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_direc_proc();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-direc_proc").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_direc_proc();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-info_colegio").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_info_colegio();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-info_colegio").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_info_colegio();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-info_patrimonial").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_info_patrimonial();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
-                        $("#add-mov_migratorio").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_mov_migratorio();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
-                        $("#add-info_camara").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_info_camara();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
+                $("#add-info_patrimonial").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_info_patrimonial();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
+                $("#add-mov_migratorio").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_mov_migratorio();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
+                $("#add-info_camara").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_info_camara();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
-                        $("#add-info_registro").dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            height: 200,
-                            modal: true,
-                            buttons: {
-                                "SI": function() {
-                                    frm_info_registro();
-                                    $(this).dialog("close");
-                                },
-                                "NO": function() {
-                                    $(this).dialog("close");
-                                }}
-                        });
-
-
-                        $("#frm-datos-personales").validate({
-                            rules: {
-                                txt_nombres: "required",
-                                txt_apellidos: "required",
-                                txt_lugarNac: {
-                                    required: true,
-                                    minlength: 5
-                                },
-                                txt_fechaNac: "required",
-                                file_foto: "required",
-                                txt_dni: {
-                                    required: true,
-                                    number: true,
-                                    minlength: 8,
-                                    maxlength: 8
-                                }
-                            },
-                            submitHandler: function() {
-                                $("#add-datos-personales").dialog("open");
-                            }
-                        });
+                $("#add-info_registro").dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    height: 200,
+                    modal: true,
+                    buttons: {
+                        "SI": function() {
+                            frm_info_registro();
+                            $(this).dialog("close");
+                        },
+                        "NO": function() {
+                            $(this).dialog("close");
+                        }}
+                });
 
 
-
-                        $("#frm-como-postulante").validate({
-                            rules: {
-                                txt_cargoAPostular: "required",
-                                txt_condicion: "required",
-                                txt_nota: {
-                                    required: true,
-                                    number: true
-                                },
-                                txt_prePromedio: {
-                                    required: true,
-                                    number: true
-
-                                },
-                                txt_ordenMerito: {
-                                    required: true,
-                                    number: true
-                                },
-                                txt_plazasVacantes: {
-                                    required: true,
-                                    number: true,
-                                },
-                                txt_ex_cono: "required",
-                                afi_curr: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-datos-postulante").dialog("open");
-                            }
-                        });
-
-                        $("#frm-datos-academicos").validate({
-                            rules: {
-                                txt_fechaIncorporacion: "required",
-                                txt_tituloOtros: "required",
-                                txt_tesisTitular: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-datos-academicos").dialog("open");
-                            }
-                        });
-
-                        $("#frm-exp-profesional").validate({
-                            rules: {
-                                txt_resolucion: "required",
-                                txt_fec_res: "required",
-                                txt_tesisTitular: "required",
-                                situacion_laboral_actual: "required",
-                                text_area_JurFis: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-exp-profesional").dialog("open");
-                            }
-                        });
-
-                        $("#frm_info_jue_fis").validate({
-                            rules: {
-                                tdescripcion: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-info_jue_fis").dialog("open");
-                            }
-                        });
-
-                        $("#frm_direc_proc").validate({
-                            rules: {
-                                tdescripcion: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-direc_proc").dialog("open");
-                            }
-                        });
-
-                        $("#frm_info_colegio").validate({
-                            rules: {
-                                tdescripcion: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-info_colegio").dialog("open");
-                            }
-                        });
-
-                        $("#frm_info_registro").validate({
-                            rules: {
-                                txt_deu: "required",
-                                txt_com: "required"
-                            },
-                            submitHandler: function() {
-                                $("#add-info_registro").dialog("open");
-                            }
-                        });
-
-
-
-                        $("#guardar_frm").click(function() {
-                            var frm = $(this).attr("rel");
-
-                            switch (frm) {
-                                case "frm-datos-personales":
-                                    $("#frm-datos-personales").submit();
-                                    break;
-
-                                case "frm-como-postulante":
-                                    $("#frm-como-postulante").submit();
-                                    break;
-
-                                case "frm-datos-academicos":
-                                    $("#frm-datos-academicos").submit();
-                                    break;
-
-                                case "frm-exp-profesional":
-                                    $("#frm-exp-profesional").submit();
-                                    break;
-
-                                case "frm-conducta":
-                                    $("#add-conducta").dialog("open");
-                                    break;
-
-                                case "frm_info_jue_fis":
-                                    $("#frm_info_jue_fis").submit();
-                                    break;
-
-                                case "frm_direc_proc":
-                                    $("#frm_direc_proc").submit();
-                                    break;
-
-                                case "frm_info_colegio":
-                                    $("#frm_info_colegio").submit();
-
-                                    break;
-                                case "frm_info_patrimonial":
-                                    $("#add-info_patrimonial").dialog("open");
-
-                                    break;
-                                case "frm_mov_migratorio":
-                                    $("#add-mov_migratorio").dialog("open");
-                                    break;
-
-                                case "frm_info_camara":
-                                    $("#add-info_camara").dialog("open");
-                                    break;
-
-                                case "frm_info_registro":
-                                    $("#frm_info_registro").submit();
-                                    break;
-
-                            }
-                        });
-
-                        function frm_datos_personales() {
-                            var archivos = document.getElementById("file_foto");
-                            var archivo = archivos.files;
-                            var data = new FormData();
-
-                            var nombres = $("input:text[name='txt_nombres']").val();
-                            var apellidos = $("input:text[name='txt_apellidos']").val();
-                            var lugarnac = $("input:text[name='txt_lugarNac']").val();
-                            var fechanac = $("input:text[name='txt_fechaNac']").val();
-                            var edad = $("input:text[name='txt_edad']").val();
-                            var dni = $("input:text[name='txt_dni']").val();
-                            var foto = archivo[0];
-                            var discapacidad = $("input:radio[name='rad_discapacidad']:checked").val();
-                            var certificado = $("input:text[name='txt_certDiscapacidad']").val();
-
-                            data.append("txt_nombres", nombres);
-                            data.append("txt_apellidos", apellidos);
-                            data.append("txt_lugarNac", lugarnac);
-                            data.append("txt_fechaNac", fechanac);
-                            data.append("txt_edad", edad);
-                            data.append("txt_dni", dni);
-                            data.append("file_foto", foto);
-                            data.append("rad_discapacidad", discapacidad);
-                            data.append("txt_certDiscapacidad", certificado);
-
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_newDatosPersonales')}}",
-                                data: data,
-                                async: "true",
-                                contentType: false,
-                                processData: false,
-                                cache: false,
-                                success: function(e) {
-                                    $("#id_cod").val(e);
-                                    $("#tabs1").tabs("disable", 0);
-                                    $("#tabs1").tabs("enable", 1);
-                                    $("#tabs1").tabs("option", "active", 1);
-                                    $("#guardar_frm").attr("rel", "frm-como-postulante");
-                                    $("#titulo_save").text("DATOS POSTULANTE");
-                                    $("#pos-apellidos").html(apellidos);
-                                    $("#pos-nombres").html(nombres);
-                                    $("#pos-dni").html(dni);
-                                    $("#foto-personal").attr("src", "{{asset('web/fotos/')}}" + dni + ".jpg");
-                                }
-                            });
-
+                $("#frm-datos-personales").validate({
+                    rules: {
+                        txt_nombres: "required",
+                        txt_apellidos: "required",
+                        txt_lugarNac: {
+                            required: true,
+                            minlength: 5
+                        },
+                        txt_fechaNac: "required",
+                        file_foto: "required",
+                        txt_dni: {
+                            required: true,
+                            number: true,
+                            minlength: 8,
+                            maxlength: 8
                         }
-                        function frm_como_postulante() {
-                            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_newDatosPostulante')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#id_pos").val(e);
-                                    $("#tabs1").tabs("disable", 1);
-                                    $("#tabs1").tabs("enable", 2);
-                                    $("#tabs1").tabs("option", "active", 2);
-                                    $("#guardar_frm").attr("rel", "frm-datos-academicos");
-                                    $("#titulo_save").text("DATOS ACADEMICOS");
-                                }
-                            });
-                        }
-
-                        function frm_datos_academicos() {
-
-                            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_newDatosAcademicos')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tabs1").tabs("disable", 2);
-                                    $("#tabs1").tabs("enable", 3);
-                                    $("#tabs1").tabs("option", "active", 3);
-                                    $("#guardar_frm").attr("rel", "frm-exp-profesional");
-                                    $("#titulo_save").text("EXPERIENCIA PROFESIONAL");
-
-                                }
-
-                            });
-                        }
-                        function frm_exp_profesional() {
-
-                            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_newExpProfesional')}}",
-                                data: form,
-                                success: function(e) {
-
-                                    $("#tabs1").tabs("disable", 3);
-                                    $("#tabs1").tabs("enable", 4);
-                                    $("#tabs1").tabs("option", "active", 4);
-                                    $("#guardar_frm").attr("rel", "frm-conducta");
-                                    $("#titulo_save").text("CONDUCTA");
-                                }
-
-                            });
-                        }
-                        function frm_conducta() {
-                            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_newConducta')}}",
-                                data: form,
-                                success: function(e) {
-
-                                    $("#tabs1").tabs("disable", 4);
-                                    $("#tab-cuestionario").tabs("disable", 0);
-                                    $("#tab-cuestionario").tabs("enable", 1);
-                                    $("#tab-cuestionario").tabs("option", "active", 1);
-                                    $("#tabs2").tabs("enable", 0);
-                                    $("#tabs2").tabs("option", "active", 0);
-                                    $("#guardar_frm").attr("rel", "frm_info_jue_fis");
-                                    $("#titulo_save").text("GUARDANDO...");
-                                }
-
-                            });
-
-                        }
+                    },
+                    submitHandler: function() {
+                        $("#add-datos-personales").dialog("open");
+                    }
+                });
 
 
-                        function frm_info_jue_fis() {
-                            var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_infojuefis')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tab-cuestionario").tabs("enable", 1);
-                                    $("#tab-cuestionario").tabs("option", "active", 1);
-                                    $("#tabs2").tabs("disable", 0);
-                                    $("#tabs2").tabs("enable", 1);
-                                    $("#tabs2").tabs("option", "active", 1);
-                                    $("#guardar_frm").attr("rel", "frm_direc_proc");
-                                    $("#titulo_save").text("INFORMACIÓN DE LA ...");
-                                }
-                            });
-                        }
-                        function frm_direc_proc() {
-                            var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_direcproc')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tabs2").tabs("disable", 1);
-                                    $("#tabs2").tabs("enable", 2);
-                                    $("#tabs2").tabs("option", "active", 2);
-                                    $("#guardar_frm").attr("rel", "frm_info_colegio");
-                                    $("#titulo_save").text("INFORMACIÓN DEL COLEGIO");
-                                }
-                            });
-                        }
-                        function frm_info_colegio() {
-                            var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_infocolegio')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tab-cuestionario").tabs("disable", 1);
-                                    $("#tabs2").tabs("disable", 2);
-                                    $("#tab-cuestionario").tabs("enable", 2);
-                                    $("#tab-cuestionario").tabs("option", "active", 2);
 
-                                    $("#guardar_frm").attr("rel", "frm_info_patrimonial");
-                                    $("#titulo_save").text("INFORMACIÓN PATRIMONIAL");
-                                }
-                            });
-                        }
-                        function frm_info_patrimonial() {
-                            var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_info_patrimonial')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tabs3").tabs("disable", 0);
-                                    $("#tabs3").tabs("enable", 1);
-                                    $("#tabs3").tabs("option", "active", 1);
-                                    $("#guardar_frm").attr("rel", "frm_mov_migratorio");
-                                    $("#titulo_save").text("MOVIMIENTO MIGRATORIO");
+                $("#frm-como-postulante").validate({
+                    rules: {
+                        txt_cargoAPostular: "required",
+                        txt_condicion: "required",
+                        txt_nota: {
+                            required: true,
+                            number: true
+                        },
+                        txt_prePromedio: {
+                            required: true,
+                            number: true
 
-                                }
-                            });
-                        }
-                        function frm_mov_migratorio() {
-                            var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_mov_migratorio')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tabs3").tabs("disable", 1);
-                                    $("#tabs3").tabs("enable", 2);
-                                    $("#tabs3").tabs("option", "active", 2);
-                                    $("#tab-cuestionario").tabs("disable", 1);
-                                    $("#guardar_frm").attr("rel", "frm_info_camara");
-                                    $("#titulo_save").text("INFORMACION DE LA...");
-                                }
-                            });
-                        }
-                        function frm_info_camara() {
-                            var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_info_camara')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tab-cuestionario").tabs("disable", 2);
-                                    $("#tab-cuestionario").tabs("enable", 3);
-                                    $("#tab-cuestionario").tabs("option", "active", 3);
-                                    $("#guardar_frm").attr("rel", "frm_info_registro");
-                                    $("#titulo_save").text("INFORMACION DEL REGISTRO...");
-                                }
-                            });
-                        }
+                        },
+                        txt_ordenMerito: {
+                            required: true,
+                            number: true
+                        },
+                        txt_plazasVacantes: {
+                            required: true,
+                            number: true,
+                        },
+                        txt_ex_cono: "required",
+                        afi_curr: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-datos-postulante").dialog("open");
+                    }
+                });
 
-                        function frm_info_registro() {
-                            var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
-                            cargando();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{path('_info_registro')}}",
-                                data: form,
-                                success: function(e) {
-                                    $("#tab-cuestionario").tabs("disable", 3);
-                                    $("#tab-cuestionario").tabs("enable", 4);
-                                    $("#tab-cuestionario").tabs("option", "active", 4);
-                                    $("#guardar_frm").attr("rel", "frm_info_registro");
-                                    $("#titulo_save").text("INFORMACION PATRIMONIAL...");
-                                }
-                            });
+                $("#frm-datos-academicos").validate({
+                    rules: {
+                        txt_fechaIncorporacion: "required",
+                        txt_tituloOtros: "required",
+                        txt_tesisTitular: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-datos-academicos").dialog("open");
+                    }
+                });
+
+                $("#frm-exp-profesional").validate({
+                    rules: {
+                        txt_resolucion: "required",
+                        txt_fec_res: "required",
+                        txt_tesisTitular: "required",
+                        situacion_laboral_actual: "required",
+                        text_area_JurFis: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-exp-profesional").dialog("open");
+                    }
+                });
+
+                $("#frm_info_jue_fis").validate({
+                    rules: {
+                        tdescripcion: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-info_jue_fis").dialog("open");
+                    }
+                });
+
+                $("#frm_direc_proc").validate({
+                    rules: {
+                        tdescripcion: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-direc_proc").dialog("open");
+                    }
+                });
+
+                $("#frm_info_colegio").validate({
+                    rules: {
+                        tdescripcion: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-info_colegio").dialog("open");
+                    }
+                });
+
+                $("#frm_info_registro").validate({
+                    rules: {
+                        txt_deu: "required",
+                        txt_com: "required"
+                    },
+                    submitHandler: function() {
+                        $("#add-info_registro").dialog("open");
+                    }
+                });
+
+
+
+                $("#guardar_frm").click(function() {
+                    var frm = $(this).attr("rel");
+
+                    switch (frm) {
+                        case "frm-datos-personales":
+                            $("#frm-datos-personales").submit();
+                            break;
+
+                        case "frm-como-postulante":
+                            $("#frm-como-postulante").submit();
+                            break;
+
+                        case "frm-datos-academicos":
+                            $("#frm-datos-academicos").submit();
+                            break;
+
+                        case "frm-exp-profesional":
+                            $("#frm-exp-profesional").submit();
+                            break;
+
+                        case "frm-conducta":
+                            $("#add-conducta").dialog("open");
+                            break;
+
+                        case "frm_info_jue_fis":
+                            $("#frm_info_jue_fis").submit();
+                            break;
+
+                        case "frm_direc_proc":
+                            $("#frm_direc_proc").submit();
+                            break;
+
+                        case "frm_info_colegio":
+                            $("#frm_info_colegio").submit();
+
+                            break;
+                        case "frm_info_patrimonial":
+                            $("#add-info_patrimonial").dialog("open");
+
+                            break;
+                        case "frm_mov_migratorio":
+                            $("#add-mov_migratorio").dialog("open");
+                            break;
+
+                        case "frm_info_camara":
+                            $("#add-info_camara").dialog("open");
+                            break;
+
+                        case "frm_info_registro":
+                            $("#frm_info_registro").submit();
+                            break;
+
+                    }
+                });
+
+                function frm_datos_personales() {
+                    var archivos = document.getElementById("file_foto");
+                    var archivo = archivos.files;
+                    var data = new FormData();
+
+                    var nombres = $("input:text[name='txt_nombres']").val();
+                    var apellidos = $("input:text[name='txt_apellidos']").val();
+                    var lugarnac = $("input:text[name='txt_lugarNac']").val();
+                    var fechanac = $("input:text[name='txt_fechaNac']").val();
+                    var edad = $("input:text[name='txt_edad']").val();
+                    var dni = $("input:text[name='txt_dni']").val();
+                    var foto = archivo[0];
+                    var discapacidad = $("input:radio[name='rad_discapacidad']:checked").val();
+                    var certificado = $("input:text[name='txt_certDiscapacidad']").val();
+
+                    data.append("txt_nombres", nombres);
+                    data.append("txt_apellidos", apellidos);
+                    data.append("txt_lugarNac", lugarnac);
+                    data.append("txt_fechaNac", fechanac);
+                    data.append("txt_edad", edad);
+                    data.append("txt_dni", dni);
+                    data.append("file_foto", foto);
+                    data.append("rad_discapacidad", discapacidad);
+                    data.append("txt_certDiscapacidad", certificado);
+
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_newDatosPersonales')}}",
+                        data: data,
+                        async: "true",
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        success: function(e) {
+                            $("#id_cod").val(e);
+                            $("#tabs1").tabs("disable", 0);
+                            $("#tabs1").tabs("enable", 1);
+                            $("#tabs1").tabs("option", "active", 1);
+                            $("#guardar_frm").attr("rel", "frm-como-postulante");
+                            $("#titulo_save").text("DATOS POSTULANTE");
+                            $("#pos-apellidos").html(apellidos);
+                            $("#pos-nombres").html(nombres);
+                            $("#pos-dni").html(dni);
+                            $("#foto-personal").attr("src", "{{asset('web/fotos/')}}" + dni + ".jpg");
                         }
                     });
+
+                }
+                function frm_como_postulante() {
+                    var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_newDatosPostulante')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#id_pos").val(e);
+                            $("#tabs1").tabs("disable", 1);
+                            $("#tabs1").tabs("enable", 2);
+                            $("#tabs1").tabs("option", "active", 2);
+                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
+                            $("#titulo_save").text("DATOS ACADEMICOS");
+                        }
+                    });
+                }
+
+                function frm_datos_academicos() {
+
+                    var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_newDatosAcademicos')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tabs1").tabs("disable", 2);
+                            $("#tabs1").tabs("enable", 3);
+                            $("#tabs1").tabs("option", "active", 3);
+                            $("#guardar_frm").attr("rel", "frm-exp-profesional");
+                            $("#titulo_save").text("EXPERIENCIA PROFESIONAL");
+
+                        }
+
+                    });
+                }
+                function frm_exp_profesional() {
+
+                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_newExpProfesional')}}",
+                        data: form,
+                        success: function(e) {
+
+                            $("#tabs1").tabs("disable", 3);
+                            $("#tabs1").tabs("enable", 4);
+                            $("#tabs1").tabs("option", "active", 4);
+                            $("#guardar_frm").attr("rel", "frm-conducta");
+                            $("#titulo_save").text("CONDUCTA");
+                        }
+
+                    });
+                }
+                function frm_conducta() {
+                    var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_newConducta')}}",
+                        data: form,
+                        success: function(e) {
+
+                            $("#tabs1").tabs("disable", 4);
+                            $("#tab-cuestionario").tabs("disable", 0);
+                            $("#tab-cuestionario").tabs("enable", 1);
+                            $("#tab-cuestionario").tabs("option", "active", 1);
+                            $("#tabs2").tabs("enable", 0);
+                            $("#tabs2").tabs("option", "active", 0);
+                            $("#guardar_frm").attr("rel", "frm_info_jue_fis");
+                            $("#titulo_save").text("GUARDANDO...");
+                        }
+
+                    });
+
+                }
+
+
+                function frm_info_jue_fis() {
+                    var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_infojuefis')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tab-cuestionario").tabs("enable", 1);
+                            $("#tab-cuestionario").tabs("option", "active", 1);
+                            $("#tabs2").tabs("disable", 0);
+                            $("#tabs2").tabs("enable", 1);
+                            $("#tabs2").tabs("option", "active", 1);
+                            $("#guardar_frm").attr("rel", "frm_direc_proc");
+                            $("#titulo_save").text("INFORMACIÓN DE LA ...");
+                        }
+                    });
+                }
+                function frm_direc_proc() {
+                    var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_direcproc')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tabs2").tabs("disable", 1);
+                            $("#tabs2").tabs("enable", 2);
+                            $("#tabs2").tabs("option", "active", 2);
+                            $("#guardar_frm").attr("rel", "frm_info_colegio");
+                            $("#titulo_save").text("INFORMACIÓN DEL COLEGIO");
+                        }
+                    });
+                }
+                function frm_info_colegio() {
+                    var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_infocolegio')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tab-cuestionario").tabs("disable", 1);
+                            $("#tabs2").tabs("disable", 2);
+                            $("#tab-cuestionario").tabs("enable", 2);
+                            $("#tab-cuestionario").tabs("option", "active", 2);
+
+                            $("#guardar_frm").attr("rel", "frm_info_patrimonial");
+                            $("#titulo_save").text("INFORMACIÓN PATRIMONIAL");
+                        }
+                    });
+                }
+                function frm_info_patrimonial() {
+                    var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_info_patrimonial')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tabs3").tabs("disable", 0);
+                            $("#tabs3").tabs("enable", 1);
+                            $("#tabs3").tabs("option", "active", 1);
+                            $("#guardar_frm").attr("rel", "frm_mov_migratorio");
+                            $("#titulo_save").text("MOVIMIENTO MIGRATORIO");
+
+                        }
+                    });
+                }
+                function frm_mov_migratorio() {
+                    var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_mov_migratorio')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tabs3").tabs("disable", 1);
+                            $("#tabs3").tabs("enable", 2);
+                            $("#tabs3").tabs("option", "active", 2);
+                            $("#tab-cuestionario").tabs("disable", 1);
+                            $("#guardar_frm").attr("rel", "frm_info_camara");
+                            $("#titulo_save").text("INFORMACION DE LA...");
+                        }
+                    });
+                }
+                function frm_info_camara() {
+                    var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_info_camara')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tab-cuestionario").tabs("disable", 2);
+                            $("#tab-cuestionario").tabs("enable", 3);
+                            $("#tab-cuestionario").tabs("option", "active", 3);
+                            $("#guardar_frm").attr("rel", "frm_info_registro");
+                            $("#titulo_save").text("INFORMACION DEL REGISTRO...");
+                        }
+                    });
+                }
+
+                function frm_info_registro() {
+                    var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_info_registro')}}",
+                        data: form,
+                        success: function(e) {
+                            $("#tab-cuestionario").tabs("disable", 3);
+                            $("#tab-cuestionario").tabs("enable", 4);
+                            $("#tab-cuestionario").tabs("option", "active", 4);
+                            $("#guardar_frm").attr("rel", "frm_info_registro");
+                            $("#titulo_save").text("INFORMACION PATRIMONIAL...");
+                        }
+                    });
+                }
+
+
+                ////////////////////////////
+                var num_info_pat1 = 0;
+                $("#btn_info_pat1").click(function() {
+                    if (num_info_pat1 < 15) {
+                        num_info_pat1++;
+                        add_info_pat1();
+                        
+                    }
+                });
+                $("#table_info_pat1").delegate(".remove_row_part1", "click", function() {
+                    if (num_info_pat1 > 0) {
+                        var row_position = ($(".remove_row_part1").index($(this)) + 1);
+                        $("#table_info_pat1 tbody tr").eq(row_position).remove();
+                        num_info_pat1--;
+                    }
+                });
+               
+                function add_info_pat1() {
+                    var new_row = '<tr>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="text" class="row-edit"></td>';
+                          new_row +='<td><input type="button" class="remove_row_part1 menos" value="-"></td>';
+                          new_row +='</tr>';
+
+                    $("#table_info_pat1 tbody").append(new_row);
+                    $(".numeric").numeric();
+                    $(".menos").button();
+
+                }
+
+
+
+
+
+
+
+
+            });
 
 
             </script>
@@ -769,9 +815,9 @@
                     </div>
                     <div id="tab-cuestionario-5">
                         {% include 'hojaVidaBundle:formularios:info_patrimonial.html.twig' %}
-                     </div>    
+                        </div>    
                         <div id="tab-cuestionario-6">
-                            
+
                         </div>
                     </div>
                 </div>
