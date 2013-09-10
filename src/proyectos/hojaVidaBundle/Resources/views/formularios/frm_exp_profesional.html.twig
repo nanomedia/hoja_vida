@@ -6,7 +6,7 @@
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>
                     <td >
-                        
+
                         <label class="labelText">
                             1. Documentos Calificados de DESEMPEÑO PROFESIONAL:
                         </label>
@@ -20,13 +20,13 @@
                             <thead>
                                 <tr class="ui-widget-header">
                                     <th width="40px">N°</th>
-                                    <th>N° Exp.</th>
+                                    <th width="100px">N° Exp.</th>
                                     <th>Demandante/<br>Denunciante/<br>Agraviado/<br>Solicitante</th>
                                     <th>Demandado/<br>Denunciado/<br>Agresor/<br>Entidad</th>
                                     <th>Materia</th>
                                     <th>Especialidad</th>
                                     <th>1° Calificación</th>
-                                    <th>2° Calificación (R.R)</th>
+                                    <th>2° <br>Calificación <br>(R.R)</th>
                                     <th width="40px"></th>
                                 </tr>
                             </thead>
@@ -38,8 +38,8 @@
                                     <td><input name="txt_ddae[]" class="row-edit" type="text"></td>
                                     <td><input name="txt_materia[]" class="row-edit" type="text"></td>
                                     <td><input name="txt_espec[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal1[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal2[]" class="row-edit" type="text"></td>
+                                    <td align="center"><input name="txt_cal1[]" class="numeric nota" size="5" value="0" type="text"></td>
+                                    <td align="center"><input name="txt_cal2[]" class="numeric nota" size="5" value="0" type="text"></td>
                                     <td></td>
                                 </tr>
 
@@ -57,8 +57,8 @@
                     </td>
                 </tr>
                 <tr>    
-                    <td align="center">
-                        <table>
+                    <td>
+                        <table cellspacing="10px">
                             <tr>
                                 <td>
                                     <select name="rad-resp1" id="cboMagRatificado">
@@ -73,15 +73,21 @@
                                         <input type="radio" id="opc1" name="rad-resp2" value="Por Unanimidad" checked="checked" /><label for="opc1">Por Unanimidad</label>
                                         <input type="radio" id="opc2" name="rad-resp2" value="Por Mayoría"/><label for="opc2">Por Mayoría</label>
                                     </div>
+
                                 </td>
-                                <td>
-                                    <span id="opc2">
-                                        Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
-                                    </span>
-                                    <select name="cbo-resp3">
-                                        <option value="Aún no ha sido objeto de Proceso de Ratificación">Aún no ha sido objeto de Proceso de Ratificación</option>
-                                        <option value="En convocatoria">En convocatoria</option>
-                                    </select>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div>    
+                                        <span id="opc2">
+                                            Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
+                                        </span>
+                                        <select name="cbo-resp3">
+                                            <option value="Aún no ha sido objeto de Proceso de Ratificación">Aún no ha sido objeto de Proceso de Ratificación</option>
+                                            <option value="En convocatoria">En convocatoria</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                         </table>
@@ -103,7 +109,7 @@
                             <thead>
                                 <tr class="ui-widget-header">
                                     <th width="40px">N°</th>
-                                    <th>N° Exp.</th>
+                                    <th width="100px">N° Exp.</th>
                                     <th>Tipo de Resolución</th>
                                     <th width="100px">Fecha de Res.</th>
                                     <th>Demandante/<br>Denunciante/<br>Agraviado</th>
@@ -124,7 +130,7 @@
                                     <td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>
                                     <td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>
                                     <td><input name="txt_cal_especialidad[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal_nota[]" class="row-edit" type="text"></td>
+                                    <td align="center"><input name="txt_cal_nota[]" class="numeric nota" size="5" value="0" type="text"></td>
                                     <td></td>
                                 </tr>
 
@@ -357,17 +363,17 @@
                 </tr>
                 <tr>
                     <td>
-                        <table id="lic-otrogadas"width="70%" class="table ui-widget ui-widget-content">
+                        <table id="lic-otrogadas"  class="table ui-widget ui-widget-content">
                             <thead>
                                 <tr class="ui-widget-header">
-                                    <th>AÑO</th>
-                                    <th>MOTIVO</th>
-                                    <th>Nº DIAS</th>
-                                    <th>TOTAL LICENCIAS (en días)</th>
+                                    <th width="100px">AÑO</th>
+                                    <th width="180px">MOTIVO</th>
+                                    <th width="100px">Nº DIAS</th>
+                                    <th width="160px">TOTAL LICENCIAS<br>(en días)</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
 

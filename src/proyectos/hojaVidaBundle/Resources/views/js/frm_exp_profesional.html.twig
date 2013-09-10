@@ -46,12 +46,19 @@
         new_row += '<td><input name="txt_ddae[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_materia[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_espec[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal1[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal2[]" class="row-edit" type="text"></td>';
-        new_row += '<td align="center"><input type="button" class="remove_row_ddp" value="-"></td>';
+        new_row += '<td align="center"><input name="txt_cal1[]" class="numeric nota" size="5" value="0" type="text"></td>';
+        new_row += '<td align="center"><input name="txt_cal2[]" class="numeric nota" size="5" value="0" type="text"></td>';
+        new_row += '<td align="center"><input type="button" class="remove_row_ddp menos" value="-" ></td>';
         new_row += '</tr>';
 
         $("#doc_des_profesional tbody").append(new_row);
+        $(".numeric").numeric();
+        $( ".nota" ).spinner({
+            min: 0,
+            max: 20,
+          });
+          
+       $(".menos").button();   
 
     }
 
@@ -88,8 +95,8 @@
         new_row += '<td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>';
         new_row += '<td><input name="txt_cal_especialidad[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_nota[]" class="row-edit" type="text"></td>';
-        new_row += '<td align="center"><input class="remove_row_cdj" type="button" value="-"></td>';
+        new_row += '<td align="center"><input name="txt_cal_nota[]" class="numeric nota" size="5" value="0"  type="text"></td>';
+        new_row += '<td align="center"><input class="remove_row_cdj menos" type="button" value="-"></td>';
 
         new_row += '</tr>';
 
@@ -120,6 +127,15 @@
         changeYear: true,
         yearRange: '-110:-18'
     });
+    
+    $(".numeric").numeric();
+        $( ".nota" ).spinner({
+            min: 0,
+            max: 20,
+          });
+          
+       $(".menos").button();   
+
 
     }
 
@@ -199,51 +215,56 @@
         new_row += '        </tr>';
         new_row += '    </table>';
         new_row += '</td>';
-        new_row += '<td><input type="button"  value="-" class="remove_docuni"></td>';
+        new_row += '<td><input type="button"  value="-" class="remove_docuni menos"></td>';
         new_row += '</tr>';
 
         $("#bodyDocuni").append(new_row);
         comboUniv();
+        $(".menos").button();   
     }
+    
+    function addLicOtorgadas(){
     var d = new Date();
     var anio = (parseInt(d.getFullYear()));
     var temp_anio = anio - 5;
     var contentLic = "";
     for (temp_anio; temp_anio < anio; temp_anio++) {
         //console.log(temp_anio);
-        var html = '<tr><td><input name="hd_anio[]" type="hidden" value="' + temp_anio + '">' + temp_anio + '</td><td>Enfermedad</td>';
-        html += '<td><input name="txt_enfermedad[]" type="text" size="5" value="0"></td>';
-        html += '<td rowspan="6"><input name="txt_total_lic[]" type="text" class="textbox"></td>';
+        var html = '<tr><td align="center"><input name="hd_anio[]" type="hidden" value="' + temp_anio + '"><b>' + temp_anio + '</b></td><td>Enfermedad</td>';
+        html += '<td><input name="txt_enfermedad[]" class="numeric dias" type="text" size="5" value="0"></td>';
+        html += '<td rowspan="6" align="center"><input name="txt_total_lic[]" class="numeric dias" type="text" ></td>';
         html += '</tr><tr><td></td>';
         html += '<td>Vacaciones</td>';
-        html += '<td><input name="txt_vacaciones[]" type="text" size="5" value="0"></td>';
+        html += '<td><input name="txt_vacaciones[]" class="numeric dias" type="text" size="5" value="0"></td>';
         html += '</tr><tr>';
         html += '<td></td>';
         html += '<td>Capacitación</td>';
-        html += '<td><input name="txt_capacitacion[]" type="text" size="5" value="0"></td>';
+        html += '<td><input name="txt_capacitacion[]" class="numeric dias" type="text" size="5" value="0"></td>';
         html += '</tr><tr>';
         html += '<td></td>';
         html += '<td>Onomástico</td>';
-        html += '<td><input name="txt_onomastico[]" type="text" class="spinner2" size="5" value="0"></td>';
+        html += '<td><input name="txt_onomastico[]" type="text" class="numeric dias" size="5" value="0"></td>';
         html += '</tr>';
         html += '<tr>';
         html += '    <td></td>';
         html += '    <td>Lic. Con Goce de haber</td>';
-        html += '    <td><input name="txt_lic_goce[]" type="text" class="spinner2" size="5" value="0"></td>';
+        html += '    <td><input name="txt_lic_goce[]" type="text" class="numeric dias"size="5" value="0"></td>';
         html += ' </tr><tr>';
         html += '<td></td>';
         html += '<td>Motivos personales</td>';
-        html += '<td><input name="txt_mot_personales[]" type="text" class="spinner2" size="5" value="0"></td>';
+        html += '<td><input name="txt_mot_personales[]" type="text" class="numeric dias" size="5" value="0"></td>';
         html += '</tr>';
 
         contentLic += html;
     }
     var total = '  <tr>';
-    total += '<td>TOTAL</td>';
-    total += '<td><input type="text" class="row-edit"></td>';
-    total += '<td><input type="text" class="row-edit"></td>';
+    total += '<td align="center"><b>TOTAL</b></td>';
+    total += '<td colspan="2"></td>';
     total += '<td><input type="text" class="row-edit"></td>';
     total += '</tr>';
     $("#lic-otrogadas").append(contentLic + total);
+    $(".numeric").numeric();
+    $( ".dias" ).spinner();
 
-
+}
+addLicOtorgadas();

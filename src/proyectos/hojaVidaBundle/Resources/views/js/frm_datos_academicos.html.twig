@@ -50,18 +50,20 @@
         new_row += '         </tr>';
         new_row += '     </table>';
         new_row += ' </td>';
-        new_row += ' <td><input type="button" class="remove_docderecho" value="-"></td>';
+        new_row += ' <td><input type="button" class="remove_docderecho menos" value="-"></td>';
         new_row += '</tr>';
 
         $("#bodyDocDerecho").append(new_row);
         comboUniv();
         comboanio();
+        $(".menos").button(); 
     }
     var num_rows_maederecho = 0;
     $("#add_maederecho").click(function() {
         if (num_rows_maederecho < 4) {
             num_rows_maederecho++;
             add_rows_maederecho();
+            
         }
     });
 
@@ -105,12 +107,13 @@
         new_row += '                     </tr>';
         new_row += '                 </table>';
         new_row += '             </td>';
-        new_row += '             <td><input type="button" class="remove_MaeDerecho" value="-"></td>';
+        new_row += '             <td><input type="button" class="remove_MaeDerecho menos" value="-"></td>';
         new_row += '         </tr>';
 
         $("#bodyMaeDerecho").append(new_row);
         comboUniv();
         comboanio();
+        $(".menos").button(); 
     }
 
 

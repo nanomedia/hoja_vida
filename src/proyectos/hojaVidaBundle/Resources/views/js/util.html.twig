@@ -146,12 +146,17 @@
     $("#cues").buttonset();
     $(".button").button();
 
-   // $("#tabs1").tabs({disabled: [1, 2, 3, 4]});
-
-    $("#tabs1").tabs();
-    $("#tab-cuestionario").tabs();
-    $("#tabs2").tabs();
-    $("#tabs3").tabs();
+    $("#tabs1").tabs({disabled: [1 ,2 , 3, 4]});
+    //$("#tabs1").tabs();
+     $("#tab-cuestionario").tabs({disabled: [1, 2, 3, 4]});
+    // $("#tab-cuestionario").tabs();
+    
+    $("#tabs2").tabs({disabled: [1, 2]});
+    //$("#tabs2").tabs();
+    
+    $("#tabs3").tabs({disabled: [1, 2]});
+    //$("#tabs3").tabs();
+    
     $("#tabs4").tabs();
     $("#rad-disc").buttonset();
     $("#rad-categoria").buttonset();
@@ -208,3 +213,10 @@
       
    $(".decimal").numeric("."); 
    $(".numeric").numeric();
+   $( ".nota" ).spinner({
+      min: 0,
+      max: 20,
+     });
+   $( ".num" ).spinner({
+      min: 0,
+     });  
