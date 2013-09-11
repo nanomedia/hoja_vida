@@ -22,6 +22,13 @@ class DatosPostulante
     private $pkDatPostulante;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_SUSUARIO", type="integer", nullable=true)
+     */
+    private $pkSusuario;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="CARGO_A_POSTULAR", type="string", length=100, nullable=true)
@@ -84,16 +91,6 @@ class DatosPostulante
      */
     private $afiliacionCurricular;
 
-    /**
-     * @var \DatosPersonales
-     *
-     * @ORM\ManyToOne(targetEntity="DatosPersonales")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_DAT_PERSONAL", referencedColumnName="ID_DAT_PERSONAL")
-     * })
-     */
-    private $idDatPersonal;
-
 
 
     /**
@@ -104,6 +101,29 @@ class DatosPostulante
     public function getPkDatPostulante()
     {
         return $this->pkDatPostulante;
+    }
+
+    /**
+     * Set pkSusuario
+     *
+     * @param integer $pkSusuario
+     * @return DatosPostulante
+     */
+    public function setPkSusuario($pkSusuario)
+    {
+        $this->pkSusuario = $pkSusuario;
+    
+        return $this;
+    }
+
+    /**
+     * Get pkSusuario
+     *
+     * @return integer 
+     */
+    public function getPkSusuario()
+    {
+        return $this->pkSusuario;
     }
 
     /**
@@ -311,28 +331,5 @@ class DatosPostulante
     public function getAfiliacionCurricular()
     {
         return $this->afiliacionCurricular;
-    }
-
-    /**
-     * Set idDatPersonal
-     *
-     * @param \proyectos\hojaVidaBundle\Entity\DatosPersonales $idDatPersonal
-     * @return DatosPostulante
-     */
-    public function setIdDatPersonal(\proyectos\hojaVidaBundle\Entity\DatosPersonales $idDatPersonal = null)
-    {
-        $this->idDatPersonal = $idDatPersonal;
-    
-        return $this;
-    }
-
-    /**
-     * Get idDatPersonal
-     *
-     * @return \proyectos\hojaVidaBundle\Entity\DatosPersonales 
-     */
-    public function getIdDatPersonal()
-    {
-        return $this->idDatPersonal;
     }
 }

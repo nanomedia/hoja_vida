@@ -22,18 +22,18 @@ class InformacionCamaInfo
     private $pkInformacionCamaInfo;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="TIPO", type="integer", nullable=true)
-     */
-    private $tipo;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
      */
     private $descripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO", type="integer", nullable=true)
+     */
+    private $tipo;
 
     /**
      * @var \DatosPostulante
@@ -58,29 +58,6 @@ class InformacionCamaInfo
     }
 
     /**
-     * Set tipo
-     *
-     * @param integer $tipo
-     * @return InformacionCamaInfo
-     */
-    public function setTipo($tipo)
-    {
-        $this->tipo = $tipo;
-    
-        return $this;
-    }
-
-    /**
-     * Get tipo
-     *
-     * @return integer 
-     */
-    public function getTipo()
-    {
-        return $this->tipo;
-    }
-
-    /**
      * Set descripcion
      *
      * @param string $descripcion
@@ -101,6 +78,29 @@ class InformacionCamaInfo
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+
+    /**
+     * Set tipo
+     *
+     * @param integer $tipo
+     * @return InformacionCamaInfo
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipo
+     *
+     * @return integer 
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
     }
 
     /**

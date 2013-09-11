@@ -10,6 +10,11 @@ DatosPostulante:
             column: PK_DAT_POSTULANTE
             generator:
                 strategy: IDENTITY
+        pkSusuario:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: PK_SUSUARIO
         cargoAPostular:
             type: string
             length: 100
@@ -58,14 +63,4 @@ DatosPostulante:
             fixed: false
             nullable: false
             column: AFILIACION_CURRICULAR
-    manyToOne:
-        idDatPersonal:
-            targetEntity: DatosPersonales
-            cascade: {  }
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                ID_DAT_PERSONAL:
-                    referencedColumnName: ID_DAT_PERSONAL
-            orphanRemoval: false
     lifecycleCallbacks: {  }

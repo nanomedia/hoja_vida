@@ -37,37 +37,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
 
-    public function insertarDatosPersonales($c, $request) {
 
-        $txt_nombres = $request->request->get('txt_nombres');
-        $txt_apellidos = $request->request->get('txt_apellidos');
-        $txt_lugarNac = $request->request->get('txt_lugarNac');
-        $txt_fechaNac = $request->request->get('txt_fechaNac');
-        $txt_edad = $request->request->get('txt_edad');
-        $txt_dni = $request->request->get('txt_dni');
-        $rad_discapacidad = $request->request->get('rad_discapacidad');
-        $txt_certDiscapacidad = $request->request->get('txt_certDiscapacidad');
-        $uploadedFile = $request->files->get('file_foto');
-
-        $destino = __DIR__ . '/../../../../web/fotos';
-        $uploadedFile->move($destino, "$txt_dni.jpg");
-
-        $dp = new DatosPersonales();
-        $dp->setNombres($txt_nombres);
-        $dp->setApellidos($txt_apellidos);
-        $dp->setLugarNac($txt_lugarNac);
-        $dp->setFechaNac($txt_fechaNac);
-        $dp->setEdad($txt_edad);
-        $dp->setDni($txt_dni);
-        $dp->setDiscapacidad($rad_discapacidad);
-        $dp->setCertDiscapacidad($txt_certDiscapacidad);
-        $dp->setFoto($txt_dni . ".jpg");
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($dp);
-        $em->flush();
-
-        return $dp->getIdDatPersonal();
-    }
 
     public function insertarDatosPostulante($c, $request) {
 
@@ -82,8 +52,7 @@ class Mantenimiento {
         $txt_ex_cono = $request->request->get('txt_ex_cono');
         $afi_curr = $request->request->get('afi_curr');
 
-        $dp = $c->getDoctrine()->getRepository('hojaVidaBundle:DatosPersonales')->find($id_cod);
-
+        
         $dpos = new DatosPostulante();
         $dpos->setCargoAPostular($txt_cargoAPostular);
         $dpos->setCondicion($txt_condicion);
@@ -91,7 +60,7 @@ class Mantenimiento {
         $dpos->setNota($txt_nota);
         $dpos->setPrePromedio($txt_prePromedio);
         $dpos->setOrdenMerito($txt_ordenMerito);
-        $dpos->setIdDatPersonal($dp);
+        $dpos->setPkSusuario($id_cod);
         $dpos->setPlazasVacantes($txt_plazasVacantes);
         $dpos->setExamenConocimientos($txt_ex_cono);
         $dpos->setAfiliacionCurricular($afi_curr);
@@ -422,6 +391,7 @@ class Mantenimiento {
 
     public function insertarConducta($c, $request) {
         $id_pos = $request->request->get("id_pos");
+        $dp=new DatosPostulante();
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertarAntecedentes($c, $request, $dp);
         $this->insertarProcesosJudiciales($c, $request, $dp);
@@ -429,7 +399,7 @@ class Mantenimiento {
         $this->insertarProcesosEnPoderJud($c, $request, $dp);
 
         $this->insertarProcesosEnMinisterioPublico($c, $request, $dp);
-        return $dp->getPkDatPostulante();
+        return $id_pos;
     }
 
     public function insertarAntecedentes($c, $request, $dp) {

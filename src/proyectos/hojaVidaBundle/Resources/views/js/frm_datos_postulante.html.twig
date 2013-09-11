@@ -1,12 +1,12 @@
 
     var num_rows_canteriores = 0;
     $("#add_canteriores").click(function() {
-        if (num_rows_canteriores < 2) {
+        
             num_rows_canteriores++;
             add_rows_canteriores();
             actualizar_table_canteriores();
             $(".menos").button(); 
-        }
+        
     });
     $("#table_canteriores").delegate(".remove_canteriores", "click", function() {
         if (num_rows_canteriores > 0) {

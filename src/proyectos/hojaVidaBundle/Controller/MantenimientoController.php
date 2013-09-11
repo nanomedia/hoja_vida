@@ -11,21 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 class MantenimientoController extends Controller {
 
     /**
-     * @Route("/index",name="_index")
+     * @Route("/index/{dni}",name="_index")
      */
-    public function indexAction() {
+    public function indexAction($dni) {
 
-        return $this->render('hojaVidaBundle:principal:index.html.twig');
+        return $this->render('hojaVidaBundle:principal:index.html.twig',array("dni"=>$dni));
     }
 
-    /**
-     * @Route("/newDatosPersonales",name="_newDatosPersonales")
-     */
-    public function insertarDatosPersonales(Request $request) {
-        $m = new Mantenimiento();
-        $res = $m->insertarDatosPersonales($this, $request);
-        return new Response($res);
-    }
 
     /**
      * @Route("/newDatosPostulante",name="_newDatosPostulante")

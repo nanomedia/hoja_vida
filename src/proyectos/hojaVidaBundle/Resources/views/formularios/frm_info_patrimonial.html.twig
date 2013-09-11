@@ -23,41 +23,47 @@
                             </tr>
                             <tr>
                                 <td>Remuneración Bruta mensual (sector público):</td>
-                                <td><input name="txt_ing_remu" type="text" class="row-edit decimal"></td>
+                                <td><input name="txt_ing_remu" type="text" class="row-edit decimal txt_ing_remu txt_ing1"></td>
                             </tr>
                             <tr>
                                 <td>Dietas o similares</td>
-                                <td><input  name="txt_ing_dietas" type="text" class="row-edit decimal"></td>
+                                <td><input  name="txt_ing_dietas" type="text" class="row-edit decimal txt_ing1"></td>
                             </tr>
                             <tr>
                                 <td>TOTAL:</td>
                                 <td></td>
-                                <td><input name="txt_ing_total" type="text" class="row-edit decimal"></td>
+                                <td><input name="txt_ing_total" type="text" class="row-edit decimal txt_ing_total"></td>
                             </tr>
                         </table>
                         <br>
+                        <table id="frm_otros_ingresos"  width="80%" class="table ui-widget ui-widget-content">
+                            <thead>
+                                <tr>
+                                    <td colspan="3" align="center" class="ui-widget-header">Otros Ingresos:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="ui-widget-header">Ingresos del declarante y de la sociedad de gananciales</td>
+                                    <td class="ui-widget-header" wdith="80px" align="center">Valor S/.</td>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input name="txt_otr_ing[]" type="text" class="row-edit"></td>
+                                    <td width="30px;"></td>
+                                    <td><input name="txt_otr_val[]" type="text" class="txt_valor_ing row-edit decimal"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <table width="80%" class="table ui-widget ui-widget-content">
                             <tr>
-                                <td rowspan="3" align="center">Otros<br>Ingresos:</td>
-                                <td class="ui-widget-header">Ingresos del declarante y de la sociedad de gananciales</td>
-                                <td class="ui-widget-header" align="center">Valor S/.</td>
-
-                            </tr>
-                            <tr>
-                                <td><input name="txt_otr_ing[]" type="text" class="row-edit"></td>
-                                <td><input name="txt_otr_val[]" type="text" class="row-edit decimal"></td>
-                            </tr>
-                            <tr>
-                                <td><input name="txt_otr_ing[]" type="text" class="row-edit"></td>
-                                <td><input name="txt_otr_val[]" type="text" class="row-edit decimal"></td>
-                            </tr>
-                            <tr>
-                                <td>TOTAL:</td>
-                                <td></td>
-                                <td><input type="text" class="row-edit decimal"></td>
-
+                                <td width="67%" colspan="2">TOTAL:</td>                                
+                                <td><input type="text" class="txt_valor_otr_ing row-edit decimal"></td>
                             </tr>
                         </table>
+
+                        <br>
+                        <div id="add_otros_ing" class="add-icon" >Nueva fila</div><br><br>
                     </td>
                 </tr>
                 <tr>
@@ -70,54 +76,58 @@
                 <tr>
                     <td>
                         <table width="80%" class="table ui-widget ui-widget-content">
+                            <thead>
+                                <tr>
+                                    <td class="ui-widget-header" colspan="4" align="center">Bienes inmuebles:</td>
+                                </tr>
+                                <tr>
+                                    <td class="ui-widget-header" align="center">Tipo de Bien</td>
+                                    <td class="ui-widget-header" align="center">Ubicación</td>
+                                    <td class="ui-widget-header" align="center">Fecha de Adquisición</td>
+                                    <td class="ui-widget-header" align="center">Valor de<br> Autovalúo S/.</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input name="txt_tip_patrimonio[]" value="1" type="hidden">
+                                        <input name="txt_tip_bien[]" type="text" class="row-edit">
+                                    </td>
+                                    <td><input name="txt_ubic[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_fec_pat[]" type="text " class="row-edit datepicker"></td>
+                                    <td><input name="txt_monto_pat[]" type="text" class="row-edit decimal"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input name="txt_tip_patrimonio[]" value="1" type="hidden">
+                                        <input name="txt_tip_bien[]" type="text" class="row-edit">
+                                    </td>
+                                    <td><input name="txt_ubic[]" type="text" class="row-edit"></td>
+                                    <td><input name="txt_fec_pat[]" type="text" class="row-edit datepicker"></td>
+                                    <td><input name="txt_monto_pat[]" type="text" class="row-edit decimal"></td>
+                                </tr>
 
-                            <tr>
-                                <td rowspan="3" align="center">Bienes<br> inmuebles:</td>
-                                <td class="ui-widget-header" align="center">Tipo de Bien</td>
-                                <td class="ui-widget-header" align="center">Ubicación</td>
-                                <td class="ui-widget-header" align="center">Fecha de Adquisición</td>
-                                <td class="ui-widget-header" align="center">Valor de<br> Autovalúo S/.</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input name="txt_tip_patrimonio[]" value="1" type="hidden">
-                                    <input name="txt_tip_bien[]" type="text" class="row-edit">
-                                </td>
-                                <td><input name="txt_ubic[]" type="text" class="row-edit"></td>
-                                <td><input name="txt_fec_pat[]" type="text " class="row-edit datepicker"></td>
-                                <td><input name="txt_monto_pat[]" type="text" class="row-edit decimal"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input name="txt_tip_patrimonio[]" value="1" type="hidden">
-                                    <input name="txt_tip_bien[]" type="text" class="row-edit">
-                                </td>
-                                <td><input name="txt_ubic[]" type="text" class="row-edit"></td>
-                                <td><input name="txt_fec_pat[]" type="text" class="row-edit datepicker"></td>
-                                <td><input name="txt_monto_pat[]" type="text" class="row-edit decimal"></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>TOTAL:</td>
-                                <td colspan="3"></td>
-                                <td><input type="text" class="row-edit decimal"></td>
-                            </tr>
+                                <tr>
+                                    <td colspan="3">TOTAL:</td>
+                                    <td><input type="text" class="row-edit decimal"></td>
+                                </tr>
+                            </tbody>
                         </table>
+                        <div class="add-icon" >Nueva fila</div><br><br>    
+
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <table width="80%" class="table ui-widget ui-widget-content">
-
                             <tr>
-                                <td rowspan="3" align="center">Bienes<br> muebles:</td>
+                                <td colspan="4" class="ui-widget-header" align="center">Bienes muebles:</td>
+                            </tr>
+                            <tr>
                                 <td class="ui-widget-header" align="center">Tipo de Bien</td>
                                 <td class="ui-widget-header" align="center">Ubicación</td>
                                 <td class="ui-widget-header" align="center">Fecha de Adquisición</td>
                                 <td class="ui-widget-header" align="center">Valor de<br> Autovalúo S/.</td>
-
-
-
                             </tr>
                             <tr>
                                 <td>
@@ -138,61 +148,60 @@
                                 <td><input name="txt_monto_pat[]" type="text" class="row-edit decimal"></td>
                             </tr>
                             <tr>
-                                <td>TOTAL:</td>
-                                <td colspan="3"></td>
+                                <td colspan="3">TOTAL:</td>
                                 <td><input type="text" class="row-edit decimal"></td>
                             </tr>
                         </table>
+                        <div class="add-icon" >Nueva fila</div><br><br>  
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <table width="80%" class="table ui-widget ui-widget-content">
-
                             <tr>
-                                <td rowspan="2" align="center">Otros bienes:</td>
+                                <td class="ui-widget-header" colspan="2" align="center">Otros bienes:</td>
+                            </tr>
+                            <tr>
                                 <td class="ui-widget-header" align="center">Detallar</td>
                                 <td class="ui-widget-header" align="center">Valor</td>
-
                             </tr>
                             <tr>
                                 <td><input name="txt_otr_descrip" type="text" class="row-edit"></td>
                                 <td><input name="txt_otr_valor"type="text" class="row-edit decimal"></td>
                             </tr>
                         </table>
+                        <div class="add-icon" >Nueva fila</div><br><br>  
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <table  width="80%" class="table ui-widget ui-widget-content">
-
                             <tr>
-                                <td rowspan="2" align="center">Sistema Financiero</td>
+                                <td class="ui-widget-header" colspan="3" align="center">Sistema Financiero</td>
+                            </tr>
+                            <tr>
                                 <td class="ui-widget-header" align="center">Clase</td>
                                 <td class="ui-widget-header" align="center">Entidad o Tercero</td>
                                 <td class="ui-widget-header" align="center">Monto S/.</td>
-
-
                             </tr>
                             <tr>
                                 <td><input name="txt_clase_sis" type="text" class="row-edit"></td>
                                 <td><input name="txt_enti_sis" type="text" class="row-edit"></td>
                                 <td><input name="txt_val_sis" type="text" class="row-edit decimal"></td>
-
                             </tr>
-
-
                         </table>
+                        <div class="add-icon" >Nueva fila</div><br><br>  
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <table  width="80%" class="table ui-widget ui-widget-content">
-
                             <tr>
-                                <td rowspan="2" align="center">
-                                    Acreencias y<br> Obligaciones a su cargo
+                                <td class="ui-widget-header" colspan="3" align="center">
+                                    Acreencias y Obligaciones a su cargo
                                 </td>
+                            </tr>
+                            <tr>
                                 <td class="ui-widget-header" align="center">Naturaleza de la deuda</td>
                                 <td class="ui-widget-header" align="center">Entidad o Tercero</td>
                                 <td class="ui-widget-header" align="center">Monto S/.</td>
@@ -203,13 +212,13 @@
                                 <td><input name="txt_mon_acre" type="text" class="row-edit decimal"></td>
                             </tr>
                             <tr>
-                                <td>TOTAL:</td>
-                                <td colspan="2"></td>
+                                <td colspan="2">TOTAL:</td>
                                 <td><input type="text" class="row-edit decimal"></td>
                             </tr>
 
 
                         </table>
+                        <div class="add-icon" >Nueva fila</div><br><br>  
                     </td>
                 </tr>
             </table>

@@ -22,18 +22,18 @@ class InformacionCamaInfo
     private $pkInformacionCamaInfo;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="TIPO", type="integer", nullable=true)
-     */
-    private $tipo;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
      */
     private $descripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO", type="integer", nullable=true)
+     */
+    private $tipo;
 
     /**
      * @var \DatosPostulante
