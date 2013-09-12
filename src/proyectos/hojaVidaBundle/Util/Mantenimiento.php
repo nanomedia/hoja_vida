@@ -2,7 +2,6 @@
 
 namespace proyectos\hojaVidaBundle\Util;
 
-use proyectos\hojaVidaBundle\Entity\DatosPersonales;
 use proyectos\hojaVidaBundle\Entity\DatosPostulante;
 use proyectos\hojaVidaBundle\Entity\ConvocatoriasAnteriores;
 use proyectos\hojaVidaBundle\Entity\DatosAcademicos;
@@ -37,8 +36,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Mantenimiento {
 
-
-
     public function insertarDatosPostulante($c, $request) {
 
         $txt_cargoAPostular = $request->request->get('txt_cargoAPostular');
@@ -52,7 +49,7 @@ class Mantenimiento {
         $txt_ex_cono = $request->request->get('txt_ex_cono');
         $afi_curr = $request->request->get('afi_curr');
 
-        
+
         $dpos = new DatosPostulante();
         $dpos->setCargoAPostular($txt_cargoAPostular);
         $dpos->setCondicion($txt_condicion);
@@ -391,7 +388,7 @@ class Mantenimiento {
 
     public function insertarConducta($c, $request) {
         $id_pos = $request->request->get("id_pos");
-        $dp=new DatosPostulante();
+        $dp = new DatosPostulante();
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertarAntecedentes($c, $request, $dp);
         $this->insertarProcesosJudiciales($c, $request, $dp);
@@ -461,42 +458,53 @@ class Mantenimiento {
         $txt_res_adm1 = $request->request->get('txt_res_adm1');
         $txt_san_adm1 = $request->request->get('txt_san_adm1');
         $txt_est_adm1 = $request->request->get('txt_est_adm1');
-        $pa1 = new ProcesosAdministrativos();
-        $pa1->setTipo(1);
-        $pa1->setIdInstitucion($cbo_ins_adm1);
-        $pa1->setResolucion($txt_res_adm1);
-        $pa1->setSancion($txt_san_adm1);
-        $pa1->setEstado($txt_est_adm1);
-        $pa1->setPkDatPostulante($dp);
 
+        for ($i = 0; $i < count($cbo_ins_adm1); $i++) {
+            $pa1 = new ProcesosAdministrativos();
+            $pa1->setTipo(1);
+            $pa1->setIdInstitucion($cbo_ins_adm1[$i]);
+            $pa1->setResolucion($txt_res_adm1[$i]);
+            $pa1->setSancion($txt_san_adm1[$i]);
+            $pa1->setEstado($txt_est_adm1[$i]);
+            $pa1->setPkDatPostulante($dp);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pa1);
+            $em->flush();
+        }
 
         $cbo_ins_adm2 = $request->request->get('cbo_ins_adm2');
         $txt_res_adm2 = $request->request->get('txt_res_adm2');
         $txt_san_adm2 = $request->request->get('txt_san_adm2');
-        $pa2 = new ProcesosAdministrativos();
-        $pa2->setTipo(2);
-        $pa2->setIdInstitucion($cbo_ins_adm2);
-        $pa2->setResolucion($txt_res_adm2);
-        $pa2->setSancion($txt_san_adm2);
-        $pa2->setPkDatPostulante($dp);
+        for ($j = 0; $j < count($cbo_ins_adm2); $j++) {
+            $pa2 = new ProcesosAdministrativos();
+            $pa2->setTipo(2);
+            $pa2->setIdInstitucion($cbo_ins_adm2[$j]);
+            $pa2->setResolucion($txt_res_adm2[$j]);
+            $pa2->setSancion($txt_san_adm2[$j]);
+            $pa2->setPkDatPostulante($dp);
 
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($pa2);
+            $em->flush();
+        }
 
         $cbo_ins_adm3 = $request->request->get('cbo_ins_adm3');
         $txt_res_adm3 = $request->request->get('txt_res_adm3');
         $txt_san_adm3 = $request->request->get('txt_san_adm3');
 
-        $pa3 = new ProcesosAdministrativos();
-        $pa3->setTipo(3);
-        $pa3->setIdInstitucion($cbo_ins_adm3);
-        $pa3->setResolucion($txt_res_adm3);
-        $pa3->setSancion($txt_san_adm3);
-        $pa3->setPkDatPostulante($dp);
+        for ($k = 0; $k < count($cbo_ins_adm3); $k++) {
+            $pa3 = new ProcesosAdministrativos();
+            $pa3->setTipo(3);
+            $pa3->setIdInstitucion($cbo_ins_adm3[$k]);
+            $pa3->setResolucion($txt_res_adm3[$k]);
+            $pa3->setSancion($txt_san_adm3[$k]);
+            $pa3->setPkDatPostulante($dp);
+            $em = $c->getDoctrine()->getEntityManager();
 
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($pa1);
-        $em->persist($pa2);
-        $em->persist($pa3);
-        $em->flush();
+            $em->persist($pa3);
+            $em->flush();
+        }
     }
 
     public function insertarProcesosEnPoderJud($c, $request, $dp) {

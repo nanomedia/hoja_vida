@@ -4,15 +4,18 @@
         switch (opcion) {
             case "0":
                 $("#opc").css("display", "none");
-                $("#opc2").css("display", "block");
+                $("#opcn2").css("display", "block");
+               
                 break;
             case "1":
                 $("#opc").css("display", "block");
-                $("#opc2").css("display", "block");
+                $("#opcn2").css("display", "block");
+               
                 break;
             default :
                 $("#opc").css("display", "none");
-                $("#opc2").css("display", "none");
+                $("#opcn2").css("display", "none");
+                break;
         }
 
     });
@@ -41,23 +44,19 @@
     function add_row_ddp() {
         var new_row = '<tr>';
         new_row += '<td></td>';
-        new_row += '<td><input name="txt_num_exp[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_ddas[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_ddae[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_materia[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_espec[]" class="row-edit" type="text"></td>';
-        new_row += '<td align="center"><input name="txt_cal1[]" class="numeric nota" size="5" value="0" type="text"></td>';
-        new_row += '<td align="center"><input name="txt_cal2[]" class="numeric nota" size="5" value="0" type="text"></td>';
+        new_row += '<td><textarea name="txt_num_exp[]" class="info_textarea" ></textarea></td>';
+        new_row += '<td><textarea name="txt_ddas[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><textarea name="txt_ddae[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><textarea name="txt_materia[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><select name="txt_espec[]" class="opt_especialidad"></select></td>';
+        new_row += '<td align="center"><select name="txt_cal1[]" class="opt_nota"></select></td>';
+        new_row += '<td align="center"><select name="txt_cal2[]" class="opt_nota"></select></td>';
         new_row += '<td align="center"><input type="button" class="remove_row_ddp menos" value="-" ></td>';
         new_row += '</tr>';
 
         $("#doc_des_profesional tbody").append(new_row);
-        $(".numeric").numeric();
-        $( ".nota" ).spinner({
-            min: 0,
-            max: 20,
-          });
-          
+        opt_nota();
+        especialidad();  
        $(".menos").button();   
 
     }
@@ -88,14 +87,14 @@
         var new_row = '<tr>';
 
         new_row += '<td></td>';
-        new_row += '<td><input name="txt_cal_numExp[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_tipResolucion[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_fechaRes[]" class="row-edit datepicker" type="text"></td>';
-        new_row += '<td><input name="txt_cal_ddagraviado[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>';
-        new_row += '<td><input name="txt_cal_especialidad[]" class="row-edit" type="text"></td>';
-        new_row += '<td align="center"><input name="txt_cal_nota[]" class="numeric nota" size="5" value="0"  type="text"></td>';
+        new_row += '<td><textarea name="txt_cal_numExp[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><textarea name="txt_cal_tipResolucion[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><input name="txt_cal_fechaRes[]" class="datepicker" type="text" size="10"></td>';
+        new_row += '<td><textarea name="txt_cal_ddagraviado[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><textarea name="txt_cal_ddagresor[]" class="info_textarea" ></textarea></td>';
+        new_row += '<td><textarea name="txt_cal_materia[]" class="info_textarea"></textarea></td>';
+        new_row += '<td><select name="txt_cal_especialidad[]" class="opt_especialidad"></select></td>';
+        new_row += '<td align="center"><select name="txt_cal_nota[]" class="opt_nota"></select></td>';
         new_row += '<td align="center"><input class="remove_row_cdj menos" type="button" value="-"></td>';
 
         new_row += '</tr>';
@@ -127,14 +126,9 @@
         changeYear: true,
         yearRange: '-110:-18'
     });
-    
-    $(".numeric").numeric();
-        $( ".nota" ).spinner({
-            min: 0,
-            max: 20,
-          });
-          
-       $(".menos").button();   
+    opt_nota();
+    especialidad();
+     $(".menos").button();   
 
 
     }
@@ -228,43 +222,112 @@
     var anio = (parseInt(d.getFullYear()));
     var temp_anio = anio - 5;
     var contentLic = "";
+    var cont=0;
     for (temp_anio; temp_anio < anio; temp_anio++) {
-        //console.log(temp_anio);
+        
         var html = '<tr><td align="center"><input name="hd_anio[]" type="hidden" value="' + temp_anio + '"><b>' + temp_anio + '</b></td><td>Enfermedad</td>';
-        html += '<td><input name="txt_enfermedad[]" class="numeric dias" type="text" size="5" value="0"></td>';
-        html += '<td rowspan="6" align="center"><input name="txt_total_lic[]" class="numeric dias" type="text" ></td>';
+        html += '<td><input name="txt_enfermedad[]" class="txt_sum_lic'+cont+' row-edit numeric" type="text" size="5" value="0"></td>';
+        html += '<td rowspan="6" align="center"><input name="txt_total_lic[]" class="txt_total_lic'+cont+' total_lic" type="hidden"><label class="lbl_total_lic'+cont+'"><b>0</b></label></td>';
         html += '</tr><tr><td></td>';
         html += '<td>Vacaciones</td>';
-        html += '<td><input name="txt_vacaciones[]" class="numeric dias" type="text" size="5" value="0"></td>';
+        html += '<td><input name="txt_vacaciones[]" class="txt_sum_lic'+cont+' row-edit numeric" type="text" size="5" value="0"></td>';
         html += '</tr><tr>';
         html += '<td></td>';
         html += '<td>Capacitación</td>';
-        html += '<td><input name="txt_capacitacion[]" class="numeric dias" type="text" size="5" value="0"></td>';
+        html += '<td><input name="txt_capacitacion[]" class="txt_sum_lic'+cont+' row-edit numeric" type="text" size="5" value="0"></td>';
         html += '</tr><tr>';
         html += '<td></td>';
         html += '<td>Onomástico</td>';
-        html += '<td><input name="txt_onomastico[]" type="text" class="numeric dias" size="5" value="0"></td>';
+        html += '<td><input name="txt_onomastico[]" type="text" class="txt_sum_lic'+cont+' row-edit numeric" size="5" value="0"></td>';
         html += '</tr>';
         html += '<tr>';
         html += '    <td></td>';
         html += '    <td>Lic. Con Goce de haber</td>';
-        html += '    <td><input name="txt_lic_goce[]" type="text" class="numeric dias"size="5" value="0"></td>';
+        html += '    <td><input name="txt_lic_goce[]" type="text" class="txt_sum_lic'+cont+' row-edit numeric"size="5" value="0"></td>';
         html += ' </tr><tr>';
         html += '<td></td>';
         html += '<td>Motivos personales</td>';
-        html += '<td><input name="txt_mot_personales[]" type="text" class="numeric dias" size="5" value="0"></td>';
+        html += '<td><input name="txt_mot_personales[]" type="text" class="txt_sum_lic'+cont+' row-edit numeric" size="5" value="0"></td>';
         html += '</tr>';
 
         contentLic += html;
+        cont++;
     }
     var total = '  <tr>';
-    total += '<td align="center"><b>TOTAL</b></td>';
-    total += '<td colspan="2"></td>';
-    total += '<td><input type="text" class="row-edit"></td>';
+    total += '<td align="right" colspan="3"><b>TOTAL:</b></td>';
+    total += '<td align="center"><input type="hidden" class="row-edit"><label id="lic_total"></label></td>';
     total += '</tr>';
     $("#lic-otrogadas").append(contentLic + total);
     $(".numeric").numeric();
-    $( ".dias" ).spinner();
 
 }
 addLicOtorgadas();
+
+function opt_nota(){
+    var opt="<option value='0'>-Elija-</option>";
+    for(var i=1;i<=20;i++){
+    opt+="<option value='"+i+"'>"+i+"</option>";
+    }
+    opt+="<option value='21'>NP</option>";
+    opt+="<option value='21'>EX</option>";
+    
+ $(".opt_nota").html(opt);
+ }
+ function especialidad(){
+    var esp='<option value="0">-Elija-</option>';
+    esp+='<option value="1">Penal</option>';
+    esp+='<option value="2">Civil</option>';
+    esp+='<option value="3">Contencioso</option>';
+    esp+='<option value="4">Laboral</option>';
+ $(".opt_especialidad").html(esp);
+ }
+ opt_nota();
+ especialidad();
+ 
+ $("#lic-otrogadas").delegate(".txt_sum_lic0", "keyup", function() {
+         func_txt_sum_lic(".txt_sum_lic0",".txt_total_lic0",".lbl_total_lic0");
+         suma_total();
+ });
+ $("#lic-otrogadas").delegate(".txt_sum_lic1", "keyup", function() {
+         func_txt_sum_lic(".txt_sum_lic1",".txt_total_lic1",".lbl_total_lic1");
+         suma_total();
+ });
+ $("#lic-otrogadas").delegate(".txt_sum_lic2", "keyup", function() {
+         func_txt_sum_lic(".txt_sum_lic2",".txt_total_lic2",".lbl_total_lic2");
+         suma_total();
+ });
+ $("#lic-otrogadas").delegate(".txt_sum_lic3", "keyup", function() {
+         func_txt_sum_lic(".txt_sum_lic3",".txt_total_lic3",".lbl_total_lic3");
+         suma_total();
+ });
+ $("#lic-otrogadas").delegate(".txt_sum_lic4", "keyup", function() {
+         func_txt_sum_lic(".txt_sum_lic4",".txt_total_lic4",".lbl_total_lic4");
+         suma_total();
+ });
+
+function func_txt_sum_lic(txt_lic,total_lic,lbl_total_lic) {
+    var sum = 0;
+    for (var i = 0; i < $(txt_lic).size(); i++) {
+        if ($(txt_lic).eq(i).val() === "") {
+            $(txt_lic).eq(i).val(0);
+        }
+        $(txt_lic).eq(i).val(parseInt($(txt_lic).eq(i).val()));
+        sum += parseInt($(txt_lic).eq(i).val());
+    }
+    $(total_lic).val(sum);
+    $(lbl_total_lic).html("<b>"+sum+"</b>");
+    
+}
+
+function suma_total(){
+   var sum=0;
+    for (var i = 0; i < $(".total_lic").size(); i++) {
+    
+       if ($(".total_lic").eq(i).val() === "") {
+            $(".total_lic").eq(i).val(0);
+        }
+        $(".total_lic").eq(i).val(parseInt($(".total_lic").eq(i).val()));
+        sum += parseInt($(".total_lic").eq(i).val());
+  }
+  $("#lic_total").html("<b>"+sum+" dias</b>");
+}    

@@ -5,32 +5,32 @@
     </label>
 </h3>
 <div>
-    <table width="80%" class="table ui-widget ui-widget-content">
-
+    <div  class="add-icon" id="add_pro_ad_pub_gen" >Nueva fila</div><br><br>
+    <table width="80%" id="table_pro_ad_pub_gen" class="table ui-widget ui-widget-content">
         <thead>
-
             <tr class="ui-widget-header">
                 <th>Institución </th>
                 <th>Resolución</th>
                 <th>Sanción</th>
                 <th>Estado</th>
+                <th width="50px"></th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <select name="cbo_ins_adm1">
+                    <select name="cbo_ins_adm1[]">
+                        <option value="0">-Elegir-</option>
                         <option value="1">PJ</option>
                         <option value="2">MP</option>
                         <option value="3">Otra Instituci&oacute;n</option>
                     </select>
                 </td>
-                <td><input type="text" name="txt_res_adm1" class="row-edit"></td>
-                <td><input type="text" name="txt_san_adm1" class="row-edit"></td>
-                <td><input type="text" name="txt_est_adm1" class="row-edit"></td>
-
+                <td><textarea type="text" name="txt_res_adm1[]" class="info_textarea"></textarea></td>
+                <td><textarea type="text" name="txt_san_adm1[]" class="info_textarea"></textarea></td>
+                <td><textarea type="text" name="txt_est_adm1[]" class="info_textarea"></textarea></td>
+                <td></td>
             </tr>
-
         </tbody>
     </table>
 </div>
@@ -40,29 +40,30 @@
     </label>
 </h3>
 <div>
-    <table  width="80%" class="table ui-widget ui-widget-content">
-
+    <div  class="add-icon" id="add_sanciones_admin_pub" >Nueva fila</div><br><br>
+    <table  width="80%" id="table_sanciones_admin_pub" class="table ui-widget ui-widget-content">
         <thead>
-
             <tr class="ui-widget-header">
                 <th>Institución </th>
                 <th>Resolución</th>
                 <th>Sanci&oacute;n</th>
+                <th width="50px"></th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <select name="cbo_ins_adm2">
+                    <select name="cbo_ins_adm2[]">
+                        <option value="0">-Elegir-</option>
                         <option value="1">PJ</option>
                         <option value="2">MP</option>
                         <option value="4">SERVIR</option>
                     </select>
                 </td>
 
-                <td><input type="text" name="txt_res_adm2" class="row-edit"></td>
-                <td><input type="text" name="txt_san_adm2" class="row-edit"></td>
-
+                <td><textarea type="text" name="txt_res_adm2[]" class="info_textarea"></textarea></td>
+                <td><textarea type="text" name="txt_san_adm2[]" class="info_textarea"></textarea></td>
+                <td></td>
             </tr>
 
         </tbody>
@@ -74,7 +75,8 @@
     </label>
 </h3>
 <div>
-    <table width="80%" class="table ui-widget ui-widget-content">
+    <div  class="add-icon" id="add_med_disc_pod_jud" >Nueva fila</div><br><br>
+    <table width="80%" id="table_med_disc_pod_jud" class="table ui-widget ui-widget-content">
 
         <thead>
 
@@ -82,19 +84,21 @@
                 <th>Institución </th>
                 <th>Sanci&oacute;n</th>                                    
                 <th>Expediente, Resoluci&oacute;n y Motivo</th>
+                <th width="50px"></th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <select name="cbo_ins_adm3">
+                    <select name="cbo_ins_adm3[]">
+                        <option value="0">-Elegir-</option>
                         <option value="1">MP</option>
                         <option value="2">PJ</option>
                     </select>
                 </td>
-                <td><input type="text" name="txt_san_adm3" class="row-edit"></td>
-                <td><input type="text" name="txt_res_adm3" class="row-edit"></td>
-
+                <td><textarea type="text" name="txt_san_adm3[]" class="info_textarea"></textarea></td>
+                <td><textarea type="text" name="txt_res_adm3[]" class="info_textarea"></textarea></td>
+                <td></td>
             </tr>
 
         </tbody>

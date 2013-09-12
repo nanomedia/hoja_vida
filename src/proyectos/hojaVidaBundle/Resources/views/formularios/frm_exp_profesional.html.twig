@@ -16,11 +16,11 @@
                 <tr>
                     <td >
                         <div id="add_row_ddp" class="add-icon" >Nueva fila</div><br><br>
-                        <table  id="doc_des_profesional" width="80%" class="table ui-widget ui-widget-content">
+                        <table  id="doc_des_profesional" width="95%" class="table ui-widget ui-widget-content">
                             <thead>
                                 <tr class="ui-widget-header">
                                     <th width="40px">N°</th>
-                                    <th width="100px">N° Exp.</th>
+                                    <th width="90px" >N° Exp.</th>
                                     <th>Demandante/<br>Denunciante/<br>Agraviado/<br>Solicitante</th>
                                     <th>Demandado/<br>Denunciado/<br>Agresor/<br>Entidad</th>
                                     <th>Materia</th>
@@ -33,13 +33,19 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td><input name="txt_num_exp[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_ddas[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_ddae[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_materia[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_espec[]" class="row-edit" type="text"></td>
-                                    <td align="center"><input name="txt_cal1[]" class="numeric nota" size="5" value="0" type="text"></td>
-                                    <td align="center"><input name="txt_cal2[]" class="numeric nota" size="5" value="0" type="text"></td>
+                                    <td><textarea name="txt_num_exp[]" class="info_textarea" ></textarea></td>
+                                    <td><textarea name="txt_ddas[]" class="info_textarea"></textarea></td>
+                                    <td><textarea name="txt_ddae[]" class="info_textarea"></textarea></td>
+                                    <td><textarea name="txt_materia[]" class="info_textarea"></textarea></td>
+                                    <td>
+                                        <select name="txt_espec[]" class="opt_especialidad"></select>
+                                    </td>
+                                    <td align="center">
+                                        <select name="txt_cal1[]" class="opt_nota"></select>
+                                    </td>
+                                    <td align="center">
+                                        <select name="txt_cal2[]" class="opt_nota"></select>
+                                    </td>
                                     <td></td>
                                 </tr>
 
@@ -79,15 +85,15 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <div>    
-                                        <span id="opc2">
+                                     
+                                        <div id="opcn2">
                                             Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
-                                        </span>
-                                        <select name="cbo-resp3">
+                                        </div>
+                                        <!--<select name="cbo-resp3" class="cbo-resp3" style="display:none;">
                                             <option value="Aún no ha sido objeto de Proceso de Ratificación">Aún no ha sido objeto de Proceso de Ratificación</option>
                                             <option value="En convocatoria">En convocatoria</option>
-                                        </select>
-                                    </div>
+                                        </select>-->
+                                    
                                 </td>
                             </tr>
                         </table>
@@ -105,13 +111,13 @@
                 <tr>
                     <td>
                         <div id="add_row_cdj" class="add-icon" >Nueva fila</div><br><br>
-                        <table id="calidad_des_jud" width="80%" class="table ui-widget ui-widget-content">
+                        <table id="calidad_des_jud" width="95%" class="table ui-widget ui-widget-content">
                             <thead>
                                 <tr class="ui-widget-header">
                                     <th width="40px">N°</th>
-                                    <th width="100px">N° Exp.</th>
+                                    <th>N° Exp.</th>
                                     <th>Tipo de Resolución</th>
-                                    <th width="100px">Fecha de Res.</th>
+                                    <th >Fecha de Res.</th>
                                     <th>Demandante/<br>Denunciante/<br>Agraviado</th>
                                     <th>Demandado/<br>Denunciado/<br>Agresor</th>
                                     <th>Materia</th>
@@ -123,14 +129,14 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td><input name="txt_cal_numExp[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal_tipResolucion[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal_fechaRes[]" class="row-edit datepicker" type="text"></td>
-                                    <td><input name="txt_cal_ddagraviado[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal_ddagresor[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal_materia[]" class="row-edit" type="text"></td>
-                                    <td><input name="txt_cal_especialidad[]" class="row-edit" type="text"></td>
-                                    <td align="center"><input name="txt_cal_nota[]" class="numeric nota" size="5" value="0" type="text"></td>
+                                    <td><textarea name="txt_cal_numExp[]" class="info_textarea"></textarea></td>
+                                    <td><textarea name="txt_cal_tipResolucion[]" class="info_textarea"></textarea></td>
+                                    <td><input name="txt_cal_fechaRes[]" class="datepicker" type="text" size="10"></td>
+                                    <td><textarea name="txt_cal_ddagraviado[]" class="info_textarea"></textarea></td>
+                                    <td><textarea name="txt_cal_ddagresor[]" class="info_textarea" ></textarea></td>
+                                    <td><textarea name="txt_cal_materia[]" class="info_textarea"></textarea></td>
+                                    <td><select name="txt_cal_especialidad[]" class="opt_especialidad"></select></td>
+                                    <td align="center"><select name="txt_cal_nota[]" class="opt_nota"></select></td>
                                     <td></td>
                                 </tr>
 
@@ -148,7 +154,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input name="situacion_laboral_actual" type="text" class="textbox">
+                        <textarea name="situacion_laboral_actual" class="text-area"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -311,31 +317,31 @@
                 <tr>
                     <td>
                         Libros o textos Universitarios:<br>
-                        <input  name="txt_ltUni" type="text" class="textbox">
+                        <textarea  name="txt_ltUni" class="text-area"></textarea>
                     </td>                                    
                 </tr>
                 <tr>
                     <td>
                         Investigaciones Jurídicas Doctrinarias o de Campo:<br>
-                        <input name="txt_invJurDoc" type="text" class="textbox">
+                        <textarea name="txt_invJurDoc" class="text-area"></textarea>
                     </td>                                    
                 </tr>
                 <tr>
                     <td>
                         Ensayos en materia Jurídica:<br>
-                        <input name="txt_EnMaJur" type="text" class="textbox">
+                        <textarea name="txt_EnMaJur" class="text-area"></textarea>
                     </td>                                    
                 </tr>
                 <tr>
                     <td>
                         Artículos en materia Jurídica:<br>
-                        <input name="txt_amJur" type="text" class="textbox">
+                        <textarea name="txt_amJur" class="text-area"></textarea>
                     </td>                                    
                 </tr>
                 <tr>
                     <td>
                         Artículos en materia No Jurídica:<br>
-                        <input name="txtamNoJur" type="text" class="textbox">
+                        <textarea name="txtamNoJur" class="text-area"></textarea>
                     </td>                                    
                 </tr>
                 <tr>
