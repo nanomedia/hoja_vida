@@ -85,15 +85,10 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                     
-                                        <div id="opcn2">
-                                            Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
-                                        </div>
-                                        <!--<select name="cbo-resp3" class="cbo-resp3" style="display:none;">
-                                            <option value="Aún no ha sido objeto de Proceso de Ratificación">Aún no ha sido objeto de Proceso de Ratificación</option>
-                                            <option value="En convocatoria">En convocatoria</option>
-                                        </select>-->
-                                    
+
+                                    <div id="opcn2">
+                                        Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
+                                    </div>
                                 </td>
                             </tr>
                         </table>
@@ -275,8 +270,9 @@
                                                 <td>
                                                     <div id="rad-condicion">
                                                         <select name="cbo_condicion_docuni[]">
-                                                            <option value="Nombrado">Nombrado</option>
-                                                            <option value="Contratado">Contratado</option>
+                                                            <option value="0">-ELEGIR-</option>
+                                                            <option value="1">Nombrado</option>
+                                                            <option value="2">Contratado</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -285,9 +281,10 @@
                                                 <td class="ui-widget-header">Categoria</td>
                                                 <td>
                                                     <select name="cbo_categoria_docuni[]">
-                                                        <option value="Principal">Principal</option>
-                                                        <option value="Asociado">Asociado</option>
-                                                        <option value="Auxiliar">Auxiliar</option>
+                                                        <option value="0">-ELEGIR-</option>
+                                                        <option value="1">Principal</option>
+                                                        <option value="2">Asociado</option>
+                                                        <option value="3">Auxiliar</option>
                                                     </select> 
                                                 </td>
                                             </tr>
@@ -350,8 +347,9 @@
                             7. Producción Jurisdiccional o Fiscal:
                         </label>
                         <select name="cbo_JurFis">
-                            <option value="PODER JUDICIAL">PODER JUDICIAL</option>
-                            <option value="MINISTERIO P&Uacute;BLICO">MINISTERIO P&Uacute;BLICO</option>
+                            <option value="0">-ELEGIR-</option>
+                            <option value="1">PODER JUDICIAL</option>
+                            <option value="2">MINISTERIO P&Uacute;BLICO</option>
                         </select>
                     </td>                                    
                 </tr>

@@ -183,8 +183,9 @@
         new_row += '            <td>';
         new_row += '                <div id="rad-condicion">';
         new_row += '                    <select name="cbo_condicion_docuni[]">';
-        new_row += '                        <option value="Nombrado">Nombrado</option>';
-        new_row += '                        <option value="Contratado">Contratado</option>';
+        new_row += '                       <option value="0">-ELEGIR-</option>';
+        new_row += '                       <option value="1">Nombrado</option>';
+        new_row += '                       <option value="2">Contratado</option>';
         new_row += '                    </select>';
         new_row += '                </div>';
         new_row += '            </td>';
@@ -193,9 +194,10 @@
         new_row += '            <td class="ui-widget-header">Categoria</td>';
         new_row += '            <td>';
         new_row += '                <select name="cbo_categoria_docuni[]">';
-        new_row += '                    <option value="Principal">Principal</option>';
-        new_row += '                    <option value="Asociado">Asociado</option>';
-        new_row += '                    <option value="Auxiliar">Auxiliar</option>';
+        new_row += '                     <option value="0">-ELEGIR-</option>';
+        new_row += '                     <option value="1">Principal</option>';
+        new_row += '                     <option value="2">Asociado</option>';
+        new_row += '                     <option value="3">Auxiliar</option>';
         new_row += '                </select> ';
         new_row += '            </td>';
         new_row += '        </tr>';
@@ -264,7 +266,7 @@
 addLicOtorgadas();
 
 function opt_nota(){
-    var opt="<option value='0'>-Elija-</option>";
+    var opt="<option value='0'>-ELEGIR-</option>";
     for(var i=1;i<=20;i++){
     opt+="<option value='"+i+"'>"+i+"</option>";
     }
@@ -274,7 +276,7 @@ function opt_nota(){
  $(".opt_nota").html(opt);
  }
  function especialidad(){
-    var esp='<option value="0">-Elija-</option>';
+    var esp='<option value="0">-ELEGIR-</option>';
     esp+='<option value="1">Penal</option>';
     esp+='<option value="2">Civil</option>';
     esp+='<option value="3">Contencioso</option>';

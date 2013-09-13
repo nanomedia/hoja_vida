@@ -7,25 +7,29 @@
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>
                     <td>
-                        <table width="80%" class="table ui-widget ui-widget-content">
+                        <div  class="add-icon" id="add_mov_migratorio" >Nueva fila</div><br><br>
+                        <table width="80%" id="table_mov_migratorio" class="table ui-widget ui-widget-content">
                             <thead>
 
                                 <tr class="ui-widget-header">
-                                    <th  align="center">Movimiento</th>
-                                    <th  align="center">Fecha</th>
+                                    <th  width="100px" align="center">Movimiento</th>
+                                    <th  width="100px" align="center">Fecha</th>
                                     <th  align="center">Destino / Procedencia</th>
+                                    <th width="50px"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Entrada<input name="txt_tipo[]" value="1" type="hidden" ></td>
+                                    <td align="center">
+                                        <select name="txt_tipo[]">
+                                            <option value="0">-ELEGIR-</option>
+                                            <option value="1">ENTRADA</option>
+                                            <option value="2">SALIDA</option>
+                                        </select>
+                                    </td>
                                     <td><input name="txt_fecha[]" type="text" class="row-edit datepicker"></td>
                                     <td><input name="txt_destino[]" type="text" class="row-edit"></td>
-                                </tr>
-                                <tr>
-                                    <td>Salida<input name="txt_tipo[]" value="2" type="hidden" ></td>
-                                    <td><input name="txt_fecha[]" type="text" class="row-edit datepicker"></td>
-                                    <td><input name="txt_destino[]" type="text" class="row-edit"></td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>

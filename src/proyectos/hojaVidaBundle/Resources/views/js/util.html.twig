@@ -94,6 +94,7 @@
     function comboUniv() {
         var obj = $.parseJSON(universidades);
         var option_univ = "";
+        option_univ += "<option value='0'>-ELEGIR-</option>";
         for (var i in obj) {
             option_univ += "<option value='" + obj[i] + "'>" + obj[i] + "</option>";
         }
@@ -122,10 +123,10 @@
         var obj_col = jQuery.parseJSON(colegios);
 
         var option_col = "";
+            option_col += "<option value='0'>-ELEGIR-</option>";
         for (var j in obj_col) {
             option_col += "<option value='" + obj_col[j] + "'>" + obj_col[j] + "</option>";
         }
-
         $(".combo_colegios").html(option_col);
     }
     comboColegio();
@@ -135,6 +136,7 @@
         var anio = date.getFullYear();
         var ini = parseInt(anio) - 60;
         var option_year = "";
+        option_year +="<option value='0'>-ELEGIR-</option>";
         for (anio; anio > ini; anio--) {
             option_year += "<option value='" + anio + "'>" + anio + "</option>";
         }

@@ -63,4 +63,20 @@ DatosPersonales:
             fixed: false
             nullable: true
             column: FOTO
+        usuarioAudt:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: USUARIO_AUDT
+        fechaAudt:
+            type: datetime
+            nullable: true
+            column: FECHA_AUDT
+        ipAudt:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: IP_AUDT
     lifecycleCallbacks: {  }

@@ -34,6 +34,22 @@ OtrasDisciplinas:
             fixed: false
             nullable: true
             column: ANIO
+        usuarioAudt:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: USUARIO_AUDT
+        fechaAudt:
+            type: datetime
+            nullable: true
+            column: FECHA_AUDT
+        ipAudt:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: IP_AUDT
     manyToOne:
         pkDatAcademicos:
             targetEntity: DatosAcademicos

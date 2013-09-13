@@ -1,10 +1,10 @@
 
     var num_rows_docderecho = 0;
     $("#add_docderecho").click(function() {
-        if (num_rows_docderecho < 4) {
+        
             num_rows_docderecho++;
             add_rows_docderecho();
-        }
+        
     });
     $("#tableDocDerecho").delegate(".remove_docderecho", "click", function() {
         if (num_rows_docderecho > 0) {
@@ -32,9 +32,10 @@
         new_row += '             <td class="ui-widget-header">Nivel:</td>';
         new_row += '             <td>';
         new_row += '                 <select name="cbo_nivel_doc[]">';
-        new_row += '                     <option>TITULADO</option>';
-        new_row += '                     <option>EGRESADO</option>';
-        new_row += '                     <option>ESTUDIOS INCOMPLETOS</option>';
+        new_row += '                     <option value="0">-ELEGIR-</option>';
+        new_row += '                     <option value="1">TITULADO</option>';
+        new_row += '                     <option value="2">EGRESADO</option>';
+        new_row += '                     <option value="3">ESTUDIOS INCOMPLETOS</option>';
         new_row += '                 </select>';
         new_row += '             </td>';
         new_row += '         </tr>';
@@ -60,11 +61,11 @@
     }
     var num_rows_maederecho = 0;
     $("#add_maederecho").click(function() {
-        if (num_rows_maederecho < 4) {
+       
             num_rows_maederecho++;
             add_rows_maederecho();
             
-        }
+        
     });
 
     $("#tableMaeDerecho").delegate(".remove_MaeDerecho", "click", function() {
@@ -91,9 +92,10 @@
         new_row += '                         <td class="ui-widget-header">Nivel:</td>';
         new_row += '                         <td>';
         new_row += '                             <select name="cbo_nivel_mae[]">';
-        new_row += '                                 <option>TITULADO</option>';
-        new_row += '                                 <option>EGRESADO</option>';
-        new_row += '                                 <option>ESTUDIOS INCOMPLETOS</option>';
+        new_row += '                               <option value="0">-ELEGIR-</option>';
+        new_row += '                               <option value="1">TITULADO</option>';
+        new_row += '                               <option value="2">EGRESADO</option>';
+        new_row += '                               <option value="3">ESTUDIOS INCOMPLETOS</option>';
         new_row += '                             </select>';
         new_row += '                         </td>';
         new_row += '                     </tr>';
@@ -115,6 +117,55 @@
         comboanio();
         $(".menos").button(); 
     }
+    
+    
+    var num_MaeDerOtrasDisc = 0;
+                $("#add_MaeDerOtrasDisc").click(function() {
+                   
+                        num_MaeDerOtrasDisc++;
+                        add_MaeDerOtrasDisc();
+
+                    
+                });
+
+                $("#tableMaeDerOtrasDisc").delegate(".remove_MaeDerOtrasDisc", "click", function() {
+                    if (num_MaeDerOtrasDisc > 0) {
+                        var row_position = ($(".remove_MaeDerOtrasDisc").index($(this)) + 1);
+                        $(".rowMaeDerOtrasDisc").eq(row_position).remove();
+                        num_MaeDerOtrasDisc--;
+                    }
+                });
+
+                function add_MaeDerOtrasDisc() {
+                    var new_row = '<tr class="rowMaeDerOtrasDisc">';
+                        new_row += '<td><table width="70%" class="table ui-widget ui-widget-content" style="margin-bottom: 35px;">';
+                        new_row += '<tr><td width="110px" class="ui-widget-header">Universidad:</td>';
+                        new_row += '<td><select name="cbo_universidad_otras[]" class="combo-univ"></select>';
+                        new_row += '</td>';
+                        new_row += '</tr>';
+                        new_row += '<tr><td class="ui-widget-header">Nivel:</td>';
+                        new_row += '<td><select name="cbo_nivel_otras[]">';
+                        new_row += '<option value="0">-ELEGIR-</option>';
+                        new_row += '<option value="1">TITULADO</option>';
+                        new_row += '<option value="2">EGRESADO</option>';
+                        new_row += '<option value="3">ESTUDIOS INCOMPLETOS</option>';
+                        new_row += '</select>';
+                        new_row += '</td></tr>';
+                        new_row += '<tr><td class="ui-widget-header">Mensi&oacute;n:</td>';
+                        new_row += '<td><input name="txt_mencion_otras[]" type="text" class="row-edit"></td>';
+                        new_row += '</tr><tr>';
+                        new_row += '<td class="ui-widget-header">A&ntilde;o:</td>';
+                        new_row += '<td> <select name="cbo_anio_otras[]" class="cbo_anio"></select></td>';
+                        new_row += '</tr></table> ';
+                        new_row += '</td><td><input type="button" class="remove_MaeDerOtrasDisc menos" value="-"></td></tr>';
+
+                    $("#bodyMaeDerOtrasDisc").append(new_row);
+                    comboUniv();
+                    comboanio();
+                    $(".menos").button();
+                }
+
+
 
 
    

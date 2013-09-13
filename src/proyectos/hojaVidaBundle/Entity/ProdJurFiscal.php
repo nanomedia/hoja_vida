@@ -43,6 +43,27 @@ class ProdJurFiscal
     private $pkExpProfesional;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -131,6 +152,75 @@ class ProdJurFiscal
     public function getPkExpProfesional()
     {
         return $this->pkExpProfesional;
+    }
+
+    /**
+     * Set usuarioAudt
+     *
+     * @param string $usuarioAudt
+     * @return ProdJurFiscal
+     */
+    public function setUsuarioAudt($usuarioAudt)
+    {
+        $this->usuarioAudt = $usuarioAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get usuarioAudt
+     *
+     * @return string 
+     */
+    public function getUsuarioAudt()
+    {
+        return $this->usuarioAudt;
+    }
+
+    /**
+     * Set fechaAudt
+     *
+     * @param \DateTime $fechaAudt
+     * @return ProdJurFiscal
+     */
+    public function setFechaAudt($fechaAudt)
+    {
+        $this->fechaAudt = $fechaAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaAudt
+     *
+     * @return \DateTime 
+     */
+    public function getFechaAudt()
+    {
+        return $this->fechaAudt;
+    }
+
+    /**
+     * Set ipAudt
+     *
+     * @param string $ipAudt
+     * @return ProdJurFiscal
+     */
+    public function setIpAudt($ipAudt)
+    {
+        $this->ipAudt = $ipAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get ipAudt
+     *
+     * @return string 
+     */
+    public function getIpAudt()
+    {
+        return $this->ipAudt;
     }
 
     /**

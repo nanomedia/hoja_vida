@@ -33,6 +33,7 @@ use proyectos\hojaVidaBundle\Entity\MovimientoMigratorio;
 use proyectos\hojaVidaBundle\Entity\InformacionCamaInfo;
 use proyectos\hojaVidaBundle\Entity\InformacionRegistroDe;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use \DateTime;
 
 class Mantenimiento {
 
@@ -48,7 +49,7 @@ class Mantenimiento {
         $id_cod = $request->request->get("id_cod");
         $txt_ex_cono = $request->request->get('txt_ex_cono');
         $afi_curr = $request->request->get('afi_curr');
-
+        $user = $request->request->get('user');
 
         $dpos = new DatosPostulante();
         $dpos->setCargoAPostular($txt_cargoAPostular);
@@ -61,6 +62,13 @@ class Mantenimiento {
         $dpos->setPlazasVacantes($txt_plazasVacantes);
         $dpos->setExamenConocimientos($txt_ex_cono);
         $dpos->setAfiliacionCurricular($afi_curr);
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+        $dpos->setUsuarioAudt($user);
+
+        $dpos->setIpAudt($ip);
+        $dpos->setFechaAudt($hoy);
+
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($dpos);
@@ -76,6 +84,9 @@ class Mantenimiento {
         $convocatoria = $request->request->get('convocatoria');
         $plaza = $request->request->get('plaza');
         $etapa = $request->request->get('etapa');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($convocatoria); $i++) {
 
@@ -84,6 +95,9 @@ class Mantenimiento {
             $conv->setPlaza($plaza[$i]);
             $conv->setEtapa($etapa[$i]);
             $conv->setPkDatPostulante($obj_datos_postulante);
+            $conv->setIpAudt($ip);
+            $conv->setFechaAudt($hoy);
+            $conv->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($conv);
@@ -98,6 +112,7 @@ class Mantenimiento {
         $txt_tituloOtros = $request->request->get('txt_tituloOtros');
         $txt_tesisTitular = $request->request->get('txt_tesisTitular');
         $id_pos = $request->request->get("id_pos");
+        $user = $request->request->get('user');
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         $da = new DatosAcademicos();
@@ -107,6 +122,14 @@ class Mantenimiento {
         $da->setTituloOtros($txt_tituloOtros);
         $da->setTesisTitular($txt_tesisTitular);
         $da->setPkDatPostulante($dp);
+
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
+        $da->setIpAudt($ip);
+        $da->setFechaAudt($hoy);
+        $da->setUsuarioAudt($user);
+
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($da);
@@ -126,7 +149,7 @@ class Mantenimiento {
         $cbo_nivel_doc = $request->request->get('cbo_nivel_doc');
         $txt_mencion_doc = $request->request->get('txt_mencion_doc');
         $cbo_anio_doc = $request->request->get('cbo_anio_doc');
-
+        $user = $request->request->get('user');
         for ($i = 0; $i < count($cbo_universidad_doc); $i++) {
             $dder = new DocDerecho();
             $dder->setUniversidad($cbo_universidad_doc[$i]);
@@ -134,6 +157,12 @@ class Mantenimiento {
             $dder->setMension($txt_mencion_doc[$i]);
             $dder->setAnio($cbo_anio_doc[$i]);
             $dder->setPkDatAcademicos($obj_datos_academicos);
+            $hoy = new DateTime();
+            $ip = $request->getClientIp();
+
+            $dder->setIpAudt($ip);
+            $dder->setFechaAudt($hoy);
+            $dder->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($dder);
@@ -146,6 +175,9 @@ class Mantenimiento {
         $cbo_nivel_mae = $request->request->get('cbo_nivel_mae');
         $txt_mencion_mae = $request->request->get('txt_mencion_mae');
         $cbo_anio_mae = $request->request->get('cbo_anio_mae');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($cbo_universidad_mae); $i++) {
             $mder = new MaeDerecho();
@@ -154,6 +186,9 @@ class Mantenimiento {
             $mder->setMension($txt_mencion_mae[$i]);
             $mder->setAnio($cbo_anio_mae[$i]);
             $mder->setPkDatAcademicos($obj_datos_academicos);
+            $mder->setIpAudt($ip);
+            $mder->setFechaAudt($hoy);
+            $mder->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($mder);
@@ -166,29 +201,44 @@ class Mantenimiento {
         $cbo_nivel_otras = $request->request->get('cbo_nivel_otras');
         $txt_mencion_otras = $request->request->get('txt_mencion_otras');
         $cbo_anio_otras = $request->request->get('cbo_anio_otras');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
-        $otr = new OtrasDisciplinas();
-        $otr->setUniversidad($cbo_universidad_otras);
-        $otr->setNivel($cbo_nivel_otras);
-        $otr->setMension($txt_mencion_otras);
-        $otr->setAnio($cbo_anio_otras);
-        $otr->setPkDatAcademicos($obj_datos_academicos);
+        for ($i = 0; $i < count($cbo_universidad_otras); $i++) {
+            $otr = new OtrasDisciplinas();
+            $otr->setUniversidad($cbo_universidad_otras[$i]);
+            $otr->setNivel($cbo_nivel_otras[$i]);
+            $otr->setMension($txt_mencion_otras[$i]);
+            $otr->setAnio($cbo_anio_otras[$i]);
+            $otr->setPkDatAcademicos($obj_datos_academicos);
+            $otr->setIpAudt($ip);
+            $otr->setFechaAudt($hoy);
+            $otr->setUsuarioAudt($user);
 
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($otr);
-        $em->flush();
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($otr);
+            $em->flush();
+        }
     }
 
     public function insertarMeritosUniversitarios($c, $request, $obj_datos_academicos) {
         $cbo_puesto_meritos = $request->request->get('cbo_puesto_meritos');
         $cbo_anio_meritos = $request->request->get('cbo_anio_meritos');
         $cbo_univ_meritos = $request->request->get('cbo_univ_meritos');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         $me = new MeritosUniv();
         $me->setPuesto($cbo_puesto_meritos);
         $me->setAnio($cbo_anio_meritos);
         $me->setUniversidad($cbo_univ_meritos);
         $me->setPkDatAcademicos($obj_datos_academicos);
+        $me->setIpAudt($ip);
+        $me->setFechaAudt($hoy);
+        $me->setUsuarioAudt($user);
+
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($me);
@@ -218,6 +268,9 @@ class Mantenimiento {
         $txt_espec = $request->request->get('txt_espec');
         $txt_cal1 = $request->request->get('txt_cal1');
         $txt_cal2 = $request->request->get('txt_cal2');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($txt_num_exp); $i++) {
             $ddp = new DocDesProfesional();
@@ -229,6 +282,9 @@ class Mantenimiento {
             $ddp->setCalificacion1($txt_cal1[$i]);
             $ddp->setCalificacion2($txt_cal2[$i]);
             $ddp->setPkDatPostulante($obj_datos_postulante);
+            $ddp->setIpAudt($ip);
+            $ddp->setFechaAudt($hoy);
+            $ddp->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($ddp);
@@ -241,17 +297,33 @@ class Mantenimiento {
         $rad_resp2 = $request->request->get('rad-resp2');
         $txt_resolucion = $request->request->get('txt_resolucion');
         $txt_fec_res = $request->request->get('txt_fec_res');
-        $cbo_resp3 = $request->request->get('cbo-resp3');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $mr = new MagistradoRatificado();
         $mr->setRespuesta1($rad_resp1);
         if ($mr->getRespuesta1() == "0") {
-            $rad_resp2 = null;
+            $mr->setRespuesta2(null);
+            $mr->setResolucion($txt_resolucion);
+            $mr->setFechaRes($txt_fec_res);
         }
-        $mr->setRespuesta2($rad_resp2);
-        $mr->setResolucion($txt_resolucion);
-        $mr->setFechaRes($txt_fec_res);
-        $mr->setRespuesta3($cbo_resp3);
+        if ($mr->getRespuesta1() == "1") {
+            $mr->setRespuesta2($rad_resp2);
+            $mr->setResolucion($txt_resolucion);
+            $mr->setFechaRes($txt_fec_res);
+        }
+        if ($mr->getRespuesta1() == "2" || $mr->getRespuesta1() == "3") {
+            $mr->setRespuesta2(null);
+            $mr->setResolucion(null);
+            $mr->setFechaRes(null);
+        }
+
         $mr->setPkDatPostulante($obj_datos_postulante);
+        $mr->setIpAudt($ip);
+        $mr->setFechaAudt($hoy);
+        $mr->setUsuarioAudt($user);
+
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($mr);
         $em->flush();
@@ -266,7 +338,9 @@ class Mantenimiento {
         $txt_cal_materia = $request->request->get('txt_cal_materia');
         $txt_cal_especialidad = $request->request->get('txt_cal_especialidad');
         $txt_cal_nota = $request->request->get('txt_cal_nota');
-
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($txt_cal_numExp); $i++) {
 
@@ -280,6 +354,11 @@ class Mantenimiento {
             $cal->setEspecialidad($txt_cal_especialidad[$i]);
             $cal->setNota($txt_cal_nota[$i]);
             $cal->setPkDatPostulante($obj_datos_postulante);
+            $cal->setIpAudt($ip);
+            $cal->setFechaAudt($hoy);
+            $cal->setUsuarioAudt($user);
+
+
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($cal);
             $em->flush();
@@ -291,6 +370,9 @@ class Mantenimiento {
         $txtcargo = $request->request->get('txtcargo');
         $txtperiodo = $request->request->get('txtperiodo');
         $situacion_laboral_actual = $request->request->get('situacion_laboral_actual');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($txtctrabajo); $i++) {
             $dl = new DetSituacionLaboral();
@@ -299,6 +381,10 @@ class Mantenimiento {
             $dl->setPeriodo($txtperiodo[$i]);
             $dl->setSituacionLaboral($situacion_laboral_actual);
             $dl->setPkDatPostulante($obj_datos_postulante);
+            $dl->setIpAudt($ip);
+            $dl->setFechaAudt($hoy);
+            $dl->setUsuarioAudt($user);
+
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($dl);
             $em->flush();
@@ -312,6 +398,9 @@ class Mantenimiento {
         $cbo_categoria_docuni = $request->request->get('cbo_categoria_docuni');
         $txt_cursos_docuni = $request->request->get('txt_cursos_docuni');
         $txt_per_docuni = $request->request->get('txt_per_docuni');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($cbo_univ_docuni); $i++) {
             $du = new DocenciaUniversitaria();
@@ -322,6 +411,10 @@ class Mantenimiento {
             $du->setCursos($txt_cursos_docuni[$i]);
             $du->setPeriodo($txt_per_docuni[$i]);
             $du->setPkDatPostulante($obj_datos_postulante);
+            $du->setIpAudt($ip);
+            $du->setFechaAudt($hoy);
+            $du->setUsuarioAudt($user);
+
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($du);
             $em->flush();
@@ -334,6 +427,10 @@ class Mantenimiento {
         $txt_EnMaJur = $request->request->get('txt_EnMaJur');
         $txt_amJur = $request->request->get('txt_amJur');
         $txtamNoJur = $request->request->get('txtamNoJur');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $pu = new Publicaciones();
         $pu->setLibrosTextosUniv($txt_ltUni);
         $pu->setInvJuridicas($txt_invJurDoc);
@@ -341,6 +438,10 @@ class Mantenimiento {
         $pu->setArticulosJuridicos($txt_amJur);
         $pu->setArticulosNoJuridicos($txtamNoJur);
         $pu->setPkDatPostulante($obj_datos_postulante);
+        $pu->setIpAudt($ip);
+        $pu->setFechaAudt($hoy);
+        $pu->setUsuarioAudt($user);
+
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($pu);
         $em->flush();
@@ -349,10 +450,18 @@ class Mantenimiento {
     public function insertarProJurFiscal($c, $request, $obj_datos_postulante) {
         $cbo_JurFis = $request->request->get('cbo_JurFis');
         $text_area_JurFis = $request->request->get('text_area_JurFis');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $pj = new ProdJurFiscal();
         $pj->setRespuesta($cbo_JurFis);
         $pj->setDetRespuesta($text_area_JurFis);
         $pj->setPkDatPostulante($obj_datos_postulante);
+        $pj->setIpAudt($ip);
+        $pj->setFechaAudt($hoy);
+        $pj->setUsuarioAudt($user);
+
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($pj);
         $em->flush();
@@ -368,6 +477,7 @@ class Mantenimiento {
         $txt_onomastico = $request->request->get('txt_onomastico');
         $txt_lic_goce = $request->request->get('txt_lic_goce');
         $txt_mot_personales = $request->request->get('txt_mot_personales');
+        
 
         for ($i = 0; $i < count($hd_anio); $i++) {
             $lc = new LicenciasOtorgadas();
@@ -380,6 +490,8 @@ class Mantenimiento {
             $lc->setLicenciaGoce($txt_lic_goce[$i]);
             $lc->setMotivosPersonales($txt_mot_personales[$i]);
             $lc->setPkDatPostulante($obj_datos_postulante);
+            
+
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($lc);
             $em->flush();
@@ -388,7 +500,6 @@ class Mantenimiento {
 
     public function insertarConducta($c, $request) {
         $id_pos = $request->request->get("id_pos");
-        $dp = new DatosPostulante();
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertarAntecedentes($c, $request, $dp);
         $this->insertarProcesosJudiciales($c, $request, $dp);
@@ -404,18 +515,34 @@ class Mantenimiento {
         $txt_apenales = $request->request->get('txt_apenales');
         $txt_ajudiciales = $request->request->get('txt_ajudiciales');
         $txt_apoliciales = $request->request->get('txt_apoliciales');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $an1 = new Antecedentes();
         $an1->setTipo(0);
         $an1->setDescripcion($txt_apenales);
         $an1->setPkDatPostulante($dp);
+        $an1->setIpAudt($ip);
+        $an1->setFechaAudt($hoy);
+        $an1->setUsuarioAudt($user);
+
         $an2 = new Antecedentes();
         $an2->setTipo(1);
         $an2->setDescripcion($txt_ajudiciales);
         $an2->setPkDatPostulante($dp);
+        $an2->setIpAudt($ip);
+        $an2->setFechaAudt($hoy);
+        $an2->setUsuarioAudt($user);
+
         $an3 = new Antecedentes();
         $an3->setTipo(2);
         $an3->setDescripcion($txt_apoliciales);
         $an3->setPkDatPostulante($dp);
+        $an3->setIpAudt($ip);
+        $an3->setFechaAudt($hoy);
+        $an3->setUsuarioAudt($user);
+
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($an1);
         $em->persist($an2);
@@ -431,6 +558,9 @@ class Mantenimiento {
         $txt_dem_agre_con = $request->request->get('txt_dem_agre_con');
         $txt_materia_con = $request->request->get('txt_materia_con');
         $txt_estado_con = $request->request->get('txt_estado_con');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($txt_exp_con); $i++) {
             $pj = new ProcesosJudiciales();
@@ -441,6 +571,9 @@ class Mantenimiento {
             $pj->setMateria($txt_materia_con[$i]);
             $pj->setEstado($txt_estado_con[$i]);
             $pj->setPkDatPostulante($dp);
+            $pj->setIpAudt($ip);
+            $pj->setFechaAudt($hoy);
+            $pj->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pj);
@@ -458,6 +591,9 @@ class Mantenimiento {
         $txt_res_adm1 = $request->request->get('txt_res_adm1');
         $txt_san_adm1 = $request->request->get('txt_san_adm1');
         $txt_est_adm1 = $request->request->get('txt_est_adm1');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($cbo_ins_adm1); $i++) {
             $pa1 = new ProcesosAdministrativos();
@@ -467,6 +603,9 @@ class Mantenimiento {
             $pa1->setSancion($txt_san_adm1[$i]);
             $pa1->setEstado($txt_est_adm1[$i]);
             $pa1->setPkDatPostulante($dp);
+            $pa1->setIpAudt($ip);
+            $pa1->setFechaAudt($hoy);
+            $pa1->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pa1);
@@ -483,6 +622,9 @@ class Mantenimiento {
             $pa2->setResolucion($txt_res_adm2[$j]);
             $pa2->setSancion($txt_san_adm2[$j]);
             $pa2->setPkDatPostulante($dp);
+            $pa2->setIpAudt($ip);
+            $pa2->setFechaAudt($hoy);
+            $pa2->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pa2);
@@ -500,6 +642,10 @@ class Mantenimiento {
             $pa3->setResolucion($txt_res_adm3[$k]);
             $pa3->setSancion($txt_san_adm3[$k]);
             $pa3->setPkDatPostulante($dp);
+            $pa3->setIpAudt($ip);
+            $pa3->setFechaAudt($hoy);
+            $pa3->setUsuarioAudt($user);
+
             $em = $c->getDoctrine()->getEntityManager();
 
             $em->persist($pa3);
@@ -517,6 +663,9 @@ class Mantenimiento {
 
         $tra_mot_pjud = $request->request->get('tra_mot_pjud');
         $tra_est_pjud = $request->request->get('tra_est_pjud');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($tra_tipo_pjud); $i++) {
             $pp = new ProcesosEnPoderJud();
@@ -529,6 +678,9 @@ class Mantenimiento {
             $pp->setEstadoProc($tra_est_pjud[$i]);
             $pp->setEstado(1);
             $pp->setPkDatPostulante($dp);
+            $pp->setIpAudt($ip);
+            $pp->setFechaAudt($hoy);
+            $pp->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pp);
@@ -553,6 +705,9 @@ class Mantenimiento {
             $pp->setEstadoProc($con_est_pjud[$i]);
             $pp->setEstado(2);
             $pp->setPkDatPostulante($dp);
+            $pp->setIpAudt($ip);
+            $pp->setFechaAudt($hoy);
+            $pp->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pp);
@@ -569,6 +724,9 @@ class Mantenimiento {
 
         $tra_mot_mpub = $request->request->get('tra_mot_mpub');
         $tra_est_mpub = $request->request->get('tra_est_mpub');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($tra_tipo_mpub); $i++) {
             $pe = new ProcesosEnMinPub();
@@ -580,6 +738,9 @@ class Mantenimiento {
             $pe->setEstadoProc($tra_est_mpub[$i]);
             $pe->setEstado(1);
             $pe->setPkDatPostulante($dp);
+            $pe->setIpAudt($ip);
+            $pe->setFechaAudt($hoy);
+            $pe->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pe);
@@ -603,6 +764,10 @@ class Mantenimiento {
             $pe->setEstadoProc($con_est_mpub[$i]);
             $pe->setEstado(2);
             $pe->setPkDatPostulante($dp);
+            $pe->setIpAudt($ip);
+            $pe->setFechaAudt($hoy);
+            $pe->setUsuarioAudt($user);
+
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pe);
             $em->flush();
@@ -613,11 +778,17 @@ class Mantenimiento {
         $id_pos = $request->request->get('id_pos');
         $tdescripcion = $request->request->get('tdescripcion');
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         $io = new InformacionOficinas();
         $io->setIdOficina(1);
         $io->setDescripcion($tdescripcion);
         $io->setPkDatPostulante($dp);
+        $io->setIpAudt($ip);
+        $io->setFechaAudt($hoy);
+        $io->setUsuarioAudt($user);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($io);
@@ -629,12 +800,19 @@ class Mantenimiento {
     public function insertardirecproc($c, $request) {
         $id_pos = $request->request->get('id_pos');
         $tdescripcion = $request->request->get('tdescripcion');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         $io = new InformacionOficinas();
         $io->setIdOficina(2);
         $io->setDescripcion($tdescripcion);
         $io->setPkDatPostulante($dp);
+        $io->setIpAudt($ip);
+        $io->setFechaAudt($hoy);
+        $io->setUsuarioAudt($user);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($io);
@@ -646,12 +824,20 @@ class Mantenimiento {
     public function insertarinfo_colegio($c, $request) {
         $id_pos = $request->request->get('id_pos');
         $tdescripcion = $request->request->get('tdescripcion');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         $io = new InformacionOficinas();
         $io->setIdOficina(3);
         $io->setDescripcion($tdescripcion);
         $io->setPkDatPostulante($dp);
+        $io->setIpAudt($ip);
+        $io->setFechaAudt($hoy);
+        $io->setUsuarioAudt($user);
+
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($io);
@@ -677,12 +863,21 @@ class Mantenimiento {
         $txt_ing_remu = $request->request->get('txt_ing_remu');
         $txt_ing_dietas = $request->request->get('txt_ing_dietas');
         $txt_ing_total = $request->request->get('txt_ing_total');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $in = new Ingresos();
         $in->setAnoEje($txt_ing_anio);
         $in->setRemuneracion($txt_ing_remu);
         $in->setDietas($txt_ing_dietas);
         $in->setTotal($txt_ing_total);
         $in->setPkDatPostulante($dp);
+        $in->setIpAudt($ip);
+        $in->setFechaAudt($hoy);
+        $in->setUsuarioAudt($user);
+
+
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($in);
         $em->flush();
@@ -691,12 +886,18 @@ class Mantenimiento {
     public function insertar_OtrosIngresos($c, $request, $dp) {
         $txt_otr_ing = $request->request->get('txt_otr_ing');
         $txt_otr_val = $request->request->get('txt_otr_val');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($txt_otr_ing); $i++) {
             $oi = new OtrosIngresos();
             $oi->setDescripcion($txt_otr_ing[$i]);
             $oi->setMonto($txt_otr_val[$i]);
             $oi->setPkDatPostulante($dp);
+            $oi->setIpAudt($ip);
+            $oi->setFechaAudt($hoy);
+            $oi->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($oi);
@@ -710,6 +911,9 @@ class Mantenimiento {
         $txt_ubic = $request->request->get('txt_ubic');
         $txt_fec_pat = $request->request->get('txt_fec_pat');
         $txt_monto_pat = $request->request->get('txt_monto_pat');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($txt_tip_patrimonio); $i++) {
             $pa = new Patrimonio();
@@ -719,6 +923,9 @@ class Mantenimiento {
             $pa->setFecha($txt_fec_pat[$i]);
             $pa->setMonto($txt_monto_pat[$i]);
             $pa->setPkDatPostulante($dp);
+            $pa->setIpAudt($ip);
+            $pa->setFechaAudt($hoy);
+            $pa->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pa);
@@ -729,10 +936,18 @@ class Mantenimiento {
     public function insertarPatrimonioOtros($c, $request, $dp) {
         $txt_otr_descrip = $request->request->get('txt_otr_descrip');
         $txt_otr_valor = $request->request->get('txt_otr_valor');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $po = new PatrimonioOtros();
         $po->setDescripcion($txt_otr_descrip);
         $po->setValor($txt_otr_valor);
         $po->setPkDatPostulante($dp);
+        $po->setIpAudt($ip);
+        $po->setFechaAudt($hoy);
+        $po->setUsuarioAudt($user);
+
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($po);
@@ -743,12 +958,18 @@ class Mantenimiento {
         $txt_clase_sis = $request->request->get('txt_clase_sis');
         $txt_enti_sis = $request->request->get('txt_enti_sis');
         $txt_val_sis = $request->request->get('txt_val_sis');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         $sis = new SistemaFinanciero();
         $sis->setClase($txt_clase_sis);
         $sis->setEntidad($txt_enti_sis);
         $sis->setValor($txt_val_sis);
         $sis->setPkDatPostulante($dp);
+        $sis->setIpAudt($ip);
+        $sis->setFechaAudt($hoy);
+        $sis->setUsuarioAudt($user);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($sis);
@@ -759,12 +980,18 @@ class Mantenimiento {
         $txt_nat_acre = $request->request->get('txt_nat_acre');
         $txt_ent_acre = $request->request->get('txt_ent_acre');
         $txt_mon_acre = $request->request->get('txt_mon_acre');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         $ac = new Acreencias();
         $ac->setNaturaleza($txt_nat_acre);
         $ac->setEntidad($txt_ent_acre);
         $ac->setValor($txt_mon_acre);
         $ac->setPkDatPostulante($dp);
+        $ac->setIpAudt($ip);
+        $ac->setFechaAudt($hoy);
+        $ac->setUsuarioAudt($user);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($ac);
@@ -775,6 +1002,9 @@ class Mantenimiento {
         $txt_tipo = $request->request->get('txt_tipo');
         $txt_fecha = $request->request->get('txt_fecha');
         $txt_destino = $request->request->get('txt_destino');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         $id_pos = $request->request->get('id_pos');
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
@@ -785,6 +1015,9 @@ class Mantenimiento {
             $mm->setFecha($txt_fecha[$i]);
             $mm->setDestinoProcedencia($txt_destino[$i]);
             $mm->setPkDatPostulante($dp);
+            $mm->setIpAudt($ip);
+            $mm->setFechaAudt($hoy);
+            $mm->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($mm);
@@ -799,12 +1032,18 @@ class Mantenimiento {
         $txt_descripcion = $request->request->get('txt_descripcion');
         $id_pos = $request->request->get('id_pos');
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
 
         for ($i = 0; $i < count($hd_tipo); $i++) {
             $ic = new InformacionCamaInfo();
             $ic->setTipo($hd_tipo[$i]);
             $ic->setDescripcion($txt_descripcion[$i]);
             $ic->setPkDatPostulante($dp);
+            $ic->setIpAudt($ip);
+            $ic->setFechaAudt($hoy);
+            $ic->setUsuarioAudt($user);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($ic);
@@ -816,12 +1055,20 @@ class Mantenimiento {
         $txt_deu = $request->request->get('txt_deu');
         $txt_com = $request->request->get('txt_com');
         $id_pos = $request->request->get('id_pos');
+        $user = $request->request->get('user');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
         $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $ir = new InformacionRegistroDe();
 
         $ir->setDeudoresAlimentarios($txt_deu);
         $ir->setComplementaria($txt_com);
         $ir->setPkDatPostulante($dp);
+        $ir->setIpAudt($ip);
+        $ir->setFechaAudt($hoy);
+        $ir->setUsuarioAudt($user);
+
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($ir);
         $em->flush();

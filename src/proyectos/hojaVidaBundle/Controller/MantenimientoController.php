@@ -14,8 +14,8 @@ class MantenimientoController extends Controller {
      * @Route("/index/{dni}",name="_index")
      */
     public function indexAction($dni) {
-
-        return $this->render('hojaVidaBundle:principal:index.html.twig',array("dni"=>$dni));
+        $usuario="prueba";
+        return $this->render('hojaVidaBundle:principal:index.html.twig',array("dni"=>$dni,"user"=>$usuario));
     }
 
 

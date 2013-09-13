@@ -43,6 +43,27 @@ class MovimientoMigratorio
     private $destinoProcedencia;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")

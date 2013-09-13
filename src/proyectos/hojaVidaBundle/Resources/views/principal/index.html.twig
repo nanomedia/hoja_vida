@@ -27,7 +27,14 @@
                 {% include 'hojaVidaBundle:js:frm_datos_academicos.html.twig' %}
                 {% include 'hojaVidaBundle:js:frm_exp_profesional.html.twig' %}
                 {% include 'hojaVidaBundle:js:frm_info_patrimonial.html.twig' %}
-                {% include 'hojaVidaBundle:js:procesos_judiciales.html.twig' %}
+                {% include 'hojaVidaBundle:js/conducta:procesos_judiciales.html.twig' %}
+                {% include 'hojaVidaBundle:js/conducta:procesos_administrativos.html.twig' %}
+                {% include 'hojaVidaBundle:js/conducta:procesos_PJudicial.html.twig' %}
+                {% include 'hojaVidaBundle:js/conducta:procesos_MPublico.html.twig' %}
+                {% include 'hojaVidaBundle:js:frm_mov_migratorio.html.twig' %}
+
+
+
                 function cargando() {
                     $("#boton-guardar").css("display", "none");
                     $("#cargando").css("display", "block");
@@ -63,7 +70,7 @@
 
 
                 function frm_como_postulante() {
-                    var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
+                    var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -74,14 +81,14 @@
                             $("#guardar_frm").attr("rel", "frm-datos-academicos");
 
 
-                            frm_datos_academicos();
                             frm_exp_profesional();
+                            frm_mov_migratorio();
+                            frm_datos_academicos();
                             frm_conducta();
                             frm_info_jue_fis();
                             frm_direc_proc();
                             frm_info_colegio();
                             frm_info_patrimonial();
-                            frm_mov_migratorio();
                             frm_info_camara();
                             frm_info_registro();
                             $("#guardar_frm").button({disabled: true});
@@ -92,7 +99,7 @@
 
                 function frm_datos_academicos() {
 
-                    var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -109,7 +116,7 @@
                 }
                 function frm_exp_profesional() {
 
-                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -123,7 +130,7 @@
                     });
                 }
                 function frm_conducta() {
-                    var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -142,7 +149,7 @@
 
 
                 function frm_info_jue_fis() {
-                    var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -155,7 +162,7 @@
                     });
                 }
                 function frm_direc_proc() {
-                    var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -168,7 +175,7 @@
                     });
                 }
                 function frm_info_colegio() {
-                    var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -181,7 +188,7 @@
                     });
                 }
                 function frm_info_patrimonial() {
-                    var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -195,7 +202,7 @@
                     });
                 }
                 function frm_mov_migratorio() {
-                    var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -208,7 +215,7 @@
                     });
                 }
                 function frm_info_camara() {
-                    var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -222,7 +229,7 @@
                 }
 
                 function frm_info_registro() {
-                    var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
+                    var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
                     cargando();
                     $.ajax({
                         type: "POST",
@@ -234,6 +241,53 @@
                         }
                     });
                 }
+
+                var num_min_pub_con_den_fis = 0;
+                $("#add_min_pub_con_den_fis").click(function() {
+                    num_min_pub_con_den_fis++;
+                    add_min_pub_con_den_fis();
+                    actualizar_min_pub_con_den_fis();
+                    $(".menos").button();
+
+                });
+
+
+                $("#table_min_pub_con_den_fis").delegate(".remove_min_pub_con_den_fis", "click", function() {
+                    if (num_min_pub_con_den_fis > 0) {
+                        var row_position = ($(".remove_min_pub_con_den_fis").index($(this)) + 1);
+                        $("#table_min_pub_con_den_fis tbody tr").eq(row_position).remove();
+                        num_min_pub_con_den_fis--;
+                        actualizar_min_pub_con_den_fis();
+                    }
+                });
+
+
+                function add_min_pub_con_den_fis() {
+                    var new_row = '<tr>';
+                    new_row += '<td></td>';
+                    new_row += '<input type="hidden" name="con_tipo_mpub[]" value="2">';
+                    new_row += '<input type="hidden"name="con_ins_mpub[]">';
+                    new_row += '<input type="hidden" name="con_exp_mpub[]" >';
+                    new_row += '<td><input type="text" name="con_que_mpub[]" class="row-edit"></td>';
+                    new_row += '<td><input type="text" name="con_mot_mpub[]" class="row-edit"></td>';
+                    new_row += '<td><input type="text" name="con_est_mpub[]"class="row-edit"></td>';
+                    new_row += '<td><input class="remove_min_pub_con_den_fis menos" type="button" value="-"></td>';
+                    new_row += '</tr>';
+                    $("#table_min_pub_con_den_fis tbody").append(new_row);
+                }
+
+                function actualizar_min_pub_con_den_fis() {
+                    for (var i = 1; i <= num_min_pub_con_den_fis; i++) {
+                        $("#table_min_pub_con_den_fis tbody tr:eq(" + i + ") td:eq(0)").html("<b>" + (i + 1) + "</b>");
+                    }
+                }
+
+
+
+
+
+
+
             });
 
 
@@ -279,6 +333,7 @@
                 </table>
 
                 <input type="hidden" id="id_cod" value="{{dni}}">
+                <input type="hidden" id="user" value="{{user}}">
                 <input type="hidden" id="id_pos">
 
                 <div id="tab-cuestionario">

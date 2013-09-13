@@ -43,6 +43,27 @@ class ConvocatoriasAnteriores
     private $etapa;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -131,6 +152,75 @@ class ConvocatoriasAnteriores
     public function getEtapa()
     {
         return $this->etapa;
+    }
+
+    /**
+     * Set usuarioAudt
+     *
+     * @param string $usuarioAudt
+     * @return ConvocatoriasAnteriores
+     */
+    public function setUsuarioAudt($usuarioAudt)
+    {
+        $this->usuarioAudt = $usuarioAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get usuarioAudt
+     *
+     * @return string 
+     */
+    public function getUsuarioAudt()
+    {
+        return $this->usuarioAudt;
+    }
+
+    /**
+     * Set fechaAudt
+     *
+     * @param \DateTime $fechaAudt
+     * @return ConvocatoriasAnteriores
+     */
+    public function setFechaAudt($fechaAudt)
+    {
+        $this->fechaAudt = $fechaAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaAudt
+     *
+     * @return \DateTime 
+     */
+    public function getFechaAudt()
+    {
+        return $this->fechaAudt;
+    }
+
+    /**
+     * Set ipAudt
+     *
+     * @param string $ipAudt
+     * @return ConvocatoriasAnteriores
+     */
+    public function setIpAudt($ipAudt)
+    {
+        $this->ipAudt = $ipAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get ipAudt
+     *
+     * @return string 
+     */
+    public function getIpAudt()
+    {
+        return $this->ipAudt;
     }
 
     /**

@@ -27,6 +27,22 @@ MovimientoMigratorio:
             fixed: false
             nullable: true
             column: DESTINO_PROCEDENCIA
+        usuarioAudt:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: USUARIO_AUDT
+        fechaAudt:
+            type: datetime
+            nullable: true
+            column: FECHA_AUDT
+        ipAudt:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: IP_AUDT
     manyToOne:
         pkDatPostulante:
             targetEntity: DatosPostulante

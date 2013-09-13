@@ -56,9 +56,10 @@
                                                 <td class="ui-widget-header">Nivel:</td>
                                                 <td>
                                                     <select name="cbo_nivel_doc[]">
-                                                        <option value="TITULADO">TITULADO</option>
-                                                        <option value="EGRESADO">EGRESADO</option>
-                                                        <option value="ESTUDIOS INCOMPLETOS">ESTUDIOS INCOMPLETOS</option>
+                                                        <option value="0">-ELEGIR-</option>
+                                                        <option value="1">TITULADO</option>
+                                                        <option value="2">EGRESADO</option>
+                                                        <option value="3">ESTUDIOS INCOMPLETOS</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -88,18 +89,18 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <label class="labelText">4. Maestría en Derecho:</label>&nbsp;&nbsp;<div id="add_maederecho" class="add-icon">Agregar</div>
+                        <label class="labelText">4. Maestría en Derecho:</label>&nbsp;&nbsp;
+                        <div id="add_maederecho" class="add-icon">Agregar</div>
                         <input type="hidden" name="txt_detEstudios_mae" value="Maestría en Derecho">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                       
+
                         <table align="center" id="tableMaeDerecho" >
                             <tbody id="bodyMaeDerecho">
                                 <tr class="rowMaeDerecho">
                                     <td>
-
                                         <table width="70%" class="table ui-widget ui-widget-content" style="margin-bottom: 35px;">
 
                                             <tr>
@@ -112,9 +113,10 @@
                                                 <td class="ui-widget-header">Nivel:</td>
                                                 <td>
                                                     <select name="cbo_nivel_mae[]">
-                                                        <option>TITULADO</option>
-                                                        <option>EGRESADO</option>
-                                                        <option>ESTUDIOS INCOMPLETOS</option>
+                                                        <option value="0">-ELEGIR-</option>
+                                                        <option value="1">TITULADO</option>
+                                                        <option value="2">EGRESADO</option>
+                                                        <option value="3">ESTUDIOS INCOMPLETOS</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -138,38 +140,50 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <label class="labelText">5. Doctorado / Maestría en otras Disciplinas:</label>
+                        <label class="labelText">5. Doctorado / Maestría en otras Disciplinas:</label>&nbsp;&nbsp;
+                        <div class="add-icon" id="add_MaeDerOtrasDisc">Agregar</div>
+
                         <input type="hidden" name="txt_detEstudios_otras" value="Doctorado / Maestría en otras Disciplinas">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <table width="70%" class="table ui-widget ui-widget-content">
-                            <tr>
-                                <td width="110px" class="ui-widget-header">Universidad:</td>
-                                <td>
-                                    <select name="cbo_universidad_otras" class="combo-univ"></select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ui-widget-header">Nivel:</td>
-                                <td>
-                                    <select  name="cbo_nivel_otras">
-                                        <option>TITULADO</option>
-                                        <option>EGRESADO</option>
-                                        <option>ESTUDIOS INCOMPLETOS</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ui-widget-header">Mensi&oacute;n:</td>
-                                <td><input name="txt_mencion_otras" type="text" class="row-edit"></td>
-                            </tr>
-                            <tr>
-                                <td class="ui-widget-header">A&ntilde;o:</td>
-                                <td> <select name="cbo_anio_otras" class="cbo_anio"></select></td>
-                            </tr>
-                        </table> 
+                        <table align="center" id="tableMaeDerOtrasDisc" >
+                            <tbody id="bodyMaeDerOtrasDisc">
+                                <tr class="rowMaeDerOtrasDisc">
+                                    <td>
+                                        <table width="70%" class="table ui-widget ui-widget-content" style="margin-bottom: 35px;">
+                                            <tr>
+                                                <td width="110px" class="ui-widget-header">Universidad:</td>
+                                                <td>
+                                                    <select name="cbo_universidad_otras[]" class="combo-univ"></select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Nivel:</td>
+                                                <td>
+                                                    <select  name="cbo_nivel_otras[]">
+                                                        <option value="0">-ELEGIR-</option>
+                                                        <option value="1">TITULADO</option>
+                                                        <option value="2">EGRESADO</option>
+                                                        <option value="3">ESTUDIOS INCOMPLETOS</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">Mensi&oacute;n:</td>
+                                                <td><input name="txt_mencion_otras[]" type="text" class="row-edit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ui-widget-header">A&ntilde;o:</td>
+                                                <td> <select name="cbo_anio_otras[]" class="cbo_anio"></select></td>
+                                            </tr>
+                                        </table> 
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </td>
                 </tr>
                 <tr>
@@ -195,9 +209,10 @@
                     <td></td>
                     <td>
                         <select name="cbo_puesto_meritos">
-                            <option>PRIMER PUESTO</option>
-                            <option>QUINTO SUPERIOR</option>
-                            <option>TERCER SUPERIOR</option>
+                            <option value="0">-ELEGIR-</option>
+                            <option value="1">PRIMER PUESTO</option>
+                            <option value="2">QUINTO SUPERIOR</option>
+                            <option value="3">TERCER SUPERIOR</option>
                         </select>&nbsp;&nbsp;&nbsp;&nbsp;
                         <label class="labelText">A&ntilde;o:</label>
                         <select name="cbo_anio_meritos" class="cbo_anio"></select>
