@@ -123,20 +123,5 @@ class MantenimientoController extends Controller {
         $res = $m->insertarInformacionRegistroDe($this, $request);
         return new Response($res);
     }
-    
-    /**
-     * @Route("/ejemplo",name="_ejemplo")
-     */
-    public function ejemplo() {
-        
-        
-        
-        
-        
-        return new Response("lkgfbnkg");
-    }
-     
-    
-    
 
 }

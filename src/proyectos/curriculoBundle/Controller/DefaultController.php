@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller {
 
     /**
-     * @Route("/cur",name="_cur")
+     * @Route("/curo",name="_curo")
      */
     public function indexAction(Request $request) {
 
@@ -24,8 +24,8 @@ class DefaultController extends Controller {
             $sidx = 1;
 
 
-        $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_CURRICULO");
-        $us = $em->createQuery("SELECT count(u) FROM curriculoBundle:SUsuario u")->getResult();
+        $em = $this->getDoctrine()->getEntityManager();
+        $us = $em->createQuery("SELECT count(dp) FROM hojaVidaBundle:DatosPersonales dp")->getResult();
         $count = $us[0][1];
 
         if ($count > 0) {
@@ -38,8 +38,8 @@ class DefaultController extends Controller {
 
         $start = $limit * $page - $limit;
 
-        $cn = $this->getDoctrine()->getConnection("DB_CURRICULO");
-        $sql = "SELECT u.dni, u.nombre, u.apellido, u.email FROM s_usuario u ORDER BY $sidx $sord LIMIT $start , $limit";
+        $cn = $this->getDoctrine()->getConnection();
+        $sql = "SELECT dt.pk_dat_postulante,dt.cargo_a_postular,dt.tipo_curso,dt.nota,dt.plazas  FROM datos_postulante dt ORDER BY $sidx $sord LIMIT $start , $limit";
         $query = $cn->prepare($sql); //preparo consulta
         $query->execute(); //ejecuto la consulta
         $result = $query->fetchAll(); //guardo los resultados
@@ -57,8 +57,8 @@ class DefaultController extends Controller {
             $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin: 3px;padding:2px;"></span><span class = "ui-icon ui-icon-circle-close"></span></div>';
             $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin: 3px;padding:2px;"></span><span class = "ui-icon ui-icon-script"></span></div>';
 
-            $responce["rows"][$i]['id'] = $row["dni"];
-            $responce["rows"][$i]['cell'] = array($row["dni"], $row["nombre"], $row["apellido"], $row["email"], $botones);
+            $responce["rows"][$i]['id'] = $row["pk_dat_postulante"];
+            $responce["rows"][$i]['cell'] = array($row["pk_dat_postulante"], $row["cargo_a_postular"], $row["tipo_curso"], $row["nota"], $row["plazas"], $botones);
             $i++;
         }
 
