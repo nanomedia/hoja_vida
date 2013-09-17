@@ -150,7 +150,9 @@ class Mantenimiento {
         $txt_mencion_doc = $request->request->get('txt_mencion_doc');
         $cbo_anio_doc = $request->request->get('cbo_anio_doc');
         $user = $request->request->get('user');
+        
         for ($i = 0; $i < count($cbo_universidad_doc); $i++) {
+            
             $dder = new DocDerecho();
             $dder->setUniversidad($cbo_universidad_doc[$i]);
             $dder->setNivel($cbo_nivel_doc[$i]);

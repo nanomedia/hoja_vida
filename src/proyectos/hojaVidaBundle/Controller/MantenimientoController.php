@@ -125,15 +125,5 @@ class MantenimientoController extends Controller{
         return new Response($res);
     }
 
-    /**
-     * @Route("/ejemplo",name="_ejemplo")
-     */
-    public function ejemplo() {
-        $ac = new Actualizacion();
-        $rs = $ac->actualizarDatosPostulante($this);
-
-
-        return new Response($rs);
-    }
 
 }
