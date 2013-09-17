@@ -1,0 +1,123 @@
+<?php
+
+namespace proyectos\curriculoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SUsuario
+ *
+ * @ORM\Table(name="s_usuario")
+ * @ORM\Entity
+ */
+class SUsuario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dni", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $dni;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contrasena", type="string", length=50, nullable=true)
+     */
+    private $contrasena;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellido", type="string", length=255, nullable=true)
+     */
+    private $apellido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado_contrasena", type="string", length=1, nullable=true)
+     */
+    private $estadoContrasena;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=1, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intentos", type="integer", nullable=true)
+     */
+    private $intentos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email2", type="string", length=255, nullable=true)
+     */
+    private $email2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_cnm", type="integer", nullable=true)
+     */
+    private $idCnm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contrasena_adm", type="string", length=50, nullable=true)
+     */
+    private $contrasenaAdm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="string", length=512, nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TmCurriculo", mappedBy="dni")
+     */
+    private $idCurriculo;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idCurriculo = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+}

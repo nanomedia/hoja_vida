@@ -1,0 +1,32 @@
+<?php
+
+namespace proyectos\curriculoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TrPlaza
+ *
+ * @ORM\Table(name="tr_plaza")
+ * @ORM\Entity
+ */
+class TrPlaza
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_plaza", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idPlaza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+
+}

@@ -21,12 +21,7 @@
 
                 function add_pro_ad_pub_gen() {
                     var new_row = '<tr><td>';
-                    new_row += '<select name="cbo_ins_adm1[]">';
-                    new_row += '    <option value="0">-Elegir-</option>';
-                    new_row += '    <option value="1">PJ</option>';
-                    new_row += '    <option value="2">MP</option>';
-                    new_row += '    <option value="3">Otra Instituci&oacute;n</option>';
-                    new_row += '</select>';
+                    new_row += '<textarea name="cbo_ins_adm1[]" class="info_textarea"></textarea>';
                     new_row += '</td>';
                     new_row += '<td><textarea type="text" name="txt_res_adm1[]" class="info_textarea"></textarea></td>';
                     new_row += '<td><textarea type="text" name="txt_san_adm1[]" class="info_textarea"></textarea></td>';

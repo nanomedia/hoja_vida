@@ -1,0 +1,37 @@
+TrTipoCargo:
+    type: entity
+    table: tr_tipo_cargo
+    fields:
+        idTipoCargo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_tipo_cargo
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+    manyToOne:
+        idConvocatoria:
+            targetEntity: TmConvocatoria
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_convocatoria:
+                    referencedColumnName: id_convocatoria
+            orphanRemoval: false
+        idPlaza:
+            targetEntity: TrPlaza
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_plaza:
+                    referencedColumnName: id_plaza
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

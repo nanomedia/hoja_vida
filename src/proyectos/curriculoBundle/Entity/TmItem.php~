@@ -1,0 +1,130 @@
+<?php
+
+namespace proyectos\curriculoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TmItem
+ *
+ * @ORM\Table(name="tm_item")
+ * @ORM\Entity
+ */
+class TmItem
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_item", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idItem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="puntaje", type="decimal", nullable=true)
+     */
+    private $puntaje;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="puntaje_maximo", type="decimal", nullable=true)
+     */
+    private $puntajeMaximo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formato", type="string", length=1, nullable=true)
+     */
+    private $formato;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag", type="integer", nullable=true)
+     */
+    private $flag;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag_upload", type="integer", nullable=true)
+     */
+    private $flagUpload;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fff", type="integer", nullable=true)
+     */
+    private $fff;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="muestra_reporte", type="integer", nullable=true)
+     */
+    private $muestraReporte;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag_calculofecha", type="integer", nullable=true)
+     */
+    private $flagCalculofecha;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TdCampos", inversedBy="idItem")
+     * @ORM\JoinTable(name="td_item_campos",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_item", referencedColumnName="id_item")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_campo", referencedColumnName="id_campo")
+     *   }
+     * )
+     */
+    private $idCampo;
+
+    /**
+     * @var \TmItem
+     *
+     * @ORM\ManyToOne(targetEntity="TmItem")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_item_padre", referencedColumnName="id_item")
+     * })
+     */
+    private $idItemPadre;
+
+    /**
+     * @var \TrTipoCargo
+     *
+     * @ORM\ManyToOne(targetEntity="TrTipoCargo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_cargo", referencedColumnName="id_tipo_cargo")
+     * })
+     */
+    private $idTipoCargo;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idCampo = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+}

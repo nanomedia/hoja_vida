@@ -5,16 +5,25 @@
             case "0":
                 $("#opc").css("display", "none");
                 $("#opcn2").css("display", "block");
+                $("#det_mag_rat").css("display","block");
                
                 break;
             case "1":
                 $("#opc").css("display", "block");
                 $("#opcn2").css("display", "block");
-               
+                $("#det_mag_rat").css("display","block");
                 break;
+
+           case "3":
+                $("#opc").css("display", "none");
+                $("#opcn2").css("display", "none");
+                 $("#det_mag_rat").css("display","block");
+                 break;
+           
             default :
                 $("#opc").css("display", "none");
                 $("#opcn2").css("display", "none");
+                 $("#det_mag_rat").css("display","none");
                 break;
         }
 

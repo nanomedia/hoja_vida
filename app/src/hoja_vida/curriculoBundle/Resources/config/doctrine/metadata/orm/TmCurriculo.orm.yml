@@ -1,0 +1,73 @@
+TmCurriculo:
+    type: entity
+    table: tm_curriculo
+    fields:
+        idCurriculo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_curriculo
+            generator:
+                strategy: IDENTITY
+        fechaAuditoria:
+            type: datetime
+            nullable: true
+            column: fecha_auditoria
+        flagCompleto:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: flag_completo
+        estadoEvaluador1:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: estado_evaluador1
+        estadoEvaluador2:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: estado_evaluador2
+        estadoEvaluado:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: estado_evaluado
+    manyToMany:
+        dni:
+            targetEntity: SUsuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idCurriculo
+            joinTable:
+                name: td_usuario_curriculo
+                joinColumns:
+                    -
+                        name: id_curriculo
+                        referencedColumnName: id_curriculo
+                inverseJoinColumns:
+                    -
+                        name: dni
+                        referencedColumnName: dni
+            orderBy: null
+    manyToOne:
+        idTipoCargo:
+            targetEntity: TrTipoCargo
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo_cargo:
+                    referencedColumnName: id_tipo_cargo
+            orphanRemoval: false
+        idPlaza:
+            targetEntity: TrPlaza
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_plaza:
+                    referencedColumnName: id_plaza
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>.::HOJA DE VIDA::.</title>
+        <link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/cupertino/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
+        <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/jqgrid/css/ui.jqgrid.css')}}" />
+
+
+        <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-ui-1.8.16.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
+        <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
+        <script>
+            $(document).ready(function() {
+
+                $("#table-documento").jqGrid({
+                    url: '{{path('_cur')}}',
+                    datatype: 'json',
+                    mtype: 'POST',
+                    colNames: ["DNI", "NOMBRES", "APELLIDOS", "EMAIL",""],
+                    colModel: [
+                        {name: 'dni', width: '80px', index: 'dni', resizable: true, sortable: true, align: "center"},
+                        {name: 'nombre', index: 'nombre', resizable: true, sortable: true, align: "center"},
+                        {name: 'apellido', index: 'apellido', resizable: true, sortable: true, align: "center"},
+                        {name: 'email', width: '210px', index: 'email', resizable: true, sortable: true, align: "center"},
+                        {name: 'myac', width: 80, fixed: true, sortable: false, resize: false,align: "center"},
+
+                    ],
+                    height: 370,
+                    width: 600,
+                    pager: "#table-documento-paginator",
+                    rowNum: 15,
+                    rowList: [15, 30],
+                    caption: 'POSTULANTES'
+                });
+
+            });
+            </script>
+        </head>
+        <body>
+            <table id="table-documento"></table>
+            <div id="table-documento-paginator"></div>
+        </body>
+    </html>

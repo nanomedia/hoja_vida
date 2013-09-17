@@ -1,0 +1,42 @@
+<?php
+
+namespace proyectos\curriculoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TdCampoDetalle
+ *
+ * @ORM\Table(name="td_campo_detalle")
+ * @ORM\Entity
+ */
+class TdCampoDetalle
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_campo_detalle", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCampoDetalle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \TdCampos
+     *
+     * @ORM\ManyToOne(targetEntity="TdCampos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_campo", referencedColumnName="id_campo")
+     * })
+     */
+    private $idCampo;
+
+
+}

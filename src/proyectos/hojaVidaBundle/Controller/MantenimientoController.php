@@ -17,7 +17,14 @@ class MantenimientoController extends Controller {
         $usuario="prueba";
         return $this->render('hojaVidaBundle:principal:index.html.twig',array("dni"=>$dni,"user"=>$usuario));
     }
-
+    
+    /**
+     * @Route("/home",name="_home")
+     */
+    public function homeAction() {
+        return $this->render('hojaVidaBundle:principal:home.html.twig');
+    }
+    
 
     /**
      * @Route("/newDatosPostulante",name="_newDatosPostulante")

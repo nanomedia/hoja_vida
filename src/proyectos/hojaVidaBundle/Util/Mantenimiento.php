@@ -297,6 +297,7 @@ class Mantenimiento {
         $rad_resp2 = $request->request->get('rad-resp2');
         $txt_resolucion = $request->request->get('txt_resolucion');
         $txt_fec_res = $request->request->get('txt_fec_res');
+        $txt_resp3= $request->request->get('txt_resp_3');
         $user = $request->request->get('user');
         $hoy = new DateTime();
         $ip = $request->getClientIp();
@@ -307,16 +308,27 @@ class Mantenimiento {
             $mr->setRespuesta2(null);
             $mr->setResolucion($txt_resolucion);
             $mr->setFechaRes($txt_fec_res);
+            $mr->setRespuesta3($txt_resp3);
         }
         if ($mr->getRespuesta1() == "1") {
             $mr->setRespuesta2($rad_resp2);
             $mr->setResolucion($txt_resolucion);
             $mr->setFechaRes($txt_fec_res);
+            $mr->setRespuesta3($txt_resp3);
         }
-        if ($mr->getRespuesta1() == "2" || $mr->getRespuesta1() == "3") {
+        
+        
+        if ($mr->getRespuesta1() == "2" ) {
             $mr->setRespuesta2(null);
             $mr->setResolucion(null);
             $mr->setFechaRes(null);
+            $mr->setRespuesta3(null);
+        }
+        if ($mr->getRespuesta1() == "3") {
+            $mr->setRespuesta2(null);
+            $mr->setResolucion(null);
+            $mr->setFechaRes(null);
+            $mr->setRespuesta3($txt_resp3);
         }
 
         $mr->setPkDatPostulante($obj_datos_postulante);

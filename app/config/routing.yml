@@ -1,3 +1,8 @@
+curriculo:
+    resource: "@curriculoBundle/Controller/"
+    type:     annotation
+    prefix:   /curriculo
+
 hoja_vida:
     resource: "@hojaVidaBundle/Controller/"
     type:     annotation

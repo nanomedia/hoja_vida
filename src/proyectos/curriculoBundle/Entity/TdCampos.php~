@@ -1,0 +1,53 @@
+<?php
+
+namespace proyectos\curriculoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TdCampos
+ *
+ * @ORM\Table(name="td_campos")
+ * @ORM\Entity
+ */
+class TdCampos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_campo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCampo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
+     */
+    private $code;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TmItem", mappedBy="idCampo")
+     */
+    private $idItem;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idItem = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+}

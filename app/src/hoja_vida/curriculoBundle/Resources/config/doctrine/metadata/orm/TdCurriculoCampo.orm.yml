@@ -1,0 +1,49 @@
+TdCurriculoCampo:
+    type: entity
+    table: td_curriculo_campo
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        fechaAuditoria:
+            type: datetime
+            nullable: true
+            column: fecha_auditoria
+        fechaAnulacion:
+            type: datetime
+            nullable: true
+            column: fecha_anulacion
+        estado:
+            type: string
+            length: 1
+            fixed: true
+            nullable: true
+    manyToOne:
+        idCampo:
+            targetEntity: TdCampos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_campo:
+                    referencedColumnName: id_campo
+            orphanRemoval: false
+        idCurriculoItem:
+            targetEntity: TdCurriculoItem
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_curriculo_item:
+                    referencedColumnName: id_curriculo_item
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

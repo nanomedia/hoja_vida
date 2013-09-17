@@ -1,0 +1,31 @@
+TdCampos:
+    type: entity
+    table: td_campos
+    fields:
+        idCampo:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_campo
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        code:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+    manyToMany:
+        idItem:
+            targetEntity: TmItem
+            cascade: {  }
+            mappedBy: idCampo
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }
