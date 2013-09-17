@@ -35,7 +35,7 @@ php console doctrine:mapping:convert yml ./src/Northwind/PrincipalBundle/Resourc
 php console doctrine:mapping:import PrincipalBundle  annotation
 php console doctrine:generate:entities PrincipalBundle
 
-
+php console doctrine:schema:create
 
 
 

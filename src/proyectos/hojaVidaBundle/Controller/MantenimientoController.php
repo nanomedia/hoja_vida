@@ -6,9 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use proyectos\hojaVidaBundle\Util\Mantenimiento;
+use proyectos\hojaVidaBundle\Util\Actualizacion;
 use Symfony\Component\HttpFoundation\Request;
 
-class MantenimientoController extends Controller {
+class MantenimientoController extends Controller{
 
     /**
      * @Route("/index/{dni}",name="_index")
@@ -46,7 +47,7 @@ class MantenimientoController extends Controller {
     /**
      * @Route("/newExpProfesional",name="_newExpProfesional")
      */
-    public function insertarExpProfesional(Request $request) {
+    public function insertarExpProfesional(Request $request){
         $m = new Mantenimiento();
         $res = $m->insertarExpProfesional($this, $request);
         return new Response($res);
@@ -123,20 +124,16 @@ class MantenimientoController extends Controller {
         $res = $m->insertarInformacionRegistroDe($this, $request);
         return new Response($res);
     }
-    
+
     /**
      * @Route("/ejemplo",name="_ejemplo")
      */
     public function ejemplo() {
-        
-        
-        
-        
-        
-        return new Response("lkgfbnkg");
+        $ac = new Actualizacion();
+        $rs = $ac->actualizarDatosPostulante($this);
+
+
+        return new Response($rs);
     }
-     
-    
-    
 
 }
