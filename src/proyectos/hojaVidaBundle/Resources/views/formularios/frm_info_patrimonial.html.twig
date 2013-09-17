@@ -14,27 +14,40 @@
                 </tr>
                 <tr>
                     <td>
-                        <table  width="80%" class="table ui-widget ui-widget-content">
 
-                            <tr>
-                                <td rowspan="3">Ingresos</td>
-                                <td>Año:</td>
-                                <td><input name="txt_ing_anio" type="text" class="row-edit numeric"></td>
-                            </tr>
-                            <tr>
-                                <td>Remuneración Bruta mensual (sector público):</td>
-                                <td><input name="txt_ing_remu" type="text" class="row-edit decimal txt_ing_remu txt_ing1"></td>
-                            </tr>
-                            <tr>
-                                <td>Dietas o similares</td>
-                                <td><input  name="txt_ing_dietas" type="text" class="row-edit decimal txt_ing1"></td>
-                            </tr>
-                            <tr>
-                                <td>TOTAL:</td>
-                                <td></td>
-                                <td><input name="txt_ing_total" type="text" class="row-edit decimal txt_ing_total"></td>
-                            </tr>
-                        </table>
+                        <table width="80%" class="table ui-widget ui-widget-content" id="table_dec_bienes_rentas">
+                            <thead>
+                                <tr >
+                                    <th class="ui-widget-header" colspan="6" align="center">Ingresos</th>
+                                </tr>   
+                                <tr class="ui-widget-header">
+                                    <th>Año</th>
+                                    <th>Remuneración Bruta <br>mensual (sector público)</th>
+                                    <th>Dietas o similares</th>
+                                    <th>Descripci&oacute;n</th>
+                                    <th>Valor S/.</th>    
+                                    <th width="50px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><select name="txt_ing_anio_pat[]" class="numeric cbo_anio"></select></td>
+                                    <td><input name="txt_ing_remu[]" type="text" class="decimal" value="0"></td>
+                                    <td><input  name="txt_ing_dietas[]" type="text" class="decimal" value="0"></td>
+                                    <td><textarea name="txt_descripcion_ing[]" class="info_textarea"></textarea></td>
+                                    <td><input name="txt_val_ing[]" type="text" class="txt_val_ing decimal" value="0"></td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+
+
+                        </table>     
+                        <div style="width: 65%;margin: 10px auto;text-align: right;">Total:&nbsp;<input class="txtval_total_ing" type="text" value="0"></div>
+                        <div class="add-icon" id="add_dec_bienes_rentas" >Nueva fila</div><br><br>   
+
+
+
                         <br>
                         <table id="frm_otros_ingresos"  width="80%" class="table ui-widget ui-widget-content">
                             <thead>

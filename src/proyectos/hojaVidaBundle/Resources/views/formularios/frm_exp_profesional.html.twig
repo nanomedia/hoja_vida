@@ -87,7 +87,7 @@
                                 <td colspan="2">
 
                                     <input type="text" name="txt_resp_3" class="textbox" id="det_mag_rat">
-                                    
+
                                     <div id="opcn2">
                                         Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
                                     </div>
@@ -369,7 +369,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <table id="lic-otrogadas"  class="table ui-widget ui-widget-content">
+                        <!--<table id="lic-otrogadas"  class="table ui-widget ui-widget-content">
                             <thead>
                                 <tr class="ui-widget-header">
                                     <th width="100px">AÑO</th>
@@ -381,7 +381,34 @@
                             <tbody>
 
                             </tbody>
-                        </table>
+                        </table>-->
+
+                        <div id="add_row_lic_otor" class="add-icon" >Nueva fila</div>
+                        <table id="table_lic_otor"s class="table ui-widget ui-widget-content" >
+                            <thead>
+                                <tr class="ui-widget-header">
+                                    <th width="100px">AÑO</th>
+                                    <th width="180px">MOTIVO</th>
+                                    <th width=50px">Nº DIAS</th>
+                                    <th width="50px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><select name="txt_anio_lic_otor[]" class="txt_anio_lic_otor cbo_anio"></select></td>
+                                    <td><textarea name="txt_motivo_lic_otor[]" class="info_textarea"></textarea></td>
+                                    <td><input name="txt_dias_lic_otor[]" type="text" class="txt_dias_lic_otor row-edit numeric" value="0"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>    
+                        <div style="width:380px; margin:10px auto;text-align: right;">
+                            Total:&nbsp;<input class="total_dias_lic_otor" style="text-align: center;" type="text" size="12px" value="0"> 
+                        </div>
+
+
+
+
 
                     </td>
                 </tr>

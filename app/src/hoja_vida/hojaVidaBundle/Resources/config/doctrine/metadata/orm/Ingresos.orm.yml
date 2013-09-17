@@ -22,10 +22,16 @@ Ingresos:
             type: float
             nullable: true
             column: DIETAS
-        total:
+        descripcion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DESCRIPCION
+        valor:
             type: float
             nullable: true
-            column: TOTAL
+            column: VALOR
         usuarioAudt:
             type: string
             length: 50

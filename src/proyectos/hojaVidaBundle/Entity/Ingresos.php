@@ -43,11 +43,18 @@ class Ingresos
     private $dietas;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+    /**
      * @var float
      *
-     * @ORM\Column(name="TOTAL", type="float", nullable=true)
+     * @ORM\Column(name="VALOR", type="float", nullable=true)
      */
-    private $total;
+    private $valor;
 
     /**
      * @var string
@@ -162,26 +169,49 @@ class Ingresos
     }
 
     /**
-     * Set total
+     * Set descripcion
      *
-     * @param float $total
+     * @param string $descripcion
      * @return Ingresos
      */
-    public function setTotal($total)
+    public function setDescripcion($descripcion)
     {
-        $this->total = $total;
+        $this->descripcion = $descripcion;
     
         return $this;
     }
 
     /**
-     * Get total
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set valor
+     *
+     * @param float $valor
+     * @return Ingresos
+     */
+    public function setValor($valor)
+    {
+        $this->valor = $valor;
+    
+        return $this;
+    }
+
+    /**
+     * Get valor
      *
      * @return float 
      */
-    public function getTotal()
+    public function getValor()
     {
-        return $this->total;
+        return $this->valor;
     }
 
     /**

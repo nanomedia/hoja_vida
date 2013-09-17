@@ -43,11 +43,18 @@ class Ingresos
     private $dietas;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+    /**
      * @var float
      *
-     * @ORM\Column(name="TOTAL", type="float", nullable=true)
+     * @ORM\Column(name="VALOR", type="float", nullable=true)
      */
-    private $total;
+    private $valor;
 
     /**
      * @var string

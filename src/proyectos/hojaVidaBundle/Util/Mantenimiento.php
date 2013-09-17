@@ -297,7 +297,7 @@ class Mantenimiento {
         $rad_resp2 = $request->request->get('rad-resp2');
         $txt_resolucion = $request->request->get('txt_resolucion');
         $txt_fec_res = $request->request->get('txt_fec_res');
-        $txt_resp3= $request->request->get('txt_resp_3');
+        $txt_resp3 = $request->request->get('txt_resp_3');
         $user = $request->request->get('user');
         $hoy = new DateTime();
         $ip = $request->getClientIp();
@@ -316,9 +316,9 @@ class Mantenimiento {
             $mr->setFechaRes($txt_fec_res);
             $mr->setRespuesta3($txt_resp3);
         }
-        
-        
-        if ($mr->getRespuesta1() == "2" ) {
+
+
+        if ($mr->getRespuesta1() == "2") {
             $mr->setRespuesta2(null);
             $mr->setResolucion(null);
             $mr->setFechaRes(null);
@@ -481,28 +481,17 @@ class Mantenimiento {
 
     public function insertarLicOtorgadas($c, $request, $obj_datos_postulante) {
 
-        $hd_anio = $request->request->get('hd_anio');
-        $txt_total_lic = $request->request->get('txt_total_lic');
-        $txt_enfermedad = $request->request->get('txt_enfermedad');
-        $txt_vacaciones = $request->request->get('txt_vacaciones');
-        $txt_capacitacion = $request->request->get('txt_capacitacion');
-        $txt_onomastico = $request->request->get('txt_onomastico');
-        $txt_lic_goce = $request->request->get('txt_lic_goce');
-        $txt_mot_personales = $request->request->get('txt_mot_personales');
-        
+        $txt_anio_lic_otor = $request->request->get('txt_anio_lic_otor');
+        $txt_motivo_lic_otor = $request->request->get('txt_motivo_lic_otor');
+        $txt_dias_lic_otor = $request->request->get('txt_dias_lic_otor');
 
-        for ($i = 0; $i < count($hd_anio); $i++) {
+
+        for ($i = 0; $i < count($txt_anio_lic_otor); $i++) {
             $lc = new LicenciasOtorgadas();
-            $lc->setAnio($hd_anio[$i]);
-            $lc->setTotalLicencias($txt_total_lic[$i]);
-            $lc->setEnfermedad($txt_enfermedad[$i]);
-            $lc->setVacaciones($txt_vacaciones[$i]);
-            $lc->setCapacitacion($txt_capacitacion[$i]);
-            $lc->setOnomastico($txt_onomastico[$i]);
-            $lc->setLicenciaGoce($txt_lic_goce[$i]);
-            $lc->setMotivosPersonales($txt_mot_personales[$i]);
+            $lc->setAnio($txt_anio_lic_otor[$i]);
+            $lc->setMotivo($txt_motivo_lic_otor[$i]);
+            $lc->setDias($txt_dias_lic_otor[$i]);
             $lc->setPkDatPostulante($obj_datos_postulante);
-            
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($lc);
@@ -871,28 +860,30 @@ class Mantenimiento {
     }
 
     public function insertar_ingresos($c, $request, $dp) {
-        $txt_ing_anio = $request->request->get('txt_ing_anio');
+        $txt_ing_anio_pat = $request->request->get('txt_ing_anio_pat');
         $txt_ing_remu = $request->request->get('txt_ing_remu');
         $txt_ing_dietas = $request->request->get('txt_ing_dietas');
-        $txt_ing_total = $request->request->get('txt_ing_total');
+        $txt_descripcion_ing = $request->request->get('txt_descripcion_ing');
+        $txt_val_ing = $request->request->get('txt_val_ing');
         $user = $request->request->get('user');
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $in = new Ingresos();
-        $in->setAnoEje($txt_ing_anio);
-        $in->setRemuneracion($txt_ing_remu);
-        $in->setDietas($txt_ing_dietas);
-        $in->setTotal($txt_ing_total);
-        $in->setPkDatPostulante($dp);
-        $in->setIpAudt($ip);
-        $in->setFechaAudt($hoy);
-        $in->setUsuarioAudt($user);
-
-
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($in);
-        $em->flush();
+        for ($i = 0; $i < count($txt_ing_anio_pat); $i++) {
+            $in = new Ingresos();
+            $in->setAnoEje($txt_ing_anio_pat[$i]);
+            $in->setRemuneracion($txt_ing_remu[$i]);
+            $in->setDietas($txt_ing_dietas[$i]);
+            $in->setDescripcion($txt_descripcion_ing[$i]);
+            $in->setValor($txt_val_ing[$i]);
+            $in->setPkDatPostulante($dp);
+            $in->setIpAudt($ip);
+            $in->setFechaAudt($hoy);
+            $in->setUsuarioAudt($user);
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($in);
+            $em->flush();
+        }
     }
 
     public function insertar_OtrosIngresos($c, $request, $dp) {

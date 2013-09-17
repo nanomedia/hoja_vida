@@ -46,7 +46,7 @@
         new_row += '         <tr>';
         new_row += '             <td class="ui-widget-header">A&ntilde;o:</td>';
         new_row += '             <td>';
-        new_row += '                 <select name="cbo_anio_doc[]" class="cbo_anio"></select>';
+        new_row += '                 <select name="cbo_anio_doc[]" class="cbo_anio_doc cbo_anio"></select>';
         new_row += '             </td>';
         new_row += '         </tr>';
         new_row += '     </table>';
@@ -56,7 +56,9 @@
 
         $("#bodyDocDerecho").append(new_row);
         comboUniv();
-        comboanio();
+         var size = $(".cbo_anio_doc").size();
+                    $(".cbo_anio_doc").eq(size - 1).html(comboanio());
+       
         $(".menos").button(); 
     }
     var num_rows_maederecho = 0;
@@ -64,7 +66,8 @@
        
             num_rows_maederecho++;
             add_rows_maederecho();
-            
+            var size = $(".cbo_anio_mae").size();
+                    $(".cbo_anio_mae").eq(size - 1).html(comboanio());
         
     });
 
@@ -73,6 +76,7 @@
             var row_position = ($(".remove_MaeDerecho").index($(this)) + 1);
             $(".rowMaeDerecho").eq(row_position).remove();
             num_rows_maederecho--;
+            
         }
     });
 
@@ -105,7 +109,7 @@
         new_row += '                     </tr>';
         new_row += '                     <tr>';
         new_row += '                         <td class="ui-widget-header">A&ntilde;o:</td>';
-        new_row += '                         <td> <select name="cbo_anio_mae[]" class="cbo_anio"></select></td>';
+        new_row += '                         <td> <select name="cbo_anio_mae[]" class="cbo_anio_mae cbo_anio"></select></td>';
         new_row += '                     </tr>';
         new_row += '                 </table>';
         new_row += '             </td>';
@@ -114,7 +118,8 @@
 
         $("#bodyMaeDerecho").append(new_row);
         comboUniv();
-        comboanio();
+        var size = $(".cbo_anio_mae").size();
+                    $(".cbo_anio_mae").eq(size - 1).html(comboanio());
         $(".menos").button(); 
     }
     
@@ -155,13 +160,14 @@
                             new_row += '<td><textarea name="txt_mencion_otras[]" type="text" class="info_textarea"></textarea></td>';
                         new_row += '</tr><tr>';
                         new_row += '<td class="ui-widget-header">A&ntilde;o:</td>';
-                        new_row += '<td> <select name="cbo_anio_otras[]" class="cbo_anio"></select></td>';
+                        new_row += '<td> <select name="cbo_anio_otras[]" class="cbo_anio_otras cbo_anio"></select></td>';
                         new_row += '</tr></table> ';
                         new_row += '</td><td><input type="button" class="remove_MaeDerOtrasDisc menos" value="-"></td></tr>';
 
                     $("#bodyMaeDerOtrasDisc").append(new_row);
                     comboUniv();
-                    comboanio();
+                   var size = $(".cbo_anio_otras").size();
+                    $(".cbo_anio_otras").eq(size - 1).html(comboanio());
                     $(".menos").button();
                 }
 

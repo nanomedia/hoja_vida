@@ -29,53 +29,18 @@ class LicenciasOtorgadas
     private $anio;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="ENFERMEDAD", type="integer", nullable=true)
+     * @ORM\Column(name="MOTIVO", type="string", length=100, nullable=true)
      */
-    private $enfermedad;
+    private $motivo;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="VACACIONES", type="integer", nullable=true)
+     * @ORM\Column(name="DIAS", type="integer", nullable=true)
      */
-    private $vacaciones;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CAPACITACION", type="integer", nullable=true)
-     */
-    private $capacitacion;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="ONOMASTICO", type="integer", nullable=true)
-     */
-    private $onomastico;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="LICENCIA_GOCE", type="integer", nullable=true)
-     */
-    private $licenciaGoce;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="MOTIVOS_PERSONALES", type="integer", nullable=true)
-     */
-    private $motivosPersonales;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="TOTAL_LICENCIAS", type="integer", nullable=true)
-     */
-    private $totalLicencias;
+    private $dias;
 
     /**
      * @var \DatosPostulante

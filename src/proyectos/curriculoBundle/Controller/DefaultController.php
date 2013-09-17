@@ -53,9 +53,9 @@ class DefaultController extends Controller {
         $i = 0;
         foreach ($result as $row) {
 
-            $botones = '<div class="ui-state-default ui-corner-all" style="float: left; margin-left: 5px;"></span><span class="ui-icon ui-icon-extlink"></span></div>';
-            $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin-left: 5px;"></span><span class = "ui-icon ui-icon-circle-close"></span></div>';
-            $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin-left: 5px;"></span><span class = "ui-icon ui-icon-script"></span></div>';
+            $botones = '<div class="ui-state-default ui-corner-all" style="float: left; margin: 3px;padding:2px;"></span><span class="ui-icon ui-icon-extlink"></span></div>';
+            $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin: 3px;padding:2px;"></span><span class = "ui-icon ui-icon-circle-close"></span></div>';
+            $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin: 3px;padding:2px;"></span><span class = "ui-icon ui-icon-script"></span></div>';
 
 
             $responce["rows"][$i]['id'] = $row["dni"];

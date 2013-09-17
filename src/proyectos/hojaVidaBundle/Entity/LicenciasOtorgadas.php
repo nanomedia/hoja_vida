@@ -29,53 +29,18 @@ class LicenciasOtorgadas
     private $anio;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="ENFERMEDAD", type="integer", nullable=true)
+     * @ORM\Column(name="MOTIVO", type="string", length=100, nullable=true)
      */
-    private $enfermedad;
+    private $motivo;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="VACACIONES", type="integer", nullable=true)
+     * @ORM\Column(name="DIAS", type="integer", nullable=true)
      */
-    private $vacaciones;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="CAPACITACION", type="integer", nullable=true)
-     */
-    private $capacitacion;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="ONOMASTICO", type="integer", nullable=true)
-     */
-    private $onomastico;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="LICENCIA_GOCE", type="integer", nullable=true)
-     */
-    private $licenciaGoce;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="MOTIVOS_PERSONALES", type="integer", nullable=true)
-     */
-    private $motivosPersonales;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="TOTAL_LICENCIAS", type="integer", nullable=true)
-     */
-    private $totalLicencias;
+    private $dias;
 
     /**
      * @var \DatosPostulante
@@ -123,164 +88,49 @@ class LicenciasOtorgadas
     }
 
     /**
-     * Set enfermedad
+     * Set motivo
      *
-     * @param integer $enfermedad
+     * @param string $motivo
      * @return LicenciasOtorgadas
      */
-    public function setEnfermedad($enfermedad)
+    public function setMotivo($motivo)
     {
-        $this->enfermedad = $enfermedad;
+        $this->motivo = $motivo;
     
         return $this;
     }
 
     /**
-     * Get enfermedad
+     * Get motivo
      *
-     * @return integer 
+     * @return string 
      */
-    public function getEnfermedad()
+    public function getMotivo()
     {
-        return $this->enfermedad;
+        return $this->motivo;
     }
 
     /**
-     * Set vacaciones
+     * Set dias
      *
-     * @param integer $vacaciones
+     * @param integer $dias
      * @return LicenciasOtorgadas
      */
-    public function setVacaciones($vacaciones)
+    public function setDias($dias)
     {
-        $this->vacaciones = $vacaciones;
+        $this->dias = $dias;
     
         return $this;
     }
 
     /**
-     * Get vacaciones
+     * Get dias
      *
      * @return integer 
      */
-    public function getVacaciones()
+    public function getDias()
     {
-        return $this->vacaciones;
-    }
-
-    /**
-     * Set capacitacion
-     *
-     * @param integer $capacitacion
-     * @return LicenciasOtorgadas
-     */
-    public function setCapacitacion($capacitacion)
-    {
-        $this->capacitacion = $capacitacion;
-    
-        return $this;
-    }
-
-    /**
-     * Get capacitacion
-     *
-     * @return integer 
-     */
-    public function getCapacitacion()
-    {
-        return $this->capacitacion;
-    }
-
-    /**
-     * Set onomastico
-     *
-     * @param integer $onomastico
-     * @return LicenciasOtorgadas
-     */
-    public function setOnomastico($onomastico)
-    {
-        $this->onomastico = $onomastico;
-    
-        return $this;
-    }
-
-    /**
-     * Get onomastico
-     *
-     * @return integer 
-     */
-    public function getOnomastico()
-    {
-        return $this->onomastico;
-    }
-
-    /**
-     * Set licenciaGoce
-     *
-     * @param integer $licenciaGoce
-     * @return LicenciasOtorgadas
-     */
-    public function setLicenciaGoce($licenciaGoce)
-    {
-        $this->licenciaGoce = $licenciaGoce;
-    
-        return $this;
-    }
-
-    /**
-     * Get licenciaGoce
-     *
-     * @return integer 
-     */
-    public function getLicenciaGoce()
-    {
-        return $this->licenciaGoce;
-    }
-
-    /**
-     * Set motivosPersonales
-     *
-     * @param integer $motivosPersonales
-     * @return LicenciasOtorgadas
-     */
-    public function setMotivosPersonales($motivosPersonales)
-    {
-        $this->motivosPersonales = $motivosPersonales;
-    
-        return $this;
-    }
-
-    /**
-     * Get motivosPersonales
-     *
-     * @return integer 
-     */
-    public function getMotivosPersonales()
-    {
-        return $this->motivosPersonales;
-    }
-
-    /**
-     * Set totalLicencias
-     *
-     * @param integer $totalLicencias
-     * @return LicenciasOtorgadas
-     */
-    public function setTotalLicencias($totalLicencias)
-    {
-        $this->totalLicencias = $totalLicencias;
-    
-        return $this;
-    }
-
-    /**
-     * Get totalLicencias
-     *
-     * @return integer 
-     */
-    public function getTotalLicencias()
-    {
-        return $this->totalLicencias;
+        return $this->dias;
     }
 
     /**

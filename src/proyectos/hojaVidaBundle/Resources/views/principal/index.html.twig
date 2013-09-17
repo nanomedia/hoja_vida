@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>.::HOJA DE VIDA::.</title>
-        <link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/cupertino/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
+        <link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
         <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
         <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
         <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
@@ -282,6 +282,61 @@
                     }
                 }
 
+                var num_dec_bienes_rentas = 0;
+                $("#add_dec_bienes_rentas").click(function() {
+
+                    num_dec_bienes_rentas++;
+                    add_dec_bienes_rentas();
+                    $(".menos").button();
+                    var size = $(".txt_ing_anio").size();
+                    $(".txt_ing_anio").eq(size - 1).html(comboanio());
+
+                });
+                $("#table_dec_bienes_rentas").delegate(".remove_dec_bienes_rentas", "click", function() {
+                    if (num_dec_bienes_rentas > 0) {
+                        var row_position = ($(".remove_dec_bienes_rentas").index($(this)) + 1);
+                        $("#table_dec_bienes_rentas tbody tr").eq(row_position).remove();
+                        num_dec_bienes_rentas--;
+                        sum_ing_br();
+                    }
+                });
+
+                function add_dec_bienes_rentas() {
+                    var new_row = ' <tr>';
+                    new_row += '<td><select name="txt_ing_anio_pat[]" class="txt_ing_anio numeric cbo_anio"></select></td>';
+                    new_row += '<td><input name="txt_ing_remu[]" type="text" class="decimal txt_ing_remu txt_ing1" value="0"></td>';
+                    new_row += '<td><input  name="txt_ing_dietas[]" type="text" class="decimal txt_ing1" value="0"></td>';
+                    new_row += '<td><textarea name="txt_descripcion_ing[]" class="info_textarea"></textarea></td>';
+                    new_row += '<td><input name="txt_val_ing[]" type="text" class="txt_val_ing decimal" value="0"></td>';
+                    new_row += '<td><input class="remove_dec_bienes_rentas menos" type="button" value="-"></td>';
+                    new_row += '</tr>';
+
+                    $("#table_dec_bienes_rentas tbody").append(new_row);
+
+                }
+
+                $("#table_dec_bienes_rentas").delegate(".txt_val_ing", "keyup", function() {
+                   sum_ing_br();
+                });
+
+                function sum_ing_br() {
+                    var sum = 0;
+                    for (var i = 0; i < $(".txt_val_ing").size(); i++) {
+                        if ($(".txt_val_ing").eq(i).val() === "") {
+                            $(".txt_val_ing").eq(i).val(0);
+                        }
+                        $(".txt_val_ing").eq(i).val(parseFloat($(".txt_val_ing").eq(i).val()));
+                        sum += parseFloat($(".txt_val_ing").eq(i).val());
+                    }
+
+                    $(".txtval_total_ing").val(sum);
+                }
+
+
+
+
+
+
 
 
 
@@ -296,7 +351,7 @@
         <body>
 
             <div id="hoja-registro">
-                <table border="0" width="100%" style="display:none;">
+                <table border="0" width="100%" style="display:block;">
                     <tr>
                         <td>
                             <div id="head-logo">

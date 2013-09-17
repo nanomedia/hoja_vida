@@ -140,9 +140,9 @@
         for (anio; anio > ini; anio--) {
             option_year += "<option value='" + anio + "'>" + anio + "</option>";
         }
-        $(".cbo_anio").html(option_year);
+        return option_year;
     }
-    comboanio();
+    $(".cbo_anio").html(comboanio());
 
 
     $("#cues").buttonset();
@@ -222,3 +222,4 @@
    $( ".num" ).spinner({
       min: 0,
      });  
+     

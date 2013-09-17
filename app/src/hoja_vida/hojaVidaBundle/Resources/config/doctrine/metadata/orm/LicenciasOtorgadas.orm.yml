@@ -16,41 +16,17 @@ LicenciasOtorgadas:
             fixed: false
             nullable: true
             column: ANIO
-        enfermedad:
+        motivo:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: MOTIVO
+        dias:
             type: integer
             unsigned: false
             nullable: true
-            column: ENFERMEDAD
-        vacaciones:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: VACACIONES
-        capacitacion:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: CAPACITACION
-        onomastico:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: ONOMASTICO
-        licenciaGoce:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: LICENCIA_GOCE
-        motivosPersonales:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: MOTIVOS_PERSONALES
-        totalLicencias:
-            type: integer
-            unsigned: false
-            nullable: true
-            column: TOTAL_LICENCIAS
+            column: DIAS
     manyToOne:
         pkDatPostulante:
             targetEntity: DatosPostulante
