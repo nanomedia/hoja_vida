@@ -1,0 +1,77 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Acreencias
+ *
+ * @ORM\Table(name="acreencias")
+ * @ORM\Entity
+ */
+class Acreencias
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_ACREENCIAS", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkAcreencias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NATURALEZA", type="string", length=250, nullable=true)
+     */
+    private $naturaleza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ENTIDAD", type="string", length=250, nullable=true)
+     */
+    private $entidad;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="VALOR", type="float", nullable=true)
+     */
+    private $valor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

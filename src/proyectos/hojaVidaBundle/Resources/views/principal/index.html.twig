@@ -35,315 +35,213 @@
 
 
 
-                function cargando() {
-                    $("#boton-guardar").css("display", "none");
-                    $("#cargando").css("display", "block");
-                    var val = 0;
-                    var interval = setInterval(function() {
-                        val++;
-                        $('#prog').progressbar({value: val});
-                        $("#prog_per").text(val + "%");
-                        if (val === 100) {
-                            clearInterval(interval);
-                            $("#cargando").css("display", "none");
-                            $("#boton-guardar").css("display", "block");
+                        function cargando() {
+                            $("#boton-guardar").css("display", "none");
+                            $("#cargando").css("display", "block");
+                            var val = 0;
+                            var interval = setInterval(function() {
+                                val++;
+                                $('#prog').progressbar({value: val});
+                                $("#prog_per").text(val + "%");
+                                if (val === 100) {
+                                    clearInterval(interval);
+                                    $("#cargando").css("display", "none");
+                                    $("#boton-guardar").css("display", "block");
+                                }
+                            }, 25);
                         }
-                    }, 25);
-                }
 
 
 
 
-                $("#guardar_frm").click(function() {
-                    /* var val=true;
-                     $(".obligate").each(function(){
-                     if($(this).val()===""){
-                     val=false;
-                     return false;   
-                     }
+                        $("#guardar_frm").click(function() {
+                            /* var val=true;
+                             $(".obligate").each(function(){
+                             if($(this).val()===""){
+                             val=false;
+                             return false;   
+                             }
+                             
+                             });
+                             alert(val+"d");*/
+
+                            frm_como_postulante();
+                        });
+
+
+                        function frm_como_postulante() {
+                            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newDatosPostulante')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#id_pos").val(e);
+                                    $("#guardar_frm").attr("rel", "frm-datos-academicos");
+
+
+                                    frm_exp_profesional();
+                                    frm_mov_migratorio();
+                                    frm_datos_academicos();
+                                    frm_conducta();
+                                    frm_info_jue_fis();
+                                    frm_direc_proc();
+                                    frm_info_colegio();
+                                    frm_info_patrimonial();
+                                    frm_info_camara();
+                                    frm_info_registro();
+                                    $("#guardar_frm").button({disabled: true});
+
+                                }
+                            });
+                        }
+
+                        function frm_datos_academicos() {
+
+                            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newDatosAcademicos')}}",
+                                data: form,
+                                success: function(e) {
+
+                                    $("#guardar_frm").attr("rel", "frm-exp-profesional");
+
+
+                                }
+
+                            });
+                        }
+                        function frm_exp_profesional() {
+
+                            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newExpProfesional')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm-conducta");
+
+                                }
+
+                            });
+                        }
+                        function frm_conducta() {
+                            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_newConducta')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_info_jue_fis");
+                                }
+
+                            });
+
+                        }
+
+
+                        function frm_info_jue_fis() {
+                            var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_infojuefis')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_direc_proc");
+
+                                }
+                            });
+                        }
+                        function frm_direc_proc() {
+                            var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_direcproc')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_info_colegio");
+
+                                }
+                            });
+                        }
+                        function frm_info_colegio() {
+                            var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_infocolegio')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_info_patrimonial");
+
+                                }
+                            });
+                        }
+                        function frm_info_patrimonial() {
+                            var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_info_patrimonial')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_mov_migratorio");
+
+
+                                }
+                            });
+                        }
+                        function frm_mov_migratorio() {
+                            var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_mov_migratorio')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_info_camara");
+
+                                }
+                            });
+                        }
+                        function frm_info_camara() {
+                            var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_info_camara')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_info_registro");
+
+                                }
+                            });
+                        }
+
+                        function frm_info_registro() {
+                            var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+                            cargando();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{path('_info_registro')}}",
+                                data: form,
+                                success: function(e) {
+                                    $("#guardar_frm").attr("rel", "frm_info_registro");
+
+                                }
+                            });
+                        }
+
+
                      
-                     });
-                     alert(val+"d");*/
-
-                    frm_como_postulante();
-                });
-
-
-                function frm_como_postulante() {
-                    var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosPostulante')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#id_pos").val(e);
-                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
-
-
-                            frm_exp_profesional();
-                            frm_mov_migratorio();
-                            frm_datos_academicos();
-                            frm_conducta();
-                            frm_info_jue_fis();
-                            frm_direc_proc();
-                            frm_info_colegio();
-                            frm_info_patrimonial();
-                            frm_info_camara();
-                            frm_info_registro();
-                            $("#guardar_frm").button({disabled: true});
-
-                        }
                     });
-                }
-
-                function frm_datos_academicos() {
-
-                    var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosAcademicos')}}",
-                        data: form,
-                        success: function(e) {
-
-                            $("#guardar_frm").attr("rel", "frm-exp-profesional");
-
-
-                        }
-
-                    });
-                }
-                function frm_exp_profesional() {
-
-                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newExpProfesional')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm-conducta");
-
-                        }
-
-                    });
-                }
-                function frm_conducta() {
-                    var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newConducta')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_jue_fis");
-
-
-
-                        }
-
-                    });
-
-                }
-
-
-                function frm_info_jue_fis() {
-                    var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_infojuefis')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_direc_proc");
-
-                        }
-                    });
-                }
-                function frm_direc_proc() {
-                    var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_direcproc')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_colegio");
-
-                        }
-                    });
-                }
-                function frm_info_colegio() {
-                    var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_infocolegio')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_patrimonial");
-
-                        }
-                    });
-                }
-                function frm_info_patrimonial() {
-                    var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_info_patrimonial')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_mov_migratorio");
-
-
-                        }
-                    });
-                }
-                function frm_mov_migratorio() {
-                    var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_mov_migratorio')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_camara");
-
-                        }
-                    });
-                }
-                function frm_info_camara() {
-                    var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_info_camara')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_registro");
-
-                        }
-                    });
-                }
-
-                function frm_info_registro() {
-                    var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_info_registro')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_registro");
-
-                        }
-                    });
-                }
-
-                var num_min_pub_con_den_fis = 0;
-                $("#add_min_pub_con_den_fis").click(function() {
-                    num_min_pub_con_den_fis++;
-                    add_min_pub_con_den_fis();
-                    actualizar_min_pub_con_den_fis();
-                    $(".menos").button();
-
-                });
-
-
-                $("#table_min_pub_con_den_fis").delegate(".remove_min_pub_con_den_fis", "click", function() {
-                    if (num_min_pub_con_den_fis > 0) {
-                        var row_position = ($(".remove_min_pub_con_den_fis").index($(this)) + 1);
-                        $("#table_min_pub_con_den_fis tbody tr").eq(row_position).remove();
-                        num_min_pub_con_den_fis--;
-                        actualizar_min_pub_con_den_fis();
-                    }
-                });
-
-
-                function add_min_pub_con_den_fis() {
-                    var new_row = '<tr>';
-                    new_row += '<td></td>';
-                    new_row += '<input type="hidden" name="con_tipo_mpub[]" value="2">';
-                    new_row += '<input type="hidden"name="con_ins_mpub[]">';
-                    new_row += '<input type="hidden" name="con_exp_mpub[]" >';
-                    new_row += '<td><input type="text" name="con_que_mpub[]" class="row-edit"></td>';
-                    new_row += '<td><input type="text" name="con_mot_mpub[]" class="row-edit"></td>';
-                    new_row += '<td><input type="text" name="con_est_mpub[]"class="row-edit"></td>';
-                    new_row += '<td><input class="remove_min_pub_con_den_fis menos" type="button" value="-"></td>';
-                    new_row += '</tr>';
-                    $("#table_min_pub_con_den_fis tbody").append(new_row);
-                }
-
-                function actualizar_min_pub_con_den_fis() {
-                    for (var i = 1; i <= num_min_pub_con_den_fis; i++) {
-                        $("#table_min_pub_con_den_fis tbody tr:eq(" + i + ") td:eq(0)").html("<b>" + (i + 1) + "</b>");
-                    }
-                }
-
-                var num_dec_bienes_rentas = 0;
-                $("#add_dec_bienes_rentas").click(function() {
-
-                    num_dec_bienes_rentas++;
-                    add_dec_bienes_rentas();
-                    $(".menos").button();
-                    var size = $(".txt_ing_anio").size();
-                    $(".txt_ing_anio").eq(size - 1).html(comboanio());
-
-                });
-                $("#table_dec_bienes_rentas").delegate(".remove_dec_bienes_rentas", "click", function() {
-                    if (num_dec_bienes_rentas > 0) {
-                        var row_position = ($(".remove_dec_bienes_rentas").index($(this)) + 1);
-                        $("#table_dec_bienes_rentas tbody tr").eq(row_position).remove();
-                        num_dec_bienes_rentas--;
-                        sum_ing_br();
-                    }
-                });
-
-                function add_dec_bienes_rentas() {
-                    var new_row = ' <tr>';
-                    new_row += '<td><select name="txt_ing_anio_pat[]" class="txt_ing_anio numeric cbo_anio"></select></td>';
-                    new_row += '<td><input name="txt_ing_remu[]" type="text" class="decimal txt_ing_remu txt_ing1" value="0"></td>';
-                    new_row += '<td><input  name="txt_ing_dietas[]" type="text" class="decimal txt_ing1" value="0"></td>';
-                    new_row += '<td><textarea name="txt_descripcion_ing[]" class="info_textarea"></textarea></td>';
-                    new_row += '<td><input name="txt_val_ing[]" type="text" class="txt_val_ing decimal" value="0"></td>';
-                    new_row += '<td><input class="remove_dec_bienes_rentas menos" type="button" value="-"></td>';
-                    new_row += '</tr>';
-
-                    $("#table_dec_bienes_rentas tbody").append(new_row);
-
-                }
-
-                $("#table_dec_bienes_rentas").delegate(".txt_val_ing", "keyup", function() {
-                   sum_ing_br();
-                });
-
-                function sum_ing_br() {
-                    var sum = 0;
-                    for (var i = 0; i < $(".txt_val_ing").size(); i++) {
-                        if ($(".txt_val_ing").eq(i).val() === "") {
-                            $(".txt_val_ing").eq(i).val(0);
-                        }
-                        $(".txt_val_ing").eq(i).val(parseFloat($(".txt_val_ing").eq(i).val()));
-                        sum += parseFloat($(".txt_val_ing").eq(i).val());
-                    }
-
-                    $(".txtval_total_ing").val(sum);
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-            });
 
 
             </script>
@@ -351,7 +249,7 @@
         <body>
 
             <div id="hoja-registro">
-                <table border="0" width="100%" style="display:block;">
+                <table border="0" width="100%" style="display:none;">
                     <tr>
                         <td>
                             <div id="head-logo">

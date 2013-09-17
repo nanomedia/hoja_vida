@@ -1,0 +1,54 @@
+*******************
+*  Generar bundle *
+*******************
+php console generate:bundle
+
+
+****************
+*  Genera yml  *
+****************
+php console doctrine:mapping:convert yml ./src/hoja_vida/hojaVidaBundle/Resources/config/doctrine/metadata/orm --from-database --force
+
+
+************************
+*  Genera clases .php  *
+************************
+php console doctrine:mapping:import hojaVidaBundle  annotation
+
+
+******************************
+* Crea los metodos get y set *
+******************************
+console doctrine:generate:entities hojaVidaBundle
+
+
+
+/*************************************************************/
+* Genera archivos publicos del bundle desde public hacia web *
+**************************************************************
+php console assets:install web
+
+
+
+*****************Ejemplo
+php console doctrine:mapping:convert yml ./src/Northwind/PrincipalBundle/Resources/config/doctrine/metadata/orm --from-database --force
+php console doctrine:mapping:import PrincipalBundle  annotation
+php console doctrine:generate:entities PrincipalBundle
+
+
+
+
+
+***************
+*    Info     *
+***************	
+
+http://www.maestrosdelweb.com/category/guias/symfony-guias/
+http://gitnacho.github.io/symfony-docs-es/index.html
+http://gitnacho.github.io/symfony-docs-es/cookbook/doctrine/reverse_engineering.html(Ingenieria Inversa de mapas)
+
+$ console doctrine:schema:update --force
+
+php console doctrine:mapping:convert yml ./src/session/portalBundle/Resources/config/doctrine/metadata/orm --from-database --force
+php console doctrine:mapping:import portalBundle  annotation
+php console doctrine:generate:entities portalBundle

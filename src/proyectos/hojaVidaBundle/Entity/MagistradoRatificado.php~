@@ -1,0 +1,91 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MagistradoRatificado
+ *
+ * @ORM\Table(name="magistrado_ratificado")
+ * @ORM\Entity
+ */
+class MagistradoRatificado
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_EXP_MAG_RAT", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkExpMagRat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RESPUESTA1", type="string", length=2, nullable=true)
+     */
+    private $respuesta1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RESPUESTA2", type="string", length=30, nullable=true)
+     */
+    private $respuesta2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RESOLUCION", type="string", length=30, nullable=true)
+     */
+    private $resolucion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FECHA_RES", type="string", length=10, nullable=true)
+     */
+    private $fechaRes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RESPUESTA3", type="string", length=30, nullable=true)
+     */
+    private $respuesta3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

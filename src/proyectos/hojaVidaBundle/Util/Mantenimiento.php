@@ -861,8 +861,6 @@ class Mantenimiento {
 
     public function insertar_ingresos($c, $request, $dp) {
         $txt_ing_anio_pat = $request->request->get('txt_ing_anio_pat');
-        $txt_ing_remu = $request->request->get('txt_ing_remu');
-        $txt_ing_dietas = $request->request->get('txt_ing_dietas');
         $txt_descripcion_ing = $request->request->get('txt_descripcion_ing');
         $txt_val_ing = $request->request->get('txt_val_ing');
         $user = $request->request->get('user');
@@ -872,8 +870,6 @@ class Mantenimiento {
         for ($i = 0; $i < count($txt_ing_anio_pat); $i++) {
             $in = new Ingresos();
             $in->setAnoEje($txt_ing_anio_pat[$i]);
-            $in->setRemuneracion($txt_ing_remu[$i]);
-            $in->setDietas($txt_ing_dietas[$i]);
             $in->setDescripcion($txt_descripcion_ing[$i]);
             $in->setValor($txt_val_ing[$i]);
             $in->setPkDatPostulante($dp);
@@ -943,18 +939,21 @@ class Mantenimiento {
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $po = new PatrimonioOtros();
-        $po->setDescripcion($txt_otr_descrip);
-        $po->setValor($txt_otr_valor);
-        $po->setPkDatPostulante($dp);
-        $po->setIpAudt($ip);
-        $po->setFechaAudt($hoy);
-        $po->setUsuarioAudt($user);
 
+        for ($i = 0; $i < count($txt_otr_descrip); $i++) {
 
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($po);
-        $em->flush();
+            $po = new PatrimonioOtros();
+            $po->setDescripcion($txt_otr_descrip[$i]);
+            $po->setValor($txt_otr_valor[$i]);
+            $po->setPkDatPostulante($dp);
+            $po->setIpAudt($ip);
+            $po->setFechaAudt($hoy);
+            $po->setUsuarioAudt($user);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($po);
+            $em->flush();
+        }
     }
 
     public function insertarSistemaFinanciero($c, $request, $dp) {
@@ -965,18 +964,21 @@ class Mantenimiento {
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $sis = new SistemaFinanciero();
-        $sis->setClase($txt_clase_sis);
-        $sis->setEntidad($txt_enti_sis);
-        $sis->setValor($txt_val_sis);
-        $sis->setPkDatPostulante($dp);
-        $sis->setIpAudt($ip);
-        $sis->setFechaAudt($hoy);
-        $sis->setUsuarioAudt($user);
+        for ($i = 0; $i < count($txt_clase_sis); $i++) {
 
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($sis);
-        $em->flush();
+            $sis = new SistemaFinanciero();
+            $sis->setClase($txt_clase_sis[$i]);
+            $sis->setEntidad($txt_enti_sis[$i]);
+            $sis->setValor($txt_val_sis[$i]);
+            $sis->setPkDatPostulante($dp);
+            $sis->setIpAudt($ip);
+            $sis->setFechaAudt($hoy);
+            $sis->setUsuarioAudt($user);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($sis);
+            $em->flush();
+        }
     }
 
     public function insertarAcreencias($c, $request, $dp) {
@@ -987,18 +989,21 @@ class Mantenimiento {
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $ac = new Acreencias();
-        $ac->setNaturaleza($txt_nat_acre);
-        $ac->setEntidad($txt_ent_acre);
-        $ac->setValor($txt_mon_acre);
-        $ac->setPkDatPostulante($dp);
-        $ac->setIpAudt($ip);
-        $ac->setFechaAudt($hoy);
-        $ac->setUsuarioAudt($user);
 
-        $em = $c->getDoctrine()->getEntityManager();
-        $em->persist($ac);
-        $em->flush();
+        for ($i = 0; $i < count($txt_nat_acre); $i++) {
+            $ac = new Acreencias();
+            $ac->setNaturaleza($txt_nat_acre[$i]);
+            $ac->setEntidad($txt_ent_acre[$i]);
+            $ac->setValor($txt_mon_acre[$i]);
+            $ac->setPkDatPostulante($dp);
+            $ac->setIpAudt($ip);
+            $ac->setFechaAudt($hoy);
+            $ac->setUsuarioAudt($user);
+
+            $em = $c->getDoctrine()->getEntityManager();
+            $em->persist($ac);
+            $em->flush();
+        }
     }
 
     public function insertarMovimientoMigratorio($c, $request) {

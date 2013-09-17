@@ -1,0 +1,84 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DetSituacionLaboral
+ *
+ * @ORM\Table(name="det_situacion_laboral")
+ * @ORM\Entity
+ */
+class DetSituacionLaboral
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_SIT_LABORAL", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkSitLaboral;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CENTRO_TRABAJO", type="string", length=50, nullable=true)
+     */
+    private $centroTrabajo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CARGO", type="string", length=50, nullable=true)
+     */
+    private $cargo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PERIODO", type="string", length=50, nullable=true)
+     */
+    private $periodo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SITUACION_LABORAL", type="string", length=50, nullable=false)
+     */
+    private $situacionLaboral;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

@@ -1,11 +1,10 @@
 <?php
 
-namespace proyectos\curriculoBundle\Controller;
+namespace proyectos\hojaVidaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
-use proyectos\curriculoBundle\Entity\SUsuario;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller {
@@ -71,7 +70,7 @@ class DefaultController extends Controller {
      */
     public function direcAction() {
 
-        return $this->render('curriculoBundle:index:home.html.twig');
+        return $this->render('hojaVidaBundle:index:home.html.twig');
     }
 
 }

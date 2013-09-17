@@ -14,17 +14,16 @@ class MantenimientoController extends Controller {
      * @Route("/index/{dni}",name="_index")
      */
     public function indexAction($dni) {
-        $usuario="prueba";
-        return $this->render('hojaVidaBundle:principal:index.html.twig',array("dni"=>$dni,"user"=>$usuario));
+        $usuario = "prueba";
+        return $this->render('hojaVidaBundle:principal:index.html.twig', array("dni" => $dni, "user" => $usuario));
     }
-    
+
     /**
      * @Route("/home",name="_home")
      */
     public function homeAction() {
         return $this->render('hojaVidaBundle:principal:home.html.twig');
     }
-    
 
     /**
      * @Route("/newDatosPostulante",name="_newDatosPostulante")
@@ -111,18 +110,33 @@ class MantenimientoController extends Controller {
      * @Route("/info_camara",name="_info_camara")
      */
     public function insertarInformacionCamaInfo(Request $request) {
-         $m = new Mantenimiento();
+        $m = new Mantenimiento();
         $res = $m->insertarInformacionCamaInfo($this, $request);
         return new Response($res);
     }
-    
+
     /**
      * @Route("/info_registro",name="_info_registro")
      */
     public function insertarInformacionRegistroDe(Request $request) {
-         $m = new Mantenimiento();
+        $m = new Mantenimiento();
         $res = $m->insertarInformacionRegistroDe($this, $request);
         return new Response($res);
     }
+    
+    /**
+     * @Route("/ejemplo",name="_ejemplo")
+     */
+    public function ejemplo() {
+        
+        
+        
+        
+        
+        return new Response("lkgfbnkg");
+    }
+     
+    
+    
 
 }

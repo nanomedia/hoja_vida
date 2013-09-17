@@ -1,0 +1,105 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProcesosEnPoderJud
+ *
+ * @ORM\Table(name="procesos_en_poder_jud")
+ * @ORM\Entity
+ */
+class ProcesosEnPoderJud
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_PROCESOS_PODER_JUD", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkProcesosPoderJud;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO", type="integer", nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO", type="integer", nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_INSTITUCION", type="integer", nullable=true)
+     */
+    private $idInstitucion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EXPEDIENTE", type="string", length=250, nullable=true)
+     */
+    private $expediente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="QUEJAS", type="string", length=250, nullable=true)
+     */
+    private $quejas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MOTIVO", type="string", length=250, nullable=true)
+     */
+    private $motivo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO_PROC", type="string", length=250, nullable=true)
+     */
+    private $estadoProc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

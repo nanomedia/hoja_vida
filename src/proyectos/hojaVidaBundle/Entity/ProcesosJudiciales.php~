@@ -1,0 +1,98 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProcesosJudiciales
+ *
+ * @ORM\Table(name="procesos_judiciales")
+ * @ORM\Entity
+ */
+class ProcesosJudiciales
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_PROCESOS_JUD", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkProcesosJud;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TIPO", type="integer", nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EXPEDIENTE", type="string", length=250, nullable=true)
+     */
+    private $expediente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ORGANO", type="string", length=250, nullable=true)
+     */
+    private $organo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DEMANDADO_AGRESOR", type="string", length=250, nullable=true)
+     */
+    private $demandadoAgresor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MATERIA", type="string", length=250, nullable=true)
+     */
+    private $materia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=250, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

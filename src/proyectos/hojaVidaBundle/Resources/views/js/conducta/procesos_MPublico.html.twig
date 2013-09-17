@@ -174,3 +174,52 @@
                     $("#table_min_pub_con_proc_desc tbody").append(new_row);
 
                 }
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                   var num_min_pub_con_den_fis = 0;
+                        $("#add_min_pub_con_den_fis").click(function() {
+                            num_min_pub_con_den_fis++;
+                            add_min_pub_con_den_fis();
+                            actualizar_min_pub_con_den_fis();
+                            $(".menos").button();
+
+                        });
+
+
+                        $("#table_min_pub_con_den_fis").delegate(".remove_min_pub_con_den_fis", "click", function() {
+                            if (num_min_pub_con_den_fis > 0) {
+                                var row_position = ($(".remove_min_pub_con_den_fis").index($(this)) + 1);
+                                $("#table_min_pub_con_den_fis tbody tr").eq(row_position).remove();
+                                num_min_pub_con_den_fis--;
+                                actualizar_min_pub_con_den_fis();
+                            }
+                        });
+
+
+                        function add_min_pub_con_den_fis() {
+                            var new_row = '<tr>';
+                            new_row += '<td align="center"></td>';
+                            new_row += '<input type="hidden" name="con_tipo_mpub[]" value="2">';
+                            new_row += '<input type="hidden"name="con_ins_mpub[]">';
+                            new_row += '<input type="hidden" name="con_exp_mpub[]" >';
+                            new_row += '<td><input type="text" name="con_que_mpub[]" class="row-edit"></td>';
+                            new_row += '<td><input type="text" name="con_mot_mpub[]" class="row-edit"></td>';
+                            new_row += '<td><input type="text" name="con_est_mpub[]"class="row-edit"></td>';
+                            new_row += '<td><input class="remove_min_pub_con_den_fis menos" type="button" value="-"></td>';
+                            new_row += '</tr>';
+                            $("#table_min_pub_con_den_fis tbody").append(new_row);
+                        }
+
+                        function actualizar_min_pub_con_den_fis() {
+                            for (var i = 1; i <= num_min_pub_con_den_fis; i++) {
+                                $("#table_min_pub_con_den_fis tbody tr:eq(" + i + ") td:eq(0)").html("<b>" + (i + 1) + "</b>");
+                            }
+                        }

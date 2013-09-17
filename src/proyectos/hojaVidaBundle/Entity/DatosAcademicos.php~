@@ -1,0 +1,91 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DatosAcademicos
+ *
+ * @ORM\Table(name="datos_academicos")
+ * @ORM\Entity
+ */
+class DatosAcademicos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_DAT_ACADEMICOS", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkDatAcademicos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UNIV_PROCEDENCIA", type="string", length=80, nullable=true)
+     */
+    private $univProcedencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="COLEGIO_PROFESIONAL", type="string", length=80, nullable=true)
+     */
+    private $colegioProfesional;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FECHA_INCORPORACION", type="string", length=10, nullable=true)
+     */
+    private $fechaIncorporacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TITULO_OTROS", type="string", length=100, nullable=true)
+     */
+    private $tituloOtros;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TESIS_TITULAR", type="string", length=100, nullable=true)
+     */
+    private $tesisTitular;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}

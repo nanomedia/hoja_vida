@@ -1,0 +1,70 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * InformacionRegistroDe
+ *
+ * @ORM\Table(name="informacion_registro_de")
+ * @ORM\Entity
+ */
+class InformacionRegistroDe
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_INFORMACION_REG_DEU", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkInformacionRegDeu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DEUDORES_ALIMENTARIOS", type="string", length=250, nullable=true)
+     */
+    private $deudoresAlimentarios;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="COMPLEMENTARIA", type="string", length=250, nullable=true)
+     */
+    private $complementaria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var \DatosPostulante
+     *
+     * @ORM\ManyToOne(targetEntity="DatosPostulante")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PK_DAT_POSTULANTE", referencedColumnName="PK_DAT_POSTULANTE")
+     * })
+     */
+    private $pkDatPostulante;
+
+
+}
