@@ -85,6 +85,13 @@ class DocenciaUniversitaria
     private $ipAudt;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -311,6 +318,29 @@ class DocenciaUniversitaria
     public function getIpAudt()
     {
         return $this->ipAudt;
+    }
+
+    /**
+     * Set estadoAudt
+     *
+     * @param integer $estadoAudt
+     * @return DocenciaUniversitaria
+     */
+    public function setEstadoAudt($estadoAudt)
+    {
+        $this->estadoAudt = $estadoAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadoAudt
+     *
+     * @return integer 
+     */
+    public function getEstadoAudt()
+    {
+        return $this->estadoAudt;
     }
 
     /**

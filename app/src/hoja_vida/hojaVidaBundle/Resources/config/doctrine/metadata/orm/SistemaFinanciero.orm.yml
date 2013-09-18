@@ -42,6 +42,11 @@ SistemaFinanciero:
             fixed: false
             nullable: true
             column: IP_AUDT
+        estadoAudt:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ESTADO_AUDT
     manyToOne:
         pkDatPostulante:
             targetEntity: DatosPostulante

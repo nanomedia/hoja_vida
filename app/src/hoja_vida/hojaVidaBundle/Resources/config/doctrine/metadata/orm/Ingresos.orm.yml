@@ -14,6 +14,20 @@ Ingresos:
             type: float
             nullable: true
             column: ANO_EJE
+        remuneracion:
+            type: float
+            nullable: true
+            column: REMUNERACION
+        dietas:
+            type: float
+            nullable: true
+            column: DIETAS
+        descripcion:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
+            column: DESCRIPCION
         valor:
             type: float
             nullable: true
@@ -34,12 +48,11 @@ Ingresos:
             fixed: false
             nullable: true
             column: IP_AUDT
-        descripcion:
-            type: string
-            length: 250
-            fixed: false
+        estadoAudt:
+            type: integer
+            unsigned: false
             nullable: true
-            column: DESCRIPCION
+            column: ESTADO_AUDT
     manyToOne:
         pkDatPostulante:
             targetEntity: DatosPostulante

@@ -31,6 +31,27 @@ class Ingresos
     /**
      * @var float
      *
+     * @ORM\Column(name="REMUNERACION", type="float", nullable=true)
+     */
+    private $remuneracion;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="DIETAS", type="float", nullable=true)
+     */
+    private $dietas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var float
+     *
      * @ORM\Column(name="VALOR", type="float", nullable=true)
      */
     private $valor;
@@ -57,11 +78,11 @@ class Ingresos
     private $ipAudt;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
      */
-    private $descripcion;
+    private $estadoAudt;
 
     /**
      * @var \DatosPostulante
@@ -106,6 +127,75 @@ class Ingresos
     public function getAnoEje()
     {
         return $this->anoEje;
+    }
+
+    /**
+     * Set remuneracion
+     *
+     * @param float $remuneracion
+     * @return Ingresos
+     */
+    public function setRemuneracion($remuneracion)
+    {
+        $this->remuneracion = $remuneracion;
+    
+        return $this;
+    }
+
+    /**
+     * Get remuneracion
+     *
+     * @return float 
+     */
+    public function getRemuneracion()
+    {
+        return $this->remuneracion;
+    }
+
+    /**
+     * Set dietas
+     *
+     * @param float $dietas
+     * @return Ingresos
+     */
+    public function setDietas($dietas)
+    {
+        $this->dietas = $dietas;
+    
+        return $this;
+    }
+
+    /**
+     * Get dietas
+     *
+     * @return float 
+     */
+    public function getDietas()
+    {
+        return $this->dietas;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return Ingresos
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
     }
 
     /**
@@ -201,26 +291,26 @@ class Ingresos
     }
 
     /**
-     * Set descripcion
+     * Set estadoAudt
      *
-     * @param string $descripcion
+     * @param integer $estadoAudt
      * @return Ingresos
      */
-    public function setDescripcion($descripcion)
+    public function setEstadoAudt($estadoAudt)
     {
-        $this->descripcion = $descripcion;
+        $this->estadoAudt = $estadoAudt;
     
         return $this;
     }
 
     /**
-     * Get descripcion
+     * Get estadoAudt
      *
-     * @return string 
+     * @return integer 
      */
-    public function getDescripcion()
+    public function getEstadoAudt()
     {
-        return $this->descripcion;
+        return $this->estadoAudt;
     }
 
     /**

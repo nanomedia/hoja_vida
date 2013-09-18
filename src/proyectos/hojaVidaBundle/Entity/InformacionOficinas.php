@@ -57,6 +57,13 @@ class InformacionOficinas
     private $ipAudt;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -191,6 +198,29 @@ class InformacionOficinas
     public function getIpAudt()
     {
         return $this->ipAudt;
+    }
+
+    /**
+     * Set estadoAudt
+     *
+     * @param integer $estadoAudt
+     * @return InformacionOficinas
+     */
+    public function setEstadoAudt($estadoAudt)
+    {
+        $this->estadoAudt = $estadoAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadoAudt
+     *
+     * @return integer 
+     */
+    public function getEstadoAudt()
+    {
+        return $this->estadoAudt;
     }
 
     /**

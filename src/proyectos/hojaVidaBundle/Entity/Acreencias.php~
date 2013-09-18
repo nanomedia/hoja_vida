@@ -64,6 +64,13 @@ class Acreencias
     private $ipAudt;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")

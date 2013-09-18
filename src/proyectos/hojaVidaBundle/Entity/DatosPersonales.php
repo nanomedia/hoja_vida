@@ -105,6 +105,13 @@ class DatosPersonales
      */
     private $ipAudt;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
 
 
     /**
@@ -391,5 +398,28 @@ class DatosPersonales
     public function getIpAudt()
     {
         return $this->ipAudt;
+    }
+
+    /**
+     * Set estadoAudt
+     *
+     * @param integer $estadoAudt
+     * @return DatosPersonales
+     */
+    public function setEstadoAudt($estadoAudt)
+    {
+        $this->estadoAudt = $estadoAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadoAudt
+     *
+     * @return integer 
+     */
+    public function getEstadoAudt()
+    {
+        return $this->estadoAudt;
     }
 }

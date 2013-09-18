@@ -27,6 +27,11 @@ LicenciasOtorgadas:
             unsigned: false
             nullable: true
             column: DIAS
+        estadoAudt:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: ESTADO_AUDT
     manyToOne:
         pkDatPostulante:
             targetEntity: DatosPostulante

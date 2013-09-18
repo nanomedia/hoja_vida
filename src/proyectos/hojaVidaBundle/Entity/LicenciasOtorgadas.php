@@ -43,6 +43,13 @@ class LicenciasOtorgadas
     private $dias;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -131,6 +138,29 @@ class LicenciasOtorgadas
     public function getDias()
     {
         return $this->dias;
+    }
+
+    /**
+     * Set estadoAudt
+     *
+     * @param integer $estadoAudt
+     * @return LicenciasOtorgadas
+     */
+    public function setEstadoAudt($estadoAudt)
+    {
+        $this->estadoAudt = $estadoAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadoAudt
+     *
+     * @return integer 
+     */
+    public function getEstadoAudt()
+    {
+        return $this->estadoAudt;
     }
 
     /**

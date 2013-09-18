@@ -92,6 +92,13 @@ class DocDesProfesional
     private $ipAudt;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
+    /**
      * @var \DatosPostulante
      *
      * @ORM\ManyToOne(targetEntity="DatosPostulante")
@@ -341,6 +348,29 @@ class DocDesProfesional
     public function getIpAudt()
     {
         return $this->ipAudt;
+    }
+
+    /**
+     * Set estadoAudt
+     *
+     * @param integer $estadoAudt
+     * @return DocDesProfesional
+     */
+    public function setEstadoAudt($estadoAudt)
+    {
+        $this->estadoAudt = $estadoAudt;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadoAudt
+     *
+     * @return integer 
+     */
+    public function getEstadoAudt()
+    {
+        return $this->estadoAudt;
     }
 
     /**

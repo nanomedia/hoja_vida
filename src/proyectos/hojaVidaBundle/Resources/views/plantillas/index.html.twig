@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>.::HOJA DE VIDA::.</title>
+
+        {% block scripts %}
+        <link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
+        <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
+
+        {% endblock scripts %}
+
+    </head>
+    <body>
+
+        <div id="hoja-registro">
+            <table border="0" width="100%" style="display:none;">
+                <tr>
+                    <td>
+                        <div id="head-logo">
+                            <div class="logo" style="float:left;"></div>
+                            <div style="width:360px;padding-top: 13px;text-align:center;" >
+                                <span class="main-title">Consejo Nacional de la Magistratura</span><br>
+                                <span class="single-title">Dirección de Selección y Nombramiento</span><br>
+                                <span class="main-theme">Convocatoria N° 001-2013-SN/CNM</span><br>
+                                <span class="single-theme">HOJA DE VIDA</span>
+                            </div>
+                            <div style="clear: left;"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: right;">
+                            <table width="300px;">
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td>
+                                        <b>
+                                            <span id="pos-apellidos"></span><br>
+                                            <span id="pos-nombres"></span><br>
+                                            <span id="pos-dni"></span>
+                                        </b>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div style="clear: right;"></div>
+                    </td>
+
+                </tr>
+            </table>
+              {% block cuerpo %}
+
+               {% endblock cuerpo %}
+        </div>
+    </body>
+</html>
