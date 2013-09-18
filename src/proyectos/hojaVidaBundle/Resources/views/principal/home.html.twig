@@ -1,0 +1,43 @@
+ {% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+
+{% block scripts %}
+        {{ parent() }}
+<link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/redmond/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
+<link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/jqgrid/css/ui.jqgrid.css')}}" />
+
+
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-ui-1.8.16.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
+<script>
+    $(document).ready(function() {
+
+        $("#table-documento").jqGrid({
+            url: '{{path('_curo')}}',
+            datatype: 'json',
+            mtype: 'POST',
+            colNames: ["CODIGO", "CARGO A POSTULAR", "TIPO CURSO", "NOTA", "PLAZAS", ""],
+            colModel: [
+                {name: 'cod', index: 'pk_dat_postulante', width: '80px', resizable: true, sortable: true, align: "center"},
+                {name: 'cargo_a_postular', index: 'cargo_a_postular', resizable: true, sortable: true, align: "center"},
+                {name: 'tipo_curso', index: 'tipo_curso', resizable: true, sortable: true, align: "center"},
+                {name: 'nota', width: '190px', index: 'email', resizable: true, sortable: true, align: "center"},
+                {name: 'plazas', width: 80, fixed: true, sortable: false, resize: false, align: "center"},
+                {name: 'dato', width: 80, fixed: true, sortable: false, resize: false, align: "center"},
+            ],
+            height: 370,
+            width: 700,
+            pager: "#table-documento-paginator",
+            rowNum: 15,
+            rowList: [15, 30],
+            caption: 'POSTULANTES'
+        });
+    });
+    </script>
+{% endblock scripts %}            
+{% block cuerpo %}   
+    <table id="table-documento"></table>
+    <div id="table-documento-paginator"></div>
+{% endblock cuerpo %}   

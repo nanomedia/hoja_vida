@@ -24,7 +24,7 @@ class DefaultController extends Controller {
 
 
         $em = $this->getDoctrine()->getEntityManager();
-        $us = $em->createQuery("SELECT count(dp) FROM hojaVidaBundle:DatosPersonales dp")->getResult();
+        $us = $em->createQuery("SELECT count(dp) FROM hojaVidaBundle:DatosPostulante dp")->getResult();
         $count = $us[0][1];
 
         if ($count > 0) {
@@ -69,7 +69,7 @@ class DefaultController extends Controller {
      */
     public function direcAction() {
 
-        return $this->render('hojaVidaBundle:index:home.html.twig');
+        return $this->render('hojaVidaBundle:principal:home.html.twig');
     }
 
 }
