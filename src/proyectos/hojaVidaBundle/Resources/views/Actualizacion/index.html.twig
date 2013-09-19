@@ -1,0 +1,288 @@
+ {% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+ {% block scripts %}
+        {{ parent() }}
+<script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
+<script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+<script src="{{asset('web/bundles/hoja_vida/campos.js')}}"></script>
+
+
+<script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
+<script src="{{asset('web/plugins/jquery_numeric/jquery.numeric.js')}}"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        {% include 'hojaVidaBundle:js:util.html.twig' %}
+        {% include 'hojaVidaBundle:js:frm_datos_personales.html.twig' %}
+        {% include 'hojaVidaBundle:js:frm_datos_postulante.html.twig' %}
+        {% include 'hojaVidaBundle:js:frm_datos_academicos.html.twig' %}
+        {% include 'hojaVidaBundle:js:frm_exp_profesional.html.twig' %}
+        {% include 'hojaVidaBundle:js:frm_info_patrimonial.html.twig' %}
+        {% include 'hojaVidaBundle:js/conducta:procesos_judiciales.html.twig' %}
+        {% include 'hojaVidaBundle:js/conducta:procesos_administrativos.html.twig' %}
+        {% include 'hojaVidaBundle:js/conducta:procesos_PJudicial.html.twig' %}
+        {% include 'hojaVidaBundle:js/conducta:procesos_MPublico.html.twig' %}
+        {% include 'hojaVidaBundle:js:frm_mov_migratorio.html.twig' %}
+
+
+
+        function cargando() {
+            $("#boton-guardar").css("display", "none");
+            $("#cargando").css("display", "block");
+            var val = 0;
+            var interval = setInterval(function() {
+                val++;
+                $('#prog').progressbar({value: val});
+                $("#prog_per").text(val + "%");
+                if (val === 100) {
+                    clearInterval(interval);
+                    $("#cargando").css("display", "none");
+                    $("#boton-guardar").css("display", "block");
+                }
+            }, 25);
+        }
+
+
+
+
+        $("#guardar_frm").click(function() {
+            /* var val=true;
+             $(".obligate").each(function(){
+             if($(this).val()===""){
+             val=false;
+             return false;   
+             }
+             
+             });
+             alert(val+"d");*/
+
+            frm_como_postulante();
+        });
+
+
+        function frm_como_postulante() {
+            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newDatosPostulante')}}",
+                data: form,
+                success: function(e) {
+                    $("#id_pos").val(e);
+                    $("#guardar_frm").attr("rel", "frm-datos-academicos");
+
+
+                    frm_exp_profesional();
+                    frm_mov_migratorio();
+                    frm_datos_academicos();
+                    frm_conducta();
+                    frm_info_jue_fis();
+                    frm_direc_proc();
+                    frm_info_colegio();
+                    frm_info_patrimonial();
+                    frm_info_camara();
+                    frm_info_registro();
+                    $("#guardar_frm").button({disabled: true});
+
+                }
+            });
+        }
+
+        function frm_datos_academicos() {
+
+            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newDatosAcademicos')}}",
+                data: form,
+                success: function(e) {
+
+                    $("#guardar_frm").attr("rel", "frm-exp-profesional");
+
+
+                }
+
+            });
+        }
+        function frm_exp_profesional() {
+
+            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newExpProfesional')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm-conducta");
+
+                }
+
+            });
+        }
+        function frm_conducta() {
+            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newConducta')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_info_jue_fis");
+                }
+
+            });
+
+        }
+
+
+        function frm_info_jue_fis() {
+            var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_infojuefis')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_direc_proc");
+
+                }
+            });
+        }
+        function frm_direc_proc() {
+            var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_direcproc')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_info_colegio");
+
+                }
+            });
+        }
+        function frm_info_colegio() {
+            var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_infocolegio')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_info_patrimonial");
+
+                }
+            });
+        }
+        function frm_info_patrimonial() {
+            var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_info_patrimonial')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_mov_migratorio");
+
+
+                }
+            });
+        }
+        function frm_mov_migratorio() {
+            var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_mov_migratorio')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_info_camara");
+
+                }
+            });
+        }
+        function frm_info_camara() {
+            var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_info_camara')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_info_registro");
+
+                }
+            });
+        }
+
+        function frm_info_registro() {
+            var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_info_registro')}}",
+                data: form,
+                success: function(e) {
+                    $("#guardar_frm").attr("rel", "frm_info_registro");
+
+                }
+            });
+        }
+
+
+
+    });
+
+
+    </script>
+{% endblock scripts %}            
+
+            {% block cuerpo %}    
+    <input type="hidden" id="id_cod" value="{{dni}}">
+    <input type="hidden" id="user" value="{{user}}">
+    <input type="hidden" id="id_pos">
+
+    <div id="tab-cuestionario">
+        <ul>
+            <li><a href="#tab-cuestionario-1">RUBRO 1</a></li>
+            <li><a href="#tab-cuestionario-2">RUBRO 2</a></li>
+            <li><a href="#tab-cuestionario-3">RUBRO 3</a></li>
+            <li><a href="#tab-cuestionario-4">RUBRO 4</a></li>
+            <li><a href="#tab-cuestionario-5">RUBRO 5</a></li>
+        </ul>
+        <div id="tab-cuestionario-1">
+            <div id="tabs1">{% include 'hojaVidaBundle:cuestionarios:tab1.html.twig' %}</div>
+        </div>
+        <div id="tab-cuestionario-2">
+            <div id="tabs2">{% include 'hojaVidaBundle:cuestionarios:tab2.html.twig' %}</div>
+
+        </div>
+        <div id="tab-cuestionario-3">
+            <div id="tabs3">{% include 'hojaVidaBundle:cuestionarios:tab3.html.twig' %}</div>
+        </div>
+        <div id="tab-cuestionario-4">
+            <div id="tabs4">{% include 'hojaVidaBundle:cuestionarios:tab4.html.twig' %}</div>
+        </div>
+        <div id="tab-cuestionario-5">
+                        {% include 'hojaVidaBundle:formularios:info_patrimonial.html.twig' %}
+            </div>    
+            <div id="tab-cuestionario-6">
+
+            </div>
+        </div>
+        <div class="panel_guardar">
+            <div id="titulo_save" class="titulo_save">Mantenimiento</div>
+            <div id="cargando" style="display:none;">
+                <div id="prog" style="margin: 0 5px 0 5px;"></div>
+                <div id="prog_per"></div>
+            </div>
+            <div id="boton-guardar" style="text-align: center;">
+                <input type="button" id="guardar_frm" rel="frm-datos-personales" class="button"value="Guardar">
+            </div>
+        </div>
+
+{% endblock cuerpo %}   
+
+

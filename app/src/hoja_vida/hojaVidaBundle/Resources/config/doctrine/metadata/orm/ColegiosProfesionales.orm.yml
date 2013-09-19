@@ -1,0 +1,19 @@
+ColegiosProfesionales:
+    type: entity
+    table: colegios_profesionales
+    fields:
+        idColegio:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_colegio
+            generator:
+                strategy: IDENTITY
+        nombreColegio:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: nombre_colegio
+    lifecycleCallbacks: {  }

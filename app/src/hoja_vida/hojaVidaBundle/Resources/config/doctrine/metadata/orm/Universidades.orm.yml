@@ -1,0 +1,19 @@
+Universidades:
+    type: entity
+    table: universidades
+    fields:
+        idUniv:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_univ
+            generator:
+                strategy: IDENTITY
+        nombreUniv:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+            column: nombre_univ
+    lifecycleCallbacks: {  }

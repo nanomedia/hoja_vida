@@ -1,0 +1,37 @@
+
+    var num_rows_canteriores = 0;
+    $("#add_canteriores").click(function() {
+        
+            num_rows_canteriores++;
+            add_rows_canteriores();
+            actualizar_table_canteriores();
+            $(".menos").button(); 
+        
+    });
+    $("#table_canteriores").delegate(".remove_canteriores", "click", function() {
+        if (num_rows_canteriores > 0) {
+            var row_position = ($(".remove_canteriores").index($(this)) + 1);
+            $("#table_canteriores tbody tr").eq(row_position).remove();
+            num_rows_canteriores--;
+            actualizar_table_canteriores();
+        }
+    });
+    function actualizar_table_canteriores() {
+        for (var i = 1; i <= num_rows_canteriores; i++) {
+            $("#table_canteriores tbody tr:eq(" + i + ") td:eq(0)").html(i + 1);
+        }
+
+    }
+    function add_rows_canteriores() {
+        var new_row = '<tr>';
+        new_row += '<td align="center"></td>';
+        new_row += '<td><input type="text" name="convocatoria[]" class="row-edit"></td>';
+        new_row += '<td><input type="text" name="plaza[]" class="row-edit"></td>';
+        new_row += '<td><input type="text" name="etapa[]" class="row-edit"></td>';
+        new_row += '<td><input class="remove_canteriores menos" type="button" value="-"></td>';
+        new_row += '</tr>';
+         
+        $("#table_canteriores tbody").append(new_row);
+
+    }
+
