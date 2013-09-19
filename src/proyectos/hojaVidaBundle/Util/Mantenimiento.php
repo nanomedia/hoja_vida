@@ -2,6 +2,7 @@
 
 namespace proyectos\hojaVidaBundle\Util;
 
+use proyectos\hojaVidaBundle\Entity\DatosPersonales;
 use proyectos\hojaVidaBundle\Entity\DatosPostulante;
 use proyectos\hojaVidaBundle\Entity\ConvocatoriasAnteriores;
 use proyectos\hojaVidaBundle\Entity\DatosAcademicos;
@@ -36,6 +37,45 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use \DateTime;
 
 class Mantenimiento {
+
+    public function insertarDatosPersonales($c, $request) {
+
+        $txt_nombres = $request->request->get('txt_nombres');
+        $txt_apellidos = $request->request->get('txt_apellidos');
+        $txt_lugarNac = $request->request->get('txt_lugarNac');
+        $txt_fechaNac = $request->request->get('txt_fechaNac');
+        $txt_edad = $request->request->get('txt_edad');
+        $txt_dni = $request->request->get('txt_dni');
+        $rad_discapacidad = $request->request->get('rad_discapacidad');
+        $user = $request->request->get("user");
+        $txt_certDiscapacidad = $request->request->get('txt_certDiscapacidad');
+
+        $dper = new DatosPersonales();
+        $dper->setNombres($txt_nombres);
+        $dper->setApellidos($txt_apellidos);
+        $dper->setLugarNac($txt_lugarNac);
+        $dper->setFechaNac($txt_fechaNac);
+        $dper->setEdad($txt_edad);
+        $dper->setDni($txt_dni);
+        $dper->setDiscapacidad($rad_discapacidad);
+        if ($rad_discapacidad == "SI") {
+            $dper->setCertDiscapacidad($txt_certDiscapacidad);
+        }
+
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+        $dper->setUsuarioAudt($user);
+
+        $dper->setIpAudt($ip);
+        $dper->setFechaAudt($hoy);
+
+
+        $em = $c->getDoctrine()->getEntityManager();
+        $em->persist($dper);
+        $em->flush();
+
+        return "SE INSERTO";
+    }
 
     public function insertarDatosPostulante($c, $request) {
 
@@ -98,7 +138,7 @@ class Mantenimiento {
             $conv->setIpAudt($ip);
             $conv->setFechaAudt($hoy);
             $conv->setUsuarioAudt($user);
-
+            $conv->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($conv);
             $em->flush();
@@ -122,6 +162,7 @@ class Mantenimiento {
         $da->setTituloOtros($txt_tituloOtros);
         $da->setTesisTitular($txt_tesisTitular);
         $da->setPkDatPostulante($dp);
+        $da->setEstadoAudt(1);
 
         $hoy = new DateTime();
         $ip = $request->getClientIp();
@@ -150,9 +191,9 @@ class Mantenimiento {
         $txt_mencion_doc = $request->request->get('txt_mencion_doc');
         $cbo_anio_doc = $request->request->get('cbo_anio_doc');
         $user = $request->request->get('user');
-        
+
         for ($i = 0; $i < count($cbo_universidad_doc); $i++) {
-            
+
             $dder = new DocDerecho();
             $dder->setUniversidad($cbo_universidad_doc[$i]);
             $dder->setNivel($cbo_nivel_doc[$i]);
@@ -165,6 +206,7 @@ class Mantenimiento {
             $dder->setIpAudt($ip);
             $dder->setFechaAudt($hoy);
             $dder->setUsuarioAudt($user);
+            $dder->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($dder);
@@ -191,7 +233,7 @@ class Mantenimiento {
             $mder->setIpAudt($ip);
             $mder->setFechaAudt($hoy);
             $mder->setUsuarioAudt($user);
-
+            $mder->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($mder);
             $em->flush();
@@ -217,7 +259,7 @@ class Mantenimiento {
             $otr->setIpAudt($ip);
             $otr->setFechaAudt($hoy);
             $otr->setUsuarioAudt($user);
-
+            $otr->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($otr);
             $em->flush();
@@ -240,7 +282,7 @@ class Mantenimiento {
         $me->setIpAudt($ip);
         $me->setFechaAudt($hoy);
         $me->setUsuarioAudt($user);
-
+        $me->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($me);
@@ -287,7 +329,7 @@ class Mantenimiento {
             $ddp->setIpAudt($ip);
             $ddp->setFechaAudt($hoy);
             $ddp->setUsuarioAudt($user);
-
+            $ddp->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($ddp);
             $em->flush();
@@ -337,6 +379,7 @@ class Mantenimiento {
         $mr->setIpAudt($ip);
         $mr->setFechaAudt($hoy);
         $mr->setUsuarioAudt($user);
+        $mr->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($mr);
@@ -371,7 +414,7 @@ class Mantenimiento {
             $cal->setIpAudt($ip);
             $cal->setFechaAudt($hoy);
             $cal->setUsuarioAudt($user);
-
+            $cal->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($cal);
@@ -398,7 +441,7 @@ class Mantenimiento {
             $dl->setIpAudt($ip);
             $dl->setFechaAudt($hoy);
             $dl->setUsuarioAudt($user);
-
+            $dl->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($dl);
             $em->flush();
@@ -428,7 +471,7 @@ class Mantenimiento {
             $du->setIpAudt($ip);
             $du->setFechaAudt($hoy);
             $du->setUsuarioAudt($user);
-
+            $du->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($du);
             $em->flush();
@@ -455,7 +498,7 @@ class Mantenimiento {
         $pu->setIpAudt($ip);
         $pu->setFechaAudt($hoy);
         $pu->setUsuarioAudt($user);
-
+        $pu->setEstadoAudt(1);
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($pu);
         $em->flush();
@@ -475,7 +518,7 @@ class Mantenimiento {
         $pj->setIpAudt($ip);
         $pj->setFechaAudt($hoy);
         $pj->setUsuarioAudt($user);
-
+        $pj->setEstadoAudt(1);
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($pj);
         $em->flush();
@@ -494,7 +537,7 @@ class Mantenimiento {
             $lc->setMotivo($txt_motivo_lic_otor[$i]);
             $lc->setDias($txt_dias_lic_otor[$i]);
             $lc->setPkDatPostulante($obj_datos_postulante);
-
+            $lc->setEstadoAudt(1);
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($lc);
             $em->flush();
@@ -529,6 +572,7 @@ class Mantenimiento {
         $an1->setIpAudt($ip);
         $an1->setFechaAudt($hoy);
         $an1->setUsuarioAudt($user);
+        $an1->setEstadoAudt(1);
 
         $an2 = new Antecedentes();
         $an2->setTipo(1);
@@ -537,6 +581,7 @@ class Mantenimiento {
         $an2->setIpAudt($ip);
         $an2->setFechaAudt($hoy);
         $an2->setUsuarioAudt($user);
+        $an2->setEstadoAudt(1);
 
         $an3 = new Antecedentes();
         $an3->setTipo(2);
@@ -545,6 +590,7 @@ class Mantenimiento {
         $an3->setIpAudt($ip);
         $an3->setFechaAudt($hoy);
         $an3->setUsuarioAudt($user);
+        $an3->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($an1);
@@ -577,6 +623,7 @@ class Mantenimiento {
             $pj->setIpAudt($ip);
             $pj->setFechaAudt($hoy);
             $pj->setUsuarioAudt($user);
+            $pj->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pj);
@@ -609,6 +656,7 @@ class Mantenimiento {
             $pa1->setIpAudt($ip);
             $pa1->setFechaAudt($hoy);
             $pa1->setUsuarioAudt($user);
+            $pa1->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pa1);
@@ -628,6 +676,7 @@ class Mantenimiento {
             $pa2->setIpAudt($ip);
             $pa2->setFechaAudt($hoy);
             $pa2->setUsuarioAudt($user);
+            $pa2->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pa2);
@@ -648,6 +697,7 @@ class Mantenimiento {
             $pa3->setIpAudt($ip);
             $pa3->setFechaAudt($hoy);
             $pa3->setUsuarioAudt($user);
+            $pa3->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
 
@@ -684,6 +734,7 @@ class Mantenimiento {
             $pp->setIpAudt($ip);
             $pp->setFechaAudt($hoy);
             $pp->setUsuarioAudt($user);
+            $pp->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pp);
@@ -711,6 +762,7 @@ class Mantenimiento {
             $pp->setIpAudt($ip);
             $pp->setFechaAudt($hoy);
             $pp->setUsuarioAudt($user);
+            $pp->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pp);
@@ -744,6 +796,7 @@ class Mantenimiento {
             $pe->setIpAudt($ip);
             $pe->setFechaAudt($hoy);
             $pe->setUsuarioAudt($user);
+            $pe->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pe);
@@ -770,6 +823,7 @@ class Mantenimiento {
             $pe->setIpAudt($ip);
             $pe->setFechaAudt($hoy);
             $pe->setUsuarioAudt($user);
+            $pe->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pe);
@@ -792,6 +846,7 @@ class Mantenimiento {
         $io->setIpAudt($ip);
         $io->setFechaAudt($hoy);
         $io->setUsuarioAudt($user);
+        $io->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($io);
@@ -816,6 +871,7 @@ class Mantenimiento {
         $io->setIpAudt($ip);
         $io->setFechaAudt($hoy);
         $io->setUsuarioAudt($user);
+        $io->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($io);
@@ -840,7 +896,7 @@ class Mantenimiento {
         $io->setIpAudt($ip);
         $io->setFechaAudt($hoy);
         $io->setUsuarioAudt($user);
-
+        $io->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($io);
@@ -878,6 +934,8 @@ class Mantenimiento {
             $in->setIpAudt($ip);
             $in->setFechaAudt($hoy);
             $in->setUsuarioAudt($user);
+            $in->setEstadoAudt(1);
+
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($in);
             $em->flush();
@@ -899,6 +957,7 @@ class Mantenimiento {
             $oi->setIpAudt($ip);
             $oi->setFechaAudt($hoy);
             $oi->setUsuarioAudt($user);
+            $oi->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($oi);
@@ -927,6 +986,7 @@ class Mantenimiento {
             $pa->setIpAudt($ip);
             $pa->setFechaAudt($hoy);
             $pa->setUsuarioAudt($user);
+            $pa->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($pa);
@@ -951,6 +1011,7 @@ class Mantenimiento {
             $po->setIpAudt($ip);
             $po->setFechaAudt($hoy);
             $po->setUsuarioAudt($user);
+            $po->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($po);
@@ -976,6 +1037,7 @@ class Mantenimiento {
             $sis->setIpAudt($ip);
             $sis->setFechaAudt($hoy);
             $sis->setUsuarioAudt($user);
+            $sis->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($sis);
@@ -1001,6 +1063,7 @@ class Mantenimiento {
             $ac->setIpAudt($ip);
             $ac->setFechaAudt($hoy);
             $ac->setUsuarioAudt($user);
+            $ac->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($ac);
@@ -1028,6 +1091,7 @@ class Mantenimiento {
             $mm->setIpAudt($ip);
             $mm->setFechaAudt($hoy);
             $mm->setUsuarioAudt($user);
+            $mm->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($mm);
@@ -1054,6 +1118,7 @@ class Mantenimiento {
             $ic->setIpAudt($ip);
             $ic->setFechaAudt($hoy);
             $ic->setUsuarioAudt($user);
+            $ic->setEstadoAudt(1);
 
             $em = $c->getDoctrine()->getEntityManager();
             $em->persist($ic);
@@ -1078,6 +1143,7 @@ class Mantenimiento {
         $ir->setIpAudt($ip);
         $ir->setFechaAudt($hoy);
         $ir->setUsuarioAudt($user);
+        $ir->setEstadoAudt(1);
 
         $em = $c->getDoctrine()->getEntityManager();
         $em->persist($ir);

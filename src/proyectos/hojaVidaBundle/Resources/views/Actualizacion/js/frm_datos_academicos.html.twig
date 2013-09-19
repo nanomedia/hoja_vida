@@ -1,9 +1,10 @@
 
-    var num_rows_docderecho = 0;
+    var num_rows_docderecho = ($(".rowDocDerecho").size()-1);
     $("#add_docderecho").click(function() {
         
             num_rows_docderecho++;
             add_rows_docderecho();
+            $(".numeric").numeric();
         
     });
     $("#tableDocDerecho").delegate(".remove_docderecho", "click", function() {
@@ -25,7 +26,7 @@
         new_row += '         <tr>';
         new_row += '             <td width="110px" class="ui-widget-header">Universidad:</td>';
         new_row += '             <td>';
-        new_row += '                 <select class="combo-univ" name="cbo_universidad_doc[]"></select>';
+        new_row += '                 <select class="cbo_universidad_doc combo-univ" name="cbo_universidad_doc[]"></select>';
         new_row += '             </td>';
         new_row += '         </tr>';
         new_row += '         <tr>';
@@ -46,7 +47,7 @@
         new_row += '         <tr>';
         new_row += '             <td class="ui-widget-header">A&ntilde;o:</td>';
         new_row += '             <td>';
-        new_row += '                 <select name="cbo_anio_doc[]" class="cbo_anio_doc cbo_anio"></select>';
+        new_row += '                 <input type="text" name="cbo_anio_doc[]" class="numeric">';
         new_row += '             </td>';
         new_row += '         </tr>';
         new_row += '     </table>';
@@ -55,19 +56,26 @@
         new_row += '</tr>';
 
         $("#bodyDocDerecho").append(new_row);
-        comboUniv();
+        
          var size = $(".cbo_anio_doc").size();
                     $(".cbo_anio_doc").eq(size - 1).html(comboanio());
+        var size_univ= $(".cbo_universidad_doc").size();           
+        
+        $(".cbo_universidad_doc").eq(size_univ - 1).html(comboUniv());
        
         $(".menos").button(); 
     }
-    var num_rows_maederecho = 0;
+    
+    var num_rows_maederecho = ($(".rowMaeDerecho").size()-1);
     $("#add_maederecho").click(function() {
        
             num_rows_maederecho++;
             add_rows_maederecho();
             var size = $(".cbo_anio_mae").size();
                     $(".cbo_anio_mae").eq(size - 1).html(comboanio());
+        
+            var size_univ= $(".cbo_universidad_mae").size();           
+            $(".cbo_universidad_mae").eq(size_univ - 1).html(comboUniv());          
         
     });
 
@@ -89,7 +97,7 @@
         new_row += '                     <tr>';
         new_row += '                         <td width="110px" class="ui-widget-header">Universidad:</td>';
         new_row += '                         <td>';
-        new_row += '                             <select name="cbo_universidad_mae[]" class="combo-univ"></select>';
+        new_row += '                             <select name="cbo_universidad_mae[]" class="cbo_universidad_mae combo-univ"></select>';
         new_row += '                         </td>';
         new_row += '                     </tr>';
         new_row += '                     <tr>';
@@ -109,7 +117,7 @@
         new_row += '                     </tr>';
         new_row += '                     <tr>';
         new_row += '                         <td class="ui-widget-header">A&ntilde;o:</td>';
-        new_row += '                         <td> <select name="cbo_anio_mae[]" class="cbo_anio_mae cbo_anio"></select></td>';
+        new_row += '                         <td> <input type="text" name="cbo_anio_mae[]" class="numeric"></select></td>';
         new_row += '                     </tr>';
         new_row += '                 </table>';
         new_row += '             </td>';
@@ -124,12 +132,13 @@
     }
     
     
-    var num_MaeDerOtrasDisc = 0;
+               var num_MaeDerOtrasDisc = ($(".rowMaeDerOtrasDisc").size()-1);
                 $("#add_MaeDerOtrasDisc").click(function() {
                    
                         num_MaeDerOtrasDisc++;
                         add_MaeDerOtrasDisc();
-
+                        var size_univ= $(".cbo_universidad_otras").size();           
+                $(".cbo_universidad_otras").eq(size_univ - 1).html(comboUniv());   
                     
                 });
 
@@ -140,12 +149,13 @@
                         num_MaeDerOtrasDisc--;
                     }
                 });
+                    
 
                 function add_MaeDerOtrasDisc() {
                     var new_row = '<tr class="rowMaeDerOtrasDisc">';
                         new_row += '<td><table width="70%" class="table ui-widget ui-widget-content" style="margin-bottom: 35px;">';
                         new_row += '<tr><td width="110px" class="ui-widget-header">Universidad:</td>';
-                        new_row += '<td><select name="cbo_universidad_otras[]" class="combo-univ"></select>';
+                        new_row += '<td><select name="cbo_universidad_otras[]" class="cbo_universidad_otras combo-univ"></select>';
                         new_row += '</td>';
                         new_row += '</tr>';
                         new_row += '<tr><td class="ui-widget-header">Nivel:</td>';
@@ -160,7 +170,7 @@
                             new_row += '<td><textarea name="txt_mencion_otras[]" type="text" class="info_textarea"></textarea></td>';
                         new_row += '</tr><tr>';
                         new_row += '<td class="ui-widget-header">A&ntilde;o:</td>';
-                        new_row += '<td> <select name="cbo_anio_otras[]" class="cbo_anio_otras cbo_anio"></select></td>';
+                        new_row += '<td> <input type="text" name="cbo_anio_otras[]" class="numeric"></td>';
                         new_row += '</tr></table> ';
                         new_row += '</td><td><input type="button" class="remove_MaeDerOtrasDisc menos" value="-"></td></tr>';
 

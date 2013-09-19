@@ -1,135 +1,18 @@
-
-    var universidades = "";
-    universidades += '["Universidad Nacional del Callao (UNAC) (Bellavista)",';
-    universidades += '"Universidad Nacional Mayor de San Marcos (UNMSM) (El Cercado)",';
-    universidades += '"Universidad José Faustino Sánchez Carrión (UNJFSC) (Huacho)",';
-    universidades += '"Universidad Nacional Agraria La Molina (La Molina)",';
-    universidades += '"Universidad Nacional de Educación E. Guzmán y Valle (UNE) (Lima)",';
-    universidades += '"Universidad Nacional de Ingeniería (UNI) (Rimac)",';
-    universidades += '"Universidad Nacional Federico Villarreal (UNFV) (San Miguel)",';
-    universidades += '"Universidad Privada San Juan Bautista (UPSJB) (Chorrillos)",';
-    universidades += '"Universidad Inca Garcilaso de la Vega (UIGV) (El Cercado)",';
-    universidades += '"Universidad Peruana de Las Américas (El Cercado)",';
-    universidades += '"Universidad Tecnológica del Perú (UTP) (El Cercado)",';
-    universidades += '"Universidad San Pedro (Huacho - Barranca)",';
-    universidades += '"Universidad del Pacifico (UP) (Jesús María)",';
-    universidades += '"Universidad Peruana de Ciencias e Informática (UPCI) (Jesús María)",';
-    universidades += '"Universidad Femenina del Sagrado Corazón (UNIFE) (La Molina)",';
-    universidades += '"Universidad San Ignacio de Loyola (USIL) (La Molina)",';
-    universidades += '"Centro Internacional de la Papa (CIPOTATO) (La Molina)",';
-    universidades += '"Universidad Alas Peruanas (UAP) (Lima)",';
-    universidades += '"Universidad Norbert Wiener (UWIENER) (Lima)",';
-    universidades += '"Universidad Cesar Vallejo (UCV) (Lima)",';
-    universidades += '"Universidad Católica Sedes Sapientiae (UCSS) (Los Olivos)",';
-    universidades += '"Universidad Privada del Norte (UPNORTE) (Los Olivos)",';
-    universidades += '"Universidad Científica del Sur (UCSUR) (Miraflores)",';
-    universidades += '"Universidad Peruana Unión (UPEU) (Ñaña)",';
-    universidades += '"Universidad Antonio Ruiz de Montoya (UARM) (Pueblo Libre)",';
-    universidades += '"Universidad de Piura (PAD) (San Isidro)",';
-    universidades += '"Universidad Peruana Cayetano Heredia (UPCH) (San Martín de Porres)",';
-    universidades += '"Pontificia Universidad Católica del Perú (PUCP) (San Miguel)",';
-    universidades += '"Universidad de San Martín de Porres (USMP) (Santa Anita)",';
-    universidades += '"Escuela de Administración de Negocios (ESAN) (Santiago de Surco)",';
-    universidades += '"Universidad de Lima (ULIMA) (Santiago de Surco)",';
-    universidades += '"Universidad Marcelino Champagnat (UMCH) (Santiago de Surco)",';
-    universidades += '"Universidad Ricardo Palma (URP) (Santiago de Surco)",';
-    universidades += '"Universidad Peruana de Ciencias Aplicadas (UPC) (Santiago de Surco)",';
-    universidades += '"Universidad Nacional del Santa (UNS) (Chimbote)",';
-    universidades += '"Universidad Nacional Sgo. Antúnez de Mayolo (UNASAM) (Huaraz)",';
-    universidades += '"Universidad San Pedro (Chimbote - Huaraz - Caraz)",';
-    universidades += '"Universidad Los Ángeles de Chimbote (ULADECH) (Chimbote)",';
-    universidades += '"Universidad Particular Los Ángeles (ULA) (Chimbote)",';
-    universidades += '"Universidad Cesar Vallejo (UCV) (Chimbote)",';
-    universidades += '"Universidad Tecnológica de Los Andes (UTEA) (Abancay)",';
-    universidades += '"Univ. Nacional de San Cristóbal de Huamanga (UNSCH) (Huamanga)",';
-    universidades += '"Universidad Nacional de S. A. de Arequipa (UNSA) (Arequipa)",';
-    universidades += '"Universidad Católica de Santa María (UCSM) (Arequipa)",';
-    universidades += '"Universidad Católica San Pablo (USP) (Arequipa)",';
-    universidades += '"Escuela de Administración de Negocios (ESAN) (Arequipa)",';
-    universidades += '"Universidad Nacional de Cajamarca (UNC) (Cajamarca)",';
-    universidades += '"Universidad Privada Antonio Guillermo Urrelo (UPAGU) (Cajamarca)",';
-    universidades += '"Universidad San Pedro (Cajamarca)",';
-    universidades += '"Universidad Privada del Norte (UPNORTE) (Cajamarca)",';
-    universidades += '"Universidad Nacional San Antonio Abad (UNSAAC) (Cusco)",';
-    universidades += '"Universidad Andina del Cusco (UANDINA) (Cusco)",';
-    universidades += '"Universidad Nacional de Huancavelica (UNH) (Huancavelica)",';
-    universidades += '"Universidad Nacional Agraria de la Selva (UNAS) (Tingo María)",';
-    universidades += '"Univ. Nacional Hermilio Valdizan Huanuco (UNHEVAL) (Huánuco)",';
-    universidades += '"Universidad Nacional del Centro del Perú (UNCP) (Huancayo)", ';
-    universidades += '"Universidad Continental de Ciencias e Ingeniería (UCCI) (Huancayo)", ';
-    universidades += '"Universidad Peruana Los Andes (UPLA) (Huancayo)", ';
-    universidades += '"Universidad Nacional San Luís Gonzaga (UNICA) (Ica)", ';
-    universidades += '"Universidad Privada Abraham Valdelomar (UPAV) (Ica)", ';
-    universidades += '"Universidad Nacional de la Amazonía Peruana (UNAP) (Iquitos)", ';
-    universidades += '"Universidad Nacional de Trujillo (UNITRU) (Trujillo)", ';
-    universidades += '"Universidad Cesar Vallejo (UCV) (Trujillo)", ';
-    universidades += '"Universidad Privada Antenor Orrego (UPAO) (Trujillo)", ';
-    universidades += '"Universidad Privada del Norte (UPNORTE) (Trujillo)", ';
-    universidades += '"Universidad San Pedro (Trujillo)", ';
-    universidades += '"Universidad Nacional Pedro Ruiz Gallo (UNPRG) (Lambayeque)", ';
-    universidades += '"Universidad Católica Sto. Toribio de Mogrovejo (USAT) (Chiclayo)", ';
-    universidades += '"Universidad Cesar Vallejo (UCV) (Chiclayo)", ';
-    universidades += '"Universidad de Chiclayo (UDCH) (Chiclayo)", ';
-    universidades += '"Universidad Señor de Sipan (USS) (Chiclayo)", ';
-    universidades += '"Universidad de San Martín de Porres (USMP) (Chiclayo)", ';
-    universidades += '"Universidad José Carlos Mariátegui (UJCM) (Ilo - Moquegua)", ';
-    universidades += '"Universidad Privada de Moquegua (Moquegua)", ';
-    universidades += '"Universidad Nacional Daniel Alcides Carrión (UNDAC) (Cerro de Pasco)", ';
-    universidades += '"Universidad Nacional de Piura (UNP) (Castilla)", ';
-    universidades += '"Universidad Cesar Vallejo (UCV) (Piura)", ';
-    universidades += '"Universidad de Piura (UDEP) (Piura)", ';
-    universidades += '"Universidad San Pedro (Piura - Sullana)", ';
-    universidades += '"Universidad Nacional del Altiplano (UNAP) (Puno)", ';
-    universidades += '"Universidad Andina N. Cáceres Velásquez (UANCV) (Puno - Juliaca)", ';
-    universidades += '"Universidad Nacional de San Martín (UNSM) (Tarapoto)", ';
-    universidades += '"Universidad Cesar Vallejo (UCV) (Tarapoto)", ';
-    universidades += '"Universidad Nacional J. Basadre Grohmann (UNJBG) (Tacna)", ';
-    universidades += '"Universidad Privada de Tacna (UPT) (Tacna)", ';
-    universidades += '"Universidad Nacional de Tumbes (UNTUMBES) (Tumbes)", ';
-    universidades += '"Universidad Nacional de Ucayali (UNU) (Pucallpa)"]';
-
-
-
-
+  
     function comboUniv() {
-        var obj = $.parseJSON(universidades);
-        var option_univ = "";
-        option_univ += "<option value='0'>-ELEGIR-</option>";
-        for (var i in obj) {
-            option_univ += "<option value='" + obj[i] + "'>" + obj[i] + "</option>";
+        var option_univ = "{{univ|raw('html')}}";
+        return option_univ;
         }
-        $(".combo-univ").html(option_univ);
-    }
-    comboUniv();
-
-    var colegios = "";
-    colegios += '["CCPL - Colegio de Contadores Públicos de Lima",';
-    colegios += '"Colegio de Economistas de Lima",';
-    colegios += '"Ilustre Colegio de Abogados de Lima",';
-    colegios += '"Colegio Odontológico del Perú",';
-    colegios += '"Colegio de Notarios de Lima",';
-    colegios += '"Colegio de Ingenieros del Perú - Consejo Nacional",';
-    colegios += '"Colegio de Ingenieros del Perú - Consejo Departamental de Lima",';
-    colegios += '"Colegio de Ingenieros de Lambayeque",';
-    colegios += '"Colegio Odontológico del Callao",';
-    colegios += '"Colegio de Contadores Públicos del Cusco",';
-    colegios += '"Sociedad de Urbanistas del Perú - SURP",';
-    colegios += '"Colegio de Sociólogos del Perú",';
-    colegios += '"Colegio Profesional de Licenciados en Cooperativismo del Perú - COLICOOP"]';
-
+        
+ $(".combo-univ").html(comboUniv());
 
 
     function comboColegio() {
-        var obj_col = jQuery.parseJSON(colegios);
-
-        var option_col = "";
-            option_col += "<option value='0'>-ELEGIR-</option>";
-        for (var j in obj_col) {
-            option_col += "<option value='" + obj_col[j] + "'>" + obj_col[j] + "</option>";
-        }
-        $(".combo_colegios").html(option_col);
-    }
-    comboColegio();
+        var obj_col = "{{col|raw('html')}}";
+        return obj_col;
+       }
+  $(".combo_colegios").html(comboColegio());
+    
 
     function comboanio() {
         var date = new Date();

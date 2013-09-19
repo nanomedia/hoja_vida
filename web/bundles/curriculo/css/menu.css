@@ -1,0 +1,87 @@
+#divdata_a {font-family: Verdana; 
+font-size: 10px;
+color: #777;
+border: 1px solid #AAA;
+height: 400px;
+width: 100%;
+position: relative;
+}
+
+#divmenu_a {color: #FF0000; 
+position: absolute; top: 5px; left: 5px}
+#divmenu_a li {display: inline-block;
+ text-align: center; margin: 1px}
+#divmenu_a a {line-height: 20px; color: #777;
+height: 20px; width: 150px; border: 1px solid #777;           
+font-weight: bold; font-family: Verdana; display: block;
+text-decoration: none; background: #FFF}
+#divmenu_a a:hover {color: #222;
+background: #CCC}
+
+#divarea_a {font-family: Verdana; 
+top: 30px; left: 6px;          
+font-size: 10px;
+color: #777;
+border: 1px solid #AAA;
+height: 361px; width: 100%;
+position: absolute;
+border: 1px solid #777
+}
+#divarea_a h1 { background: #8f8f9b; font-size: 15px; color: #FFF;
+     font-family: Arial; letter-spacing: -1px; line-height: 20px;  }
+
+/* 
+	Web20 Table Style
+	written by Netway Media, http://www.netway-media.com
+*/
+
+#ul_st {
+    padding-left: 10px;
+    list-style: none;
+}
+
+#ul_st li{
+	padding-left: 20px;
+	background-image:url(../img/perfil_usuario.png)
+    background-repeat: no-repeat;
+    background-position: 0 0;
+		
+}
+
+/*
+table {
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+}
+*/
+  /*
+caption {
+  text-align: center;
+  font: bold 16px arial, helvetica, sans-serif;
+  background: transparent;
+  padding:6px 4px 8px 0px;
+  color: #CC00FF;
+  text-transform: uppercase;
+}
+thead, tfoot {
+background:url(bg1.png) repeat-x;
+text-align:center;
+height:30px;
+}
+thead th, tfoot th {
+text-align:center;
+padding:5px;
+}
+table a {
+color: #333333;
+text-decoration:none;
+}
+table a:hover {
+text-decoration:underline;
+}
+tr.odd {
+background: #f1f1f1;
+}
+tbody th, tbody td {
+padding:5px;
+}
+*/

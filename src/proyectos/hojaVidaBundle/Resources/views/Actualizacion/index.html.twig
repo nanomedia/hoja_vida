@@ -13,17 +13,17 @@
 
     $(document).ready(function() {
 
-        {% include 'hojaVidaBundle:js:util.html.twig' %}
-        {% include 'hojaVidaBundle:js:frm_datos_personales.html.twig' %}
-        {% include 'hojaVidaBundle:js:frm_datos_postulante.html.twig' %}
-        {% include 'hojaVidaBundle:js:frm_datos_academicos.html.twig' %}
-        {% include 'hojaVidaBundle:js:frm_exp_profesional.html.twig' %}
-        {% include 'hojaVidaBundle:js:frm_info_patrimonial.html.twig' %}
-        {% include 'hojaVidaBundle:js/conducta:procesos_judiciales.html.twig' %}
-        {% include 'hojaVidaBundle:js/conducta:procesos_administrativos.html.twig' %}
-        {% include 'hojaVidaBundle:js/conducta:procesos_PJudicial.html.twig' %}
-        {% include 'hojaVidaBundle:js/conducta:procesos_MPublico.html.twig' %}
-        {% include 'hojaVidaBundle:js:frm_mov_migratorio.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:util.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:frm_datos_personales.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:frm_datos_postulante.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:frm_datos_academicos.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:frm_exp_profesional.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:frm_info_patrimonial.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js/conducta:procesos_judiciales.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js/conducta:procesos_administrativos.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js/conducta:procesos_PJudicial.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js/conducta:procesos_MPublico.html.twig' %}
+        {% include 'hojaVidaBundle:Actualizacion/js:frm_mov_migratorio.html.twig' %}
 
 
 
@@ -46,34 +46,28 @@
 
 
 
-        $("#guardar_frm").click(function() {
-            /* var val=true;
-             $(".obligate").each(function(){
-             if($(this).val()===""){
-             val=false;
-             return false;   
-             }
-             
-             });
-             alert(val+"d");*/
-
-            frm_como_postulante();
+        $("#guardar_como-postulante").click(function() {
+                        frm_como_postulante();
         });
+        
+        
+        //guardar_datos_academicos
 
 
         function frm_como_postulante() {
-            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val();
+            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val()+"&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
-                url: "{{path('_newDatosPostulante')}}",
+                url: "{{path('_actualiza_postulante')}}",
                 data: form,
                 success: function(e) {
-                    $("#id_pos").val(e);
-                    $("#guardar_frm").attr("rel", "frm-datos-academicos");
+                   // $("#id_pos").val(e);
+                  
+// $("#guardar_frm").attr("rel", "frm-datos-academicos");
 
 
-                    frm_exp_profesional();
+                   /* frm_exp_profesional();
                     frm_mov_migratorio();
                     frm_datos_academicos();
                     frm_conducta();
@@ -82,8 +76,8 @@
                     frm_info_colegio();
                     frm_info_patrimonial();
                     frm_info_camara();
-                    frm_info_registro();
-                    $("#guardar_frm").button({disabled: true});
+                    frm_info_registro();*/
+                   // $("#guardar_frm").button({disabled: true});
 
                 }
             });
@@ -240,9 +234,9 @@
 {% endblock scripts %}            
 
             {% block cuerpo %}    
-    <input type="hidden" id="id_cod" value="{{dni}}">
-    <input type="hidden" id="user" value="{{user}}">
-    <input type="hidden" id="id_pos">
+    <input type="hidden" id="id_cod" value="">
+    <input type="hidden" id="user" value="{{postulante.pkSusuario}}">
+    <input type="hidden" id="id_pos" value="{{postulante.pkDatPostulante}}">
 
     <div id="tab-cuestionario">
         <ul>
@@ -253,20 +247,20 @@
             <li><a href="#tab-cuestionario-5">RUBRO 5</a></li>
         </ul>
         <div id="tab-cuestionario-1">
-            <div id="tabs1">{% include 'hojaVidaBundle:cuestionarios:tab1.html.twig' %}</div>
+            <div id="tabs1">{% include 'hojaVidaBundle:Actualizacion/cuestionarios:tab1.html.twig' %}</div>
         </div>
         <div id="tab-cuestionario-2">
-            <div id="tabs2">{% include 'hojaVidaBundle:cuestionarios:tab2.html.twig' %}</div>
+            <div id="tabs2">{% include 'hojaVidaBundle:Actualizacion/cuestionarios:tab2.html.twig' %}</div>
 
         </div>
         <div id="tab-cuestionario-3">
-            <div id="tabs3">{% include 'hojaVidaBundle:cuestionarios:tab3.html.twig' %}</div>
+            <div id="tabs3">{% include 'hojaVidaBundle:Actualizacion/cuestionarios:tab3.html.twig' %}</div>
         </div>
         <div id="tab-cuestionario-4">
-            <div id="tabs4">{% include 'hojaVidaBundle:cuestionarios:tab4.html.twig' %}</div>
+            <div id="tabs4">{% include 'hojaVidaBundle:Actualizacion/cuestionarios:tab4.html.twig' %}</div>
         </div>
         <div id="tab-cuestionario-5">
-                        {% include 'hojaVidaBundle:formularios:info_patrimonial.html.twig' %}
+                        {% include 'hojaVidaBundle:Actualizacion/formularios:info_patrimonial.html.twig' %}
             </div>    
             <div id="tab-cuestionario-6">
 

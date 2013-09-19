@@ -1,0 +1,123 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DatosPostulante
+ *
+ * @ORM\Table(name="datos_postulante")
+ * @ORM\Entity
+ */
+class DatosPostulante
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_DAT_POSTULANTE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $pkDatPostulante;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_SUSUARIO", type="integer", nullable=true)
+     */
+    private $pkSusuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CARGO_A_POSTULAR", type="string", length=100, nullable=true)
+     */
+    private $cargoAPostular;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CONDICION", type="string", length=80, nullable=true)
+     */
+    private $condicion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TIPO_CURSO", type="string", length=8, nullable=true)
+     */
+    private $tipoCurso;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="NOTA", type="float", nullable=true)
+     */
+    private $nota;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="PRE_PROMEDIO", type="float", nullable=true)
+     */
+    private $prePromedio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ORDEN_MERITO", type="integer", nullable=true)
+     */
+    private $ordenMerito;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PLAZAS_VACANTES", type="integer", nullable=true)
+     */
+    private $plazasVacantes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EXAMEN_CONOCIMIENTOS", type="string", length=80, nullable=false)
+     */
+    private $examenConocimientos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AFILIACION_CURRICULAR", type="string", length=80, nullable=false)
+     */
+    private $afiliacionCurricular;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USUARIO_AUDT", type="string", length=50, nullable=true)
+     */
+    private $usuarioAudt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_AUDT", type="datetime", nullable=true)
+     */
+    private $fechaAudt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IP_AUDT", type="string", length=50, nullable=true)
+     */
+    private $ipAudt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ESTADO_AUDT", type="integer", nullable=true)
+     */
+    private $estadoAudt;
+
+
+}

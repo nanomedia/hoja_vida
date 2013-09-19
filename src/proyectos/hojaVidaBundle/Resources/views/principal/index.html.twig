@@ -3,8 +3,6 @@
         {{ parent() }}
 <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
 <script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
-<script src="{{asset('web/bundles/hoja_vida/campos.js')}}"></script>
-
 
 <script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
 <script src="{{asset('web/plugins/jquery_numeric/jquery.numeric.js')}}"></script>
@@ -62,7 +60,7 @@
 
 
         function frm_como_postulante() {
-            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val() + "&user=" + $("#user").val();
+            var form = $("#frm-como-postulante").serialize() +  "&user=" + $("#user").val()+"&id_cod="+$("#id_cod").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -72,7 +70,7 @@
                     $("#id_pos").val(e);
                     $("#guardar_frm").attr("rel", "frm-datos-academicos");
 
-
+                    frm_datos_personales();
                     frm_exp_profesional();
                     frm_mov_migratorio();
                     frm_datos_academicos();
@@ -86,6 +84,23 @@
                     $("#guardar_frm").button({disabled: true});
 
                 }
+            });
+        }
+        
+        function frm_datos_personales(){
+         var form = $("#frm-datos-personales").serialize() + "&user=" + $("#user").val()+"";
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newDatosPersonales')}}",
+                data: form,
+                success: function(e) {
+
+                    $("#guardar_frm").attr("rel", "frm-exp-profesional");
+
+
+                }
+
             });
         }
 
@@ -226,6 +241,7 @@
                 data: form,
                 success: function(e) {
                     $("#guardar_frm").attr("rel", "frm_info_registro");
+                    location.href="{{path('_lista_postulante')}}";
 
                 }
             });
@@ -238,7 +254,9 @@
 
     </script>
 {% endblock scripts %}            
-
+{% block titulo %}
+    <div class="single-theme">REGISTRO HOJA DE VIDA</div>
+{% endblock titulo %}
             {% block cuerpo %}    
     <input type="hidden" id="id_cod" value="{{dni}}">
     <input type="hidden" id="user" value="{{user}}">
@@ -267,10 +285,8 @@
         </div>
         <div id="tab-cuestionario-5">
                         {% include 'hojaVidaBundle:formularios:info_patrimonial.html.twig' %}
-            </div>    
-            <div id="tab-cuestionario-6">
+        </div>    
 
-            </div>
         </div>
         <div class="panel_guardar">
             <div id="titulo_save" class="titulo_save">Mantenimiento</div>

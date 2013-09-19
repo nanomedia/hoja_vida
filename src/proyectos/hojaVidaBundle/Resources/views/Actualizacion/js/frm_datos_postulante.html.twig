@@ -1,11 +1,13 @@
 
-    var num_rows_canteriores = 0;
+    var num_rows_canteriores = ($("#table_canteriores tbody tr").size()-1);
+   
     $("#add_canteriores").click(function() {
         
             num_rows_canteriores++;
             add_rows_canteriores();
             actualizar_table_canteriores();
             $(".menos").button(); 
+            $(".numeric").numeric();
         
     });
     $("#table_canteriores").delegate(".remove_canteriores", "click", function() {

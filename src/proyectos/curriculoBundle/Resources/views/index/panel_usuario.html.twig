@@ -1,0 +1,57 @@
+{% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+
+{% block scripts %}
+        {{ parent() }}
+<link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/jqgrid/css/ui.jqgrid.css')}}" />
+
+
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-ui-1.8.16.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
+<script>
+    $(document).ready(function() {
+
+        $("#table-documento").jqGrid({
+            url: '{{path('_curo')}}',
+            datatype: 'json',
+            mtype: 'POST',
+            colNames: ["DNI", "NOMBRES", "APELLIDOS", "EMAIL", ""],
+            colModel: [
+                {name: 'dni', width: '80px', index: 'dni', resizable: true, sortable: true, align: "center"},
+                {name: 'nombre', index: 'nombre', resizable: true, sortable: true, align: "center"},
+                {name: 'apellido', index: 'apellido', resizable: true, sortable: true, align: "center"},
+                {name: 'email', width: '190px', index: 'email', resizable: true, sortable: true, align: "center"},
+                {name: 'myac', width: 90, fixed: true, sortable: false, resize: false, align: "center"},
+            ],
+            height: 370,
+            width: 800,
+            pager: "#table-documento-paginator",
+            rowNum: 15,
+            rowList: [15, 30],
+            caption: 'POSTULANTES'
+        });
+    });
+    </script>
+
+{% endblock scripts %}
+
+
+
+{% block titulo %}
+    <div class="single-theme">PANEL DE CONTROL</div>
+{% endblock titulo %}
+{% block cuerpo %}   
+
+    <div class="main-panel">
+        
+        
+       <div style="width: 800px;margin: 5px auto;"> 
+        <table id="table-documento"></table>
+        <div id="table-documento-paginator"></div>
+      </div>  
+    
+    </div>
+
+{% endblock cuerpo %}   

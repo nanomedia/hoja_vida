@@ -8,36 +8,72 @@
 
 
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-ui-1.8.16.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
 <script>
     $(document).ready(function() {
 
+
         $("#table-documento").jqGrid({
-            url: '{{path('_curo')}}',
+            url: '{{path('_llenagrid')}}',
             datatype: 'json',
             mtype: 'POST',
-            colNames: ["CODIGO", "CARGO A POSTULAR", "TIPO CURSO", "NOTA", "PLAZAS", ""],
+            colNames: ["DNI", "NOMBRES", "APELLIDOS", "C. A POSTULAR", "EDAD", ""],
             colModel: [
-                {name: 'cod', index: 'pk_dat_postulante', width: '80px', resizable: true, sortable: true, align: "center"},
-                {name: 'cargo_a_postular', index: 'cargo_a_postular', resizable: true, sortable: true, align: "center"},
-                {name: 'tipo_curso', index: 'tipo_curso', resizable: true, sortable: true, align: "center"},
-                {name: 'nota', width: '190px', index: 'email', resizable: true, sortable: true, align: "center"},
-                {name: 'plazas', width: 80, fixed: true, sortable: false, resize: false, align: "center"},
-                {name: 'dato', width: 80, fixed: true, sortable: false, resize: false, align: "center"},
+                {name: 'dni', width: "70px", index: 'dni', sortable: true, align: "center"},
+                {name: 'nombres', width: "80px", align: "center"},
+                {name: 'apellidos', width: "80px", align: "center"},
+                {name: 'cpostulacion', width: "80px", align: "center"},
+                {name: 'edad', width: "50px", align: "center"},
+                {name: 'dato', width: "80px", align: "center"},
             ],
-            height: 370,
-            width: 700,
+            height: 320,
+            width: 800,
             pager: "#table-documento-paginator",
             rowNum: 15,
             rowList: [15, 30],
             caption: 'POSTULANTES'
         });
+
+
+
+        $("#table_search_postulante").delegate(".row-update", "click", function() {
+            var url = $(this).attr("rel");
+            location.href=url;
+            //alert(codigo);
+
+        });
+
+        $("#options-form").menu();
+        $(".button").button();
+        $("#tab-listado").tabs();
+        $(".add-icon").button({
+            icons: {
+                primary: "ui-icon-plusthick"
+            }
+        });
+
     });
     </script>
-{% endblock scripts %}            
+{% endblock scripts %}      
+    {% block titulo %}
+    <div class="single-theme">LISTA DE POSTULANTES</div>
+{% endblock titulo %}
 {% block cuerpo %}   
-    <table id="table-documento"></table>
-    <div id="table-documento-paginator"></div>
+
+    <div id="tab-listado">
+        <ul>
+            <li><a href="#tab-listado-1">LISTA DE POSTULANTES</a></li>
+            <!--<li> <div id="add_postulante" class="add-icon">Agregar Postulante</div></li>-->
+
+        </ul>
+
+        <div id="tab-listado-1">
+            <div id="table_search_postulante" style="width:800px;margin:1px auto;">
+                <table id="table-documento"></table>
+                <div id="table-documento-paginator"></div>
+            </div>
+        </div>
+    </div>
 {% endblock cuerpo %}   

@@ -1,49 +1,50 @@
 
 <div id="tabs1-2">
     <div class="area-registro">
-        <div class="tab-title">DATOS COMO POSTULANTE</div>
+        <div class="tab-title">DATOS COMO POSTULANTE: &nbsp;
+        <input type="button" id="guardar_como-postulante" class="add-icon" value="Actualizar">
+        </div>
         <form id="frm-como-postulante">
             <table width="65%" border="0" cellspacing="15px"  align="center">
                 <tr >
                     <td width="35%"><label class="labelText">Cargo al que postula:</label></td>
-                    <td><input type="text" name="txt_cargoAPostular" class="textbox obligate"></td>
+                    <td><input type="text" name="txt_cargoAPostular" class="textbox obligate" value="{{postulante.cargoAPostular}}"></td>
                 </tr>
                 <tr>
                     <td><label class="labelText">Condici&oacute;n:</label></td>
-                    <td><input type="text" name="txt_condicion" class="textbox obligate"></td>
+                    <td><input type="text" name="txt_condicion" class="textbox obligate" value="{{postulante.condicion}}"></td>
                 </tr>
                 <tr>
                     <td><label class="labelText">Curso de PROFA o Ascenso en la AMAG:</label></td>
                     <td>
-                        <select name="cbo_tipoCurso">
-                            <option>PROFA</option>
-                            <option>Ascenso</option>
+                        <select name="cbo_tipoCurso" value="1">
+                           {{cbo|raw('html')}}
                         </select>
                         &nbsp;&nbsp;&nbsp;
                         <label class="labelText">Nota:</label>
-                        <input type="text" name="txt_nota" class="numeric nota" size="5" >
+                        <input type="text" name="txt_nota" class="numeric nota" size="5" value="{{postulante.nota}}" >
                     </td>
                 </tr>
                 <tr>
                     <td><label class="labelText">Pre-Promedio:</label></td>
-                    <td><input type="text" name="txt_prePromedio" class="numeric nota obligate"  size="5" ></td>
+                    <td><input type="text" name="txt_prePromedio" class="numeric nota obligate"  size="5" value="{{postulante.prePromedio}}" ></td>
                 </tr>
                 <tr>
                     <td><label class="labelText">Orden de m&eacute;rito:</label></td>
-                    <td><input type="text"  name="txt_ordenMerito" class="numeric num obligate" size="5" ></td>
+                    <td><input type="text"  name="txt_ordenMerito" class="numeric num obligate" size="5" value="{{postulante.ordenMerito}}" ></td>
                 </tr>
                 <tr>
                     <td><label class="labelText">Plazas vacantes:</label></td>
-                    <td><input type="text"  name="txt_plazasVacantes" class="numeric num obligate" size="5" ></td>
+                    <td><input type="text"  name="txt_plazasVacantes" class="numeric num obligate" size="5" value="{{postulante.plazasVacantes}}" ></td>
                 </tr>
 
                 <tr>
                     <td><label class="labelText">Examen de conocimientos</label></td>
-                    <td><input type="text" name="txt_ex_cono" class="textbox obligate"></td>
+                    <td><input type="text" name="txt_ex_cono" class="textbox obligate" value="{{postulante.examenConocimientos}}" ></td>
                 </tr>
                 <tr>
                     <td><label class="labelText">Afiliaci&oacute;n curricular</label></td>
-                    <td><input type="text" name="afi_curr" class="textbox obligate"></td>
+                    <td><input type="text" name="afi_curr" class="textbox obligate" value="{{postulante.afiliacionCurricular}}"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><label class="labelText">Postulación en Convocatorias anteriores:</label></td>
@@ -62,13 +63,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td align="center">1</td>
-                                    <td><input type="text" name="convocatoria[]" class="row-edit" class="obligate"></td>
-                                    <td><input type="text" name="plaza[]" class="row-edit" class="obligate"></td>
-                                    <td><input type="text" name="etapa[]" class="row-edit" class="obligate"></td>
-                                    <td></td>
-                                </tr>
+                                {{canteriores|raw('html')}}
                             </tbody>
                         </table>
 

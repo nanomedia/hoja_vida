@@ -9,14 +9,38 @@ use proyectos\hojaVidaBundle\Util\Mantenimiento;
 use proyectos\hojaVidaBundle\Util\Actualizacion;
 use Symfony\Component\HttpFoundation\Request;
 
-class MantenimientoController extends Controller{
+class MantenimientoController extends Controller {
 
     /**
      * @Route("/index/{dni}",name="_index")
      */
     public function indexAction($dni) {
-        $usuario = "prueba";
-        return $this->render('hojaVidaBundle:principal:index.html.twig', array("dni" => $dni, "user" => $usuario));
+        
+        $cn = $this->getDoctrine()->getConnection("DB_CURRICULO");
+        $sql = "SELECT dni,nombre,apellido FROM s_usuario where dni='".$dni."'";
+        $query = $cn->prepare($sql); 
+        $query->execute(); 
+        $user = $query->fetch(); 
+        $usuario = "usu_prueba";
+        
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $query = $em->createQuery('SELECT u FROM hojaVidaBundle:Universidades u');
+        $universidades = $query->getResult();
+        $option = "<option value='0'>-ELEGIR-</option>";
+        foreach ($universidades as $value) {
+            $option .= "<option value='" . $value->getIdUniv() . "'>" . $value->getNombreUniv() . "</option>";
+        }
+
+        $query2 = $em->createQuery('SELECT c FROM hojaVidaBundle:ColegiosProfesionales c');
+        $colegio = $query2->getResult();
+        $option2 = "<option value='0'>-ELEGIR-</option>";
+        foreach ($colegio as $value) {
+            $option2 .= "<option value='" . $value->getIdColegio() . "'>" . $value->getNombreColegio() . "</option>";
+        }
+
+        $data = array("dni" => $dni, "user" => $usuario, "univ" => $option, "col" => $option2,"datos_personales"=>$user);
+        return $this->render('hojaVidaBundle:principal:index.html.twig', $data);
     }
 
     /**
@@ -26,6 +50,16 @@ class MantenimientoController extends Controller{
         return $this->render('hojaVidaBundle:principal:home.html.twig');
     }
 
+    /**
+     * @Route("/newDatosPersonales",name="_newDatosPersonales")
+     */
+    public function insertarDatosPersonales(Request $request) {
+        $m = new Mantenimiento();
+        $res = $m->insertarDatosPersonales($this, $request);
+        return new Response($res);
+    }
+    
+    
     /**
      * @Route("/newDatosPostulante",name="_newDatosPostulante")
      */
@@ -47,7 +81,7 @@ class MantenimientoController extends Controller{
     /**
      * @Route("/newExpProfesional",name="_newExpProfesional")
      */
-    public function insertarExpProfesional(Request $request){
+    public function insertarExpProfesional(Request $request) {
         $m = new Mantenimiento();
         $res = $m->insertarExpProfesional($this, $request);
         return new Response($res);
@@ -124,6 +158,5 @@ class MantenimientoController extends Controller{
         $res = $m->insertarInformacionRegistroDe($this, $request);
         return new Response($res);
     }
-
 
 }

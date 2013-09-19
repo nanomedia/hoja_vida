@@ -1,7 +1,7 @@
 <?php
 
 namespace proyectos\curriculoBundle\Entity;
-
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="s_usuario")
  * @ORM\Entity
  */
-class SUsuario
+class SUsuario implements UserInterface
 {
     /**
      * @var string
@@ -438,5 +438,25 @@ class SUsuario
     public function getIdCurriculo()
     {
         return $this->idCurriculo;
+    }
+
+    public function eraseCredentials() {
+        
+    }
+
+    public function getPassword() {
+        return $this->getContrasena();
+    }
+
+    public function getRoles() {
+        return array('ROLE_USUARIO');
+    }
+
+    public function getSalt() {
+        
+    }
+
+    public function getUsername() {
+        return $this->getDni();
     }
 }
