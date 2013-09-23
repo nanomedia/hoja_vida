@@ -22,9 +22,9 @@ class DatosPostulante
     private $pkDatPostulante;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="PK_SUSUARIO", type="integer", nullable=true)
+     * @ORM\Column(name="PK_SUSUARIO", type="string", length=255, nullable=true)
      */
     private $pkSusuario;
 
@@ -134,7 +134,7 @@ class DatosPostulante
     /**
      * Set pkSusuario
      *
-     * @param integer $pkSusuario
+     * @param string $pkSusuario
      * @return DatosPostulante
      */
     public function setPkSusuario($pkSusuario)
@@ -147,7 +147,7 @@ class DatosPostulante
     /**
      * Get pkSusuario
      *
-     * @return integer 
+     * @return string 
      */
     public function getPkSusuario()
     {

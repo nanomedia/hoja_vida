@@ -31,23 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><textarea name="txt_num_exp[]" class="info_textarea" ></textarea></td>
-                                    <td><textarea name="txt_ddas[]" class="info_textarea"></textarea></td>
-                                    <td><textarea name="txt_ddae[]" class="info_textarea"></textarea></td>
-                                    <td><textarea name="txt_materia[]" class="info_textarea"></textarea></td>
-                                    <td>
-                                        <select name="txt_espec[]" class="opt_especialidad"></select>
-                                    </td>
-                                    <td align="center">
-                                        <select name="txt_cal1[]" class="opt_nota"></select>
-                                    </td>
-                                    <td align="center">
-                                        <select name="txt_cal2[]" class="opt_nota"></select>
-                                    </td>
-                                    <td></td>
-                                </tr>
+                                {{docdespro|raw('html')}}
 
                             </tbody>
 
@@ -124,18 +108,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><textarea name="txt_cal_numExp[]" class="info_textarea"></textarea></td>
-                                    <td><textarea name="txt_cal_tipResolucion[]" class="info_textarea"></textarea></td>
-                                    <td><input name="txt_cal_fechaRes[]" class="datepicker" type="text" size="10"></td>
-                                    <td><textarea name="txt_cal_ddagraviado[]" class="info_textarea"></textarea></td>
-                                    <td><textarea name="txt_cal_ddagresor[]" class="info_textarea" ></textarea></td>
-                                    <td><textarea name="txt_cal_materia[]" class="info_textarea"></textarea></td>
-                                    <td><select name="txt_cal_especialidad[]" class="opt_especialidad"></select></td>
-                                    <td align="center"><select name="txt_cal_nota[]" class="opt_nota"></select></td>
-                                    <td></td>
-                                </tr>
+                                {{selectCalJudFis|raw('html')}}
 
                             </tbody>
                         </table> 

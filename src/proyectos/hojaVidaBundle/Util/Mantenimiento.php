@@ -40,14 +40,39 @@ class Mantenimiento {
 
     public function insertarDatosPersonales($c, $request) {
 
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+
         $txt_nombres = $request->request->get('txt_nombres');
         $txt_apellidos = $request->request->get('txt_apellidos');
         $txt_lugarNac = $request->request->get('txt_lugarNac');
         $txt_fechaNac = $request->request->get('txt_fechaNac');
         $txt_edad = $request->request->get('txt_edad');
         $txt_dni = $request->request->get('txt_dni');
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
+
+        $query = $em->createQuery('SELECT count(dpe) FROM hojaVidaBundle:DatosPersonales dpe where dpe.dni=' . $txt_dni);
+        $dpersonales_rep = $query->getResult();
+
+        if ($dpersonales_rep[0] > 0) {
+            $query = $em->createQuery('SELECT dpe FROM hojaVidaBundle:DatosPersonales dpe where dpe.dni=' . $txt_dni);
+            $ndp = $query->getResult();
+
+            foreach ($ndp as $val) {
+                $val->setIpAudt($ip);
+                $val->setEstadoAudt(2);
+                $val->setFechaAudt($hoy);
+                $val->setUsuarioAudt($user);
+                $em->persist($val);
+                $em->flush();
+            }
+        }
+
         $rad_discapacidad = $request->request->get('rad_discapacidad');
-        $user = $request->request->get("user");
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $txt_certDiscapacidad = $request->request->get('txt_certDiscapacidad');
 
         $dper = new DatosPersonales();
@@ -62,15 +87,13 @@ class Mantenimiento {
             $dper->setCertDiscapacidad($txt_certDiscapacidad);
         }
 
-        $hoy = new DateTime();
-        $ip = $request->getClientIp();
         $dper->setUsuarioAudt($user);
 
         $dper->setIpAudt($ip);
         $dper->setFechaAudt($hoy);
+        $dper->setEstadoAudt(1);
 
 
-        $em = $c->getDoctrine()->getEntityManager();
         $em->persist($dper);
         $em->flush();
 
@@ -89,7 +112,31 @@ class Mantenimiento {
         $id_cod = $request->request->get("id_cod");
         $txt_ex_cono = $request->request->get('txt_ex_cono');
         $afi_curr = $request->request->get('afi_curr');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+
+        $query = $em->createQuery('SELECT count(dpe) FROM hojaVidaBundle:DatosPostulante dpe where dpe.pkSusuario=' . $id_cod);
+        $dpostul_rep = $query->getResult();
+
+        if ($dpostul_rep[0] > 0) {
+            $query = $em->createQuery('SELECT dpe FROM hojaVidaBundle:DatosPostulante dpe where dpe.pkSusuario=' . $id_cod);
+            $ndpotul = $query->getResult();
+
+            foreach ($ndpotul as $val) {
+                $val->setIpAudt($ip);
+                $val->setEstadoAudt(2);
+                $val->setFechaAudt($hoy);
+                $val->setUsuarioAudt($user);
+
+                $em->persist($val);
+                $em->flush();
+            }
+        }
+
+
 
         $dpos = new DatosPostulante();
         $dpos->setCargoAPostular($txt_cargoAPostular);
@@ -102,15 +149,12 @@ class Mantenimiento {
         $dpos->setPlazasVacantes($txt_plazasVacantes);
         $dpos->setExamenConocimientos($txt_ex_cono);
         $dpos->setAfiliacionCurricular($afi_curr);
-        $hoy = new DateTime();
-        $ip = $request->getClientIp();
-        $dpos->setUsuarioAudt($user);
 
+        $dpos->setUsuarioAudt($user);
+        $dpos->setEstadoAudt(1);
         $dpos->setIpAudt($ip);
         $dpos->setFechaAudt($hoy);
 
-
-        $em = $c->getDoctrine()->getEntityManager();
         $em->persist($dpos);
         $em->flush();
 
@@ -124,7 +168,8 @@ class Mantenimiento {
         $convocatoria = $request->request->get('convocatoria');
         $plaza = $request->request->get('plaza');
         $etapa = $request->request->get('etapa');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -139,7 +184,7 @@ class Mantenimiento {
             $conv->setFechaAudt($hoy);
             $conv->setUsuarioAudt($user);
             $conv->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($conv);
             $em->flush();
         }
@@ -152,8 +197,9 @@ class Mantenimiento {
         $txt_tituloOtros = $request->request->get('txt_tituloOtros');
         $txt_tesisTitular = $request->request->get('txt_tesisTitular');
         $id_pos = $request->request->get("id_pos");
-        $user = $request->request->get('user');
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         $da = new DatosAcademicos();
         $da->setUnivProcedencia($cbo_univProcedencia);
@@ -172,7 +218,7 @@ class Mantenimiento {
         $da->setUsuarioAudt($user);
 
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($da);
         $em->flush();
 
@@ -190,7 +236,8 @@ class Mantenimiento {
         $cbo_nivel_doc = $request->request->get('cbo_nivel_doc');
         $txt_mencion_doc = $request->request->get('txt_mencion_doc');
         $cbo_anio_doc = $request->request->get('cbo_anio_doc');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
 
         for ($i = 0; $i < count($cbo_universidad_doc); $i++) {
 
@@ -208,7 +255,7 @@ class Mantenimiento {
             $dder->setUsuarioAudt($user);
             $dder->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($dder);
             $em->flush();
         }
@@ -219,7 +266,8 @@ class Mantenimiento {
         $cbo_nivel_mae = $request->request->get('cbo_nivel_mae');
         $txt_mencion_mae = $request->request->get('txt_mencion_mae');
         $cbo_anio_mae = $request->request->get('cbo_anio_mae');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -234,7 +282,7 @@ class Mantenimiento {
             $mder->setFechaAudt($hoy);
             $mder->setUsuarioAudt($user);
             $mder->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($mder);
             $em->flush();
         }
@@ -245,7 +293,8 @@ class Mantenimiento {
         $cbo_nivel_otras = $request->request->get('cbo_nivel_otras');
         $txt_mencion_otras = $request->request->get('txt_mencion_otras');
         $cbo_anio_otras = $request->request->get('cbo_anio_otras');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -260,7 +309,7 @@ class Mantenimiento {
             $otr->setFechaAudt($hoy);
             $otr->setUsuarioAudt($user);
             $otr->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($otr);
             $em->flush();
         }
@@ -270,7 +319,8 @@ class Mantenimiento {
         $cbo_puesto_meritos = $request->request->get('cbo_puesto_meritos');
         $cbo_anio_meritos = $request->request->get('cbo_anio_meritos');
         $cbo_univ_meritos = $request->request->get('cbo_univ_meritos');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -284,14 +334,14 @@ class Mantenimiento {
         $me->setUsuarioAudt($user);
         $me->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($me);
         $em->flush();
     }
 
     public function insertarExpProfesional($c, $request) {
         $id_pos = $request->request->get("id_pos");
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertarDocDESProfesional($c, $request, $dp);
         $this->insertarMagistradoRatificado($c, $request, $dp);
         $this->insertarCalJudFis($c, $request, $dp);
@@ -312,7 +362,8 @@ class Mantenimiento {
         $txt_espec = $request->request->get('txt_espec');
         $txt_cal1 = $request->request->get('txt_cal1');
         $txt_cal2 = $request->request->get('txt_cal2');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -330,7 +381,7 @@ class Mantenimiento {
             $ddp->setFechaAudt($hoy);
             $ddp->setUsuarioAudt($user);
             $ddp->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($ddp);
             $em->flush();
         }
@@ -342,7 +393,8 @@ class Mantenimiento {
         $txt_resolucion = $request->request->get('txt_resolucion');
         $txt_fec_res = $request->request->get('txt_fec_res');
         $txt_resp3 = $request->request->get('txt_resp_3');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -381,7 +433,7 @@ class Mantenimiento {
         $mr->setUsuarioAudt($user);
         $mr->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($mr);
         $em->flush();
     }
@@ -395,7 +447,8 @@ class Mantenimiento {
         $txt_cal_materia = $request->request->get('txt_cal_materia');
         $txt_cal_especialidad = $request->request->get('txt_cal_especialidad');
         $txt_cal_nota = $request->request->get('txt_cal_nota');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -416,7 +469,7 @@ class Mantenimiento {
             $cal->setUsuarioAudt($user);
             $cal->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($cal);
             $em->flush();
         }
@@ -427,7 +480,8 @@ class Mantenimiento {
         $txtcargo = $request->request->get('txtcargo');
         $txtperiodo = $request->request->get('txtperiodo');
         $situacion_laboral_actual = $request->request->get('situacion_laboral_actual');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -442,7 +496,7 @@ class Mantenimiento {
             $dl->setFechaAudt($hoy);
             $dl->setUsuarioAudt($user);
             $dl->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($dl);
             $em->flush();
         }
@@ -455,7 +509,8 @@ class Mantenimiento {
         $cbo_categoria_docuni = $request->request->get('cbo_categoria_docuni');
         $txt_cursos_docuni = $request->request->get('txt_cursos_docuni');
         $txt_per_docuni = $request->request->get('txt_per_docuni');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -472,7 +527,7 @@ class Mantenimiento {
             $du->setFechaAudt($hoy);
             $du->setUsuarioAudt($user);
             $du->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($du);
             $em->flush();
         }
@@ -484,7 +539,8 @@ class Mantenimiento {
         $txt_EnMaJur = $request->request->get('txt_EnMaJur');
         $txt_amJur = $request->request->get('txt_amJur');
         $txtamNoJur = $request->request->get('txtamNoJur');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -499,7 +555,7 @@ class Mantenimiento {
         $pu->setFechaAudt($hoy);
         $pu->setUsuarioAudt($user);
         $pu->setEstadoAudt(1);
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($pu);
         $em->flush();
     }
@@ -507,7 +563,8 @@ class Mantenimiento {
     public function insertarProJurFiscal($c, $request, $obj_datos_postulante) {
         $cbo_JurFis = $request->request->get('cbo_JurFis');
         $text_area_JurFis = $request->request->get('text_area_JurFis');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -519,7 +576,7 @@ class Mantenimiento {
         $pj->setFechaAudt($hoy);
         $pj->setUsuarioAudt($user);
         $pj->setEstadoAudt(1);
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($pj);
         $em->flush();
     }
@@ -538,7 +595,7 @@ class Mantenimiento {
             $lc->setDias($txt_dias_lic_otor[$i]);
             $lc->setPkDatPostulante($obj_datos_postulante);
             $lc->setEstadoAudt(1);
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($lc);
             $em->flush();
         }
@@ -546,7 +603,7 @@ class Mantenimiento {
 
     public function insertarConducta($c, $request) {
         $id_pos = $request->request->get("id_pos");
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertarAntecedentes($c, $request, $dp);
         $this->insertarProcesosJudiciales($c, $request, $dp);
         $this->insertarProcesosAdministrativos($c, $request, $dp);
@@ -561,7 +618,8 @@ class Mantenimiento {
         $txt_apenales = $request->request->get('txt_apenales');
         $txt_ajudiciales = $request->request->get('txt_ajudiciales');
         $txt_apoliciales = $request->request->get('txt_apoliciales');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -592,7 +650,7 @@ class Mantenimiento {
         $an3->setUsuarioAudt($user);
         $an3->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($an1);
         $em->persist($an2);
         $em->persist($an3);
@@ -607,7 +665,8 @@ class Mantenimiento {
         $txt_dem_agre_con = $request->request->get('txt_dem_agre_con');
         $txt_materia_con = $request->request->get('txt_materia_con');
         $txt_estado_con = $request->request->get('txt_estado_con');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -625,7 +684,7 @@ class Mantenimiento {
             $pj->setUsuarioAudt($user);
             $pj->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pj);
             $em->flush();
         }
@@ -641,7 +700,8 @@ class Mantenimiento {
         $txt_res_adm1 = $request->request->get('txt_res_adm1');
         $txt_san_adm1 = $request->request->get('txt_san_adm1');
         $txt_est_adm1 = $request->request->get('txt_est_adm1');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -658,7 +718,7 @@ class Mantenimiento {
             $pa1->setUsuarioAudt($user);
             $pa1->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pa1);
             $em->flush();
         }
@@ -678,7 +738,7 @@ class Mantenimiento {
             $pa2->setUsuarioAudt($user);
             $pa2->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pa2);
             $em->flush();
         }
@@ -699,7 +759,7 @@ class Mantenimiento {
             $pa3->setUsuarioAudt($user);
             $pa3->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 
             $em->persist($pa3);
             $em->flush();
@@ -716,7 +776,8 @@ class Mantenimiento {
 
         $tra_mot_pjud = $request->request->get('tra_mot_pjud');
         $tra_est_pjud = $request->request->get('tra_est_pjud');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -736,7 +797,7 @@ class Mantenimiento {
             $pp->setUsuarioAudt($user);
             $pp->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pp);
             $em->flush();
         }
@@ -764,7 +825,7 @@ class Mantenimiento {
             $pp->setUsuarioAudt($user);
             $pp->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pp);
             $em->flush();
         }
@@ -779,7 +840,8 @@ class Mantenimiento {
 
         $tra_mot_mpub = $request->request->get('tra_mot_mpub');
         $tra_est_mpub = $request->request->get('tra_est_mpub');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -798,7 +860,7 @@ class Mantenimiento {
             $pe->setUsuarioAudt($user);
             $pe->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pe);
             $em->flush();
         }
@@ -825,7 +887,7 @@ class Mantenimiento {
             $pe->setUsuarioAudt($user);
             $pe->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pe);
             $em->flush();
         }
@@ -834,8 +896,9 @@ class Mantenimiento {
     public function insertarinfojuefis($c, $request) {
         $id_pos = $request->request->get('id_pos');
         $tdescripcion = $request->request->get('tdescripcion');
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
-        $user = $request->request->get('user');
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -848,7 +911,7 @@ class Mantenimiento {
         $io->setUsuarioAudt($user);
         $io->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($io);
         $em->flush();
 
@@ -858,11 +921,12 @@ class Mantenimiento {
     public function insertardirecproc($c, $request) {
         $id_pos = $request->request->get('id_pos');
         $tdescripcion = $request->request->get('tdescripcion');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         $io = new InformacionOficinas();
         $io->setIdOficina(2);
@@ -873,7 +937,7 @@ class Mantenimiento {
         $io->setUsuarioAudt($user);
         $io->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($io);
         $em->flush();
 
@@ -883,11 +947,12 @@ class Mantenimiento {
     public function insertarinfo_colegio($c, $request) {
         $id_pos = $request->request->get('id_pos');
         $tdescripcion = $request->request->get('tdescripcion');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         $io = new InformacionOficinas();
         $io->setIdOficina(3);
@@ -898,7 +963,7 @@ class Mantenimiento {
         $io->setUsuarioAudt($user);
         $io->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($io);
         $em->flush();
 
@@ -907,7 +972,7 @@ class Mantenimiento {
 
     public function insertarinfo_patrimonial($c, $request) {
         $id_pos = $request->request->get('id_pos');
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $this->insertar_ingresos($c, $request, $dp);
         $this->insertar_OtrosIngresos($c, $request, $dp);
         $this->insertarPatrimonio($c, $request, $dp);
@@ -921,7 +986,8 @@ class Mantenimiento {
         $txt_ing_anio_pat = $request->request->get('txt_ing_anio_pat');
         $txt_descripcion_ing = $request->request->get('txt_descripcion_ing');
         $txt_val_ing = $request->request->get('txt_val_ing');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -936,7 +1002,7 @@ class Mantenimiento {
             $in->setUsuarioAudt($user);
             $in->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($in);
             $em->flush();
         }
@@ -945,7 +1011,8 @@ class Mantenimiento {
     public function insertar_OtrosIngresos($c, $request, $dp) {
         $txt_otr_ing = $request->request->get('txt_otr_ing');
         $txt_otr_val = $request->request->get('txt_otr_val');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -959,7 +1026,7 @@ class Mantenimiento {
             $oi->setUsuarioAudt($user);
             $oi->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($oi);
             $em->flush();
         }
@@ -988,7 +1055,7 @@ class Mantenimiento {
             $pa->setUsuarioAudt($user);
             $pa->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($pa);
             $em->flush();
         }
@@ -997,7 +1064,8 @@ class Mantenimiento {
     public function insertarPatrimonioOtros($c, $request, $dp) {
         $txt_otr_descrip = $request->request->get('txt_otr_descrip');
         $txt_otr_valor = $request->request->get('txt_otr_valor');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -1013,7 +1081,7 @@ class Mantenimiento {
             $po->setUsuarioAudt($user);
             $po->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($po);
             $em->flush();
         }
@@ -1039,7 +1107,7 @@ class Mantenimiento {
             $sis->setUsuarioAudt($user);
             $sis->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($sis);
             $em->flush();
         }
@@ -1049,7 +1117,8 @@ class Mantenimiento {
         $txt_nat_acre = $request->request->get('txt_nat_acre');
         $txt_ent_acre = $request->request->get('txt_ent_acre');
         $txt_mon_acre = $request->request->get('txt_mon_acre');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -1065,7 +1134,7 @@ class Mantenimiento {
             $ac->setUsuarioAudt($user);
             $ac->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($ac);
             $em->flush();
         }
@@ -1075,12 +1144,13 @@ class Mantenimiento {
         $txt_tipo = $request->request->get('txt_tipo');
         $txt_fecha = $request->request->get('txt_fecha');
         $txt_destino = $request->request->get('txt_destino');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
         $id_pos = $request->request->get('id_pos');
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
 
         for ($i = 0; $i < count($txt_tipo); $i++) {
             $mm = new MovimientoMigratorio();
@@ -1093,7 +1163,7 @@ class Mantenimiento {
             $mm->setUsuarioAudt($user);
             $mm->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($mm);
             $em->flush();
         }
@@ -1105,8 +1175,9 @@ class Mantenimiento {
         $hd_tipo = $request->request->get('hd_tipo');
         $txt_descripcion = $request->request->get('txt_descripcion');
         $id_pos = $request->request->get('id_pos');
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
-        $user = $request->request->get('user');
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
@@ -1120,7 +1191,7 @@ class Mantenimiento {
             $ic->setUsuarioAudt($user);
             $ic->setEstadoAudt(1);
 
-            $em = $c->getDoctrine()->getEntityManager();
+            $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
             $em->persist($ic);
             $em->flush();
         }
@@ -1130,11 +1201,12 @@ class Mantenimiento {
         $txt_deu = $request->request->get('txt_deu');
         $txt_com = $request->request->get('txt_com');
         $id_pos = $request->request->get('id_pos');
-        $user = $request->request->get('user');
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
 
-        $dp = $c->getDoctrine()->getEntityManager()->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
         $ir = new InformacionRegistroDe();
 
         $ir->setDeudoresAlimentarios($txt_deu);
@@ -1145,7 +1217,7 @@ class Mantenimiento {
         $ir->setUsuarioAudt($user);
         $ir->setEstadoAudt(1);
 
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $em->persist($ir);
         $em->flush();
     }

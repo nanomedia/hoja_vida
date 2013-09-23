@@ -6,14 +6,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContext;
 
 class DefaultController extends Controller {
 
-    /**
-     * @Route("/curo",name="_curo")
+     /**
+     * @Route("/lista_usuarios",name="_lista_usuarios")
      */
-    public function indexAction(Request $request) {
+    public function panel_usuarioAction() {
+        return $this->render('curriculoBundle:index:panel_usuario.html.twig');
+    }
+    
+        
+    /**
+     * @Route("/grid_usuarios",name="_grid_usuarios")
+     */
+    public function listaUsuariosAction(Request $request) {
 
         $page = $request->request->get("page");
         $limit = $request->request->get("rows");
@@ -53,10 +60,11 @@ class DefaultController extends Controller {
 
         $i = 0;
         foreach ($result as $row) {
-
-            $botones = '<div class="ui-state-default ui-corner-all" style="float: left; margin: 3px;padding:2px;"></span><span class="ui-icon ui-icon-extlink"></span></div>';
-            $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin: 3px;padding:2px;"></span><span class = "ui-icon ui-icon-circle-close"></span></div>';
-            $botones.='<div class="ui-state-default ui-corner-all" style = "float: left; margin: 3px;padding:2px;"></span><span class = "ui-icon ui-icon-script"></span></div>';
+            $url = $this->generateUrl(
+            '_index',
+            array('dni' => $row["dni"]));
+            
+            $botones = '&nbsp; <div rel="'.$url.'" title="Agregar Postulante" class="add-postulante ui-state-default ui-corner-all" style="float: left; margin: 3px;padding:2px;"></span><span class="ui-icon ui-icon-person"></span></div>';
 
             $responce["rows"][$i]['id'] = $row["dni"];
             $responce["rows"][$i]['cell'] = array($row["dni"], $row["nombre"], $row["apellido"], $row["email"], $botones);
@@ -66,44 +74,7 @@ class DefaultController extends Controller {
         return new Response(json_encode($responce));
     }
 
-    /**
-     * @Route("/panel_usuario",name="_panel_usuario")
-     */
-    public function panel_usuarioAction() {
-//        var_dump();
-        return $this->render('curriculoBundle:index:panel_usuario.html.twig');
-    }
-
-    /**
-     * @Route("/login",name="_login")
-     */
-    public function logeo() {
-
-        $peticion = $this->getRequest();
-        $sesion = $peticion->getSession();
-        $error = $peticion->attributes->get(
-                SecurityContext::AUTHENTICATION_ERROR, $sesion->get(SecurityContext::AUTHENTICATION_ERROR)
-        );
-        return $this->render('curriculoBundle:index:acceso.html.twig', array(
-                    'last_username' => $sesion->get(SecurityContext::LAST_USERNAME),
-                    'error' => "Verifique su usuario y/o contraseña."
-        ));
-    }
-
-    /**
-     * @Route("/login_check",name="_login_check")
-     */
-    public function login_check() {
-        
-    }
-
-    /**
-     * @Route("logout", name="_logout")
-     * 
-     */
-    public function logoutAction() {
-        
-    }
+ 
 
 }
 

@@ -8,22 +8,22 @@ use Symfony\Component\HttpFoundation\Response;
 use proyectos\hojaVidaBundle\Util\Mantenimiento;
 use proyectos\hojaVidaBundle\Util\Actualizacion;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Security\Core\SecurityContext;
 class MantenimientoController extends Controller {
 
     /**
      * @Route("/index/{dni}",name="_index")
      */
     public function indexAction($dni) {
+       
         
         $cn = $this->getDoctrine()->getConnection("DB_CURRICULO");
         $sql = "SELECT dni,nombre,apellido FROM s_usuario where dni='".$dni."'";
         $query = $cn->prepare($sql); 
         $query->execute(); 
         $user = $query->fetch(); 
-        $usuario = "usu_prueba";
-        
-        $em = $this->getDoctrine()->getEntityManager();
+               
+        $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 
         $query = $em->createQuery('SELECT u FROM hojaVidaBundle:Universidades u');
         $universidades = $query->getResult();
@@ -39,7 +39,7 @@ class MantenimientoController extends Controller {
             $option2 .= "<option value='" . $value->getIdColegio() . "'>" . $value->getNombreColegio() . "</option>";
         }
 
-        $data = array("dni" => $dni, "user" => $usuario, "univ" => $option, "col" => $option2,"datos_personales"=>$user);
+        $data = array("dni" => $dni, "univ" => $option, "col" => $option2,"datos_personales"=>$user);
         return $this->render('hojaVidaBundle:principal:index.html.twig', $data);
     }
 
@@ -55,6 +55,7 @@ class MantenimientoController extends Controller {
      */
     public function insertarDatosPersonales(Request $request) {
         $m = new Mantenimiento();
+        
         $res = $m->insertarDatosPersonales($this, $request);
         return new Response($res);
     }

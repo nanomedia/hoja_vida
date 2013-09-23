@@ -1,5 +1,5 @@
 body{
-    background-color: #ccc;
+    background-color: #f4f5e9;
     font-family: Arial;
     font-size: 15px;
     font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
@@ -7,10 +7,10 @@ body{
 #hoja-registro{
     /*padding: 1px 10px 5px 10px;*/
     margin: 35px auto;
-    background-color: #f0eaea;
+    background-color: #ffffff;
     width: 95%;
     min-height:500px;
-    border:1px solid #333333;
+    border: 1px solid #aeaeae;
 
 }
 .area-registro{
@@ -163,22 +163,23 @@ body{
 
 .panel-usuario{
     float: right;
-    width: 400px;
-    border: 1px solid #000;
-    background-color: #52535c;
-    border:1px solid #000000;
+    width: auto;
+    border: 1px solid #6BA6D1;
     color: #fff;
     font-weight: bold;
-    padding: 22px 5px 10px 34px;
-    margin: 0 0 0 5px;
-    margin: 46px 24px 0 22px;
+    padding: 11px 14px 10px 16px;
+    margin: 42px 24px 0 0px;
+    border-radius: 10px;
 }
 
 
 .main-panel{
- margin: 0 10px 0 10px;   
- background-color: #ffffff;
- border: 1px solid #ff9900;
- min-height: 700px;   
-    
+    margin: 0 10px 0 10px;   
+    background-color: #ffffff;
+    border: 1px solid #ff9900;
+    min-height: 700px;   
+
 }
+
+.header{
+} 

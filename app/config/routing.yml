@@ -1,3 +1,8 @@
+acceso:
+    resource: "@AccesoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 curriculo:
     resource: "@curriculoBundle/Controller/"
     type:     annotation
@@ -6,6 +11,6 @@ curriculo:
 hoja_vida:
     resource: "@hojaVidaBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /registro
 
 

@@ -11,8 +11,9 @@ DatosPostulante:
             generator:
                 strategy: IDENTITY
         pkSusuario:
-            type: integer
-            unsigned: false
+            type: string
+            length: 255
+            fixed: false
             nullable: true
             column: PK_SUSUARIO
         cargoAPostular:

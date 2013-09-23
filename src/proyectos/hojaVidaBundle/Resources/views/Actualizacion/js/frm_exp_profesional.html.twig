@@ -19,7 +19,8 @@
         }
 
     });
-    var num_rows_ddp = 0;
+    
+    var num_rows_ddp = ($("#doc_des_profesional tbody tr").size()-1);
     $("#add_row_ddp").click(function() {
         if (num_rows_ddp < 15) {
             num_rows_ddp++;
@@ -63,7 +64,7 @@
 
 
 
-    var num_rows_cdj = 0;
+    var num_rows_cdj = ($("#calidad_des_jud tbody tr").size()-1);
     $("#add_row_cdj").click(function() {
         if (num_rows_cdj < 15) {
             num_rows_cdj++;
@@ -265,26 +266,8 @@
 }
 addLicOtorgadas();
 
-function opt_nota(){
-    var opt="<option value='0'>-ELEGIR-</option>";
-    for(var i=1;i<=20;i++){
-    opt+="<option value='"+i+"'>"+i+"</option>";
-    }
-    opt+="<option value='21'>NP</option>";
-    opt+="<option value='21'>EX</option>";
-    
- $(".opt_nota").html(opt);
- }
- function especialidad(){
-    var esp='<option value="0">-ELEGIR-</option>';
-    esp+='<option value="1">Penal</option>';
-    esp+='<option value="2">Civil</option>';
-    esp+='<option value="3">Contencioso</option>';
-    esp+='<option value="4">Laboral</option>';
- $(".opt_especialidad").html(esp);
- }
- opt_nota();
- especialidad();
+
+
  
  
    var num_rows_lic_otor = 0;

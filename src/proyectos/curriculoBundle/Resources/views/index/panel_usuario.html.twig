@@ -1,57 +1,77 @@
 {% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
 
 {% block scripts %}
-        {{ parent() }}
+       {{ parent() }} 
 <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/jqgrid/css/ui.jqgrid.css')}}" />
 
 
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-ui-1.8.16.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
+
 <script>
     $(document).ready(function() {
-
         $("#table-documento").jqGrid({
-            url: '{{path('_curo')}}',
+            url: '{{path('_grid_usuarios')}}',
             datatype: 'json',
             mtype: 'POST',
-            colNames: ["DNI", "NOMBRES", "APELLIDOS", "EMAIL", ""],
+            colNames: ["DNI", "NOMBRES", "APELLIDOS", "EMAIL", "+"],
             colModel: [
                 {name: 'dni', width: '80px', index: 'dni', resizable: true, sortable: true, align: "center"},
                 {name: 'nombre', index: 'nombre', resizable: true, sortable: true, align: "center"},
                 {name: 'apellido', index: 'apellido', resizable: true, sortable: true, align: "center"},
                 {name: 'email', width: '190px', index: 'email', resizable: true, sortable: true, align: "center"},
-                {name: 'myac', width: 90, fixed: true, sortable: false, resize: false, align: "center"},
+                {name: 'myac', width: 37, fixed: true, sortable: false, resize: false, align: "center"},
             ],
             height: 370,
+            viewrecords: true,
+            editurl: "someurl.php",
+            scroll: false,
+            sortname: 'dni',
             width: 800,
             pager: "#table-documento-paginator",
             rowNum: 15,
             rowList: [15, 30],
-            caption: 'POSTULANTES'
+            caption: 'USUARIOS'
         });
+        $("#tab-listado").tabs();
+        $(".boton").button({
+            icons: {
+                primary: "ui-icon-zoomin"
+            }});
+        
+        $("#table-documento").delegate(".add-postulante","click",function(){
+           var url=$(this).attr("rel");
+            location.href=url;
+        });
+        
+        
+        
+        
+        
     });
     </script>
 
 {% endblock scripts %}
+ {% block titulo%}
+    LISTA DE USUARIOS
+{% endblock titulo%} 
 
-
-
-{% block titulo %}
-    <div class="single-theme">PANEL DE CONTROL</div>
-{% endblock titulo %}
 {% block cuerpo %}   
-
-    <div class="main-panel">
-        
-        
-       <div style="width: 800px;margin: 5px auto;"> 
-        <table id="table-documento"></table>
-        <div id="table-documento-paginator"></div>
-      </div>  
-    
+    <div id="tab-listado">
+        <ul>
+            <li><a href="#tab-listado-1">LISTA DE USUARIOS</a></li>
+            <li><div class="boton">BUSCAR</div></li>
+        </ul>
+        <div id="tab-listado-1">
+            <div style="width: 800px;margin: 5px auto;"> 
+                <table id="table-documento"><tr><td/></tr></table>
+                <div id="table-documento-paginator"></div>
+            </div>  
+        </div>
     </div>
+
 
 {% endblock cuerpo %}   

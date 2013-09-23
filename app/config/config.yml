@@ -42,7 +42,7 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        default_connection: DB_HOJA_VIDA
+        default_connection:  DB_CURRICULO
         connections:
 
               DB_HOJA_VIDA:

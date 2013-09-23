@@ -22,9 +22,9 @@ class DatosPostulante
     private $pkDatPostulante;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="PK_SUSUARIO", type="integer", nullable=true)
+     * @ORM\Column(name="PK_SUSUARIO", type="string", length=255, nullable=true)
      */
     private $pkSusuario;
 

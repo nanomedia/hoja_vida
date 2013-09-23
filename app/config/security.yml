@@ -11,13 +11,15 @@ security:
                   form_login:
                         login_path: _login
                         check_path: _login_check
-                        default_target_path: _panel_usuario
+                        default_target_path: _lista_usuarios
+                        use_forward: false
                   logout:
                         path: _logout
                         target: _login    
+                        
         access_control:
-#               - { path: ^/curriculo/*, roles: ROLE_USUARIO }
-#               - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+               - { path: ^/curriculo/*, roles: ROLE_USUARIO }
+               - { path: ^/registro/*, roles: ROLE_USUARIO }
 
         providers:
             usuarios:

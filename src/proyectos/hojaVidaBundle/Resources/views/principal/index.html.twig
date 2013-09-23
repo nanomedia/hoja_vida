@@ -60,7 +60,7 @@
 
 
         function frm_como_postulante() {
-            var form = $("#frm-como-postulante").serialize() +  "&user=" + $("#user").val()+"&id_cod="+$("#id_cod").val();
+            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -86,9 +86,9 @@
                 }
             });
         }
-        
-        function frm_datos_personales(){
-         var form = $("#frm-datos-personales").serialize() + "&user=" + $("#user").val()+"";
+
+        function frm_datos_personales() {
+            var form = $("#frm-datos-personales").serialize();
             cargando();
             $.ajax({
                 type: "POST",
@@ -106,7 +106,7 @@
 
         function frm_datos_academicos() {
 
-            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -123,7 +123,7 @@
         }
         function frm_exp_profesional() {
 
-            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -137,7 +137,7 @@
             });
         }
         function frm_conducta() {
-            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -153,7 +153,7 @@
 
 
         function frm_info_jue_fis() {
-            var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -166,7 +166,7 @@
             });
         }
         function frm_direc_proc() {
-            var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -179,7 +179,7 @@
             });
         }
         function frm_info_colegio() {
-            var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -192,7 +192,7 @@
             });
         }
         function frm_info_patrimonial() {
-            var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -206,7 +206,7 @@
             });
         }
         function frm_mov_migratorio() {
-            var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -219,7 +219,7 @@
             });
         }
         function frm_info_camara() {
-            var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -233,7 +233,7 @@
         }
 
         function frm_info_registro() {
-            var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val() + "&user=" + $("#user").val();
+            var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
             cargando();
             $.ajax({
                 type: "POST",
@@ -241,7 +241,7 @@
                 data: form,
                 success: function(e) {
                     $("#guardar_frm").attr("rel", "frm_info_registro");
-                    location.href="{{path('_lista_postulante')}}";
+                    //location.href="{{path('_lista_postulantes')}}";
 
                 }
             });
@@ -259,7 +259,6 @@
 {% endblock titulo %}
             {% block cuerpo %}    
     <input type="hidden" id="id_cod" value="{{dni}}">
-    <input type="hidden" id="user" value="{{user}}">
     <input type="hidden" id="id_pos">
 
     <div id="tab-cuestionario">
@@ -285,7 +284,7 @@
         </div>
         <div id="tab-cuestionario-5">
                         {% include 'hojaVidaBundle:formularios:info_patrimonial.html.twig' %}
-        </div>    
+            </div>    
 
         </div>
         <div class="panel_guardar">

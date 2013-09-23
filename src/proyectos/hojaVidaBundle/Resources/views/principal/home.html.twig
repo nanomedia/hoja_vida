@@ -2,7 +2,6 @@
 
 {% block scripts %}
         {{ parent() }}
-<link href="{{asset('web/bundles/hoja_vida/jquery-ui/css/redmond/jquery-ui-1.10.3.custom.css')}}" rel="stylesheet">
 <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/jqgrid/css/ui.jqgrid.css')}}" />
 
@@ -16,17 +15,16 @@
 
 
         $("#table-documento").jqGrid({
-            url: '{{path('_llenagrid')}}',
+            url: '{{path('_gridPostulante')}}',
             datatype: 'json',
             mtype: 'POST',
-            colNames: ["DNI", "NOMBRES", "APELLIDOS", "C. A POSTULAR", "EDAD", ""],
+            colNames: ["DNI", "NOMBRES", "APELLIDOS", "EDAD", ""],
             colModel: [
                 {name: 'dni', width: "70px", index: 'dni', sortable: true, align: "center"},
                 {name: 'nombres', width: "80px", align: "center"},
                 {name: 'apellidos', width: "80px", align: "center"},
-                {name: 'cpostulacion', width: "80px", align: "center"},
                 {name: 'edad', width: "50px", align: "center"},
-                {name: 'dato', width: "80px", align: "center"},
+                {name: 'dato', width: 40, align: "center"},
             ],
             height: 320,
             width: 800,
@@ -40,7 +38,7 @@
 
         $("#table_search_postulante").delegate(".row-update", "click", function() {
             var url = $(this).attr("rel");
-            location.href=url;
+            location.href = url;
             //alert(codigo);
 
         });
@@ -48,25 +46,23 @@
         $("#options-form").menu();
         $(".button").button();
         $("#tab-listado").tabs();
-        $(".add-icon").button({
+        $(".boton").button({
             icons: {
-                primary: "ui-icon-plusthick"
-            }
-        });
+                primary: "ui-icon-zoomin"
+            }});
 
     });
     </script>
 {% endblock scripts %}      
     {% block titulo %}
-    <div class="single-theme">LISTA DE POSTULANTES</div>
-{% endblock titulo %}
+    <div>LISTA DE POSTULANTES</div>
+    {% endblock titulo %}
 {% block cuerpo %}   
 
     <div id="tab-listado">
         <ul>
             <li><a href="#tab-listado-1">LISTA DE POSTULANTES</a></li>
-            <!--<li> <div id="add_postulante" class="add-icon">Agregar Postulante</div></li>-->
-
+            <li><div class="boton">BUSCAR</div></li>
         </ul>
 
         <div id="tab-listado-1">

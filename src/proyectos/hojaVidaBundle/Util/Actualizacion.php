@@ -38,9 +38,12 @@ use \DateTime;
 class Actualizacion {
 
     public function selectPostulante($c, $codigo) {
-        $em = $c->getDoctrine()->getEntityManager();
+
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $dp = $em->getRepository('hojaVidaBundle:DatosPostulante')->find($codigo);
+
         $opt = "";
+
         $opciones = array("-ELEGIR-", "PROFA", "Ascenso");
         for ($i = 0; $i < 3; $i++) {
             $select = "";
@@ -75,7 +78,7 @@ class Actualizacion {
     }
 
     public function actualizarDatosPostulante($c, $request) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $id_pos = $request->request->get("id_pos");
         $txt_cargoAPostular = $request->request->get('txt_cargoAPostular');
         $txt_condicion = $request->request->get('txt_condicion');
@@ -116,7 +119,7 @@ class Actualizacion {
     }
 
     public function actualizarConvAnteriores($c, $request, $obj_datos_postulante) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT c FROM hojaVidaBundle:ConvocatoriasAnteriores c WHERE c.pkDatPostulante=' . $obj_datos_postulante->getPkDatPostulante() . ' and c.estadoAudt=1');
         $canteriores = $query->getResult();
 
@@ -150,7 +153,7 @@ class Actualizacion {
     }
 
     public function selectDatosAcademicos($c, $codigo) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT d FROM hojaVidaBundle:DatosAcademicos d where d.pkDatPostulante=' . $codigo . ' and d.estadoAudt=1');
         $datoac = $query->getResult();
 
@@ -177,7 +180,7 @@ class Actualizacion {
     }
 
     public function selectDocDerecho($c, $codigo) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT d FROM hojaVidaBundle:DocDerecho d where d.pkDatAcademicos=' . $codigo . ' and d.estadoAudt=1');
         $docderecho = $query->getResult();
         $new_row = "";
@@ -229,7 +232,7 @@ class Actualizacion {
     }
 
     public function selectMaeDerecho($c, $codigo) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT d FROM hojaVidaBundle:MaeDerecho d where d.pkDatAcademicos=' . $codigo . ' and d.estadoAudt=1');
         $maeder = $query->getResult();
         $new_row = "";
@@ -278,7 +281,7 @@ class Actualizacion {
     }
 
     public function selectDocOtros($c, $codigo) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT d FROM hojaVidaBundle:OtrasDisciplinas d where d.pkDatAcademicos=' . $codigo . ' and d.estadoAudt=1');
         $docOtros = $query->getResult();
         $new_row = "";
@@ -316,7 +319,7 @@ class Actualizacion {
     }
 
     public function selectMerUniv($c, $codigo) {
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT d FROM hojaVidaBundle:MeritosUniv d where d.pkDatAcademicos=' . $codigo . ' and d.estadoAudt=1');
         $mer = $query->getResult();
         $merUniv = $mer[0];
@@ -325,7 +328,7 @@ class Actualizacion {
         $cbo_puestos = "";
         for ($j = 0; $j < count($puestos); $j++) {
             $selected = "";
-            if ($merUniv->getPuesto()==$j) {
+            if ($merUniv->getPuesto() == $j) {
                 $selected = "selected";
             }
             $cbo_puestos.="<option $selected value='$j'>" . $puestos[$j] . "</option>";
@@ -344,7 +347,7 @@ class Actualizacion {
                 <td></td>
                 <td>
                     <select name="cbo_univ_meritos" class="combo-univ">'
-                . $this->respuesta_univ($c,$merUniv->getUniversidad()) .
+                . $this->respuesta_univ($c, $merUniv->getUniversidad()) .
                 '</select>
                 </td>
             </tr>';
@@ -352,8 +355,76 @@ class Actualizacion {
         return $data;
     }
 
-    public function llenar_formularios($c,$codpos) {
-        $em = $c->getDoctrine()->getEntityManager();
+    public function selectExpProfessional($c, $codigo) {
+        $docdespro = $this->selectDocDesProfesional($c, $codigo);
+        $selectCalJudFis = $this->selectCalJudFis($c, $codigo);
+        $datoexppro = array(
+            "docdespro" => $docdespro,
+            "selectCalJudFis" => $selectCalJudFis
+        );
+        return $datoexppro;
+    }
+
+    public function selectDocDesProfesional($c, $codigo) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        $query = $em->createQuery('SELECT d FROM hojaVidaBundle:DocDesProfesional d where d.pkDatPostulante=' . $codigo . ' and d.estadoAudt=1');
+        $docdes = $query->getResult();
+        $i = 0;
+        $new_row = "";
+
+        foreach ($docdes as $value) {
+            $button = '<input type="button" class="remove_row_ddp menos" value="-">';
+            if ($i == 0) {
+                $button = "";
+            }
+            $i++;
+            $new_row .= '<tr>';
+            $new_row .= '<td>' . $i . '</td>';
+            $new_row .= '<td><textarea name="txt_num_exp[]" class="info_textarea" >' . $value->getNumExp() . '</textarea></td>';
+            $new_row .= '<td><textarea name="txt_ddas[]" class="info_textarea">' . $value->getDdas() . '</textarea></td>';
+            $new_row .= '<td><textarea name="txt_ddae[]" class="info_textarea">' . $value->getDdae() . '</textarea></td>';
+            $new_row .= '<td><textarea name="txt_materia[]" class="info_textarea">' . $value->getMateria() . '</textarea></td>';
+            $new_row .= '<td><select name="txt_espec[]" class="opt_especialidad">' . $this->respuesta_especialidad($value->getEspecialidad()) . '</select></td>';
+            $new_row .= '<td align="center"><select name="txt_cal1[]" class="opt_nota">' . $this->respuesta_calificacion($value->getCalificacion1()) . '</select></td>';
+            $new_row .= '<td align="center"><select name="txt_cal2[]" class="opt_nota">' . $this->respuesta_calificacion($value->getCalificacion2()) . '</select></td>';
+            $new_row .= '<td align="center">' . $button . '</td>';
+            $new_row .= '</tr>';
+        }
+        return $new_row;
+    }
+
+    public function selectCalJudFis($c, $codigo) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        $query = $em->createQuery('SELECT d FROM hojaVidaBundle:CalJudFis d where d.pkDatPostulante=' . $codigo . ' and d.estadoAudt=1');
+        $calfus = $query->getResult();
+        $i = 0;
+        $new_row = "";
+
+        foreach ($calfus as $value) {
+            $button = '<input class="remove_row_cdj menos" type="button" value="-">';
+            if ($i == 0) {
+                $button = "";
+            }
+            $i++;
+
+            $new_row .= '<tr>';
+            $new_row .= '<td>'.$i.'</td>';
+            $new_row .= '<td><textarea name="txt_cal_numExp[]" class="info_textarea">'.$value->getNumExp().'</textarea></td>';
+            $new_row .= '<td><textarea name="txt_cal_tipResolucion[]" class="info_textarea">'.$value->getTipResolucion().'</textarea></td>';
+            $new_row .= '<td><input name="txt_cal_fechaRes[]" class="datepicker" type="text" size="10" value='.$value->getFechaRes().'></td>';
+            $new_row .= '<td><textarea name="txt_cal_ddagraviado[]" class="info_textarea">'.$value->getDdagraviado().'</textarea></td>';
+            $new_row .= '<td><textarea name="txt_cal_ddagresor[]" class="info_textarea" >'.$value->getDdagresor().'</textarea></td>';
+            $new_row .= '<td><textarea name="txt_cal_materia[]" class="info_textarea">'.$value->getMateria().'</textarea></td>';
+            $new_row .= '<td><select name="txt_cal_especialidad[]" class="opt_especialidad">'.$this-> respuesta_especialidad($value->getEspecialidad()).'</select></td>';
+            $new_row .= '<td align="center"><select name="txt_cal_nota[]" class="opt_nota">'.$this->respuesta_calificacion($value->getNota()).'</select></td>';
+            $new_row .= '<td align="center">'.$button.'</td>';
+            $new_row .= '</tr>';
+        }
+        return $new_row;
+    }
+
+    public function llenar_formularios($c, $codpos) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 
         $query = $em->createQuery('SELECT u FROM hojaVidaBundle:Universidades u');
         $universidades = $query->getResult();
@@ -373,17 +444,50 @@ class Actualizacion {
         $codigo = $codpos;
         $datos_postulante = $this->selectPostulante($c, $codigo);
         $datos_Academicos = $this->selectDatosAcademicos($c, $codigo);
+        $Exp_profesional = $this->selectExpProfessional($c, $codigo);
 
 
         $frm_datos = array_merge($frm_datos, $datos_postulante);
         $frm_datos = array_merge($frm_datos, $datos_Academicos);
+        $frm_datos = array_merge($frm_datos, $Exp_profesional);
 
         return $c->render('hojaVidaBundle:Actualizacion:index.html.twig', $frm_datos);
     }
 
+    public function respuesta_especialidad($id) {
+        $data = array("-ELEGIR-", "Penal", "Civil", "Contencioso", "Laboral");
+        $combo = "";
+        for ($i = 0; $i < count($data); $i++) {
+            $selected = "";
+            if ($i == $id) {
+                $selected = "selected";
+            }
+            $combo.="<option $selected value='$i'>" . $data[$i] . "</option>";
+        }
+        return $combo;
+    }
+
+    public function respuesta_calificacion($id) {
+        $data = array("-ELEGIR-");
+        for ($j = 1; $j <= 20; $j++) {
+            array_push($data, $j);
+        }
+        array_push($data, "NP");
+        array_push($data, "EXP");
+        $combo = "";
+        for ($i = 0; $i < count($data); $i++) {
+            $selected = "";
+            if ($i == $id) {
+                $selected = "selected";
+            }
+            $combo.="<option $selected value='$i'>" . $data[$i] . "</option>";
+        }
+        return $combo;
+    }
+
     public function respuesta_univ($c, $id) {
         $cbo_univ_proc = "<option value='0'>-ELEGIR-</option>";
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT u FROM hojaVidaBundle:Universidades u');
         $universidades = $query->getResult();
 
@@ -399,7 +503,7 @@ class Actualizacion {
 
     public function respuesta_colegio($c, $id) {
         $cbo_col_proc = "<option value='0'>-ELEGIR-</option>";
-        $em = $c->getDoctrine()->getEntityManager();
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT c FROM hojaVidaBundle:ColegiosProfesionales c');
         $colegio = $query->getResult();
 
