@@ -7,13 +7,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class dsggdsController extends Controller {
+class ExpProfesionalController extends Controller {
  /**
-     * @Route("/frm_update_conducta",name="_frm_update_conducta")
+     * @Route("/frm_update_expprofesional",name="_frm_update_expprofesional")
      */
     public function direcAction() {
+        
+        
        
-        return $this->render('hojaVidaBundle:update_formularios:frm_update_conducta.html.twig',array("programador"=>"cesar"));
+       
+        return $this->render('hojaVidaBundle:update_formularios:frm_update_expprofesional.html.twig',array("programador"=>"pollo"));
     }
 }
 ?>
