@@ -81,8 +81,13 @@
         $("#content-menu").menu();
 
         $(".item-formularios").click(function() {
-
+            $("#codigo_pos").val($(this).attr("rel"));
             $("#menu-formularios").dialog("open");
+        });
+        
+        $(".frm_url").click(function(){
+           var url=$(this).attr("rel"); 
+           location.href=url+"/"+$("#codigo_pos").val();
         });
 
     });
@@ -123,14 +128,14 @@
                     </tr>
                      {%endfor%}                
                 </table>
-
+                <input type="hidden" id="codigo_pos" value="">
                 <div id="menu-formularios">
                     <ul id="content-menu">
-                        <li><a href="{{path('_frm_update_datospersonales')}}">DATOS PERSONALES</a></li>
-                        <li><a href="{{path('_frm_update_datospostulante')}}">DATOS POSTULANTE</a></li>
-                        <li><a href="#">DATOS ACADEMICOS</a></li>
-                        <li><a href="{{path('_frm_update_expprofesional')}}">EXPERIENCIA PROFESIONAL</a></li>
-                        <li><a href="{{path('_frm_update_conducta')}}">CONDUCTA</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospersonales" class="frm_url">DATOS PERSONALES</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospostulante" class="frm_url">DATOS POSTULANTE</a></li>
+                        <li><a href="#" rel="#">DATOS ACADEMICOS</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/frm_update_expprofesional" class="frm_url">EXPERIENCIA PROFESIONAL</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/frm_update_conducta" class="frm_url">CONDUCTA</a></li>
                     </ul>
                 </div>
 

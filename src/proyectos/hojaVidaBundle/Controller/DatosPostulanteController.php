@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 class DatosPostulanteController extends Controller {
- /**
-     * @Route("/frm_update_datospostulante",name="_frm_update_datospostulante")
+   /**
+     * @Route("/frm_update_datospostulante/{codigo}",name="_frm_update_datospostulante")
      */
-    public function direcAction(){
+    public function direcAction($codigo){
        
         return $this->render('hojaVidaBundle:update_formularios:frm_update_datospostulante.html.twig',array("programador"=>"luis"));
     }

@@ -130,8 +130,13 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
         \$(\"#content-menu\").menu();
 
         \$(\".item-formularios\").click(function() {
-
+            \$(\"#codigo_pos\").val(\$(this).attr(\"rel\"));
             \$(\"#menu-formularios\").dialog(\"open\");
+        });
+        
+        \$(\".frm_url\").click(function(){
+           var url=\$(this).attr(\"rel\"); 
+           location.href=url+\"/\"+\$(\"#codigo_pos\").val();
         });
 
     });
@@ -142,15 +147,15 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
 ";
     }
 
-    // line 94
+    // line 99
     public function block_titulo($context, array $blocks = array())
     {
-        // line 95
+        // line 100
         echo "    <div>LISTA DE POSTULANTES</div>
     ";
     }
 
-    // line 97
+    // line 102
     public function block_cuerpo($context, array $blocks = array())
     {
         echo "   
@@ -173,30 +178,30 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
                         <td></td>
                     </tr>
                         ";
-        // line 116
+        // line 121
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "postulantes"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 117
+            // line 122
             echo "                    <tr>
                         <td>";
-            // line 118
+            // line 123
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "dni"), "html", null, true);
             echo "</td>
                         <td>";
-            // line 119
+            // line 124
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "nombres"), "html", null, true);
             echo "</td>
                         <td>";
-            // line 120
+            // line 125
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "apellidos"), "html", null, true);
             echo "</td>
                         <td>";
-            // line 121
+            // line 126
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "edad"), "html", null, true);
             echo "</td>
                         <td><input type=\"button\" rel=\"";
-            // line 122
+            // line 127
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "pk_dat_postulante"), "html", null, true);
             echo "\" class=\"item-formularios\" value=\"Actualizar\"></td>
                     </tr>
@@ -205,29 +210,29 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 124
+        // line 129
         echo "                
                 </table>
-
+                <input type=\"hidden\" id=\"codigo_pos\" value=\"\">
                 <div id=\"menu-formularios\">
                     <ul id=\"content-menu\">
-                        <li><a href=\"";
-        // line 129
-        echo $this->env->getExtension('routing')->getPath("_frm_update_datospersonales");
-        echo "\">DATOS PERSONALES</a></li>
-                        <li><a href=\"";
-        // line 130
-        echo $this->env->getExtension('routing')->getPath("_frm_update_datospostulante");
-        echo "\">DATOS POSTULANTE</a></li>
-                        <li><a href=\"#\">DATOS ACADEMICOS</a></li>
-                        <li><a href=\"";
-        // line 132
-        echo $this->env->getExtension('routing')->getPath("_frm_update_expprofesional");
-        echo "\">EXPERIENCIA PROFESIONAL</a></li>
-                        <li><a href=\"";
-        // line 133
-        echo $this->env->getExtension('routing')->getPath("_frm_update_conducta");
-        echo "\">CONDUCTA</a></li>
+                        <li><a href=\"#\" rel=\"";
+        // line 134
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
+        echo "/registro/frm_update_datospersonales\" class=\"frm_url\">DATOS PERSONALES</a></li>
+                        <li><a href=\"#\" rel=\"";
+        // line 135
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
+        echo "/registro/frm_update_datospostulante\" class=\"frm_url\">DATOS POSTULANTE</a></li>
+                        <li><a href=\"#\" rel=\"#\">DATOS ACADEMICOS</a></li>
+                        <li><a href=\"#\" rel=\"";
+        // line 137
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
+        echo "/frm_update_expprofesional\" class=\"frm_url\">EXPERIENCIA PROFESIONAL</a></li>
+                        <li><a href=\"#\" rel=\"";
+        // line 138
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
+        echo "/frm_update_conducta\" class=\"frm_url\">CONDUCTA</a></li>
                     </ul>
                 </div>
 
@@ -258,6 +263,6 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  229 => 133,  225 => 132,  220 => 130,  216 => 129,  209 => 124,  200 => 122,  196 => 121,  192 => 120,  188 => 119,  184 => 118,  181 => 117,  177 => 116,  154 => 97,  149 => 95,  146 => 94,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  42 => 6,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  234 => 138,  230 => 137,  225 => 135,  221 => 134,  214 => 129,  205 => 127,  201 => 126,  197 => 125,  193 => 124,  189 => 123,  186 => 122,  182 => 121,  159 => 102,  154 => 100,  151 => 99,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  42 => 6,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

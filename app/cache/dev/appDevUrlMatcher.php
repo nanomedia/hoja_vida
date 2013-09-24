@@ -176,13 +176,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 if (0 === strpos($pathinfo, '/registro/frm_update_datosp')) {
                     // _frm_update_datospersonales
-                    if ($pathinfo === '/registro/frm_update_datospersonales') {
-                        return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPersonalesController::direcAction',  '_route' => '_frm_update_datospersonales',);
+                    if (0 === strpos($pathinfo, '/registro/frm_update_datospersonales') && preg_match('#^/registro/frm_update_datospersonales/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_datospersonales')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPersonalesController::direcAction',));
                     }
 
                     // _frm_update_datospostulante
-                    if ($pathinfo === '/registro/frm_update_datospostulante') {
-                        return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPostulanteController::direcAction',  '_route' => '_frm_update_datospostulante',);
+                    if (0 === strpos($pathinfo, '/registro/frm_update_datospostulante') && preg_match('#^/registro/frm_update_datospostulante/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_datospostulante')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPostulanteController::direcAction',));
                     }
 
                 }
