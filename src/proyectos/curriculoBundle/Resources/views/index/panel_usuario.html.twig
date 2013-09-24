@@ -8,49 +8,36 @@
 
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
 
 <script>
     $(document).ready(function() {
-        $("#table-documento").jqGrid({
-            url: '{{path('_grid_usuarios')}}',
-            datatype: 'json',
-            mtype: 'POST',
-            colNames: ["DNI", "NOMBRES", "APELLIDOS", "EMAIL", "+"],
-            colModel: [
-                {name: 'dni', width: '80px', index: 'dni', resizable: true, sortable: true, align: "center"},
-                {name: 'nombre', index: 'nombre', resizable: true, sortable: true, align: "center"},
-                {name: 'apellido', index: 'apellido', resizable: true, sortable: true, align: "center"},
-                {name: 'email', width: '190px', index: 'email', resizable: true, sortable: true, align: "center"},
-                {name: 'myac', width: 37, fixed: true, sortable: false, resize: false, align: "center"},
-            ],
-            height: 370,
-            viewrecords: true,
-            editurl: "someurl.php",
-            scroll: false,
-            sortname: 'dni',
-            width: 800,
-            pager: "#table-documento-paginator",
-            rowNum: 15,
-            rowList: [15, 30],
-            caption: 'USUARIOS'
+
+
+        $(".auto").autocomplete({
+            source: '{{path('_grid_usuarios')}}'
         });
         $("#tab-listado").tabs();
         $(".boton").button({
             icons: {
                 primary: "ui-icon-zoomin"
             }});
-        
-        $("#table-documento").delegate(".add-postulante","click",function(){
-           var url=$(this).attr("rel");
-            location.href=url;
+
+
+
+        $("#hdvida").click(function() {
+            var cadena = $("#txtdni").val() + "";
+            var cade = cadena.split("-");
+            if ($("#txtdni").val() !=="") {
+                if (cade[0].length !== "") {
+                    location.href = "/hoja_vida/app_dev.php/registro/index/" + cade[0];
+                } else {
+                    alert("Ingresa dni");
+                }
+            }else{
+                alert("Ingrese DNI");
+            }
         });
-        
-        
-        
-        
-        
+
     });
     </script>
 
@@ -62,13 +49,14 @@
 {% block cuerpo %}   
     <div id="tab-listado">
         <ul>
-            <li><a href="#tab-listado-1">LISTA DE USUARIOS</a></li>
-            <li><div class="boton">BUSCAR</div></li>
+            <li><a href="#tab-listado-1">BUSQUEDA DE USUARIOS</a></li>
+
         </ul>
         <div id="tab-listado-1">
             <div style="width: 800px;margin: 5px auto;"> 
-                <table id="table-documento"><tr><td/></tr></table>
-                <div id="table-documento-paginator"></div>
+                Buscar:
+                <input type="text" class="auto" id="txtdni" style="width:450px;">
+                <input type="button" id="hdvida" value="Hoja de Vida">
             </div>  
         </div>
     </div>

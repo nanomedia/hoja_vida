@@ -152,6 +152,49 @@ class Actualizacion {
         }
     }
 
+    public function ActualizarDatosAcademicos($c, $request) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        $id_pos = $request->request->get("id_pos");
+        $dac = $em->getRepository('hojaVidaBundle:DatosAcademicos')->find($id_pos);
+        $dac->setEstadoAudt(2);
+        $em->persist($dac);
+        $em->flush();
+        
+
+        $cbo_univProcedencia = $request->request->get('cbo_univProcedencia');
+        $cbo_colegioProfesional = $request->request->get('cbo_colegioProfesional');
+        $txt_fechaIncorporacion = $request->request->get('txt_fechaIncorporacion');
+        $txt_tituloOtros = $request->request->get('txt_tituloOtros');
+        $txt_tesisTitular = $request->request->get('txt_tesisTitular');
+        
+        $member = $c->get('security.context')->getToken()->getUser();
+        $user = $member->getDni();
+        
+        
+        $dp = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA")->getRepository('hojaVidaBundle:DatosPostulante')->find($id_pos);
+
+        $da = new DatosAcademicos();
+        $da->setUnivProcedencia($cbo_univProcedencia);
+        $da->setColegioProfesional($cbo_colegioProfesional);
+        $da->setFechaIncorporacion($txt_fechaIncorporacion);
+        $da->setTituloOtros($txt_tituloOtros);
+        $da->setTesisTitular($txt_tesisTitular);
+        $da->setPkDatPostulante($dp);
+        $da->setEstadoAudt(1);
+        
+        $hoy = new DateTime();
+        $ip = $request->getClientIp();
+
+        $da->setIpAudt($ip);
+        $da->setFechaAudt($hoy);
+        $da->setUsuarioAudt($user);
+
+        $em->persist($da);
+        $em->flush();
+        
+        
+    }
+
     public function selectDatosAcademicos($c, $codigo) {
         $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT d FROM hojaVidaBundle:DatosAcademicos d where d.pkDatPostulante=' . $codigo . ' and d.estadoAudt=1');
@@ -408,16 +451,16 @@ class Actualizacion {
             $i++;
 
             $new_row .= '<tr>';
-            $new_row .= '<td>'.$i.'</td>';
-            $new_row .= '<td><textarea name="txt_cal_numExp[]" class="info_textarea">'.$value->getNumExp().'</textarea></td>';
-            $new_row .= '<td><textarea name="txt_cal_tipResolucion[]" class="info_textarea">'.$value->getTipResolucion().'</textarea></td>';
-            $new_row .= '<td><input name="txt_cal_fechaRes[]" class="datepicker" type="text" size="10" value='.$value->getFechaRes().'></td>';
-            $new_row .= '<td><textarea name="txt_cal_ddagraviado[]" class="info_textarea">'.$value->getDdagraviado().'</textarea></td>';
-            $new_row .= '<td><textarea name="txt_cal_ddagresor[]" class="info_textarea" >'.$value->getDdagresor().'</textarea></td>';
-            $new_row .= '<td><textarea name="txt_cal_materia[]" class="info_textarea">'.$value->getMateria().'</textarea></td>';
-            $new_row .= '<td><select name="txt_cal_especialidad[]" class="opt_especialidad">'.$this-> respuesta_especialidad($value->getEspecialidad()).'</select></td>';
-            $new_row .= '<td align="center"><select name="txt_cal_nota[]" class="opt_nota">'.$this->respuesta_calificacion($value->getNota()).'</select></td>';
-            $new_row .= '<td align="center">'.$button.'</td>';
+            $new_row .= '<td>' . $i . '</td>';
+            $new_row .= '<td><textarea name="txt_cal_numExp[]" class="info_textarea">' . $value->getNumExp() . '</textarea></td>';
+            $new_row .= '<td><textarea name="txt_cal_tipResolucion[]" class="info_textarea">' . $value->getTipResolucion() . '</textarea></td>';
+            $new_row .= '<td><input name="txt_cal_fechaRes[]" class="datepicker" type="text" size="10" value=' . $value->getFechaRes() . '></td>';
+            $new_row .= '<td><textarea name="txt_cal_ddagraviado[]" class="info_textarea">' . $value->getDdagraviado() . '</textarea></td>';
+            $new_row .= '<td><textarea name="txt_cal_ddagresor[]" class="info_textarea" >' . $value->getDdagresor() . '</textarea></td>';
+            $new_row .= '<td><textarea name="txt_cal_materia[]" class="info_textarea">' . $value->getMateria() . '</textarea></td>';
+            $new_row .= '<td><select name="txt_cal_especialidad[]" class="opt_especialidad">' . $this->respuesta_especialidad($value->getEspecialidad()) . '</select></td>';
+            $new_row .= '<td align="center"><select name="txt_cal_nota[]" class="opt_nota">' . $this->respuesta_calificacion($value->getNota()) . '</select></td>';
+            $new_row .= '<td align="center">' . $button . '</td>';
             $new_row .= '</tr>';
         }
         return $new_row;

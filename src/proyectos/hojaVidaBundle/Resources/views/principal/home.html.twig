@@ -13,35 +13,54 @@
 <script>
     $(document).ready(function() {
 
+        $(".auto").autocomplete({
+            source: '{{path('_gridPostulante')}}',
+        });
 
-        $("#table-documento").jqGrid({
-            url: '{{path('_gridPostulante')}}',
-            datatype: 'json',
-            mtype: 'POST',
-            colNames: ["DNI", "NOMBRES", "APELLIDOS", "EDAD", ""],
-            colModel: [
-                {name: 'dni', width: "70px", index: 'dni', sortable: true, align: "center"},
-                {name: 'nombres', width: "80px", align: "center"},
-                {name: 'apellidos', width: "80px", align: "center"},
-                {name: 'edad', width: "50px", align: "center"},
-                {name: 'dato', width: 40, align: "center"},
-            ],
-            height: 320,
-            width: 800,
-            pager: "#table-documento-paginator",
-            rowNum: 15,
-            rowList: [15, 30],
-            caption: 'POSTULANTES'
+        $("#postulantes").click(function() {
+            var cadena = $("#txtdni").val() + "";
+            var cade = cadena.split("-");
+            if ($("#txtdni").val() !== "") {
+                if (cade[0].length !== "") {
+                    location.href = "/hoja_vida/app_dev.php/registro/datos_mantenimiento/" + cade[0];
+                } else {
+                    alert("Ingresa dni");
+                }
+            } else {
+                alert("Ingrese DNI");
+            }
         });
 
 
 
-        $("#table_search_postulante").delegate(".row-update", "click", function() {
-            var url = $(this).attr("rel");
-            location.href = url;
-            //alert(codigo);
-
-        });
+        /* $("#table-documento").jqGrid({
+         url: '{path('_gridPostulante')}',
+         datatype: 'json',
+         mtype: 'POST',
+         colNames: ["DNI", "NOMBRES", "APELLIDOS", "EDAD", ""],
+         colModel: [
+         {name: 'dni', width: "70px", index: 'dni', sortable: true, align: "center"},
+         {name: 'nombres', width: "80px", align: "center"},
+         {name: 'apellidos', width: "80px", align: "center"},
+         {name: 'edad', width: "50px", align: "center"},
+         {name: 'dato', width: 40, align: "center"},
+         ],
+         height: 320,
+         width: 800,
+         pager: "#table-documento-paginator",
+         rowNum: 15,
+         rowList: [15, 30],
+         caption: 'POSTULANTES'
+         });
+         
+         
+         $("#table_search_postulante").delegate(".row-update", "click", function() {
+         var url = $(this).attr("rel");
+         location.href = url;
+         //alert(codigo);
+         
+         });
+         */
 
         $("#options-form").menu();
         $(".button").button();
@@ -67,8 +86,9 @@
 
         <div id="tab-listado-1">
             <div id="table_search_postulante" style="width:800px;margin:1px auto;">
-                <table id="table-documento"></table>
-                <div id="table-documento-paginator"></div>
+                Buscar:
+                <input type="text" class="auto" id="txtdni" style="width:450px;">
+                <input type="button" id="postulantes" value="ver Postulantes">
             </div>
         </div>
     </div>
