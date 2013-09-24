@@ -14,7 +14,7 @@ class MantenimientoController extends Controller {
     /**
      * @Route("/index/{dni}",name="_index")
      */
-    public function indexAction($dni) {
+    public function indexAction($dni){
        
         
         $cn = $this->getDoctrine()->getConnection("DB_CURRICULO");

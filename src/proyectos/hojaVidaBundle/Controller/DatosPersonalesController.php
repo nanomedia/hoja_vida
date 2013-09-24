@@ -11,8 +11,8 @@ class DatosPersonalesController extends Controller {
  /**
      * @Route("/frm_update_datospersonales",name="_frm_update_datospersonales")
      */
-    public function direcAction() {
-       
+    public function direcAction(){
+        
         return $this->render('hojaVidaBundle:update_formularios:frm_update_datospersonales.html.twig',array("programador"=>"george"));
     }
 }
