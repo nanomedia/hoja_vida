@@ -13,24 +13,24 @@
 <script>
     $(document).ready(function() {
 
-        $(".auto").autocomplete({
-            source: '{{path('_gridPostulante')}}',
-        });
-
-        $("#postulantes").click(function() {
-            var cadena = $("#txtdni").val() + "";
-            var cade = cadena.split("-");
-            if ($("#txtdni").val() !== "") {
-                if (cade[0].length !== "") {
-                    location.href = "/hoja_vida/app_dev.php/registro/datos_mantenimiento/" + cade[0];
-                } else {
-                    alert("Ingresa dni");
-                }
-            } else {
-                alert("Ingrese DNI");
-            }
-        });
-
+        /* $(".auto").autocomplete({
+         source: "",
+         });
+         
+         $("#postulantes").click(function() {
+         var cadena = $("#txtdni").val() + "";
+         var cade = cadena.split("-");
+         if ($("#txtdni").val() !== "") {
+         if (cade[0].length !== "") {
+         location.href = "/hoja_vida/app_dev.php/registro/datos_mantenimiento/" + cade[0];
+         } else {
+         alert("Ingresa dni");
+         }
+         } else {
+         alert("Ingrese DNI");
+         }
+         });
+         */
 
 
         /* $("#table-documento").jqGrid({
@@ -70,7 +70,24 @@
                 primary: "ui-icon-zoomin"
             }});
 
+
+        $("#menu-formularios").dialog({
+            resizable: false,
+            height: 300,
+            
+            modal: true,
+            autoOpen: false,
+        });
+
+        $(".item-formularios").click(function() {
+           
+            $("#menu-formularios").dialog("open");
+        });
+
     });
+
+
+
     </script>
 {% endblock scripts %}      
     {% block titulo %}
@@ -81,14 +98,42 @@
     <div id="tab-listado">
         <ul>
             <li><a href="#tab-listado-1">LISTA DE POSTULANTES</a></li>
-            <li><div class="boton">BUSCAR</div></li>
+            <!--<li><div class="boton">BUSCAR</div></li>-->
         </ul>
 
         <div id="tab-listado-1">
             <div id="table_search_postulante" style="width:800px;margin:1px auto;">
-                Buscar:
+
+                <table border="1" width="700px">
+                    <tr>
+                        <td>DNI</td>
+                        <td>NOMBRES</td>
+                        <td>APELLIDOS</td>
+                        <td>EDAD</td>
+                        <td></td>
+                    </tr>
+                        {% for item in postulantes %}
+                    <tr>
+                        <td>{{item.dni}}</td>
+                        <td>{{item.nombres}}</td>
+                        <td>{{item.apellidos}}</td>
+                        <td>{{item.edad}}</td>
+                        <td><input type="button" rel="{{item.pk_dat_postulante}}" class="item-formularios" value="Actualizar"></td>
+                    </tr>
+                     {%endfor%}                
+                </table>
+
+                <div id="menu-formularios"></div>
+
+
+
+
+
+
+
+                <!--Buscar:
                 <input type="text" class="auto" id="txtdni" style="width:450px;">
-                <input type="button" id="postulantes" value="ver Postulantes">
+                <input type="button" id="postulantes" value="ver Postulantes">-->
             </div>
         </div>
     </div>

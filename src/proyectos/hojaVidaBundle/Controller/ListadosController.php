@@ -40,6 +40,8 @@ class ListadosController extends Controller {
             $response->headers->set('Content-Type', 'application/json');
             return $response;
 
+            
+            
 
 
 //        $page = $request->request->get("page");
@@ -102,8 +104,24 @@ class ListadosController extends Controller {
      * @Route("/lista_postulantes",name="_lista_postulantes")
      */
     public function direcAction() {
+       
+            $cn = $this->getDoctrine()->getConnection("DB_HOJA_VIDA");
+            $sql = "SELECT dp.pk_dat_postulante,dpe.dni,dpe.nombres,dpe.apellidos,dpe.edad
+                    FROM datos_postulante dp inner join datos_personales dpe 
+                    on dp.pk_susuario=dpe.dni
+                    where dpe.estado_audt=1 and dp.estado_audt=1 and dpe.dni";
 
-        return $this->render('hojaVidaBundle:principal:home.html.twig');
+            $query = $cn->prepare($sql); 
+            $query->execute();
+            $result = $query->fetchAll(); 
+            
+//            $data = array();
+//            foreach ($result as $row) {
+//                $data[] = array("label" => $row["pk_dat_postulante"]."-".$row['dni'] . ' - ' . utf8_encode($row['apellidos']) . ', ' . utf8_encode($row['nombres']),
+//                    "dni" => $row['dni']);
+//            }
+        
+        return $this->render('hojaVidaBundle:principal:home.html.twig',array("postulantes"=>$result));
     }
 
     /**
