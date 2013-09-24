@@ -74,13 +74,14 @@
         $("#menu-formularios").dialog({
             resizable: false,
             height: 300,
-            
+            width: 400,
             modal: true,
             autoOpen: false,
         });
+        $("#content-menu").menu();
 
         $(".item-formularios").click(function() {
-           
+
             $("#menu-formularios").dialog("open");
         });
 
@@ -123,7 +124,15 @@
                      {%endfor%}                
                 </table>
 
-                <div id="menu-formularios"></div>
+                <div id="menu-formularios">
+                    <ul id="content-menu">
+                        <li><a href="#">DATOS PERSONALES</a></li>
+                        <li><a href="#">DATOS POSTULANTE</a></li>
+                        <li><a href="#">DATOS ACADEMICOS</a></li>
+                        <li><a href="#">EXPERIENCIA PROFESIONAL</a></li>
+                        <li><a href="{{path('_frm_update_conducta')}}">CONDUCTA</a></li>
+                    </ul>
+                </div>
 
 
 
