@@ -81,9 +81,20 @@
         
         $("#content-menu").menu();
 
+<<<<<<< HEAD
         $(".item-formularios").click(function(){
             
              $("#menu-formularios").dialog("open");
+=======
+        $(".item-formularios").click(function() {
+            $("#codigo_pos").val($(this).attr("rel"));
+            $("#menu-formularios").dialog("open");
+>>>>>>> e01aab2c9694c0dee4abf465d106f71ebc8462b2
+        });
+        
+        $(".frm_url").click(function(){
+           var url=$(this).attr("rel"); 
+           location.href=url+"/"+$("#codigo_pos").val();
         });
 
     });
@@ -124,14 +135,22 @@
                    </tr>
                      {%endfor%}                
                 </table>
-
+                <input type="hidden" id="codigo_pos" value="">
                 <div id="menu-formularios">
                     <ul id="content-menu">
+<<<<<<< HEAD
                         <li><a href="{{path('_frm_update_datospersonales')}}" rel=" ">DATOS PERSONALES</a></li>
                         <li><a href="#" rel=""  >DATOS POSTULANTE</a></li>
                         <li><a href="#" rel="" >DATOS ACADEMICOS</a></li>
                         <li><a href="{{path('_frm_update_expprofesional')}}"  rel=" ">EXPERIENCIA PROFESIONAL</a></li>
                         <li><a href="{{path('_frm_update_conducta')}}"  rel="" >CONDUCTA</a></li>
+=======
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospersonales" class="frm_url">DATOS PERSONALES</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospostulante" class="frm_url">DATOS POSTULANTE</a></li>
+                        <li><a href="#" rel="#">DATOS ACADEMICOS</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/frm_update_expprofesional" class="frm_url">EXPERIENCIA PROFESIONAL</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/frm_update_conducta" class="frm_url">CONDUCTA</a></li>
+>>>>>>> e01aab2c9694c0dee4abf465d106f71ebc8462b2
                     </ul>
                 </div>
 

@@ -9,10 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DatosPersonalesController extends Controller {
  /**
-     * @Route("/frm_update_datospersonales",name="_frm_update_datospersonales")
+     * @Route("/frm_update_datospersonales/{codigo}",name="_frm_update_datospersonales")
      */
-    public function direcAction(){
-        
+
+    public function direcAction($codigo) {
+       
         return $this->render('hojaVidaBundle:update_formularios:frm_update_datospersonales.html.twig',array("programador"=>"george"));
     }
 }
