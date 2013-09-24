@@ -1,0 +1,18 @@
+{% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+
+{% block scripts %}
+        {{ parent() }}
+<link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
+
+
+{% endblock%}
+
+
+{% block titulo %}
+    <div>datos postulante</div>
+    {% endblock titulo %}
+{% block cuerpo %}   
+    {{programador}}
+
+{% endblock%}   
+    

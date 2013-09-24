@@ -16,7 +16,7 @@ class ExpProfesionalController extends Controller {
         
        
        
-        return $this->render('hojaVidaBundle:update_formularios:frm_update_expprofesional.html.twig',array("programador"=>"pollo"));
+        return $this->render('hojaVidaBundle:update_formularios:frm_update_expprofesional.html.twig',array("programador"=>"cesar"));
     }
 }
 ?>

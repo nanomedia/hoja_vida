@@ -13,7 +13,7 @@ class ConductaController extends Controller {
      */
     public function direcAction() {
        
-        return $this->render('hojaVidaBundle:update_formularios:frm_update_conducta.html.twig',array("programador"=>"cesar"));
+        return $this->render('hojaVidaBundle:update_formularios:frm_update_conducta.html.twig',array("programador"=>"pollo"));
     }
 }
 ?>
