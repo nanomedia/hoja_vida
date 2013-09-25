@@ -24,34 +24,37 @@ $(document).ready(function(){
 
 {% block cuerpo %}
 <div style="padding: 30px;">
-        <form id="frm_info_jue_fis" action="" method="POST">
+        <form id="frm_info_jue_fis" action="{{path('_upInfo')}}" method="POST">
+          <input type="hidden" name="id_pos" value="{{codigo}}">  
         <label class="labelText">
             INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL  CNM:
         </label><input type="submit" class="button" value="Guardar">
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>
                     <td>
-                        <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                        <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;">{{infoa}}</textarea>
                     </td>
                 </tr>
             </table>
                 
         </form>
 
-        <form id="frm_direc_proc" action="" method="POST">
+        <form id="frm_direc_proc" action="{{path('_upInfo2')}}" method="POST">
+        <input type="hidden" name="id_pos" value="{{codigo}}"> 
         <label class="labelText">
             INFORMACIÓN DE LA DIRECCIÓN DE PROCESOS DISCIPLINARIOS DEL CNM: 
         </label><input type="submit" class="button" value="Guardar">
         <table width="100%" border="0" cellspacing="10px" align="center">
             <tr>
                 <td>
-                    <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                    <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;">{{infob}}</textarea>
                 </td>
             </tr>
         </table>
                 
         </form>
         <form id="frm_info_colegio">
+        <input type="hidden" name="id_pos" value="{{codigo}}"> 
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>
                     <td>
@@ -61,13 +64,11 @@ $(document).ready(function(){
                 </tr>
                 <tr>
                     <td>
-                        <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                        <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;">{{infoc}}</textarea>
                     </td>
                 </tr>
             </table>
                 
         </form>
 </div>
-
-
 {% endblock %}
