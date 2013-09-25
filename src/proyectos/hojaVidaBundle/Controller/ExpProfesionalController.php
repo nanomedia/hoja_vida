@@ -11,13 +11,13 @@ use proyectos\hojaVidaBundle\Entity\DocDesProfesional;
 class ExpProfesionalController extends Controller {
 
     /**
-     * @Route("/frm_update_expprofesional",name="_frm_update_expprofesional")
+     * @Route("/frm_update_expprofesional/{codigo}",name="_frm_update_expprofesional")
      */
-    public function direcAction() {
+    public function direcAction($codigo) {
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 //        $dp = new DocDesProfesional();
 
-        $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:DocDesProfesional ddp where ddp.pkDatPostulante=2');
+        $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:DocDesProfesional ddp where ddp.pkDatPostulante='.$codigo);
         $dpostul_rep = $query->getResult();
 //
         $data = array();
