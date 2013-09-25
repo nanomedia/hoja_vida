@@ -11,8 +11,11 @@
 
                 <tr>
                     <td></td>
-                    <td>
-                        <select class="combo-univ" name="cbo_univProcedencia"></select>
+                    <td>{{DatosAcademicos.UnivProcedencia}}
+                        <select class="combo-univ" name="cbo_univProcedencia">
+                        {{DatosAcademicos.UnivProcedencia|raw('html')}}
+                        
+                        </select>
                     </td>
                 </tr>
 
