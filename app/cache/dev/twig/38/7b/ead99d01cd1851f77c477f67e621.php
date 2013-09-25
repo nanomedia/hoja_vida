@@ -127,7 +127,7 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
             modal: true,
             autoOpen: false,
         });
-        
+
         \$(\"#content-menu\").menu();
 
 
@@ -136,10 +136,10 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
             \$(\"#codigo_pos\").val(\$(this).attr(\"rel\"));
             \$(\"#menu-formularios\").dialog(\"open\");
         });
-        
-        \$(\".frm_url\").click(function(){
-           var url=\$(this).attr(\"rel\"); 
-           location.href=url+\"/\"+\$(\"#codigo_pos\").val();
+
+        \$(\".frm_url\").click(function() {
+            var url = \$(this).attr(\"rel\");
+            location.href = url + \"/\" + \$(\"#codigo_pos\").val();
         });
 
     });
@@ -168,10 +168,10 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
             <li><a href=\"#tab-listado-1\">LISTA DE POSTULANTES</a></li>
             <!--<li><div class=\"boton\">BUSCAR</div></li>-->
         </ul>
-            
+
         <div id=\"tab-listado-1\">
             <div id=\"table_search_postulante\" style=\"width:800px;margin:1px auto;\">
-                
+
                 <table border=\"1\" width=\"700px\">
                     <tr>
                         <td>DNI</td>
@@ -179,7 +179,7 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
                         <td>APELLIDOS</td>
                         <td>EDAD</td>
                         <td></td>
-                   </tr>
+                    </tr>
                         ";
         // line 124
         $context['_parent'] = (array) $context;
@@ -207,7 +207,7 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
             // line 130
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "pk_dat_postulante"), "html", null, true);
             echo "\" class=\"item-formularios\" value=\"Actualizar\"></td>
-                   </tr>
+                    </tr>
                      ";
         }
         $_parent = $context['_parent'];
@@ -239,10 +239,20 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
         // line 144
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
         echo "/registro/frm_update_conducta\" class=\"frm_url\">CONDUCTA</a></li>
+                        <li><a href=\"#\" rel=\"";
+        // line 145
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
+        echo "\" class=\"frm_url\">RUBRO 2</a></li>
+                        <li><a href=\"#\" rel=\"";
+        // line 146
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
+        echo "\" class=\"frm_url\">RUBRO 4</a></li>
+                        
+
                     </ul>
                 </div>
 
-                
+
                 <!--Buscar:
                 <input type=\"text\" class=\"auto\" id=\"txtdni\" style=\"width:450px;\">
                 <input type=\"button\" id=\"postulantes\" value=\"ver Postulantes\">-->
@@ -264,6 +274,6 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  240 => 144,  236 => 143,  230 => 140,  226 => 139,  217 => 132,  208 => 130,  204 => 129,  200 => 128,  196 => 127,  192 => 126,  189 => 125,  185 => 124,  162 => 105,  157 => 103,  154 => 102,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  42 => 6,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  248 => 146,  244 => 145,  240 => 144,  236 => 143,  230 => 140,  226 => 139,  217 => 132,  208 => 130,  204 => 129,  200 => 128,  196 => 127,  192 => 126,  189 => 125,  185 => 124,  162 => 105,  157 => 103,  154 => 102,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  42 => 6,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

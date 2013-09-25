@@ -78,7 +78,7 @@
             modal: true,
             autoOpen: false,
         });
-        
+
         $("#content-menu").menu();
 
 
@@ -87,10 +87,10 @@
             $("#codigo_pos").val($(this).attr("rel"));
             $("#menu-formularios").dialog("open");
         });
-        
-        $(".frm_url").click(function(){
-           var url=$(this).attr("rel"); 
-           location.href=url+"/"+$("#codigo_pos").val();
+
+        $(".frm_url").click(function() {
+            var url = $(this).attr("rel");
+            location.href = url + "/" + $("#codigo_pos").val();
         });
 
     });
@@ -109,10 +109,10 @@
             <li><a href="#tab-listado-1">LISTA DE POSTULANTES</a></li>
             <!--<li><div class="boton">BUSCAR</div></li>-->
         </ul>
-            
+
         <div id="tab-listado-1">
             <div id="table_search_postulante" style="width:800px;margin:1px auto;">
-                
+
                 <table border="1" width="700px">
                     <tr>
                         <td>DNI</td>
@@ -120,7 +120,7 @@
                         <td>APELLIDOS</td>
                         <td>EDAD</td>
                         <td></td>
-                   </tr>
+                    </tr>
                         {% for item in postulantes %}
                     <tr>
                         <td>{{item.dni}}</td>
@@ -128,24 +128,25 @@
                         <td>{{item.apellidos}}</td>
                         <td>{{item.edad}}</td>
                         <td><input type="button" rel="{{item.pk_dat_postulante}}" class="item-formularios" value="Actualizar"></td>
-                   </tr>
+                    </tr>
                      {%endfor%}                
                 </table>
                 <input type="hidden" id="codigo_pos" value="">
                 <div id="menu-formularios">
                     <ul id="content-menu">
-
-
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospersonales" class="frm_url">DATOS PERSONALES</a></li>
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospostulante" class="frm_url">DATOS POSTULANTE</a></li>
                         <li><a href="#" rel="#">DATOS ACADEMICOS</a></li>
-
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_expprofesional" class="frm_url">EXPERIENCIA PROFESIONAL</a></li>
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_conducta" class="frm_url">CONDUCTA</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}" class="frm_url">RUBRO 2</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}" class="frm_url">RUBRO 4</a></li>
+                        
+
                     </ul>
                 </div>
 
-                
+
                 <!--Buscar:
                 <input type="text" class="auto" id="txtdni" style="width:450px;">
                 <input type="button" id="postulantes" value="ver Postulantes">-->
@@ -155,7 +156,7 @@
 {% endblock cuerpo %}   
 
 
-    
-    
+
+
 
 

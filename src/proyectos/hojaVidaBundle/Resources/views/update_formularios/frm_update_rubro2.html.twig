@@ -1,0 +1,10 @@
+{% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+{% block scripts %}
+
+{{ parent() }}
+<script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
+<script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
+<script src="{{asset('web/plugins/jquery_numeric/jquery.numeric.js')}}"></script>
+{% endblock %}
