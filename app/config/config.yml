@@ -42,7 +42,7 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        default_connection:  DB_CURRICULO
+        default_connection:  DB_HOJA_VIDA
         connections:
 
               DB_HOJA_VIDA:
@@ -70,7 +70,7 @@ doctrine:
         # path:     %database_path%
 
     orm:
-        default_entity_manager:    ENTITY_DB_CURRICULO
+        default_entity_manager:    ENTITY_DB_HOJA_VIDA
         entity_managers:
               ENTITY_DB_HOJA_VIDA:
                       connection:       DB_HOJA_VIDA
