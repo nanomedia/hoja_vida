@@ -7,4 +7,67 @@
 
 <script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
 <script src="{{asset('web/plugins/jquery_numeric/jquery.numeric.js')}}"></script>
+<script>
+$(document).ready(function(){
+     {% include 'hojaVidaBundle:update_formularios:util.html.twig' %}
+});
+</script>
+
+
+
+
+{% endblock %}
+
+{% block titulo %}
+    <div>RUBRO 2</div>
+    {% endblock titulo %}
+
+{% block cuerpo %}
+<div style="padding: 30px;">
+        <form id="frm_info_jue_fis" action="" method="POST">
+        <label class="labelText">
+            INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL  CNM:
+        </label><input type="submit" class="button" value="Guardar">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+                
+        </form>
+
+        <form id="frm_direc_proc" action="" method="POST">
+        <label class="labelText">
+            INFORMACIÓN DE LA DIRECCIÓN DE PROCESOS DISCIPLINARIOS DEL CNM: 
+        </label><input type="submit" class="button" value="Guardar">
+        <table width="100%" border="0" cellspacing="10px" align="center">
+            <tr>
+                <td>
+                    <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                </td>
+            </tr>
+        </table>
+                
+        </form>
+        <form id="frm_info_colegio">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <label class="labelText">1. DENUNCIAS, QUEJAS, PROCESOS DISCIPLINARIOS Y SANCIONES:</label>
+                        <input type="submit" class="button" value="Guardar">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="tdescripcion" style="height: 200px;width: 100%;font-size: 23px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+                
+        </form>
+</div>
+
+
 {% endblock %}
