@@ -63,7 +63,7 @@ class ExpProfesionalController extends Controller {
             $i2++;
         }
 //DetSituacionLaboral
-
+        
         $query3 = $em->createQuery('SELECT det FROM hojaVidaBundle:DetSituacionLaboral det where det.pkDatPostulante=' . $codigo . ' and det.estadoAudt=1');
         $DetSituacionLaboral = $query3->getResult();
         $data3 = array();

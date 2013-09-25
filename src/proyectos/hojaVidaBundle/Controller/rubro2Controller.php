@@ -13,8 +13,7 @@ class rubro2Controller extends Controller {
      * @Route("/rubro2/{codigo}",name="_rubro2")
      */
     public function rubro2Action($codigo) {
-
-
+        
         return $this->render('hojaVidaBundle:update_formularios:frm_update_rubro2.html.twig');
     }
 
