@@ -466,31 +466,36 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Materia"), "html", null, true);
             echo "</textarea></td>
                                     <td>
-                                        <select name=\"txt_espec[]\" class=\"opt_especialidad\"></select>";
-            // line 392
+                                        <select name=\"txt_espec[]\" class=\"opt_especialidad\">
+                                        ";
+            // line 393
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Especialidad"), "html", null, true);
             echo "
+                                        </select>
                                     </td>
                                     <td align=\"center\">
                                         <select name=\"txt_cal1[]\" class=\"opt_nota\"></select>";
-            // line 395
+            // line 397
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Calificacion1"), "html", null, true);
             echo "
                                     </td>
                                     <td align=\"center\">
                                         <select name=\"txt_cal2[]\" class=\"opt_nota\"></select>";
-            // line 398
+            // line 400
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Calificacion2"), "html", null, true);
             echo "
                                     </td>
-                                    <td></td>
+                                    <td>";
+            // line 402
+            echo $this->getAttribute($this->getContext($context, "ddp"), "boton");
+            echo "</td>
                                 </tr>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddp'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 403
+        // line 405
         echo "
                               
                             </tbody>
@@ -880,6 +885,6 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  494 => 403,  483 => 398,  477 => 395,  471 => 392,  466 => 390,  462 => 389,  458 => 388,  454 => 387,  450 => 386,  443 => 384,  405 => 350,  400 => 348,  397 => 347,  63 => 16,  61 => 15,  53 => 10,  49 => 9,  44 => 7,  40 => 6,  36 => 5,  33 => 4,  30 => 3,);
+        return array (  499 => 405,  490 => 402,  485 => 400,  479 => 397,  472 => 393,  466 => 390,  462 => 389,  458 => 388,  454 => 387,  450 => 386,  443 => 384,  405 => 350,  400 => 348,  397 => 347,  63 => 16,  61 => 15,  53 => 10,  49 => 9,  44 => 7,  40 => 6,  36 => 5,  33 => 4,  30 => 3,);
     }
 }

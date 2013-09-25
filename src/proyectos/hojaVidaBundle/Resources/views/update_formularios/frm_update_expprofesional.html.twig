@@ -389,7 +389,9 @@
                                     <td><textarea name="txt_ddae[]" class="info_textarea">{{ddp.Ddae}}</textarea></td>
                                     <td><textarea name="txt_materia[]" class="info_textarea">{{ddp.Materia}}</textarea></td>
                                     <td>
-                                        <select name="txt_espec[]" class="opt_especialidad"></select>{{ddp.Especialidad}}
+                                        <select name="txt_espec[]" class="opt_especialidad">
+                                        {{ddp.Especialidad}}
+                                        </select>
                                     </td>
                                     <td align="center">
                                         <select name="txt_cal1[]" class="opt_nota"></select>{{ddp.Calificacion1}}
@@ -397,7 +399,7 @@
                                     <td align="center">
                                         <select name="txt_cal2[]" class="opt_nota"></select>{{ddp.Calificacion2}}
                                     </td>
-                                    <td></td>
+                                    <td>{{ddp.boton|raw('html')}}</td>
                                 </tr>
                                 {% endfor %}
 
