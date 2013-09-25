@@ -20,7 +20,7 @@ class __TwigTemplate_9a0304990aae769eee888d4fa7297734 extends Twig_Template
               //1. PROCESOS DISCIPLINARIOS:   
                 
                 
-                  var num_tra_proc_disc = 0;
+                  var num_tra_proc_disc = (\$(\"#table_tra_proc_disc tbody tr\").size()-1);
                 \$(\"#add_tra_proc_disc\").click(function() {
                     num_tra_proc_disc++;
                     add_tra_proc_disc();
@@ -58,7 +58,7 @@ class __TwigTemplate_9a0304990aae769eee888d4fa7297734 extends Twig_Template
                 }
                 
    // 2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA Total:             
-                  var num_que_vis_inv = 0;
+                  var num_que_vis_inv = (\$(\"#table_que_vis_inv tbody tr\").size()-1);
                 \$(\"#add_que_vis_inv\").click(function() {
                     num_que_vis_inv++;
                     add_que_vis_inv();
@@ -104,7 +104,7 @@ class __TwigTemplate_9a0304990aae769eee888d4fa7297734 extends Twig_Template
                 }
                 
   //3. INVESTIGACIONES PRELIMINARES:               
-                 var num_invs_preliminares = 0;
+                 var num_invs_preliminares = (\$(\"#table_invs_preliminares tbody tr\").size()-1);
                 \$(\"#add_invs_preliminares\").click(function() {
                     num_invs_preliminares++;
                     add_invs_preliminares();
@@ -290,6 +290,6 @@ class __TwigTemplate_9a0304990aae769eee888d4fa7297734 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 23,  69 => 22,  60 => 14,  57 => 13,  54 => 12,  52 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

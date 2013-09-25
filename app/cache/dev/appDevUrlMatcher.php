@@ -187,11 +187,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
-                // _frm_update_expprofesional
-                if (0 === strpos($pathinfo, '/registro/frm_update_expprofesional') && preg_match('#^/registro/frm_update_expprofesional/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_expprofesional')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ExpProfesionalController::direcAction',));
-                }
+            }
 
+            // _updateDatosPostulante
+            if ($pathinfo === '/registro/updateDatosPostulante') {
+                return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPostulanteController::updateDatosPostulanteAction',  '_route' => '_updateDatosPostulante',);
+            }
+
+            // _frm_update_expprofesional
+            if (0 === strpos($pathinfo, '/registro/frm_update_expprofesional') && preg_match('#^/registro/frm_update_expprofesional/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_expprofesional')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ExpProfesionalController::llena_ExpProfesionalAction',));
+            }
+
+            // _update_expprofesional
+            if ($pathinfo === '/registro/_update_expprofesional') {
+                return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ExpProfesionalController::ActualizaExpProfesionalAction',  '_route' => '_update_expprofesional',);
             }
 
             // _gridPostulante

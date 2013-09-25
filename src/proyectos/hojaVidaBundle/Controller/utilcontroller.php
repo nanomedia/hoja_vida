@@ -21,15 +21,6 @@ class utilController extends Controller {
         foreach ($universidades as $value) {
             $option .= "<option value='" . $value->getIdUniv() . "'>" . $value->getNombreUniv() . "</option>";
         }
-
-//        $query2 = $em->createQuery('SELECT c FROM hojaVidaBundle:ColegiosProfesionales c');
-//        $colegio = $query2->getResult();
-//        $option2 = "<option value='0'>-ELEGIR-</option>";
-//        foreach ($colegio as $value) {
-//            $option2 .= "<option value='" . $value->getIdColegio() . "'>" . $value->getNombreColegio() . "</option>";
-//        }
-
-        
         return new Response($option);
     }
 }

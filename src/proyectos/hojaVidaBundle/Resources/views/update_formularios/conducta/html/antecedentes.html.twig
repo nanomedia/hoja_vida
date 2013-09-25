@@ -1,18 +1,27 @@
 <h3><label class="labelform">1.&nbsp;&nbsp;ANTECEDENTES PENALES, JUDICIALES Y POLICIALES:</label></h3>
 <div>
     <table width="80%" class="table ui-widget ui-widget-content">
-
+        
+        
+        {% for item in ConantecedentespenalesA %}
         <tr>
             <td width="180px" class="ui-widget-header">Antecedentes Penales:</td>
-            <td><textarea name="txt_apenales" class="text-area"></textarea></td>
+            <td><textarea name="txt_apenales" class="text-area">{{item.descripcion}} </textarea></td>
         </tr>
+        {%endfor %}
+        
+        {% for item in ConantecedentespenalesB %}
         <tr>
             <td  class="ui-widget-header">Antecedentes Judiciales:</td>
-            <td><textarea name="txt_ajudiciales" type="text" class="text-area"></textarea></td>
+            <td><textarea name="txt_ajudiciales" type="text" class="text-area">{{item.descripcion}}</textarea></td>
         </tr>
+        {%endfor%}
+        
+        {% for item in ConantecedentespenalesC %}        
         <tr>
             <td  class="ui-widget-header">Antecedentes Policiales:</td>
-            <td><textarea name="txt_apoliciales" type="text" class="text-area"></textarea></td>
+            <td><textarea name="txt_apoliciales" type="text" class="text-area">{{item.descripcion}}</textarea></td>
         </tr>
+        {%endfor%}        
     </table>
 </div>

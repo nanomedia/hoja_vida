@@ -66,14 +66,18 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
             // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Estado"), "html", null, true);
             echo "</textarea></td>
-\t\t\t\t\t\t\t\t\t<td></td>
+                                                                       
+                                                                        <td>";
+            // line 32
+            echo $this->getAttribute($this->getContext($context, "ddp"), "boton");
+            echo "</td>
 \t\t\t\t\t\t\t\t</tr>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddp'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "\t\t\t\t\t\t\t\t
 
 \t\t
@@ -100,7 +104,7 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
 
 
                                 ";
-        // line 59
+        // line 60
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesojudicialesB"));
         foreach ($context['_seq'] as $context["_key"] => $context["ddpB"]) {
@@ -108,33 +112,36 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
 \t\t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t\t<td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
 \t\t\t\t\t\t\t\t\t\t<textarea name=\"txt_exp_con[]\" class=\"info_textarea\">";
-            // line 62
+            // line 63
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Expediente"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\">";
-            // line 63
+            // line 64
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Organo"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\">";
-            // line 64
+            // line 65
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Demandadoagresor"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\">";
-            // line 65
+            // line 66
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Materia"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\">";
-            // line 66
+            // line 67
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Estado"), "html", null, true);
             echo "</textarea></td>
-\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t <td>";
+            // line 68
+            echo $this->getAttribute($this->getContext($context, "ddpB"), "boton");
+            echo "</td>
 \t\t\t\t\t\t\t\t</tr>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpB'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
+        // line 71
         echo "\t\t\t\t\t\t\t\t
 
         </tbody>
@@ -157,41 +164,44 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
         <tbody>
 
                                 ";
-        // line 91
+        // line 92
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesojudicialesC"));
         foreach ($context['_seq'] as $context["_key"] => $context["ddpC"]) {
             echo "  
 \t\t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t\t<td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
-\t\t\t\t\t\t\t\t\t\t<textarea name=\"txt_exp_con[]\" class=\"info_textarea\">";
-            // line 94
+\t\t\t\t\t\t\t\t\t<textarea name=\"txt_exp_con[]\" class=\"info_textarea\">";
+            // line 95
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Expediente"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\">";
-            // line 95
+            // line 96
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Organo"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\">";
-            // line 96
+            // line 97
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Demandadoagresor"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\">";
-            // line 97
+            // line 98
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Materia"), "html", null, true);
             echo "</textarea></td>
 \t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\">";
-            // line 98
+            // line 99
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Estado"), "html", null, true);
             echo "</textarea></td>
-\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t<td> ";
+            // line 100
+            echo $this->getAttribute($this->getContext($context, "ddpC"), "boton");
+            echo " </td>
 \t\t\t\t\t\t\t\t</tr>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpC'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 102
+        // line 103
         echo "           
         </tbody>
     </table>
@@ -211,6 +221,6 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  195 => 102,  185 => 98,  181 => 97,  177 => 96,  173 => 95,  169 => 94,  161 => 91,  138 => 70,  128 => 66,  124 => 65,  120 => 64,  116 => 63,  112 => 62,  104 => 59,  77 => 34,  63 => 29,  59 => 28,  51 => 26,  43 => 23,  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 30,  64 => 16,  61 => 15,  58 => 14,  55 => 27,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  205 => 103,  196 => 100,  192 => 99,  188 => 98,  184 => 97,  180 => 96,  176 => 95,  168 => 92,  145 => 71,  136 => 68,  132 => 67,  128 => 66,  124 => 65,  120 => 64,  116 => 63,  108 => 60,  81 => 35,  67 => 30,  59 => 28,  55 => 27,  51 => 26,  83 => 25,  74 => 23,  66 => 20,  63 => 29,  50 => 14,  46 => 13,  43 => 23,  34 => 9,  26 => 6,  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 32,  69 => 22,  60 => 14,  57 => 13,  54 => 16,  52 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 7,);
     }
 }

@@ -24,7 +24,7 @@
 									<td><textarea type="text" name="txt_res_adm1[]" class="info_textarea">{{ddpD.Resolucion}}</textarea></td>
 									<td><textarea type="text" name="txt_san_adm1[]" class="info_textarea">{{ddpD.Sancion}}</textarea></td>
 									<td><textarea type="text" name="txt_est_adm1[]" class="info_textarea">{{ddpD.Estado}}</textarea></td>
-									<td></td>
+									<td> {{ ddpD.boton|raw('html')}} </td>
 								</tr>
 								
                                 {% endfor %}
@@ -68,7 +68,7 @@
 						
 										<td><textarea type="text" name="txt_res_adm2[]" class="info_textarea">{{ddpE.Resolucion}}</textarea></td>
 										<td><textarea type="text" name="txt_san_adm2[]" class="info_textarea">{{ddpE.Sancion}}</textarea></td>
-										<td></td>
+										<td> {{ ddpE.boton|raw('html')}} </td>
 									</tr>
 
                                 {% endfor %}
@@ -111,7 +111,7 @@
                 </td>
                 <td><textarea type="text" name="txt_san_adm3[]" class="info_textarea">{{ddpF.Sancion}}</textarea></td>
                 <td><textarea type="text" name="txt_res_adm3[]" class="info_textarea">{#{ddpF.Expediente}#}</textarea></td>
-                <td></td>
+                <td> {{ ddpF.boton|raw('html')}} </td>
             </tr>
 									
 

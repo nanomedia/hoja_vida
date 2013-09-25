@@ -59,7 +59,10 @@ class __TwigTemplate_c3ef503d1faca3d424a0e592ed2b59e9 extends Twig_Template
             // line 26
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpD"), "Estado"), "html", null, true);
             echo "</textarea></td>
-\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t<td> ";
+            // line 27
+            echo $this->getAttribute($this->getContext($context, "ddpD"), "boton");
+            echo " </td>
 \t\t\t\t\t\t\t\t</tr>
 \t\t\t\t\t\t\t\t
                                 ";
@@ -122,7 +125,10 @@ class __TwigTemplate_c3ef503d1faca3d424a0e592ed2b59e9 extends Twig_Template
             // line 70
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpE"), "Sancion"), "html", null, true);
             echo "</textarea></td>
-\t\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t\t<td> ";
+            // line 71
+            echo $this->getAttribute($this->getContext($context, "ddpE"), "boton");
+            echo " </td>
 \t\t\t\t\t\t\t\t\t</tr>
 
                                 ";
@@ -183,7 +189,10 @@ class __TwigTemplate_c3ef503d1faca3d424a0e592ed2b59e9 extends Twig_Template
                 <td><textarea type=\"text\" name=\"txt_res_adm3[]\" class=\"info_textarea\">";
             // line 113
             echo "</textarea></td>
-                <td></td>
+                <td> ";
+            // line 114
+            echo $this->getAttribute($this->getContext($context, "ddpF"), "boton");
+            echo " </td>
             </tr>
 \t\t\t\t\t\t\t\t\t
 
@@ -214,6 +223,6 @@ class __TwigTemplate_c3ef503d1faca3d424a0e592ed2b59e9 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  196 => 119,  176 => 110,  162 => 101,  134 => 75,  123 => 70,  119 => 69,  113 => 66,  71 => 31,  60 => 26,  56 => 25,  52 => 24,  48 => 23,  41 => 21,  195 => 102,  185 => 113,  181 => 112,  177 => 96,  173 => 95,  169 => 94,  161 => 91,  138 => 70,  128 => 66,  124 => 65,  120 => 64,  116 => 63,  112 => 62,  104 => 59,  77 => 34,  63 => 29,  59 => 28,  51 => 26,  43 => 23,  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 55,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 30,  64 => 16,  61 => 15,  58 => 14,  55 => 27,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  194 => 114,  191 => 113,  187 => 112,  182 => 110,  140 => 75,  130 => 71,  126 => 70,  122 => 69,  100 => 55,  64 => 27,  56 => 25,  48 => 23,  41 => 21,  205 => 119,  196 => 100,  192 => 99,  188 => 98,  184 => 97,  180 => 96,  176 => 95,  168 => 101,  145 => 71,  136 => 68,  132 => 67,  128 => 66,  124 => 65,  120 => 64,  116 => 66,  108 => 60,  81 => 35,  67 => 30,  59 => 28,  55 => 27,  51 => 26,  83 => 25,  74 => 31,  66 => 20,  63 => 29,  50 => 14,  46 => 13,  43 => 23,  34 => 9,  26 => 6,  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 32,  69 => 22,  60 => 26,  57 => 13,  54 => 16,  52 => 24,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 7,);
     }
 }

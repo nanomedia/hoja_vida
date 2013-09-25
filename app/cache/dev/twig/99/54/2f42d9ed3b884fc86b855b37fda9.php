@@ -45,25 +45,18 @@ class __TwigTemplate_99542f42d9ed3b884fc86b855b37fda9 extends Twig_Template
         $this->env->loadTemplate("hojaVidaBundle:update_formularios:util.html.twig")->display($context);
         // line 10
         echo "    ";
-        $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig")->display($context);
-        // line 11
-        echo "
+        $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_judiciales.html.twig")->display($context);
+        echo " 
     ";
-        // line 12
+        // line 11
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig")->display($context);
+        // line 12
+        echo "    ";
+        $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_PJudicial.html.twig")->display($context);
         // line 13
         echo "    ";
-        $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_PJudicial.html.twig")->display($context);
-        // line 14
-        echo "    ";
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_administrativos.html.twig")->display($context);
-        // line 15
-        echo "    ";
-        $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_PJudicial.html.twig")->display($context);
-        // line 16
-        echo "    ";
-        $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig")->display($context);
-        // line 17
+        // line 14
         echo "        
 });
     
@@ -72,15 +65,15 @@ class __TwigTemplate_99542f42d9ed3b884fc86b855b37fda9 extends Twig_Template
 ";
     }
 
-    // line 25
+    // line 22
     public function block_titulo($context, array $blocks = array())
     {
-        // line 26
+        // line 23
         echo "    <div>CONDUCTA</div>
     ";
     }
 
-    // line 28
+    // line 25
     public function block_cuerpo($context, array $blocks = array())
     {
         echo "   
@@ -91,21 +84,21 @@ class __TwigTemplate_99542f42d9ed3b884fc86b855b37fda9 extends Twig_Template
         <form id=\"frm-conducta\">
             <div id=\"ac_conducta\">
                 ";
-        // line 35
+        // line 32
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/html:antecedentes.html.twig")->display($context);
-        // line 36
+        // line 33
         echo "                ";
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/html:procesos_judiciales.html.twig")->display($context);
-        // line 37
+        // line 34
         echo "                ";
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/html:procesos_administrativos.html.twig")->display($context);
-        // line 38
+        // line 35
         echo "                ";
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/html:procesos_PJudicial.html.twig")->display($context);
-        // line 39
+        // line 36
         echo "                ";
         $this->env->loadTemplate("hojaVidaBundle:update_formularios/conducta/html:procesos_MPublico.html.twig")->display($context);
-        // line 40
+        // line 37
         echo "            </div>
             </form>
         </div>  
@@ -124,6 +117,6 @@ class __TwigTemplate_99542f42d9ed3b884fc86b855b37fda9 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 23,  69 => 22,  60 => 14,  57 => 13,  54 => 12,  52 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

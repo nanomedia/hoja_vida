@@ -42,7 +42,7 @@
                     </td>
                     <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFA.Motivo}}</textarea></td>
                     <td><textarea name="tra_est_pjud[]" class="info_textarea">{{ddpFA.EstadoProc}}</textarea></td>
-                    <td></td>
+                    <td> {{ ddpFA.boton|raw('html')}} </td>
                 </tr>
 								
                                 {% endfor %}
@@ -91,7 +91,7 @@
                     </td>
                     <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFB.Motivo}}</textarea></td>
                     <td><textarea name="tra_est_pjud[]" class="info_textarea">{{ddpFB.EstadoProc}}</textarea></td>
-                    <td></td>
+                      <td> {{ ddpFB.boton|raw('html')}} </td>
                 </tr>
 
 
@@ -134,13 +134,9 @@
                         <textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFC.Motivo}}</textarea>
                     </td>
                     <td><textarea type="text" name="tra_est_pjud[]" class="info_textarea">{{ddpFC.EstadoProc}}</textarea></td>
-                    <td></td>
-                </tr>
-
-								
+                    <td> {{ ddpFC.boton|raw('html')}} </td>
+                </tr>			
                                 {% endfor %}
-			
-
             </tbody>
         </table>
     </div>

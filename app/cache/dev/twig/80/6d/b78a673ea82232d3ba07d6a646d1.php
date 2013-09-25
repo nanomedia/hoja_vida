@@ -43,14 +43,21 @@ function opt_nota(){
 
 
 
-
+    var cbouniv=\"\";
     function comboUniv() {
-        var option_univ = \"";
-        // line 30
+         \$.ajax({
+                        type: \"POST\",
+                        url: \"";
+        // line 32
         echo $this->env->getExtension('routing')->getPath("_util_universidad");
-        echo "\";
-        return option_univ;
+        echo "\",
+                        async: false,
+                        success: function(e) {
+                           cbouniv = e;
+                        }
+                    });
         }
+    comboUniv();    
         
     function comboColegio() {
         var obj_col = \"{col|raw('html')}\";
@@ -68,7 +75,7 @@ function opt_nota(){
         }
         return option_year;
     }
-    \$(\".cbo_anio\").html(comboanio());
+    
 
 
     \$(\"#cues\").buttonset();
@@ -149,7 +156,29 @@ function opt_nota(){
       min: 0,
      });  
      
-\$(\".menos\").button();";
+\$(\".menos\").button();
+
+
+
+
+function opt_nota(){
+    var opt=\"<option value='0'>-ELEGIR-</option>\";
+    for(var i=1;i<=20;i++){
+    opt+=\"<option value='\"+i+\"'>\"+i+\"</option>\";
+    }
+    opt+=\"<option value='21'>NP</option>\";
+    opt+=\"<option value='21'>EX</option>\";
+    return opt;    
+ }
+ 
+ function especialidad(){
+    var esp='<option value=\"0\">-ELEGIR-</option>';
+    esp+='<option value=\"1\">Penal</option>';
+    esp+='<option value=\"2\">Civil</option>';
+    esp+='<option value=\"3\">Contencioso</option>';
+    esp+='<option value=\"4\">Laboral</option>';
+ return esp;
+ }";
     }
 
     public function getTemplateName()
@@ -164,6 +193,6 @@ function opt_nota(){
 
     public function getDebugInfo()
     {
-        return array (  50 => 30,  19 => 1,);
+        return array (  52 => 32,  19 => 1,);
     }
 }

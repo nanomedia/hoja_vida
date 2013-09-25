@@ -18,8 +18,8 @@ class __TwigTemplate_770df4b93816e4322a7828653814934c extends Twig_Template
         // line 1
         echo "//PROCEDIMIENTOS ADMINISTRATIVOS EN LA ADMINISTRACIÓN PÚBLICA EN GENERAL      
                 
-                   var num_pro_ad_pub_gen = 0;
-                \$(\"#add_pro_ad_pub_gen\").click(function() {
+                  var num_pro_ad_pub_gen =(\$(\"#table_pro_ad_pub_gen tbody tr\").size()-1);
+                \$(\"#add_pro_ad_pub_gen\").click(function(){
                   
                  num_pro_ad_pub_gen++;
                     add_pro_ad_pub_gen();
@@ -51,7 +51,7 @@ class __TwigTemplate_770df4b93816e4322a7828653814934c extends Twig_Template
                 
                   
 //SANCIONES ADMINISTRATIVAS EN LA ADMINISTRACIÓN PÚBLICA GENERAL
-                var num_sanciones_admin_pub = 0;
+                var num_sanciones_admin_pub = (\$(\"#table_sanciones_admin_pub tbody tr\").size()-1) ;
                 \$(\"#add_sanciones_admin_pub\").click(function() {
                     num_sanciones_admin_pub++;
                     add_sanciones_admin_pub();
@@ -89,7 +89,7 @@ class __TwigTemplate_770df4b93816e4322a7828653814934c extends Twig_Template
 
 
      //MEDIDAS DISCIPLINARIAS EN EL PODER JUDICIAL Y MINISTERIO PÚBLICO           
-                 var num_med_disc_pod_jud = 0;
+                 var num_med_disc_pod_jud =(\$(\"#table_med_disc_pod_jud tbody tr\").size()-1);
                 \$(\"#add_med_disc_pod_jud\").click(function() {
                     num_med_disc_pod_jud++;
                     add_med_disc_pod_jud();
@@ -133,6 +133,6 @@ class __TwigTemplate_770df4b93816e4322a7828653814934c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 23,  69 => 22,  60 => 14,  57 => 13,  54 => 12,  52 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

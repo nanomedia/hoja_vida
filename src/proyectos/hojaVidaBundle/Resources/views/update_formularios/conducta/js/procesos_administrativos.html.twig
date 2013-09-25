@@ -1,7 +1,7 @@
 //PROCEDIMIENTOS ADMINISTRATIVOS EN LA ADMINISTRACIÓN PÚBLICA EN GENERAL      
                 
-                   var num_pro_ad_pub_gen = 0;
-                $("#add_pro_ad_pub_gen").click(function() {
+                  var num_pro_ad_pub_gen =($("#table_pro_ad_pub_gen tbody tr").size()-1);
+                $("#add_pro_ad_pub_gen").click(function(){
                   
                  num_pro_ad_pub_gen++;
                     add_pro_ad_pub_gen();
@@ -33,7 +33,7 @@
                 
                   
 //SANCIONES ADMINISTRATIVAS EN LA ADMINISTRACIÓN PÚBLICA GENERAL
-                var num_sanciones_admin_pub = 0;
+                var num_sanciones_admin_pub = ($("#table_sanciones_admin_pub tbody tr").size()-1) ;
                 $("#add_sanciones_admin_pub").click(function() {
                     num_sanciones_admin_pub++;
                     add_sanciones_admin_pub();
@@ -71,7 +71,7 @@
 
 
      //MEDIDAS DISCIPLINARIAS EN EL PODER JUDICIAL Y MINISTERIO PÚBLICO           
-                 var num_med_disc_pod_jud = 0;
+                 var num_med_disc_pod_jud =($("#table_med_disc_pod_jud tbody tr").size()-1);
                 $("#add_med_disc_pod_jud").click(function() {
                     num_med_disc_pod_jud++;
                     add_med_disc_pod_jud();

@@ -18,7 +18,7 @@ class __TwigTemplate_2a83f2cbd5763ae197b95a9a26e32184 extends Twig_Template
         // line 1
         echo "//EN TRÁMITE
 //1. PROCESOS DISCIPLINARIOS:
-                var num_min_pub_tra_proc_disc = 0;
+                var num_min_pub_tra_proc_disc = (\$(\"#table_min_pub_tra_proc_disc tbody tr\").size()-1);
                 \$(\"#add_min_pub_tra_proc_disc\").click(function() {
                     num_min_pub_tra_proc_disc++;
                     add_min_pub_tra_proc_disc();
@@ -57,7 +57,7 @@ class __TwigTemplate_2a83f2cbd5763ae197b95a9a26e32184 extends Twig_Template
           
 //2. DENUNCIAS Y/O QUEJAS ANTE LA FISCALÍA SUPREMA DE CONTROL INTERNO: Total:
 
-                var num_min_pub_tra_den_fisc = 0;
+                var num_min_pub_tra_den_fisc = (\$(\"#table_min_pub_tra_den_fisc tbody tr\").size()-1);
                 \$(\"#add_min_pub_tra_den_fisc\").click(function() {
                     num_min_pub_tra_den_fisc++;
                     add_min_pub_tra_den_fisc();
@@ -106,7 +106,7 @@ class __TwigTemplate_2a83f2cbd5763ae197b95a9a26e32184 extends Twig_Template
                 
       //3. INVESTIGACIONES PRELIMINARES:           
                 
-           var num_min_pub_tra_inv_prel = 0;
+           var num_min_pub_tra_inv_prel = (\$(\"#table_min_pub_tra_inv_prel tbody tr\").size()-1);
                 \$(\"#add_min_pub_tra_inv_prel\").click(function() {
                     num_min_pub_tra_inv_prel++;
                     add_min_pub_tra_inv_prel();
@@ -153,7 +153,7 @@ class __TwigTemplate_2a83f2cbd5763ae197b95a9a26e32184 extends Twig_Template
 // CONCLUIDAS:
 //1. PROCESOS DISCIPLINARIOS EN EL MINISTERIO PÚBLICO: 
 
-   var num_min_pub_con_proc_desc = 0;
+   var num_min_pub_con_proc_desc = (\$(\"#table_min_pub_con_proc_desc tbody tr\").size()-1);
                 \$(\"#add_min_pub_con_proc_desc\").click(function() {
                     num_min_pub_con_proc_desc++;
                     add_min_pub_con_proc_desc();
@@ -202,7 +202,7 @@ class __TwigTemplate_2a83f2cbd5763ae197b95a9a26e32184 extends Twig_Template
                 
                 
                 
-                   var num_min_pub_con_den_fis = 0;
+                   var num_min_pub_con_den_fis = (\$(\"#table_min_pub_con_den_fis tbody tr\").size()-1);
                         \$(\"#add_min_pub_con_den_fis\").click(function() {
                             num_min_pub_con_den_fis++;
                             add_min_pub_con_den_fis();
@@ -250,6 +250,6 @@ class __TwigTemplate_2a83f2cbd5763ae197b95a9a26e32184 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 23,  69 => 22,  60 => 14,  57 => 13,  54 => 12,  52 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

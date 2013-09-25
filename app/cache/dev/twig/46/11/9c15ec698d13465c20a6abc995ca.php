@@ -119,14 +119,14 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
 
                     \$(\"#doc_des_profesional tbody\").append(new_row);
                     var num1 = (\$(\".opt1_nota\").size() - 1);
-                    
-                     
-                   
+
+
+
                     \$(\".opt1_nota\").eq(num1).html(opt_nota());
                     \$(\".opt2_nota\").eq(num1).html(opt_nota());
                     \$(\".opt_esp1\").eq(num1).html(especialidad());
-                    
-                   // especialidad();
+
+                    // especialidad();
                     \$(\".menos\").button();
 
                 }
@@ -159,8 +159,8 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                     new_row += '<td><textarea name=\"txt_cal_ddagraviado[]\" class=\"info_textarea\"></textarea></td>';
                     new_row += '<td><textarea name=\"txt_cal_ddagresor[]\" class=\"info_textarea\" ></textarea></td>';
                     new_row += '<td><textarea name=\"txt_cal_materia[]\" class=\"info_textarea\"></textarea></td>';
-                    new_row += '<td><select name=\"txt_cal_especialidad[]\" class=\"opt_especialidad\"></select></td>';
-                    new_row += '<td align=\"center\"><select name=\"txt_cal_nota[]\" class=\"opt_nota\"></select></td>';
+                    new_row += '<td><select name=\"txt_cal_especialidad[]\" class=\"optcdj_especialidad\"></select></td>';
+                    new_row += '<td align=\"center\"><select name=\"txt_cal_nota[]\" class=\"optcdj_nota\"></select></td>';
                     new_row += '<td align=\"center\"><input class=\"remove_row_cdj menos\" type=\"button\" value=\"-\"></td>';
 
                     new_row += '</tr>';
@@ -192,8 +192,13 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                         changeYear: true,
                         yearRange: '-110:-18'
                     });
-                    opt_nota();
-                    especialidad();
+                    //opt_nota();
+                    //especialidad();
+
+                    var num1 = (\$(\".optcdj_nota\").size() - 1);
+
+                    \$(\".optcdj_nota\").eq(num1).html(opt_nota());
+                    \$(\".optcdj_especialidad\").eq(num1).html(especialidad());
                     \$(\".menos\").button();
 
 
@@ -208,7 +213,7 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
 
 
 
-                var num_rows_docuni = 0;
+                var num_rows_docuni = (\$(\".rowdocuni\").size() - 1);
                 \$(\"#add_docuni\").click(function() {
                     if (num_rows_docuni < 4) {
                         num_rows_docuni++;
@@ -235,7 +240,7 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                     new_row += '                            Universidad:';
                     new_row += '                        </td>';
                     new_row += '                        <td>';
-                    new_row += '                            <select name=\"cbo_univ_docuni[]\" class=\"combo-univ\"></select>';
+                    new_row += '                            <select name=\"cbo_univ_docuni[]\" class=\"combo-univ-docuni\"></select>';
                     new_row += '                        </td>';
                     new_row += '                    </tr>';
                     new_row += '                    <tr>';
@@ -281,7 +286,9 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                     new_row += '</tr>';
 
                     \$(\"#bodyDocuni\").append(new_row);
-                    comboUniv();
+                    \$(\".combo-univ-docuni\").html(cbouniv);
+
+
                     \$(\".menos\").button();
                 }
 
@@ -332,7 +339,8 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                 addLicOtorgadas();
 
 
-                var num_rows_lic_otor = 0;
+                var num_rows_lic_otor = (\$(\"#table_lic_otor tbody tr\").size() - 1);
+
                 \$(\"#add_row_lic_otor\").click(function() {
 
                     num_rows_lic_otor++;
@@ -381,8 +389,32 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                     \$(\".total_dias_lic_otor\").val(sum);
                 }
 
-                
-                
+                //magistrado_ratificado
+                \$(\"#cboMagRatificado\").val(\"";
+        // line 346
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1"), "html", null, true);
+        echo "\");
+                \$('input:radio[name=rad-resp2][value=\"";
+        // line 347
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta2"), "html", null, true);
+        echo "\"]').attr('checked', true);
+                \$(\"#txt_resolucion\").val(\"";
+        // line 348
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "resolucion"), "html", null, true);
+        echo "\");
+                \$(\"#txt_fec_res\").val(\"";
+        // line 349
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "fechaRes"), "html", null, true);
+        echo "\");
+                \$(\"#det_mag_rat\").val(\"";
+        // line 350
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta3"), "html", null, true);
+        echo "\");
+
+                \$(\"#cboMagRatificado\").trigger(\"change\");
+
+
+
 
 
             });
@@ -393,15 +425,15 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
 ";
     }
 
-    // line 347
+    // line 364
     public function block_titulo($context, array $blocks = array())
     {
-        // line 348
+        // line 365
         echo "    <div>EXPERIENCIA PROFESIONAL</div>
     ";
     }
 
-    // line 350
+    // line 367
     public function block_cuerpo($context, array $blocks = array())
     {
         echo "   
@@ -409,13 +441,19 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
     <div class=\"area-registro\">
 
         <div class=\"tab-title\">EXPERIENCIA PROFESIONAL</div>
-        <form id=\"frm-exp-profesional\">
+        <form id=\"frm-exp-profesional\" action=\"";
+        // line 372
+        echo $this->env->getExtension('routing')->getPath("_update_expprofesional");
+        echo "\" method=\"POST\">
             <table width=\"100%\" border=\"0\" cellspacing=\"10px\" align=\"center\">
                 <tr>
                     <td >
-
+                        <input type=\"hidden\" name=\"id_pos\" value=\"";
+        // line 376
+        echo twig_escape_filter($this->env, $this->getContext($context, "id_postulante"), "html", null, true);
+        echo "\">
                         <label class=\"labelText\">
-                            1. Documentos Calificados de DESEMPEÑO PROFESIONAL:
+                            1. Documentos Calificados de DESEMPEÑO PROFESIONAL:<input type=\"submit\" class=\"button\" value=\"Actualizar\">
                         </label>
                     </td>
 
@@ -439,435 +477,505 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
                             </thead>
                             <tbody>
                                 ";
-        // line 384
+        // line 401
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DocDesProfesional"));
         foreach ($context['_seq'] as $context["_key"] => $context["ddp"]) {
             echo "  
-                                <tr>
-                                    <td>";
-            // line 386
+                                    <tr>
+                                        <td>";
+            // line 403
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Num"), "html", null, true);
             echo "</td>
-                                    <td><textarea name=\"txt_num_exp[]\" class=\"info_textarea\" >";
-            // line 387
+                                        <td><textarea name=\"txt_num_exp[]\" class=\"info_textarea\" >";
+            // line 404
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "NumExp"), "html", null, true);
             echo "</textarea></td>
-                                    <td><textarea name=\"txt_ddas[]\" class=\"info_textarea\">";
-            // line 388
+                                        <td><textarea name=\"txt_ddas[]\" class=\"info_textarea\">";
+            // line 405
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Ddas"), "html", null, true);
             echo "</textarea></td>
-                                    <td><textarea name=\"txt_ddae[]\" class=\"info_textarea\">";
-            // line 389
+                                        <td><textarea name=\"txt_ddae[]\" class=\"info_textarea\">";
+            // line 406
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Ddae"), "html", null, true);
             echo "</textarea></td>
-                                    <td><textarea name=\"txt_materia[]\" class=\"info_textarea\">";
-            // line 390
+                                        <td><textarea name=\"txt_materia[]\" class=\"info_textarea\">";
+            // line 407
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Materia"), "html", null, true);
             echo "</textarea></td>
-                                    <td>";
-            // line 391
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Especialidad"), "html", null, true);
-            echo "
-                                        <select name=\"txt_espec[]\" class=\"opt_especialidad\">
+                                        <td>
+                                            <select name=\"txt_espec[]\" class=\"opt_especialidad\">
                                         ";
-            // line 393
+            // line 410
             echo $this->getAttribute($this->getContext($context, "ddp"), "Especialidad");
             echo "
-                                        </select>
-                                    </td>
-                                    <td align=\"center\">
-                                        <select name=\"txt_cal1[]\" class=\"opt_nota\"></select>";
-            // line 397
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Calificacion1"), "html", null, true);
-            echo "
-                                    </td>
-                                    <td align=\"center\">
-                                        <select name=\"txt_cal2[]\" class=\"opt_nota\"></select>";
-            // line 400
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Calificacion2"), "html", null, true);
-            echo "
-                                    </td>
-                                    <td>";
-            // line 402
+                                                </select>
+                                            </td>
+                                            <td align=\"center\">
+                                                <select name=\"txt_cal1[]\">";
+            // line 414
+            echo $this->getAttribute($this->getContext($context, "ddp"), "Calificacion1");
+            echo "</select>
+                                            </td>
+                                            <td align=\"center\">
+                                                <select name=\"txt_cal2[]\">";
+            // line 417
+            echo $this->getAttribute($this->getContext($context, "ddp"), "Calificacion2");
+            echo "</select>
+                                            </td>
+                                            <td>";
+            // line 419
             echo $this->getAttribute($this->getContext($context, "ddp"), "boton");
             echo "</td>
-                                </tr>
+                                        </tr>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddp'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 405
+        // line 422
         echo "
-                              
-                            </tbody>
+
+                                    </tbody>
 
 
-                        </table> 
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        <label class=\"labelText\">
-                            2. Magistrado Ratificado:
-                        </label>
-                    </td>
-                </tr>
-                <tr>    
-                    <td>
-                        <table cellspacing=\"10px\">
+                                </table> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label class=\"labelText\">
+                                    2. Magistrado Ratificado:
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>    
+                            <td>
+                                <table cellspacing=\"10px\">
+                                    <tr>
+                                        <td>
+                                            <select name=\"rad-resp1\" id=\"cboMagRatificado\">
+                                                <option value=\"0\">NO</option>
+                                                <option value=\"1\">SI</option>
+                                                <option value=\"2\">Aun no ha sido objeto de proceso de ratificación</option>
+                                                <option value=\"3\">En convocatoria</option>
+                                            </select>    
+                                        </td>
+                                        <td>
+                                            <div id=\"opc\" style=\"display:none;\">
+                                                <input type=\"radio\" id=\"opc1\" name=\"rad-resp2\" value=\"Por Unanimidad\" checked=\"checked\" /><label for=\"opc1\">Por Unanimidad</label>
+                                                <input type=\"radio\" id=\"opc2\" name=\"rad-resp2\" value=\"Por Mayoría\"/><label for=\"opc2\">Por Mayoría</label>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan=\"2\">
+
+                                            <input type=\"text\" name=\"txt_resp_3\" class=\"textbox\" id=\"det_mag_rat\">
+
+                                            <div id=\"opcn2\">
+                                                Resolución N° <input type=\"text\" name=\"txt_resolucion\" size=\"5\"> de fecha <input name=\"txt_fec_res\"type=\"text\" class=\"datepicker\">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                            </td>
+
+                        </tr>
+                        <tr>    
+                            <td >
+                                <label class=\"labelText\">
+                                    3. Calidad de sus Decisiones Judiciales y Fiscales (En caso de Magistrados Ratificados o No Ratificados):
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id=\"add_row_cdj\" class=\"add-icon\" >Nueva fila</div><br><br>
+                                <table id=\"calidad_des_jud\" width=\"95%\" class=\"table ui-widget ui-widget-content\">
+                                    <thead>
+                                        <tr class=\"ui-widget-header\">
+                                            <th width=\"40px\">N°</th>
+                                            <th>N° Exp.</th>
+                                            <th>Tipo de Resolución</th>
+                                            <th >Fecha de Res.</th>
+                                            <th>Demandante/<br>Denunciante/<br>Agraviado</th>
+                                            <th>Demandado/<br>Denunciado/<br>Agresor</th>
+                                            <th>Materia</th>
+                                            <th>Especialidad</th>
+                                            <th>Nota</th>
+                                            <th width=\"40px\"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                ";
+        // line 499
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "CalJudFis"));
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 500
+            echo "                                            <tr>
+                                                <td>";
+            // line 501
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
+            echo "</td>
+                                                <td><textarea name=\"txt_cal_numExp[]\" class=\"info_textarea\">";
+            // line 502
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "NumExp"), "html", null, true);
+            echo "</textarea></td>
+                                                <td><textarea name=\"txt_cal_tipResolucion[]\" class=\"info_textarea\">";
+            // line 503
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "TipResolucion"), "html", null, true);
+            echo "</textarea></td>
+                                                <td><input name=\"txt_cal_fechaRes[]\" class=\"datepicker\" type=\"text\" size=\"10\" value=\"";
+            // line 504
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "FechaRes"), "html", null, true);
+            echo "\"></td>
+                                                <td><textarea name=\"txt_cal_ddagraviado[]\" class=\"info_textarea\">";
+            // line 505
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Ddagraviado"), "html", null, true);
+            echo "</textarea></td>
+                                                <td><textarea name=\"txt_cal_ddagresor[]\" class=\"info_textarea\" >";
+            // line 506
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Ddagresor"), "html", null, true);
+            echo "</textarea></td>
+                                                <td><textarea name=\"txt_cal_materia[]\" class=\"info_textarea\">";
+            // line 507
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Materia"), "html", null, true);
+            echo "</textarea></td>
+                                                <td><select name=\"txt_cal_especialidad[]\" class=\"opt_especialidad\">";
+            // line 508
+            echo $this->getAttribute($this->getContext($context, "item"), "Especialidad");
+            echo "</select></td>
+                                                <td align=\"center\"><select name=\"txt_cal_nota[]\">";
+            // line 509
+            echo $this->getAttribute($this->getContext($context, "item"), "Nota");
+            echo "</select></td>
+                                                <td>";
+            // line 510
+            echo $this->getAttribute($this->getContext($context, "item"), "boton");
+            echo "</td>
+                                            </tr>
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 513
+        echo "
+                                        </tbody>
+                                    </table> 
+                                </td>
+
+                            </tr>
                             <tr>
                                 <td>
-                                    <select name=\"rad-resp1\" id=\"cboMagRatificado\">
-                                        <option value=\"0\">NO</option>
-                                        <option value=\"1\">SI</option>
-                                        <option value=\"2\">Aun no ha sido objeto de proceso de ratificación</option>
-                                        <option value=\"3\">En convocatoria</option>
-                                    </select>    
+                                    <label class=\"labelText\">
+                                        4. SITUACIÓN LABORAL ACTUAL:
+                                    </label>
                                 </td>
+                            </tr>
+                            <tr>
                                 <td>
-                                    <div id=\"opc\" style=\"display:none;\">
-                                        <input type=\"radio\" id=\"opc1\" name=\"rad-resp2\" value=\"Por Unanimidad\" checked=\"checked\" /><label for=\"opc1\">Por Unanimidad</label>
-                                        <input type=\"radio\" id=\"opc2\" name=\"rad-resp2\" value=\"Por Mayoría\"/><label for=\"opc2\">Por Mayoría</label>
-                                    </div>
-
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td colspan=\"2\">
-
-                                    <input type=\"text\" name=\"txt_resp_3\" class=\"textbox\" id=\"det_mag_rat\">
-
-                                    <div id=\"opcn2\">
-                                        Resolución N° <input type=\"text\" name=\"txt_resolucion\" size=\"5\"> de fecha <input name=\"txt_fec_res\"type=\"text\" class=\"datepicker\">
-                                    </div>
+                                    <textarea name=\"situacion_laboral_actual\" class=\"text-area\">";
+        // line 528
+        echo twig_escape_filter($this->env, $this->getContext($context, "SitLaboral"), "html", null, true);
+        echo "</textarea>
                                 </td>
                             </tr>
-                        </table>
-                        <br>
-                    </td>
-
-                </tr>
-                <tr>    
-                    <td >
-                        <label class=\"labelText\">
-                            3. Calidad de sus Decisiones Judiciales y Fiscales (En caso de Magistrados Ratificados o No Ratificados):
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id=\"add_row_cdj\" class=\"add-icon\" >Nueva fila</div><br><br>
-                        <table id=\"calidad_des_jud\" width=\"95%\" class=\"table ui-widget ui-widget-content\">
-                            <thead>
-                                <tr class=\"ui-widget-header\">
-                                    <th width=\"40px\">N°</th>
-                                    <th>N° Exp.</th>
-                                    <th>Tipo de Resolución</th>
-                                    <th >Fecha de Res.</th>
-                                    <th>Demandante/<br>Denunciante/<br>Agraviado</th>
-                                    <th>Demandado/<br>Denunciado/<br>Agresor</th>
-                                    <th>Materia</th>
-                                    <th>Especialidad</th>
-                                    <th>Nota</th>
-                                    <th width=\"40px\"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><textarea name=\"txt_cal_numExp[]\" class=\"info_textarea\"></textarea></td>
-                                    <td><textarea name=\"txt_cal_tipResolucion[]\" class=\"info_textarea\"></textarea></td>
-                                    <td><input name=\"txt_cal_fechaRes[]\" class=\"datepicker\" type=\"text\" size=\"10\"></td>
-                                    <td><textarea name=\"txt_cal_ddagraviado[]\" class=\"info_textarea\"></textarea></td>
-                                    <td><textarea name=\"txt_cal_ddagresor[]\" class=\"info_textarea\" ></textarea></td>
-                                    <td><textarea name=\"txt_cal_materia[]\" class=\"info_textarea\"></textarea></td>
-                                    <td><select name=\"txt_cal_especialidad[]\" class=\"opt_especialidad\"></select></td>
-                                    <td align=\"center\"><select name=\"txt_cal_nota[]\" class=\"opt_nota\"></select></td>
-                                    <td></td>
-                                </tr>
-
-                            </tbody>
-                        </table> 
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <label class=\"labelText\">
-                            4. SITUACIÓN LABORAL ACTUAL:
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea name=\"situacion_laboral_actual\" class=\"text-area\"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        (tres &uacute;ltimas)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table width=\"70%\" class=\"table ui-widget ui-widget-content\">
                             <tr>
-                                <td width=\"180px\" class=\"ui-widget-header\">
-                                    Centro de Trabajo:
-                                </td>
                                 <td>
-                                    <input name=\"txtctrabajo[]\" type=\"text\" class=\"row-edit\">
+                                    (tres &uacute;ltimas)
                                 </td>
                             </tr>
-                            <tr>
-                                <td class=\"ui-widget-header\">Cargo:</td>
+                                    ";
+        // line 536
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DetSituacionLaboral"));
+        foreach ($context['_seq'] as $context["_key"] => $context["det"]) {
+            // line 537
+            echo "                            <tr>
                                 <td>
-                                    <input  name=\"txtcargo[]\" type=\"text\" class=\"row-edit\"> 
+                                    <table width=\"70%\" class=\"table ui-widget ui-widget-content\">
+                                        <tr>
+                                            <td width=\"180px\" class=\"ui-widget-header\">
+                                                Centro de Trabajo:
+                                            </td>
+                                            <td>
+                                                <input name=\"txtctrabajo[]\" type=\"text\" class=\"row-edit\" value=\"";
+            // line 545
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "det"), "CentroTrabajo"), "html", null, true);
+            echo "\">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=\"ui-widget-header\">Cargo:</td>
+                                            <td>
+                                                <input  name=\"txtcargo[]\" type=\"text\" class=\"row-edit\" value=\"";
+            // line 551
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "det"), "Cargo"), "html", null, true);
+            echo "\"> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=\"ui-widget-header\">Periodo</td>
+                                            <td><input name=\"txtperiodo[]\" type=\"text\" class=\"row-edit\" value=\"";
+            // line 556
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "det"), "Periodo"), "html", null, true);
+            echo "\"></td>
+                                        </tr>
+
+                                    </table>
+
                                 </td>
                             </tr>
-                            <tr>
-                                <td class=\"ui-widget-header\">Periodo</td>
-                                <td><input name=\"txtperiodo[]\" type=\"text\" class=\"row-edit\"></td>
-                            </tr>
-
-                        </table>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table width=\"70%\" class=\"table ui-widget ui-widget-content\">
-                            <tr>
-                                <td width=\"180px\" class=\"ui-widget-header\">
-                                    Centro de Trabajo:
-                                </td>
+                                 ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['det'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 564
+        echo "                            <tr>
                                 <td>
-                                    <input name=\"txtctrabajo[]\" type=\"text\" class=\"row-edit\">
+                                    <label class=\"labelText\">
+                                        5. DOCENCIA UNIVERSITARIA:
+                                    </label>&nbsp;&nbsp;<div id=\"add_docuni\" class=\"add-icon\" >Agregar</div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class=\"ui-widget-header\">Cargo:</td>
                                 <td>
-                                    <input name=\"txtcargo[]\" type=\"text\" class=\"row-edit\"> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class=\"ui-widget-header\">Periodo</td>
-                                <td><input name=\"txtperiodo[]\" type=\"text\" class=\"row-edit\"></td>
-                            </tr>
+                                    <table id=\"table_docuni\" align=\"center\">
+                                        <tbody id=\"bodyDocuni\">
 
-                        </table>
-
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <table width=\"70%\" class=\"table ui-widget ui-widget-content\">
-                            <tr>
-                                <td width=\"180px\" class=\"ui-widget-header\">
-                                    Centro de Trabajo:
-                                </td>
-                                <td>
-                                    <input name=\"txtctrabajo[]\" type=\"text\" class=\"row-edit\">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class=\"ui-widget-header\">Cargo:</td>
-                                <td>
-                                    <input name=\"txtcargo[]\" type=\"text\" class=\"row-edit\"> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class=\"ui-widget-header\">Periodo</td>
-                                <td><input name=\"txtperiodo[]\" type=\"text\" class=\"row-edit\"></td>
-                            </tr>
-
-                        </table>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class=\"labelText\">
-                            5. DOCENCIA UNIVERSITARIA:
-                        </label>&nbsp;&nbsp;<div id=\"add_docuni\" class=\"add-icon\" >Agregar</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table id=\"table_docuni\" align=\"center\">
-                            <tbody id=\"bodyDocuni\">
-                                <tr class=\"rowdocuni\">
-                                    <td>
-                                        <table class=\"table ui-widget ui-widget-content\" style=\"margin-bottom: 35px;\">
-
-                                            <tr>
-                                                <td width=\"180px\" class=\"ui-widget-header\">
-                                                    Universidad:
-                                                </td>
+                                                    ";
+        // line 576
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DocenciaUniversitaria"));
+        foreach ($context['_seq'] as $context["_key"] => $context["docu"]) {
+            // line 577
+            echo "
+                                            <tr class=\"rowdocuni\">
                                                 <td>
-                                                    <select name=\"cbo_univ_docuni[]\" class=\"combo-univ\"></select>
-                                                </td>
+                                                    <table class=\"table ui-widget ui-widget-content\" style=\"margin-bottom: 35px;\">
+
+                                                        <tr>
+                                                            <td width=\"180px\" class=\"ui-widget-header\">
+                                                                Universidad:
+                                                            </td>
+                                                            <td>
+                                                                <select name=\"cbo_univ_docuni[]\">
+                                                                        ";
+            // line 588
+            echo $this->getAttribute($this->getContext($context, "docu"), "Universidad");
+            echo " 
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class=\"ui-widget-header\">Facultad:</td>
+                                                                <td>
+                                                                    <input name=\"txt_facu_docuni[]\" type=\"text\" class=\"row-edit\" value=\"";
+            // line 595
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docu"), "Facultad"), "html", null, true);
+            echo "\"> 
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class=\"ui-widget-header\">Condici&oacute;n</td>
+                                                                <td>
+
+                                                                    <select name=\"cbo_condicion_docuni[]\">
+                                                                                ";
+            // line 604
+            echo $this->getAttribute($this->getContext($context, "docu"), "Condicion");
+            echo "
+                                                                        </select>
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class=\"ui-widget-header\">Categoria</td>
+                                                                    <td>
+                                                                        <select name=\"cbo_categoria_docuni[]\">
+                                                                            ";
+            // line 613
+            echo $this->getAttribute($this->getContext($context, "docu"), "Categoria");
+            echo "
+                                                                            </select> 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class=\"ui-widget-header\">Cursos</td>
+                                                                        <td><input name=\"txt_cursos_docuni[]\" type=\"text\" class=\"row-edit\" value=\"";
+            // line 619
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docu"), "Cursos"), "html", null, true);
+            echo "\"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class=\"ui-widget-header\">Periodo</td>
+                                                                        <td><input name=\"txt_per_docuni[]\" type=\"text\" class=\"row-edit\" value=\"";
+            // line 623
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docu"), "Periodo"), "html", null, true);
+            echo "\"></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td>";
+            // line 627
+            echo $this->getAttribute($this->getContext($context, "docu"), "boton");
+            echo "</td>
+                                                        </tr>
+                                                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['docu'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 630
+        echo "                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class=\"labelText\">
+                                                    6. PUBLICACIONES:
+                                                </label>
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Libros o textos Universitarios:<br>
+                                                <textarea  name=\"txt_ltUni\" class=\"text-area\">";
+        // line 644
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "librosTextosUniv"), "html", null, true);
+        echo "</textarea>
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Investigaciones Jurídicas, Doctrinarias o de Campo:<br>
+                                                <textarea name=\"txt_invJurDoc\" class=\"text-area\">";
+        // line 650
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "invJuridicas"), "html", null, true);
+        echo "</textarea>
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Ensayos en materia Jurídica:<br>
+                                                <textarea name=\"txt_EnMaJur\" class=\"text-area\">";
+        // line 656
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "ensayosJuridico"), "html", null, true);
+        echo "</textarea>
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Artículos en materia Jurídica:<br>
+                                                <textarea name=\"txt_amJur\" class=\"text-area\">";
+        // line 662
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "articulosJuridicos"), "html", null, true);
+        echo "</textarea>
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Artículos en materia No Jurídica:<br>
+                                                <textarea name=\"txtamNoJur\" class=\"text-area\">";
+        // line 668
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "articulosNoJuridicos"), "html", null, true);
+        echo "</textarea>
+                                            </td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class=\"labelText\">
+                                                    7. Producción Jurisdiccional o Fiscal:
+                                                </label>
+                                                <select name=\"cbo_JurFis\">
+                                               ";
+        // line 677
+        echo $this->getAttribute($this->getContext($context, "ProdJurFiscal"), "Respuesta");
+        echo "
+                                                    </select>
+                                                </td>                                    
                                             </tr>
                                             <tr>
-                                                <td class=\"ui-widget-header\">Facultad:</td>
                                                 <td>
-                                                    <input name=\"txt_facu_docuni[]\" type=\"text\" class=\"row-edit\"> 
-                                                </td>
+                                                    <textarea name=\"text_area_JurFis\" class=\"text-area\">";
+        // line 683
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ProdJurFiscal"), "DetRespuesta"), "html", null, true);
+        echo "</textarea>
+                                                </td>                                    
                                             </tr>
                                             <tr>
-                                                <td class=\"ui-widget-header\">Condici&oacute;n</td>
                                                 <td>
-                                                    <div id=\"rad-condicion\">
-                                                        <select name=\"cbo_condicion_docuni[]\">
-                                                            <option value=\"0\">-ELEGIR-</option>
-                                                            <option value=\"1\">Nombrado</option>
-                                                            <option value=\"2\">Contratado</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
+                                                    <label class=\"labelText\">
+                                                        8. Licencias Otorgadas (de los últimos cinco años)
+                                                    </label>
+                                                </td>                                    
                                             </tr>
                                             <tr>
-                                                <td class=\"ui-widget-header\">Categoria</td>
                                                 <td>
-                                                    <select name=\"cbo_categoria_docuni[]\">
-                                                        <option value=\"0\">-ELEGIR-</option>
-                                                        <option value=\"1\">Principal</option>
-                                                        <option value=\"2\">Asociado</option>
-                                                        <option value=\"3\">Auxiliar</option>
-                                                    </select> 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class=\"ui-widget-header\">Cursos</td>
-                                                <td><input name=\"txt_cursos_docuni[]\" type=\"text\" class=\"row-edit\"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class=\"ui-widget-header\">Periodo</td>
-                                                <td><input name=\"txt_per_docuni[]\" type=\"text\" class=\"row-edit\"></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class=\"labelText\">
-                            6. PUBLICACIONES:
-                        </label>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        Libros o textos Universitarios:<br>
-                        <textarea  name=\"txt_ltUni\" class=\"text-area\"></textarea>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        Investigaciones Jurídicas, Doctrinarias o de Campo:<br>
-                        <textarea name=\"txt_invJurDoc\" class=\"text-area\"></textarea>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        Ensayos en materia Jurídica:<br>
-                        <textarea name=\"txt_EnMaJur\" class=\"text-area\"></textarea>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        Artículos en materia Jurídica:<br>
-                        <textarea name=\"txt_amJur\" class=\"text-area\"></textarea>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        Artículos en materia No Jurídica:<br>
-                        <textarea name=\"txtamNoJur\" class=\"text-area\"></textarea>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        <label class=\"labelText\">
-                            7. Producción Jurisdiccional o Fiscal:
-                        </label>
-                        <select name=\"cbo_JurFis\">
-                            <option value=\"0\">-ELEGIR-</option>
-                            <option value=\"1\">PODER JUDICIAL</option>
-                            <option value=\"2\">MINISTERIO P&Uacute;BLICO</option>
-                        </select>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        <textarea name=\"text_area_JurFis\" class=\"text-area\"></textarea>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        <label class=\"labelText\">
-                            8. Licencias Otorgadas (de los últimos cinco años)
-                        </label>
-                    </td>                                    
-                </tr>
-                <tr>
-                    <td>
-                        <!--<table id=\"lic-otrogadas\"  class=\"table ui-widget ui-widget-content\">
-                            <thead>
-                                <tr class=\"ui-widget-header\">
-                                    <th width=\"100px\">AÑO</th>
-                                    <th width=\"180px\">MOTIVO</th>
-                                    <th width=\"100px\">Nº DIAS</th>
-                                    <th width=\"160px\">TOTAL LICENCIAS<br>(en días)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                                                    <div id=\"add_row_lic_otor\" class=\"add-icon\" >Nueva fila</div>
+                                                    <table id=\"table_lic_otor\" class=\"table ui-widget ui-widget-content\" >
+                                                        <thead>
+                                                            <tr class=\"ui-widget-header\">
+                                                                <th width=\"100px\">AÑO</th>
+                                                                <th width=\"180px\">MOTIVO</th>
+                                                                <th width=50px\">Nº DIAS</th>
+                                                                <th width=\"50px\"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            ";
+        // line 706
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "LicenciasOtorgadas"));
+        foreach ($context['_seq'] as $context["_key"] => $context["lic"]) {
+            // line 707
+            echo "                                                                <tr>
+                                                                    <td><select name=\"txt_anio_lic_otor[]\" class=\"txt_anio_lic_otor cbo_anio\">";
+            // line 708
+            echo $this->getAttribute($this->getContext($context, "lic"), "Anio");
+            echo "</select></td>
+                                                                    <td><textarea name=\"txt_motivo_lic_otor[]\" class=\"info_textarea\">";
+            // line 709
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "lic"), "Motivo"), "html", null, true);
+            echo "</textarea></td>
+                                                                    <td><input name=\"txt_dias_lic_otor[]\" type=\"text\" class=\"txt_dias_lic_otor row-edit numeric\" value=\"";
+            // line 710
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "lic"), "Dias"), "html", null, true);
+            echo "\"></td>
+                                                                    <td>";
+            // line 711
+            echo $this->getAttribute($this->getContext($context, "lic"), "boton");
+            echo "</td>
+                                                                </tr>
+                                                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['lic'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 714
+        echo "                                                            </tbody>
+                                                        </table>    
+                                                        <div style=\"width:380px; margin:10px auto;text-align: right;\">
+                                                            Total:&nbsp;<input class=\"total_dias_lic_otor\" style=\"text-align: center;\" type=\"text\" size=\"12px\" value=\"";
+        // line 717
+        echo twig_escape_filter($this->env, $this->getContext($context, "sumdias"), "html", null, true);
+        echo "\"> 
+                                                        </div>
+                                                    </td>
+                                                </tr>
 
-                            </tbody>
-                        </table>-->
-
-                        <div id=\"add_row_lic_otor\" class=\"add-icon\" >Nueva fila</div>
-                        <table id=\"table_lic_otor\" class=\"table ui-widget ui-widget-content\" >
-                            <thead>
-                                <tr class=\"ui-widget-header\">
-                                    <th width=\"100px\">AÑO</th>
-                                    <th width=\"180px\">MOTIVO</th>
-                                    <th width=50px\">Nº DIAS</th>
-                                    <th width=\"50px\"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><select name=\"txt_anio_lic_otor[]\" class=\"txt_anio_lic_otor cbo_anio\"></select></td>
-                                    <td><textarea name=\"txt_motivo_lic_otor[]\" class=\"info_textarea\"></textarea></td>
-                                    <td><input name=\"txt_dias_lic_otor[]\" type=\"text\" class=\"txt_dias_lic_otor row-edit numeric\" value=\"0\"></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>    
-                        <div style=\"width:380px; margin:10px auto;text-align: right;\">
-                            Total:&nbsp;<input class=\"total_dias_lic_otor\" style=\"text-align: center;\" type=\"text\" size=\"12px\" value=\"0\"> 
-                        </div>
-
-
-
-
-
-                    </td>
-                </tr>
-
-            </table>
-        </form>
-    </div> 
+                                            </table>
+                                        </form>
+                                    </div> 
 
 
 
@@ -888,6 +996,6 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  502 => 405,  493 => 402,  488 => 400,  482 => 397,  475 => 393,  470 => 391,  466 => 390,  462 => 389,  458 => 388,  454 => 387,  450 => 386,  443 => 384,  405 => 350,  400 => 348,  397 => 347,  63 => 16,  61 => 15,  53 => 10,  49 => 9,  44 => 7,  40 => 6,  36 => 5,  33 => 4,  30 => 3,);
+        return array (  970 => 717,  965 => 714,  956 => 711,  952 => 710,  948 => 709,  944 => 708,  941 => 707,  937 => 706,  911 => 683,  902 => 677,  890 => 668,  881 => 662,  872 => 656,  863 => 650,  854 => 644,  838 => 630,  829 => 627,  822 => 623,  815 => 619,  806 => 613,  794 => 604,  782 => 595,  772 => 588,  759 => 577,  755 => 576,  741 => 564,  727 => 556,  719 => 551,  710 => 545,  700 => 537,  696 => 536,  685 => 528,  668 => 513,  659 => 510,  655 => 509,  651 => 508,  647 => 507,  643 => 506,  639 => 505,  635 => 504,  631 => 503,  627 => 502,  623 => 501,  620 => 500,  616 => 499,  537 => 422,  528 => 419,  523 => 417,  517 => 414,  510 => 410,  504 => 407,  500 => 406,  496 => 405,  492 => 404,  488 => 403,  481 => 401,  453 => 376,  446 => 372,  437 => 367,  432 => 365,  429 => 364,  411 => 350,  407 => 349,  403 => 348,  399 => 347,  395 => 346,  63 => 16,  61 => 15,  53 => 10,  49 => 9,  44 => 7,  40 => 6,  36 => 5,  33 => 4,  30 => 3,);
     }
 }

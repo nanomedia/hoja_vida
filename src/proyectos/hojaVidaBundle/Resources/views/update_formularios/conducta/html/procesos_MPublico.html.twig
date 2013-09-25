@@ -40,7 +40,7 @@
                     </td>
                     <td><textarea name="tra_mot_mpub[]"  class="info_textarea">{{ddpFA.Motivo}}</textarea></td>
                     <td><textarea name="tra_est_mpub[]" class="info_textarea">{{ddpFA.EstadoProc}}</textarea></td>
-                    <td></td>
+                      <td> {{ ddpFA.boton|raw('html')}} </td>
                 </tr>
 
 								
@@ -89,7 +89,7 @@
                         <textarea name="tra_que_mpub[]" class="info_textarea">{{ddpFB.Quejas}}</textarea></td>
                     <td><textarea name="tra_mot_mpub[]" class="info_textarea">{{ddpFB.Motivo}}</textarea></td>
                     <td><textarea name="tra_est_mpub[]" class="info_textarea">{{ddpFB.EstadoProc}}</textarea></td>
-                    <td></td>
+                       <td> {{ ddpFB.boton|raw('html')}} </td>
                 </tr>
 								
                                 {% endfor %}
@@ -130,7 +130,7 @@
                         <input type="hidden" name="tra_exp_mpub[]">
                         <textarea name="tra_mot_mpub[]" class="info_textarea">{{ddpFC.Motivo}}</textarea></td>
                     <td><textarea type="text" name="tra_est_mpub[]" class="info_textarea">{{ddpFC.EstadoProc}}</textarea></td>
-                    <td></td>
+                      <td> {{ ddpFC.boton|raw('html')}} </td>
                 </tr>								
                                 {% endfor %}
 			
@@ -174,7 +174,7 @@
                     </td>
                     <td><textarea name="con_mot_mpub[]" class="info_textarea">{{ddpFAV.Motivo}}</textarea></td>
                     <td><textarea name="con_est_mpub[]" class="info_textarea">{{ddpFAV.EstadoProc}}</textarea></td>
-                    <td></td>
+                     <td> {{ ddpFAV.boton|raw('html')}} </td>
                 </tr>
 				
 
@@ -221,11 +221,9 @@
                     </td>
                     <td><textarea name="con_mot_mpub[]" class="info_textarea">{{ddpFBV.Motivo}}</textarea></td>
                     <td><textarea name="con_est_mpub[]" class="info_textarea">{{ddpFBV.EstadoProc}}</textarea></td>
-                    <td></td>
+                    <td> {{ ddpFBV.boton|raw('html')}} </td>
                 </tr>
-				
-
-								
+				 			
                                 {% endfor %}
 				
             </tbody>

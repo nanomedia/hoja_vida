@@ -77,7 +77,10 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
             // line 44
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFA"), "EstadoProc"), "html", null, true);
             echo "</textarea></td>
-                    <td></td>
+                    <td> ";
+            // line 45
+            echo $this->getAttribute($this->getContext($context, "ddpFA"), "boton");
+            echo " </td>
                 </tr>
 \t\t\t\t\t\t\t\t
                                 ";
@@ -145,7 +148,10 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
             // line 93
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFB"), "EstadoProc"), "html", null, true);
             echo "</textarea></td>
-                    <td></td>
+                      <td> ";
+            // line 94
+            echo $this->getAttribute($this->getContext($context, "ddpFB"), "boton");
+            echo " </td>
                 </tr>
 
 
@@ -204,19 +210,18 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
             // line 136
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFC"), "EstadoProc"), "html", null, true);
             echo "</textarea></td>
-                    <td></td>
-                </tr>
-
-\t\t\t\t\t\t\t\t
+                    <td> ";
+            // line 137
+            echo $this->getAttribute($this->getContext($context, "ddpFC"), "boton");
+            echo " </td>
+                </tr>\t\t\t
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpFC'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 142
-        echo "\t\t\t
-
-            </tbody>
+        // line 140
+        echo "            </tbody>
         </table>
     </div>
     <b>CONCLUIDAS:</b>
@@ -331,6 +336,6 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  217 => 142,  205 => 136,  200 => 134,  159 => 100,  146 => 93,  142 => 92,  137 => 90,  122 => 80,  89 => 49,  78 => 44,  74 => 43,  68 => 40,  49 => 29,  196 => 119,  176 => 110,  162 => 101,  134 => 75,  123 => 70,  119 => 69,  113 => 66,  71 => 31,  60 => 26,  56 => 25,  52 => 24,  48 => 23,  41 => 21,  195 => 102,  185 => 124,  181 => 112,  177 => 96,  173 => 95,  169 => 94,  161 => 91,  138 => 70,  128 => 66,  124 => 65,  120 => 64,  116 => 63,  112 => 62,  104 => 59,  77 => 34,  63 => 29,  59 => 28,  51 => 26,  43 => 23,  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 55,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 30,  64 => 16,  61 => 36,  58 => 14,  55 => 27,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  224 => 140,  215 => 137,  211 => 136,  206 => 134,  165 => 100,  153 => 94,  149 => 93,  125 => 80,  92 => 49,  82 => 45,  78 => 44,  68 => 40,  61 => 36,  49 => 29,  194 => 114,  191 => 124,  187 => 112,  182 => 110,  140 => 90,  130 => 71,  126 => 70,  122 => 69,  100 => 55,  64 => 27,  56 => 25,  48 => 23,  41 => 21,  205 => 119,  196 => 100,  192 => 99,  188 => 98,  184 => 97,  180 => 96,  176 => 95,  168 => 101,  145 => 92,  136 => 68,  132 => 67,  128 => 66,  124 => 65,  120 => 64,  116 => 66,  108 => 60,  81 => 35,  67 => 30,  59 => 28,  55 => 27,  51 => 26,  83 => 25,  74 => 43,  66 => 20,  63 => 29,  50 => 14,  46 => 13,  43 => 23,  34 => 9,  26 => 6,  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 32,  69 => 22,  60 => 26,  57 => 13,  54 => 16,  52 => 24,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 7,);
     }
 }

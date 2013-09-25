@@ -2,7 +2,7 @@
               //1. PROCESOS DISCIPLINARIOS:   
                 
                 
-                  var num_tra_proc_disc = 0;
+                  var num_tra_proc_disc = ($("#table_tra_proc_disc tbody tr").size()-1);
                 $("#add_tra_proc_disc").click(function() {
                     num_tra_proc_disc++;
                     add_tra_proc_disc();
@@ -40,7 +40,7 @@
                 }
                 
    // 2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA Total:             
-                  var num_que_vis_inv = 0;
+                  var num_que_vis_inv = ($("#table_que_vis_inv tbody tr").size()-1);
                 $("#add_que_vis_inv").click(function() {
                     num_que_vis_inv++;
                     add_que_vis_inv();
@@ -86,7 +86,7 @@
                 }
                 
   //3. INVESTIGACIONES PRELIMINARES:               
-                 var num_invs_preliminares = 0;
+                 var num_invs_preliminares = ($("#table_invs_preliminares tbody tr").size()-1);
                 $("#add_invs_preliminares").click(function() {
                     num_invs_preliminares++;
                     add_invs_preliminares();

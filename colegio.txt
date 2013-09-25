@@ -1,0 +1,14 @@
+INSERT INTO `colegios_profesionales` (`id_colegio`, `nombre_colegio`) VALUES
+(1, 'CCPL - Colegio de Contadores Públicos de Lima'),
+(2, 'Colegio de Economistas de Lima'),
+(3, 'Ilustre Colegio de Abogados de Lima'),
+(4, 'Colegio Odontológico del Perú'),
+(5, 'Colegio de Notarios de Lima'),
+(6, 'Colegio de Ingenieros del Perú - Consejo Nacional'),
+(7, 'Colegio de Ingenieros del Perú - Consejo Departamental de Lima'),
+(8, 'Colegio de Ingenieros de Lambayeque'),
+(9, 'Colegio Odontológico del Callao'),
+(10, 'Colegio de Contadores Públicos del Cusco'),
+(11, 'Sociedad de Urbanistas del Perú - SURP'),
+(12, 'Colegio de Sociólogos del Perú'),
+(13, 'Colegio Profesional de Licenciados en Cooperativismo del Perú - COLICOOP');

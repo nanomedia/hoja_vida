@@ -104,8 +104,11 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
 
     <div id=\"tabs1-2\">
         <div class=\"area-registro\">
-            <div class=\"tab-title\">DATOS COMO POSTULANTE </div>
-            <form id=\"frm-como-postulante\">
+            <form id=\"frm-como-postulante\" action=\"";
+        // line 62
+        echo $this->env->getExtension('routing')->getPath("_updateDatosPostulante");
+        echo "\" method=\"POST\">
+             <div class=\"tab-title\">DATOS COMO POSTULANTE </div><input type=\"submit\" class=\"button\" value=\"Actualizar\">
                 <table width=\"65%\" border=\"0\" cellspacing=\"15px\"  align=\"center\">
                     ";
         // line 65
@@ -114,16 +117,20 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
             // line 66
             echo "                    <tr >
+                        <input type=\"hidden\" name=\"id_pos\" value=\"";
+            // line 67
+            echo twig_escape_filter($this->env, $this->getContext($context, "id_postulante"), "html", null, true);
+            echo "\">
                         <td width=\"35%\"><label class=\"labelText\">Cargo al que postula:</label></td>
                         <td><input type=\"text\" name=\"txt_cargoAPostular\" class=\"textbox obligate\" value=\"";
-            // line 68
+            // line 69
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "CARGO_A_POSTULAR"), "html", null, true);
             echo "\" ></td>
                     </tr>
                     <tr>
                         <td><label class=\"labelText\">Condici&oacute;n:</label></td>
                         <td><input type=\"text\" name=\"txt_condicion\" class=\"textbox obligate\" value=\"";
-            // line 72
+            // line 73
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "CONDICION"), "html", null, true);
             echo "\" ></td>
                     </tr>
@@ -132,9 +139,15 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
                         <td>
                             <select name=\"cbo_tipoCurso\">
                                 <option value=\"";
-            // line 78
+            // line 79
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "TIPO_CURSO"), "html", null, true);
-            echo "\">  fdshbdgh  </option>
+            echo "\">  ";
+            if (($this->getAttribute($this->getContext($context, "item"), "TIPO_CURSO") == 1)) {
+                echo " PROFA  ";
+            } else {
+                echo "  Ascenso ";
+            }
+            echo "</option>
                                 <option value=\"0\">-ELEGIR-</option>
                                 <option value=\"1\">PROFA</option>
                                 <option value=\"2\">Ascenso</option>
@@ -142,7 +155,7 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
                             &nbsp;&nbsp;&nbsp;
                             <label class=\"labelText\">Nota:</label>
                             <input type=\"text\" name=\"txt_nota\" class=\"numeric nota\" size=\"5\"  value=\"";
-            // line 85
+            // line 86
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "NOTA"), "html", null, true);
             echo "\"  >
                         </td>
@@ -150,21 +163,21 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
                     <tr>
                         <td><label class=\"labelText\">Pre-Promedio:</label></td>
                         <td><input type=\"text\" name=\"txt_prePromedio\" class=\"numeric nota obligate\"  size=\"5\"  value=\"";
-            // line 90
+            // line 91
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "PRE_PROMEDIO"), "html", null, true);
             echo "\"  ></td>
                     </tr>
                     <tr>
                         <td><label class=\"labelText\">Orden de m&eacute;rito:</label></td>
                         <td><input type=\"text\"  name=\"txt_ordenMerito\" class=\"numeric num obligate\" size=\"5\" value=\"";
-            // line 94
+            // line 95
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "ORDEN_MERITO"), "html", null, true);
             echo "\" ></td>
                     </tr>
                     <tr>
                         <td><label class=\"labelText\">Plazas vacantes:</label></td>
                         <td><input type=\"text\"  name=\"txt_plazasVacantes\" class=\"numeric num obligate\" size=\"5\" value=\"";
-            // line 98
+            // line 99
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "PLAZAS_VACANTES"), "html", null, true);
             echo "\" ></td>
                     </tr>
@@ -172,14 +185,14 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
                     <tr>
                         <td><label class=\"labelText\">Examen de conocimientos</label></td>
                         <td><input type=\"text\" name=\"txt_ex_cono\" class=\"textbox obligate\" value=\"";
-            // line 103
+            // line 104
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EXAMEN_CONOCIMIENTOS"), "html", null, true);
             echo "\" ></td>
                     </tr>
                     <tr>
                         <td><label class=\"labelText\">Afiliaci&oacute;n curricular</label></td>
                         <td><input type=\"text\" name=\"afi_curr\" class=\"textbox obligate\" value=\"";
-            // line 107
+            // line 108
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "AFILIACION_CURRICULAR"), "html", null, true);
             echo "\" ></td>
                     </tr>
@@ -200,13 +213,43 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
                                     </tr>
                                 </thead>
                                 <tbody>
+                                   ";
+            // line 127
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConvocatoriasAnteriores"));
+            foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+                echo " 
+                                    
                                     <tr>
-                                        <td align=\"center\">1</td>
-                                        <td><input type=\"text\" name=\"convocatoria[]\" class=\"row-edit\" class=\"obligate\"></td>
-                                        <td><input type=\"text\" name=\"plaza[]\" class=\"row-edit\" class=\"obligate\"></td>
-                                        <td><input type=\"text\" name=\"etapa[]\" class=\"row-edit\" class=\"obligate\"></td>
-                                        <td></td>
+                                        <td align=\"center\"> ";
+                // line 130
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
+                echo " </td>
+                                        <td><input type=\"text\" name=\"convocatoria[]\" class=\"row-edit\" class=\"obligate\" value=\"";
+                // line 131
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "convocatoria"), "html", null, true);
+                echo "\" ></td>
+                                        <td><input type=\"text\" name=\"plaza[]\" class=\"row-edit\" class=\"obligate\" value=\"";
+                // line 132
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "plaza"), "html", null, true);
+                echo "\" ></td>
+                                        <td><input type=\"text\" name=\"etapa[]\" class=\"row-edit\" class=\"obligate\" value=\"";
+                // line 133
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "etapa"), "html", null, true);
+                echo "\" ></td>
+                                        <td>";
+                // line 134
+                echo $this->getAttribute($this->getContext($context, "item"), "boton");
+                echo "</td>
                                     </tr>
+                                  ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 136
+            echo " 
+                                    
                                 </tbody>
                             </table>
 
@@ -217,7 +260,7 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 138
+        // line 143
         echo "      
                 </table>
             </form>
@@ -241,6 +284,6 @@ class __TwigTemplate_02d950d2a7e9a562ba2d33497932fb16 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  221 => 138,  183 => 107,  176 => 103,  168 => 98,  161 => 94,  154 => 90,  146 => 85,  136 => 78,  127 => 72,  120 => 68,  116 => 66,  112 => 65,  101 => 58,  96 => 56,  93 => 55,  83 => 46,  81 => 45,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  264 => 143,  251 => 136,  242 => 134,  238 => 133,  234 => 132,  230 => 131,  226 => 130,  218 => 127,  196 => 108,  189 => 104,  181 => 99,  174 => 95,  167 => 91,  159 => 86,  143 => 79,  134 => 73,  127 => 69,  122 => 67,  119 => 66,  115 => 65,  109 => 62,  101 => 58,  96 => 56,  93 => 55,  83 => 46,  81 => 45,  38 => 5,  33 => 4,  30 => 3,);
     }
 }

@@ -1,6 +1,8 @@
 //PROCESOS JUDICIALES CIVILES, PENALES, DE FAMILIA, LABORALES COMO DEMANDANTE / DENUNCIANTE
-var num_proc_jud_civ_lab_d_d = 0;
-                $("#add_proc_jud_civ_lab_d_d").click(function() {
+
+var num_proc_jud_civ_lab_d_d = ($("#table_proc_jud_civ_lab_d_d tbody tr").size()-1);
+             
+                $("#add_proc_jud_civ_lab_d_d").click(function(){
                     num_proc_jud_civ_lab_d_d++;
                     add_proc_jud_civ_lab_d_d();
                     $(".menos").button();
@@ -32,7 +34,7 @@ var num_proc_jud_civ_lab_d_d = 0;
 
                 }
 //COMO DEMANDADO / DENUNCIADO
-                var num_dem_den = 0;
+                var num_dem_den = ($("#table_dem_den tbody tr").size()-1);
                 $("#add_dem_den").click(function() {
                     num_dem_den++;
                     add_dem_den();
@@ -65,7 +67,7 @@ var num_proc_jud_civ_lab_d_d = 0;
                 }
                 
 //COMO AGRAVIADO
-                var num_como_agraviado = 0;
+                var num_como_agraviado = ($("#table_como_agraviado tbody tr").size()-1);
                 $("#add_como_agraviado").click(function() {
                     num_como_agraviado++;
                     add_como_agraviado();
