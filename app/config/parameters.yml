@@ -5,7 +5,7 @@ parameters:
     database_port: null
     database_name: hoja_vida
     database_user: root
-    database_password: null
+    database_password: oti.123.oti
     database_name2: curriculo
     mailer_transport: smtp
     mailer_host: 127.0.0.1
