@@ -78,11 +78,18 @@
             modal: true,
             autoOpen: false,
         });
+        
         $("#content-menu").menu();
 
+<<<<<<< HEAD
+        $(".item-formularios").click(function(){
+            
+             $("#menu-formularios").dialog("open");
+=======
         $(".item-formularios").click(function() {
             $("#codigo_pos").val($(this).attr("rel"));
             $("#menu-formularios").dialog("open");
+>>>>>>> e01aab2c9694c0dee4abf465d106f71ebc8462b2
         });
         
         $(".frm_url").click(function(){
@@ -106,10 +113,10 @@
             <li><a href="#tab-listado-1">LISTA DE POSTULANTES</a></li>
             <!--<li><div class="boton">BUSCAR</div></li>-->
         </ul>
-
+            
         <div id="tab-listado-1">
             <div id="table_search_postulante" style="width:800px;margin:1px auto;">
-
+                
                 <table border="1" width="700px">
                     <tr>
                         <td>DNI</td>
@@ -117,7 +124,7 @@
                         <td>APELLIDOS</td>
                         <td>EDAD</td>
                         <td></td>
-                    </tr>
+                   </tr>
                         {% for item in postulantes %}
                     <tr>
                         <td>{{item.dni}}</td>
@@ -125,26 +132,34 @@
                         <td>{{item.apellidos}}</td>
                         <td>{{item.edad}}</td>
                         <td><input type="button" rel="{{item.pk_dat_postulante}}" class="item-formularios" value="Actualizar"></td>
-                    </tr>
+                   </tr>
                      {%endfor%}                
                 </table>
                 <input type="hidden" id="codigo_pos" value="">
                 <div id="menu-formularios">
                     <ul id="content-menu">
+<<<<<<< HEAD
+                        <li><a href="{{path('_frm_update_datospersonales')}}" rel=" ">DATOS PERSONALES</a></li>
+                        <li><a href="#" rel=""  >DATOS POSTULANTE</a></li>
+                        <li><a href="#" rel="" >DATOS ACADEMICOS</a></li>
+                        <li><a href="{{path('_frm_update_expprofesional')}}"  rel=" ">EXPERIENCIA PROFESIONAL</a></li>
+                        <li><a href="{{path('_frm_update_conducta')}}"  rel="" >CONDUCTA</a></li>
+=======
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospersonales" class="frm_url">DATOS PERSONALES</a></li>
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospostulante" class="frm_url">DATOS POSTULANTE</a></li>
                         <li><a href="#" rel="#">DATOS ACADEMICOS</a></li>
+<<<<<<< HEAD
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_expprofesional" class="frm_url">EXPERIENCIA PROFESIONAL</a></li>
                         <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_conducta" class="frm_url">CONDUCTA</a></li>
+=======
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/frm_update_expprofesional" class="frm_url">EXPERIENCIA PROFESIONAL</a></li>
+                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/frm_update_conducta" class="frm_url">CONDUCTA</a></li>
+>>>>>>> e01aab2c9694c0dee4abf465d106f71ebc8462b2
+>>>>>>> bf1b25cf4271fa90620c2a498024820be1629c7f
                     </ul>
                 </div>
 
-
-
-
-
-
-
+                
                 <!--Buscar:
                 <input type="text" class="auto" id="txtdni" style="width:450px;">
                 <input type="button" id="postulantes" value="ver Postulantes">-->
@@ -152,3 +167,9 @@
         </div>
     </div>
 {% endblock cuerpo %}   
+
+
+    
+    
+
+
