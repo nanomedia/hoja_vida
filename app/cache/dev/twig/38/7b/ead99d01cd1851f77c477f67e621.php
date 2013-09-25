@@ -244,7 +244,7 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
                         <li><a href=\"#\" rel=\"";
         // line 141
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
-        echo "\" class=\"frm_url\">RUBRO 4</a></li>
+        echo "/registro/rubro4\" class=\"frm_url\">RUBRO 4</a></li>
                     </ul>
                 </div>
 

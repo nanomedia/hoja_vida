@@ -1,0 +1,64 @@
+{% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+{% block scripts %}
+
+{{ parent() }}
+<script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-1.9.1.js')}}"></script>
+<script src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('web/plugins/jValidate/jquery.validate.js')}}"></script>
+<script src="{{asset('web/plugins/jquery_numeric/jquery.numeric.js')}}"></script>
+<script>
+$(document).ready(function(){
+     {% include 'hojaVidaBundle:update_formularios:util.html.twig' %}
+});
+</script>
+
+
+
+
+{% endblock %}
+
+{% block titulo %}
+    <div>RUBRO 4</div>
+    {% endblock titulo %}
+
+{% block cuerpo %}
+
+    <div id="tabs4-1">
+    <div class="area-registro">
+        <form id="frm_info_registro" action="{{path('_up_rubro4')}}" method="POST">
+            <div class="tab-title">
+                INFORMACIÓN DEL REGISTRO DE <br>DEUDORES ALIMENTARIOS MOROSOS - REDAM
+            </div>
+              <input type="submit" class="button" value="Actualizar">   
+              <input type="hidden" name="id_pos" value="{{codigo}}">
+            {% for item in info_reg %}
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <textarea name="txt_deu" style="height: 200px;width: 100%;font-size: 23px;">{{item.DEUDORES_ALIMENTARIOS}}  </textarea>
+                    </td>
+                </tr>
+            </table><br><br>
+            <div class="tab-title">
+                INFORMACIÓN COMPLEMENTARIA
+            </div>
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <textarea name="txt_com" style="height: 200px;width: 100%;font-size: 23px;">{{item.COMPLEMENTARIA}}  </textarea>
+                    </td>
+                </tr>
+            </table>
+            {% endfor %}
+        </form>
+    </div>  
+
+</div>
+    
+
+
+{% endblock %}
+
+     
+ 

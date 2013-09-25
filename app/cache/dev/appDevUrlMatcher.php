@@ -330,23 +330,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro2')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::rubro2Action',));
             }
 
+            if (0 === strpos($pathinfo, '/registro/upInfo')) {
+                // _upInfo
+                if ($pathinfo === '/registro/upInfo') {
+                    return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::frmUpdateInfo1Action',  '_route' => '_upInfo',);
+                }
+
+                // _upInfo2
+                if ($pathinfo === '/registro/upInfo2') {
+                    return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::frmUpdateInfo2Action',  '_route' => '_upInfo2',);
+                }
+
+                // _upInfo3
+                if ($pathinfo === '/registro/upInfo3') {
+                    return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::frmUpdateInfo3Action',  '_route' => '_upInfo3',);
+                }
+
+            }
+
+            // _rubro4
+            if (0 === strpos($pathinfo, '/registro/rubro4') && preg_match('#^/registro/rubro4/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro4')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro4Controller::rubro4Action',));
+            }
+
             if (0 === strpos($pathinfo, '/registro/u')) {
-                if (0 === strpos($pathinfo, '/registro/upInfo')) {
-                    // _upInfo
-                    if ($pathinfo === '/registro/upInfo') {
-                        return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::frmUpdateInfo1Action',  '_route' => '_upInfo',);
-                    }
-
-                    // _upInfo2
-                    if ($pathinfo === '/registro/upInfo2') {
-                        return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::frmUpdateInfo2Action',  '_route' => '_upInfo2',);
-                    }
-
-                    // _upInfo3
-                    if ($pathinfo === '/registro/upInfo3') {
-                        return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro2Controller::frmUpdateInfo3Action',  '_route' => '_upInfo3',);
-                    }
-
+                // _up_rubro4
+                if ($pathinfo === '/registro/upRubro4') {
+                    return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro4Controller::rubro4_updateAction',  '_route' => '_up_rubro4',);
                 }
 
                 // _util_universidad
