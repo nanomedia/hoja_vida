@@ -228,11 +228,11 @@ class __TwigTemplate_387bead99d01cd1851f77c477f67e621 extends Twig_Template
                         <li><a href=\"#\" rel=\"";
         // line 137
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
-        echo "/frm_update_expprofesional\" class=\"frm_url\">EXPERIENCIA PROFESIONAL</a></li>
+        echo "/registro/frm_update_expprofesional\" class=\"frm_url\">EXPERIENCIA PROFESIONAL</a></li>
                         <li><a href=\"#\" rel=\"";
         // line 138
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "getBaseURL", array(), "method"), "html", null, true);
-        echo "/frm_update_conducta\" class=\"frm_url\">CONDUCTA</a></li>
+        echo "/registro/frm_update_conducta\" class=\"frm_url\">CONDUCTA</a></li>
                     </ul>
                 </div>
 

@@ -307,6 +307,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            // _util_universidad
+            if ($pathinfo === '/registro/util_universidad') {
+                return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\utilController::cbounivAction',  '_route' => '_util_universidad',);
+            }
+
         }
 
         // _welcome

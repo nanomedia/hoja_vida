@@ -28,7 +28,7 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
         ";
         // line 7
         $this->displayBlock('scripts', $context, $blocks);
-        // line 13
+        // line 14
         echo "        <script>
             \$(document).ready(function() {
 
@@ -47,7 +47,7 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
                     <div class=\"ui-widget-header panel-usuario\">
                         <div class=\"ui-icon ui-icon-person\" style=\"float:left;\"></div>
                         <div class=\"ui-button-text\" style=\"float:left;\">&nbsp;";
-        // line 30
+        // line 31
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "nombre"), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "apellido"), "html", null, true);
@@ -80,16 +80,16 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
                               padding-left: 105px;
                               \">
                     ";
-        // line 58
-        $this->displayBlock('titulo', $context, $blocks);
         // line 59
+        $this->displayBlock('titulo', $context, $blocks);
+        // line 60
         echo "                              
                               </div>
                               <div style=\"width:164px;float:left;height: 85px;\">
                                   <ul id=\"menu\">
                                       <li>
                                           <a href=\"";
-        // line 64
+        // line 65
         echo $this->env->getExtension('routing')->getPath("_lista_usuarios");
         echo "\">
                                               <span class=\"ui-icon ui-icon-person\"></span>Lista Usuarios
@@ -97,14 +97,14 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
                                       </li>
                                       <li>
                                           <a href=\"";
-        // line 69
+        // line 70
         echo $this->env->getExtension('routing')->getPath("_lista_postulantes");
         echo "\">
                                               <span class=\"ui-icon ui-icon-pencil\"></span>Lista Postulantes
                                           </a>
                                       </li>
                                       <li><a href=\"";
-        // line 73
+        // line 74
         echo $this->env->getExtension('routing')->getPath("_logout");
         echo "\">
                                               <span class=\"ui-icon ui-icon-gear\"></span>
@@ -116,9 +116,9 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
                               <div style=\"clear: left;\"></div>
                          </div>
               ";
-        // line 82
+        // line 83
         $this->displayBlock('cuerpo', $context, $blocks);
-        // line 85
+        // line 86
         echo "
                      </div>
                 </body>
@@ -145,20 +145,24 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
         // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js"), "html", null, true);
         echo "\"></script>
+        <script src=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("web/plugins/jquery_numeric/jquery.numeric.js"), "html", null, true);
+        echo "\"></script>
        ";
     }
 
-    // line 58
+    // line 59
     public function block_titulo($context, array $blocks = array())
     {
-        // line 59
+        // line 60
         echo "                    ";
     }
 
-    // line 82
+    // line 83
     public function block_cuerpo($context, array $blocks = array())
     {
-        // line 83
+        // line 84
         echo "
                ";
     }
@@ -175,6 +179,6 @@ class __TwigTemplate_0b86d37a69cec52cad041528a76d271d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  162 => 83,  159 => 82,  155 => 59,  152 => 58,  142 => 10,  138 => 9,  133 => 8,  130 => 7,  122 => 85,  120 => 82,  108 => 73,  101 => 69,  93 => 64,  86 => 59,  84 => 58,  51 => 30,  32 => 13,  22 => 1,  229 => 133,  225 => 132,  220 => 130,  216 => 129,  209 => 124,  200 => 122,  196 => 121,  192 => 120,  188 => 119,  184 => 118,  181 => 117,  177 => 116,  154 => 97,  149 => 95,  146 => 11,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  42 => 6,  38 => 5,  33 => 4,  30 => 7,);
+        return array (  166 => 84,  163 => 83,  159 => 60,  156 => 59,  150 => 12,  146 => 11,  142 => 10,  138 => 9,  133 => 8,  130 => 7,  122 => 86,  120 => 83,  108 => 74,  101 => 70,  93 => 65,  86 => 60,  84 => 59,  51 => 31,  32 => 14,  22 => 1,  102 => 49,  97 => 46,  94 => 45,  62 => 17,  52 => 10,  48 => 9,  42 => 6,  38 => 5,  33 => 4,  30 => 7,);
     }
 }
