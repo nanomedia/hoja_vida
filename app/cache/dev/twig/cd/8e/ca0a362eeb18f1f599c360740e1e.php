@@ -1,0 +1,121 @@
+<?php
+
+/* hojaVidaBundle:update_formularios/conducta/html:procesos_judiciales.html.twig */
+class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 1
+        echo "<h3><label class=\"labelform\">2. PROCESOS JUDICIALES:</label></h3>
+<div>
+    <label class=\"labelform\"> PROCESOS JUDICIALES CIVILES, PENALES, DE FAMILIA, LABORALES COMO DEMANDANTE / DENUNCIANTE:</label>
+    <br><br>
+    <div  class=\"add-icon\" id=\"add_proc_jud_civ_lab_d_d\" >Nueva fila</div><br><br>
+    <table width=\"80%\" id=\"table_proc_jud_civ_lab_d_d\" class=\"table ui-widget ui-widget-content\">
+
+        <thead>
+
+            <tr class=\"ui-widget-header\" >
+                <th>Expediente</th>
+                <th>Expediente Órgano</th>
+                <th>Demandado / Denunciado</th>
+                <th>Materia</th>
+                <th>Estado</th>
+                <th width=\"50px\"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
+                    <textarea name=\"txt_exp_con[]\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\"></textarea></td>
+                <td></td>
+            </tr>
+        </tbody>
+
+    </table>
+    <br>
+    <label class=\"labelform\">  COMO DEMANDADO / DENUNCIADO:</label><br><br>
+    <div  class=\"add-icon\" id=\"add_dem_den\" >Nueva fila</div><br><br>
+    <table  width=\"80%\" id=\"table_dem_den\" class=\"table ui-widget ui-widget-content\">
+        <thead>
+
+            <tr class=\"ui-widget-header\">
+                <th>Expediente</th>
+                <th>Expediente Órgano</th>
+                <th>Demandante / Denunciado</th>
+                <th>Materia</th>
+                <th>Estado</th>
+                <th width=\"50px\"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"2\">
+                    <textarea name=\"txt_exp_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_exp_org_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_dem_agre_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_materia_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_estado_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td></td>
+            </tr>
+            
+
+        </tbody>
+
+    </table><br>
+
+    <label class=\"labelform\">COMO AGRAVIADO:</label><br><br>
+    <div  class=\"add-icon\" id=\"add_como_agraviado\" >Nueva fila</div><br><br>
+    <table width=\"80%\" id=\"table_como_agraviado\" class=\"table ui-widget ui-widget-content\">
+        <thead>
+            <tr class=\"ui-widget-header\">
+                <th>Expediente</th>
+                <th>Órgano Jurisdiccional</th>
+                <th>Agresor</th>
+                <th>Materia</th>
+                <th>Estado</th>
+                <th width=\"50px\"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"3\">
+                    <textarea name=\"txt_exp_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_exp_org_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_dem_agre_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_materia_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td><textarea name=\"txt_estado_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
+                <td></td>
+            </tr>
+           
+        </tbody>
+    </table>
+    <br><br>
+</div>";
+    }
+
+    public function getTemplateName()
+    {
+        return "hojaVidaBundle:update_formularios/conducta/html:procesos_judiciales.html.twig";
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+    }
+}

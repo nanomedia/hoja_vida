@@ -170,8 +170,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if (0 === strpos($pathinfo, '/registro')) {
             if (0 === strpos($pathinfo, '/registro/frm_update_')) {
                 // _frm_update_conducta
-                if ($pathinfo === '/registro/frm_update_conducta') {
-                    return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ConductaController::direcAction',  '_route' => '_frm_update_conducta',);
+                if (0 === strpos($pathinfo, '/registro/frm_update_conducta') && preg_match('#^/registro/frm_update_conducta/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_conducta')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ConductaController::direcAction',));
                 }
 
                 if (0 === strpos($pathinfo, '/registro/frm_update_datosp')) {

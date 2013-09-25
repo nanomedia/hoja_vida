@@ -4,7 +4,21 @@
         {{ parent() }}
 <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
 
+<script>
+$(document).ready(function(){
+    {% include 'hojaVidaBundle:update_formularios:util.html.twig' %}
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig' %}
 
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig' %}
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_PJudicial.html.twig' %}
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_administrativos.html.twig' %}
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_PJudicial.html.twig' %}
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig' %}
+        
+});
+    
+    
+    </script>
 {% endblock%}
 
 
@@ -12,6 +26,19 @@
     <div>CONDUCTA</div>
     {% endblock titulo %}
 {% block cuerpo %}   
-    {{programador}}
+    <div class="area-registro">
+
+        <div class="tab-title">CONDUCTA</div>
+
+        <form id="frm-conducta">
+            <div id="ac_conducta">
+                {% include 'hojaVidaBundle:update_formularios/conducta/html:antecedentes.html.twig' %}
+                {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_judiciales.html.twig' %}
+                {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_administrativos.html.twig' %}
+                {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_PJudicial.html.twig' %}
+                {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_MPublico.html.twig' %}
+            </div>
+            </form>
+        </div>  
 {% endblock%}   
     

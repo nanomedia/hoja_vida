@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ConductaController extends Controller {
  /**
-     * @Route("/frm_update_conducta",name="_frm_update_conducta")
+     * @Route("/frm_update_conducta/{codigo}",name="_frm_update_conducta")
      */
-    public function direcAction() {
+    public function direcAction($codigo) {
        
-        return $this->render('hojaVidaBundle:update_formularios:frm_update_conducta.html.twig',array("programador"=>"pollo"));
+        return $this->render('hojaVidaBundle:update_formularios:frm_update_conducta.html.twig');
     }
 }
 ?>
