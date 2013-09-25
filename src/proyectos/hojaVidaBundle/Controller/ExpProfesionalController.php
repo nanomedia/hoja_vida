@@ -34,7 +34,7 @@ class ExpProfesionalController extends Controller {
             $data[$i]["Ddae"] = $dp->getDdae();
             $data[$i]["Materia"] = $dp->getMateria();
             $cb=new cargaCombosUpdate();
-            $data[$i]["Especialidad"] = $dp->getEspecialidad()." ".$cb->cboEspecialidad($dp->getEspecialidad());
+            $data[$i]["Especialidad"] = $cb->cboEspecialidad($dp->getEspecialidad());
             $data[$i]["Calificacion1"] = $dp->getCalificacion1();
             $data[$i]["Calificacion2"] = $dp->getCalificacion2();
             $data[$i]["boton"]=$boton;

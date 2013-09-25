@@ -388,9 +388,9 @@
                                     <td><textarea name="txt_ddas[]" class="info_textarea">{{ddp.Ddas}}</textarea></td>
                                     <td><textarea name="txt_ddae[]" class="info_textarea">{{ddp.Ddae}}</textarea></td>
                                     <td><textarea name="txt_materia[]" class="info_textarea">{{ddp.Materia}}</textarea></td>
-                                    <td>
+                                    <td>{{ddp.Especialidad}}
                                         <select name="txt_espec[]" class="opt_especialidad">
-                                        {{ddp.Especialidad}}
+                                        {{ddp.Especialidad|raw('html')}}
                                         </select>
                                     </td>
                                     <td align="center">

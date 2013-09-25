@@ -465,11 +465,14 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
             // line 390
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Materia"), "html", null, true);
             echo "</textarea></td>
-                                    <td>
+                                    <td>";
+            // line 391
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Especialidad"), "html", null, true);
+            echo "
                                         <select name=\"txt_espec[]\" class=\"opt_especialidad\">
                                         ";
             // line 393
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Especialidad"), "html", null, true);
+            echo $this->getAttribute($this->getContext($context, "ddp"), "Especialidad");
             echo "
                                         </select>
                                     </td>
@@ -885,6 +888,6 @@ class __TwigTemplate_46119c15ec698d13465c20a6abc995ca extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  499 => 405,  490 => 402,  485 => 400,  479 => 397,  472 => 393,  466 => 390,  462 => 389,  458 => 388,  454 => 387,  450 => 386,  443 => 384,  405 => 350,  400 => 348,  397 => 347,  63 => 16,  61 => 15,  53 => 10,  49 => 9,  44 => 7,  40 => 6,  36 => 5,  33 => 4,  30 => 3,);
+        return array (  502 => 405,  493 => 402,  488 => 400,  482 => 397,  475 => 393,  470 => 391,  466 => 390,  462 => 389,  458 => 388,  454 => 387,  450 => 386,  443 => 384,  405 => 350,  400 => 348,  397 => 347,  63 => 16,  61 => 15,  53 => 10,  49 => 9,  44 => 7,  40 => 6,  36 => 5,  33 => 4,  30 => 3,);
     }
 }

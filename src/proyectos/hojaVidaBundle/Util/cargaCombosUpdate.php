@@ -11,10 +11,25 @@ class cargaCombosUpdate {
             if ($i == $codigo) {
                 $selected = "selected";
             }
-            $cbo.="<option ".$selected." value='" . $i . "'>" . $data[$i] . "</option>";
+            $cbo.="<option value='" . $i . "' ".$selected.">" . $data[$i] . "</option>";
         }
         return $cbo;
     }
+    
+    public function cboCalificacion($codigo) {
+        $data = array("-ELEGIR-", "Penal", "Civil", "Contencioso", "Contencioso", "Laboral");
+        $cbo = "";
+
+        for ($i = 0; $i < count($data); $i++) {
+            $selected = "";
+            if ($i == $codigo) {
+                $selected = "selected";
+            }
+            $cbo.="<option value='" . $i . "' ".$selected.">" . $data[$i] . "</option>";
+        }
+        return $cbo;
+    }
+    
 
 }
 

@@ -17,13 +17,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><textarea name="cbo_ins_adm1[]" class="info_textarea"></textarea></td>
-                <td><textarea type="text" name="txt_res_adm1[]" class="info_textarea"></textarea></td>
-                <td><textarea type="text" name="txt_san_adm1[]" class="info_textarea"></textarea></td>
-                <td><textarea type="text" name="txt_est_adm1[]" class="info_textarea"></textarea></td>
-                <td></td>
-            </tr>
+
+                                {% for ddpD in ConprocesoadministrativosD%}  
+								<tr>
+									<td><textarea name="cbo_ins_adm1[]" class="info_textarea">{{ddpD.IdInstitucion}}</textarea></td>
+									<td><textarea type="text" name="txt_res_adm1[]" class="info_textarea">{{ddpD.Resolucion}}</textarea></td>
+									<td><textarea type="text" name="txt_san_adm1[]" class="info_textarea">{{ddpD.Sancion}}</textarea></td>
+									<td><textarea type="text" name="txt_est_adm1[]" class="info_textarea">{{ddpD.Estado}}</textarea></td>
+									<td></td>
+								</tr>
+								
+                                {% endfor %}
+		
+
         </tbody>
     </table>
 </div>
@@ -44,20 +50,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <select name="cbo_ins_adm2[]">
-                        <option value="0">-Elegir-</option>
-                        <option value="1">PJ</option>
-                        <option value="2">MP</option>
-                        <option value="4">SERVIR</option>
-                    </select>
-                </td>
+		
 
-                <td><textarea type="text" name="txt_res_adm2[]" class="info_textarea"></textarea></td>
-                <td><textarea type="text" name="txt_san_adm2[]" class="info_textarea"></textarea></td>
-                <td></td>
-            </tr>
+                                {% for ddpE in ConprocesoadministrativosE%}  
+								
+
+									<tr>
+										<td>
+											<select name="cbo_ins_adm2[]">
+												<option value="0">-Elegir-</option>
+												<option value="1">PJ</option>
+												<option value="2">MP</option>
+												<option value="4">SERVIR</option>
+											</select>
+											{{ddpE.IdInstitucion}}
+										</td>
+						
+										<td><textarea type="text" name="txt_res_adm2[]" class="info_textarea">{{ddpE.Resolucion}}</textarea></td>
+										<td><textarea type="text" name="txt_san_adm2[]" class="info_textarea">{{ddpE.Sancion}}</textarea></td>
+										<td></td>
+									</tr>
+
+                                {% endfor %}
+		
+
 
         </tbody>
     </table>
@@ -81,18 +97,27 @@
             </tr>
         </thead>
         <tbody>
+
+                                {% for ddpF in ConprocesoadministrativosF%}  
+					
+
             <tr>
                 <td>
                     <select name="cbo_ins_adm3[]">
                         <option value="0">-Elegir-</option>
                         <option value="1">MP</option>
                         <option value="2">PJ</option>
-                    </select>
+                    </select>{{ddpF.IdInstitucion}}
                 </td>
-                <td><textarea type="text" name="txt_san_adm3[]" class="info_textarea"></textarea></td>
-                <td><textarea type="text" name="txt_res_adm3[]" class="info_textarea"></textarea></td>
+                <td><textarea type="text" name="txt_san_adm3[]" class="info_textarea">{{ddpF.Sancion}}</textarea></td>
+                <td><textarea type="text" name="txt_res_adm3[]" class="info_textarea">{#{ddpF.Expediente}#}</textarea></td>
                 <td></td>
             </tr>
+									
+
+                                {% endfor %}
+		
+
 
         </tbody>
     </table>
