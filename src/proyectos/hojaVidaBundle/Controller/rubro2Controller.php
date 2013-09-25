@@ -50,15 +50,16 @@ class rubro2Controller extends Controller {
     public function frmUpdateInfo1Action(Request $request) {
         $codigo = $request->request->get("id_pos");
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.idOficina="1" and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
+        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.idOficina=1 and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
         $InformacionOficinas = $query->getResult();
-        $dpo = $InformacionOficinas[0];
 
+        $dpo = $InformacionOficinas[0];
         $dpo->setEstadoAudt(2);
         $em->persist($dpo);
         $em->flush();
         $m = new Mantenimiento();
         $m->insertarinfojuefis($this, $request);
+
         return $this->redirect($this->generateUrl('_rubro2', array('codigo' => $codigo)));
     }
 
@@ -68,15 +69,16 @@ class rubro2Controller extends Controller {
     public function frmUpdateInfo2Action(Request $request) {
         $codigo = $request->request->get("id_pos");
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.idOficina="2" and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
+        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.idOficina=2 and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
         $InformacionOficinas = $query->getResult();
+        
         $dpo = $InformacionOficinas[0];
-
         $dpo->setEstadoAudt(2);
         $em->persist($dpo);
         $em->flush();
         $m = new Mantenimiento();
-        $m->insertarinfojuefis($this, $request);
+        $m->insertardirecproc($this, $request);
+
         return $this->redirect($this->generateUrl('_rubro2', array('codigo' => $codigo)));
     }
 
@@ -86,7 +88,7 @@ class rubro2Controller extends Controller {
     public function frmUpdateInfo3Action(Request $request) {
         $codigo = $request->request->get("id_pos");
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.idOficina="3" and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
+        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.idOficina=3 and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
         $InformacionOficinas = $query->getResult();
         $dpo = $InformacionOficinas[0];
 
@@ -94,7 +96,7 @@ class rubro2Controller extends Controller {
         $em->persist($dpo);
         $em->flush();
         $m = new Mantenimiento();
-        $m->insertarinfojuefis($this, $request);
+        $m->insertarinfo_colegio($this, $request);
         return $this->redirect($this->generateUrl('_rubro2', array('codigo' => $codigo)));
     }
 
