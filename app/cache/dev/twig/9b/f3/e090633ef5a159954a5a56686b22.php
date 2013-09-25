@@ -41,22 +41,58 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
                 </tr>
             </thead>
             <tbody>
+\t\t\t
+\t\t\t
+
+                                ";
+        // line 29
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesoenPodJudA"));
+        foreach ($context['_seq'] as $context["_key"] => $context["ddpFA"]) {
+            echo "  
+
                 <tr>
                     <td><input type=\"hidden\" name=\"tra_tipo_pjud[]\" value=\"1\">
                         <select name=\"tra_ins_pjud[]\">
                             <option value=\"1\">MP</option>
                             <option value=\"2\">PJ</option>
-                        </select>
+                        </select>";
+            // line 36
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFA"), "IdInstitucion"), "html", null, true);
+            echo "
                     </td>
                     <td>
 
-                        <textarea type=\"text\" name=\"tra_exp_pjud[]\" class=\"info_textarea\"></textarea>
+                        <textarea type=\"text\" name=\"tra_exp_pjud[]\" class=\"info_textarea\">";
+            // line 40
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFA"), "Expediente"), "html", null, true);
+            echo "</textarea>
                         <input type=\"hidden\" name=\"tra_que_pjud[]\">
                     </td>
-                    <td><textarea name=\"tra_mot_pjud[]\" class=\"info_textarea\"></textarea></td>
-                    <td><textarea name=\"tra_est_pjud[]\" class=\"info_textarea\"></textarea></td>
+                    <td><textarea name=\"tra_mot_pjud[]\" class=\"info_textarea\">";
+            // line 43
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFA"), "Motivo"), "html", null, true);
+            echo "</textarea></td>
+                    <td><textarea name=\"tra_est_pjud[]\" class=\"info_textarea\">";
+            // line 44
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFA"), "EstadoProc"), "html", null, true);
+            echo "</textarea></td>
                     <td></td>
                 </tr>
+\t\t\t\t\t\t\t\t
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpFA'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 49
+        echo "\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t
+
+\t\t\t
+    
+\t\t\t\t
+\t\t\t\t
 
             </tbody>
         </table>
@@ -76,18 +112,53 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
                 </tr>
             </thead>
             <tbody>
+
+
+
+
+
+                                ";
+        // line 80
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesoenPodJudB"));
+        foreach ($context['_seq'] as $context["_key"] => $context["ddpFB"]) {
+            echo "  
+
+
+
                 <tr>
                     <td align=\"center\"><b>1</b></td>
                     <td>
                         <input type=\"hidden\" name=\"tra_tipo_pjud[]\" value=\"2\">
                         <input type=\"hidden\" name=\"tra_ins_pjud[]\">
                         <input type=\"hidden\" name=\"tra_exp_pjud[]\" >
-                        <textarea  type=\"hidden\" name=\"tra_que_pjud[]\" class=\"info_textarea\"></textarea>
+                        <textarea  type=\"hidden\" name=\"tra_que_pjud[]\" class=\"info_textarea\">";
+            // line 90
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFB"), "Quejas"), "html", null, true);
+            echo "</textarea>
                     </td>
-                    <td><textarea name=\"tra_mot_pjud[]\" class=\"info_textarea\"></textarea></td>
-                    <td><textarea name=\"tra_est_pjud[]\" class=\"info_textarea\"></textarea></td>
+                    <td><textarea name=\"tra_mot_pjud[]\" class=\"info_textarea\">";
+            // line 92
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFB"), "Motivo"), "html", null, true);
+            echo "</textarea></td>
+                    <td><textarea name=\"tra_est_pjud[]\" class=\"info_textarea\">";
+            // line 93
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFB"), "EstadoProc"), "html", null, true);
+            echo "</textarea></td>
                     <td></td>
                 </tr>
+
+
+\t\t\t\t\t\t\t\t
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpFB'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 100
+        echo "\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t
+
             </tbody>
         </table>
 
@@ -107,6 +178,16 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
                 </tr>
             </thead>
             <tbody>
+
+
+                                ";
+        // line 124
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesoenPodJudC"));
+        foreach ($context['_seq'] as $context["_key"] => $context["ddpFC"]) {
+            echo "  
+
+
                 <tr>
                     <td><b>1</b></td>
                     <td>
@@ -114,11 +195,27 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
                         <input type=\"hidden\"name=\"tra_ins_pjud[]\">
                         <input type=\"hidden\" name=\"tra_que_pjud[]\">
                         <input type=\"hidden\" name=\"tra_exp_pjud[]\">
-                        <textarea name=\"tra_mot_pjud[]\" class=\"info_textarea\"></textarea>
+                        <textarea name=\"tra_mot_pjud[]\" class=\"info_textarea\">";
+            // line 134
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFC"), "Motivo"), "html", null, true);
+            echo "</textarea>
                     </td>
-                    <td><textarea type=\"text\" name=\"tra_est_pjud[]\" class=\"info_textarea\"></textarea></td>
+                    <td><textarea type=\"text\" name=\"tra_est_pjud[]\" class=\"info_textarea\">";
+            // line 136
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpFC"), "EstadoProc"), "html", null, true);
+            echo "</textarea></td>
                     <td></td>
                 </tr>
+
+\t\t\t\t\t\t\t\t
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpFC'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 142
+        echo "\t\t\t
+
             </tbody>
         </table>
     </div>
@@ -227,8 +324,13 @@ class __TwigTemplate_9bf3e090633ef5a159954a5a56686b22 extends Twig_Template
         return "hojaVidaBundle:update_formularios/conducta/html:procesos_PJudicial.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  217 => 142,  205 => 136,  200 => 134,  185 => 124,  159 => 100,  146 => 93,  142 => 92,  137 => 90,  122 => 80,  89 => 49,  78 => 44,  74 => 43,  68 => 40,  61 => 36,  49 => 29,  19 => 1,);
     }
 }

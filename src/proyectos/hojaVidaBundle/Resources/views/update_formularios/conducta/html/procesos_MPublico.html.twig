@@ -21,21 +21,38 @@
                 </tr>
             </thead>
             <tbody>
+			
+
+
+                                {% for ddpFA in ConprocesoenMinJudA%}  
+
+
                 <tr>
                     <td><input type="hidden" name="tra_tipo_mpub[]" value="1">
                         <select name="tra_ins_mpub[]">
                             <option value="1">MP</option>
                             <option value="2">PJ</option>
-                        </select>
+                        </select>{{ddpFA.IdInstitucion}}
                     </td>
                     <td>
                         <input type="hidden" name="tra_que_mpub[]">
-                        <textarea type="text" name="tra_exp_mpub[]" class="info_textarea"></textarea>
+                        <textarea type="text" name="tra_exp_mpub[]" class="info_textarea">{{ddpFA.Expediente}}</textarea>
                     </td>
-                    <td><textarea name="tra_mot_mpub[]"  class="info_textarea"></textarea></td>
-                    <td><textarea name="tra_est_mpub[]" class="info_textarea"></textarea></td>
+                    <td><textarea name="tra_mot_mpub[]"  class="info_textarea">{{ddpFA.Motivo}}</textarea></td>
+                    <td><textarea name="tra_est_mpub[]" class="info_textarea">{{ddpFA.EstadoProc}}</textarea></td>
                     <td></td>
                 </tr>
+
+								
+                                {% endfor %}
+											
+			
+			
+
+				
+				
+				
+				
             </tbody>
         </table>
         <br>
@@ -54,6 +71,13 @@
                 </tr>
             </thead>
             <tbody>
+			
+
+
+
+                                {% for ddpFB in ConprocesoenMinJudB%}  
+
+
                 <tr>
                     <td align="center">
                         <b>1</b>
@@ -62,11 +86,17 @@
                         <input type="hidden" name="tra_tipo_mpub[]" value="2">
                         <input type="hidden"name="tra_ins_mpub[]">
                         <input type="hidden" name="tra_exp_mpub[]">
-                        <textarea name="tra_que_mpub[]" class="info_textarea"></textarea></td>
-                    <td><textarea name="tra_mot_mpub[]" class="info_textarea"></textarea></td>
-                    <td><textarea name="tra_est_mpub[]" class="info_textarea"></textarea></td>
+                        <textarea name="tra_que_mpub[]" class="info_textarea">{{ddpFB.Quejas}}</textarea></td>
+                    <td><textarea name="tra_mot_mpub[]" class="info_textarea">{{ddpFB.Motivo}}</textarea></td>
+                    <td><textarea name="tra_est_mpub[]" class="info_textarea">{{ddpFB.EstadoProc}}</textarea></td>
                     <td></td>
                 </tr>
+								
+                                {% endfor %}
+								
+								
+			
+
             </tbody>
         </table><br>
 
@@ -85,6 +115,12 @@
                 </tr>
             </thead>
             <tbody>
+			
+
+
+
+                                {% for ddpFC in ConprocesoenMinJudC%}  
+
                 <tr>
                     <td align="center"><b>1</b></td>
                     <td>
@@ -92,10 +128,13 @@
                         <input type="hidden"name="tra_ins_mpub[]">
                         <input type="hidden" name="tra_que_mpub[]">
                         <input type="hidden" name="tra_exp_mpub[]">
-                        <textarea name="tra_mot_mpub[]" class="info_textarea"></textarea></td>
-                    <td><textarea type="text" name="tra_est_mpub[]" class="info_textarea"></textarea></td>
+                        <textarea name="tra_mot_mpub[]" class="info_textarea">{{ddpFC.Motivo}}</textarea></td>
+                    <td><textarea type="text" name="tra_est_mpub[]" class="info_textarea">{{ddpFC.EstadoProc}}</textarea></td>
                     <td></td>
-                </tr>
+                </tr>								
+                                {% endfor %}
+			
+
             </tbody>
         </table>
     </div>
@@ -117,21 +156,32 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+			
+
+                                {% for ddpFAV in ConprocesoenadmA%}  
+
+
+              <tr>
                     <td><input type="hidden" name="con_tipo_mpub[]" value="1">
                         <select name="con_ins_mpub[]">
                             <option value="1">MP</option>
                             <option value="2">PJ</option>
-                        </select>
+                        </select>{{ddpFAV.IdInstitucion}}
                     </td>
                     <td>
                         <input type="hidden" name="con_que_mpub[]">
-                        <textarea name="con_exp_mpub[]" class="info_textarea"></textarea>
+                        <textarea name="con_exp_mpub[]" class="info_textarea">{{ddpFAV.Expediente}}</textarea>
                     </td>
-                    <td><textarea name="con_mot_mpub[]" class="info_textarea"></textarea></td>
-                    <td><textarea name="con_est_mpub[]" class="info_textarea"></textarea></td>
+                    <td><textarea name="con_mot_mpub[]" class="info_textarea">{{ddpFAV.Motivo}}</textarea></td>
+                    <td><textarea name="con_est_mpub[]" class="info_textarea">{{ddpFAV.EstadoProc}}</textarea></td>
                     <td></td>
                 </tr>
+				
+
+								
+                                {% endfor %}
+			
+  
             </tbody>
         </table>
         <br>
@@ -151,16 +201,33 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+
+				
+				
+
+
+
+                                {% for ddpFBV in ConprocesoenadmB%}  
+
+
+              <tr>
                     <td align="center"><b>1</b></td>
                         <input type="hidden" name="con_tipo_mpub[]" value="2">
                         <input type="hidden"name="con_ins_mpub[]">
                         <input type="hidden" name="con_exp_mpub[]" >
-                    <td><input type="text" name="con_que_mpub[]" class="row-edit"></td>
-                    <td><input type="text" name="con_mot_mpub[]" class="row-edit"></td>
-                    <td><input type="text" name="con_est_mpub[]"class="row-edit"></td>
+                    <td>
+                        <input type="hidden" name="con_que_mpub[]">
+                        <textarea name="con_que_mpub[]" class="info_textarea">{{ddpFBV.Quejas}}</textarea>
+                    </td>
+                    <td><textarea name="con_mot_mpub[]" class="info_textarea">{{ddpFBV.Motivo}}</textarea></td>
+                    <td><textarea name="con_est_mpub[]" class="info_textarea">{{ddpFBV.EstadoProc}}</textarea></td>
                     <td></td>
                 </tr>
+				
+
+								
+                                {% endfor %}
+				
             </tbody>
         </table><br>
     </div>

@@ -36,15 +36,48 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
-                    <textarea name=\"txt_exp_con[]\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\"></textarea></td>
-                <td></td>
-            </tr>
+
+
+                                ";
+        // line 23
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesojudicialesA"));
+        foreach ($context['_seq'] as $context["_key"] => $context["ddp"]) {
+            echo "  
+\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t<td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t<textarea name=\"txt_exp_con[]\" class=\"info_textarea\">";
+            // line 26
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Expediente"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\">";
+            // line 27
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Organo"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\">";
+            // line 28
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Demandadoagresor"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\">";
+            // line 29
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Materia"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\">";
+            // line 30
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddp"), "Estado"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t</tr>
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddp'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 34
+        echo "\t\t\t\t\t\t\t\t
+
+\t\t
+
         </tbody>
 
     </table>
@@ -64,16 +97,45 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"2\">
-                    <textarea name=\"txt_exp_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_exp_org_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_dem_agre_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_materia_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_estado_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td></td>
-            </tr>
-            
+
+
+                                ";
+        // line 59
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesojudicialesB"));
+        foreach ($context['_seq'] as $context["_key"] => $context["ddpB"]) {
+            echo "  
+\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t<td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t<textarea name=\"txt_exp_con[]\" class=\"info_textarea\">";
+            // line 62
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Expediente"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\">";
+            // line 63
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Organo"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\">";
+            // line 64
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Demandadoagresor"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\">";
+            // line 65
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Materia"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\">";
+            // line 66
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpB"), "Estado"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t</tr>
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpB'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 70
+        echo "\t\t\t\t\t\t\t\t
 
         </tbody>
 
@@ -93,16 +155,44 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"3\">
-                    <textarea name=\"txt_exp_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_exp_org_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_dem_agre_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_materia_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td><textarea name=\"txt_estado_con[]\" type=\"text\" class=\"info_textarea\"></textarea></td>
-                <td></td>
-            </tr>
-           
+
+                                ";
+        // line 91
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConprocesojudicialesC"));
+        foreach ($context['_seq'] as $context["_key"] => $context["ddpC"]) {
+            echo "  
+\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t<td><input name=\"hd_tipo_jud[]\" type=\"hidden\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t<textarea name=\"txt_exp_con[]\" class=\"info_textarea\">";
+            // line 94
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Expediente"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_exp_org_con[]\" class=\"info_textarea\">";
+            // line 95
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Organo"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_dem_agre_con[]\" class=\"info_textarea\">";
+            // line 96
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Demandadoagresor"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_materia_con[]\" class=\"info_textarea\">";
+            // line 97
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Materia"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td><textarea name=\"txt_estado_con[]\" class=\"info_textarea\">";
+            // line 98
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpC"), "Estado"), "html", null, true);
+            echo "</textarea></td>
+\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t</tr>
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpC'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 102
+        echo "           
         </tbody>
     </table>
     <br><br>
@@ -114,8 +204,13 @@ class __TwigTemplate_cd8eca0a362eeb18f1f599c360740e1e extends Twig_Template
         return "hojaVidaBundle:update_formularios/conducta/html:procesos_judiciales.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  19 => 1,  109 => 40,  106 => 39,  103 => 38,  100 => 37,  97 => 36,  95 => 35,  84 => 28,  79 => 26,  76 => 25,  67 => 17,  64 => 16,  61 => 15,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  195 => 102,  185 => 98,  181 => 97,  177 => 96,  173 => 95,  169 => 94,  161 => 91,  138 => 70,  128 => 66,  124 => 65,  120 => 64,  116 => 63,  112 => 62,  104 => 59,  77 => 34,  67 => 30,  63 => 29,  59 => 28,  55 => 27,  51 => 26,  43 => 23,  19 => 1,);
     }
 }
