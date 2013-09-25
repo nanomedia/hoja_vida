@@ -348,9 +348,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            // _rubro4
-            if (0 === strpos($pathinfo, '/registro/rubro4') && preg_match('#^/registro/rubro4/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro4')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro4Controller::rubro4Action',));
+            if (0 === strpos($pathinfo, '/registro/rubro')) {
+                if (0 === strpos($pathinfo, '/registro/rubro3_')) {
+                    // _rubro3_1
+                    if (0 === strpos($pathinfo, '/registro/rubro3_1') && preg_match('#^/registro/rubro3_1/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro3_1')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro3Controller::rubro3_1Action',));
+                    }
+
+                    // _rubro3_2
+                    if (0 === strpos($pathinfo, '/registro/rubro3_2') && preg_match('#^/registro/rubro3_2/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro3_2')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro3Controller::rubro3_2Action',));
+                    }
+
+                }
+
+                // _rubro4
+                if (0 === strpos($pathinfo, '/registro/rubro4') && preg_match('#^/registro/rubro4/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro4')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro4Controller::rubro4Action',));
+                }
+
             }
 
             if (0 === strpos($pathinfo, '/registro/u')) {

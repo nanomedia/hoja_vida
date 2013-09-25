@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use proyectos\hojaVidaBundle\Util\Mantenimiento;
 
 class rubro4Controller extends Controller {
 
@@ -32,10 +33,22 @@ class rubro4Controller extends Controller {
     public function rubro4_updateAction(Request $request) {
         $codigo = $request->request->get("id_pos");
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionRegistroDe inf where inf.idOficina=1 and inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
+        $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionRegistroDe inf where inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
         $rubro4 = $query->getResult();
         
-        $InformacionRegistroDe();
+        $dpo = $rubro4[0];
+        $dpo->setEstadoAudt(2);
+        $em->persist($dpo);
+        $em->flush();
+        
+        $m = new Mantenimiento();
+        $m->insertarInformacionRegistroDe($this, $request);
+        return $this->redirect($this->generateUrl('_rubro4', array('codigo' => $codigo)));
+        
+        
+        
+        
+        //$InformacionRegistroDe();
 
         return new Response(var_dump($rubro4));
 //        $dpo = $rubro4[0];
