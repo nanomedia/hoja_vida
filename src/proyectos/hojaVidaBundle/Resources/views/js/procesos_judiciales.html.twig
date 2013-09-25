@@ -6,9 +6,8 @@ var num_proc_jud_civ_lab_d_d = 0;
                     $(".menos").button();
 
                 });
-
-
-                $("#table_proc_jud_civ_lab_d_d").delegate(".remove_proc_jud", "click", function() {
+                
+                 $("#table_proc_jud_civ_lab_d_d").delegate(".remove_proc_jud", "click", function() {
                     if (num_proc_jud_civ_lab_d_d > 0) {
                         var row_position = ($(".remove_proc_jud").index($(this)) + 1);
                         $("#table_proc_jud_civ_lab_d_d tbody tr").eq(row_position).remove();

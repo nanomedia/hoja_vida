@@ -24,7 +24,7 @@ class MantenimientoController extends Controller {
         $user = $query->fetch(); 
                
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-
+        
         $query = $em->createQuery('SELECT u FROM hojaVidaBundle:Universidades u');
         $universidades = $query->getResult();
         $option = "<option value='0'>-ELEGIR-</option>";
