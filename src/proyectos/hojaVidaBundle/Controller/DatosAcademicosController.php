@@ -26,7 +26,7 @@ class DatosAcademicosController extends Controller {
         $DatosAcademicos = $query->getResult();
 
         $data1 = array();
-
+        var_dump($DatosAcademicos);
         $data1["UnivProcedencia"] = $cb->cboUniversidad($this, $DatosAcademicos[0]->getUnivProcedencia());
         $data1["ColegioProfesional"] = $cb->cboColegio($this, $DatosAcademicos[0]->getColegioProfesional());
         $data1["FechaIncorporacion"] = $DatosAcademicos[0]->getFechaIncorporacion();

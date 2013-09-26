@@ -1,10 +1,39 @@
-  
+function opt_nota(){
+    var opt="<option value='0'>-ELEGIR-</option>";
+    for(var i=1;i<=20;i++){
+    opt+="<option value='"+i+"'>"+i+"</option>";
+    }
+    opt+="<option value='21'>NP</option>";
+    opt+="<option value='21'>EX</option>";
+    
+ return opt;
+ }
+$(".opt_nota").html(opt_nota());
+
+ function especialidad(){
+    var esp='<option value="0">-ELEGIR-</option>';
+    esp+='<option value="1">Penal</option>';
+    esp+='<option value="2">Civil</option>';
+    esp+='<option value="3">Contencioso</option>';
+    esp+='<option value="4">Laboral</option>';
+ return esp;
+ }
+$(".opt_nota").html(opt_nota());  
+
+ var cbouniv="";
     function comboUniv() {
-        var option_univ = "{{univ|raw('html')}}";
-        return option_univ;
+         $.ajax({
+                        type: "POST",
+                        url: "{{path('_util_universidad')}}",
+                        async: false,
+                        success: function(e) {
+                           cbouniv = e;
+                        }
+                    });
         }
+    comboUniv();    
         
- $(".combo-univ").html(comboUniv());
+ $(".combo-univ").html(cbouniv);
 
 
     function comboColegio() {
@@ -27,7 +56,20 @@
     }
     $(".cbo_anio").html(comboanio());
 
-
+ function especialidad(){
+    var esp='<option value="0">-ELEGIR-</option>';
+    esp+='<option value="1">Penal</option>';
+    esp+='<option value="2">Civil</option>';
+    esp+='<option value="3">Contencioso</option>';
+    esp+='<option value="4">Laboral</option>';
+ return esp;
+ }
+ $(".opt_especialidad").html(especialidad());
+    
+    
+    
+    
+    
     $("#cues").buttonset();
     $(".button").button();
 
