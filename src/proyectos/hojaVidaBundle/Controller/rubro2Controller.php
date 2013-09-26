@@ -15,10 +15,7 @@ class rubro2Controller extends Controller {
      * @Route("/rubro2/{codigo}",name="_rubro2")
      */
     public function rubro2Action($codigo) {
-<<<<<<< HEAD
-        
-        return $this->render('hojaVidaBundle:update_formularios:frm_update_rubro2.html.twig');
-=======
+ 
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
         $InformacionOficinas = $query->getResult();
@@ -102,7 +99,7 @@ class rubro2Controller extends Controller {
         $m = new Mantenimiento();
         $m->insertarinfo_colegio($this, $request);
         return $this->redirect($this->generateUrl('_rubro2', array('codigo' => $codigo)));
->>>>>>> ed20881dc2085e93a825f6d1d8b72fe5ceae02ad
+ 
     }
 
 }

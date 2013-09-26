@@ -110,10 +110,12 @@
                     </select>{{ddpF.IdInstitucion}}
                 </td>
                 <td><textarea type="text" name="txt_san_adm3[]" class="info_textarea">{{ddpF.Sancion}}</textarea></td>
-                <td><textarea type="text" name="txt_res_adm3[]" class="info_textarea">{#{ddpF.Expediente}#}</textarea></td>
+                <td><textarea type="text" name="txt_res_adm3[]" class="info_textarea">{{ddpF.Expediente}}</textarea></td>
                 <td> {{ ddpF.boton|raw('html')}} </td>
             </tr>
-									
+									     IdInstitucion      Sancion       Expediente    
+                                                                             
+                                                                              SANCION            ID_INSTITUCION          RESOLUCION
 
                                 {% endfor %}
 		

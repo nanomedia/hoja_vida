@@ -46,10 +46,8 @@ class ConductaController extends Controller {
 
 
         
-        
-        
-         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-//        $dp = new DocDesProfesional();
+        $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+//      $dp = new DocDesProfesional();
 
         $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=1 and ddp.pkDatPostulante='.$codigo. ' and ddp.estadoAudt=1');
         $dpostul_rep = $query->getResult();
@@ -182,9 +180,9 @@ class ConductaController extends Controller {
             $dataF[$iF]["Num"] = ($iF+1);
             $dataF[$iF]["IdInstitucion"] = $dpF->getIdInstitucion();
             $dataF[$iF]["Sancion"] = $dpF->getSancion();
-	    $dataF[$iF]["Expediente"] = $dpF->getExpediente();	
+	    $dataF[$iF]["Expediente"] = $dpF->getResolucion();	
 	    $dataF[$iF]["boton"] = $boton3;	
-			           
+                                
             $iF++;
         }
 

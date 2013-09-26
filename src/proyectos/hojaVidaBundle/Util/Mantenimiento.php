@@ -1068,7 +1068,7 @@ class Mantenimiento {
         $user = $member->getDni();
         $hoy = new DateTime();
         $ip = $request->getClientIp();
-
+        var_dump($txt_otr_descrip);
 
         for ($i = 0; $i < count($txt_otr_descrip); $i++) {
 
