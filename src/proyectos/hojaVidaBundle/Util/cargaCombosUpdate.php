@@ -29,7 +29,7 @@ class cargaCombosUpdate {
                 $selected = "selected";
             }
 
-            $option_year .= "<option " . $selected . " value='" . $anio . "'>" . $anio . "</option>";
+            $option_year .= "<option " . $selected . " values='" . $anio . "'>" . $anio . "</option>";
         }
         return $option_year;
     }
@@ -69,6 +69,24 @@ class cargaCombosUpdate {
                 $selected = "selected";
             }
             $option .= "<option $selected value='" . $value->getIdUniv() . "'>" . $value->getNombreUniv() . "</option>";
+        }
+        return $option;
+    }
+
+    public function cboColegio($c, $codigo) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        $query = $em->createQuery('SELECT u FROM hojaVidaBundle:ColegiosProfesionales u');
+
+        $universidades = $query->getResult();
+
+        $option = "<option value='0'>-ELEGIR-</option>";
+
+        foreach ($universidades as $value) {
+            $selected = "";
+            if ($value->getIdColegio() == $codigo) {
+                $selected = "selected";
+            }
+            $option .= "<option $selected value='" . $value->getIdColegio() . "'>" . $value->getNombreColegio() . "</option>";
         }
         return $option;
     }
@@ -114,6 +132,36 @@ class cargaCombosUpdate {
         }
         return $cbo;
     }
+
+    public function cboPuestos($codigo) {
+        $data = array("-ELEGIR-", "PRIMER PUESTO", "QUINTO SUPERIOR","TERCER PUESTO");
+        $cbo = "";
+
+        for ($i = 0; $i < count($data); $i++) {
+            $selected = "";
+            if ($i == $codigo) {
+                $selected = "selected";
+            }
+            $cbo.="<option value='" . $i . "' " . $selected . ">" . $data[$i] . "</option>";
+        }
+        return $cbo;
+    }
+    
+    
+    public function cboNiveles($codigo) {
+        $data = array("-ELEGIR-", "TITULADO", "EGRESADO","ESTUDIOS INCOMPLETOS");
+        $cbo = "";
+
+        for ($i = 0; $i < count($data); $i++) {
+            $selected = "";
+            if ($i == $codigo) {
+                $selected = "selected";
+            }
+            $cbo.="<option value='" . $i . "' " . $selected . ">" . $data[$i] . "</option>";
+        }
+        return $cbo;
+    }
+    
 
 }
 

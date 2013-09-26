@@ -168,6 +168,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/registro')) {
+<<<<<<< HEAD
             if (0 === strpos($pathinfo, '/registro/frm_update_')) {
                 // _frm_update_conducta
                 if (0 === strpos($pathinfo, '/registro/frm_update_conducta') && preg_match('#^/registro/frm_update_conducta/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
@@ -191,6 +192,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                             return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_datospostulante')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPostulanteController::direcAction',));
                         }
 
+=======
+            // _frm_update_conducta
+            if (0 === strpos($pathinfo, '/registro/frm_update_conducta') && preg_match('#^/registro/frm_update_conducta/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_conducta')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ConductaController::direcAction',));
+            }
+
+            // _frmupdate_conducta
+            if ($pathinfo === '/registro/_frmupdate_conducta') {
+                return array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\ConductaController::ActualizaExpConductaAction',  '_route' => '_frmupdate_conducta',);
+            }
+
+            if (0 === strpos($pathinfo, '/registro/frm_update_datos')) {
+                // _frm_update_datosacademicos
+                if (0 === strpos($pathinfo, '/registro/frm_update_datosacademicos') && preg_match('#^/registro/frm_update_datosacademicos/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_datosacademicos')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosAcademicosController::frmDatosAcademicosAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/registro/frm_update_datosp')) {
+                    // _frm_update_datospersonales
+                    if (0 === strpos($pathinfo, '/registro/frm_update_datospersonales') && preg_match('#^/registro/frm_update_datospersonales/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_datospersonales')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPersonalesController::direcAction',));
+                    }
+
+                    // _frm_update_datospostulante
+                    if (0 === strpos($pathinfo, '/registro/frm_update_datospostulante') && preg_match('#^/registro/frm_update_datospostulante/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_frm_update_datospostulante')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\DatosPostulanteController::direcAction',));
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
                     }
 
                 }
@@ -349,9 +377,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/registro/rubro')) {
+<<<<<<< HEAD
                 if (0 === strpos($pathinfo, '/registro/rubro3')) {
                     // _rubro3_1
                     if (preg_match('#^/registro/rubro3/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+=======
+                if (0 === strpos($pathinfo, '/registro/rubro3_')) {
+                    // _rubro3_1
+                    if (0 === strpos($pathinfo, '/registro/rubro3_1') && preg_match('#^/registro/rubro3_1/(?P<codigo>[^/]++)$#s', $pathinfo, $matches)) {
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
                         return $this->mergeDefaults(array_replace($matches, array('_route' => '_rubro3_1')), array (  '_controller' => 'proyectos\\hojaVidaBundle\\Controller\\rubro3Controller::rubro3_1Action',));
                     }
 

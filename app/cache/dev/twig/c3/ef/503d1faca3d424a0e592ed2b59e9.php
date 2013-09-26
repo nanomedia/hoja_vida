@@ -188,23 +188,34 @@ class __TwigTemplate_c3ef503d1faca3d424a0e592ed2b59e9 extends Twig_Template
             echo "</textarea></td>
                 <td><textarea type=\"text\" name=\"txt_res_adm3[]\" class=\"info_textarea\">";
             // line 113
+<<<<<<< HEAD
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ddpF"), "Expediente"), "html", null, true);
+=======
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
             echo "</textarea></td>
                 <td> ";
             // line 114
             echo $this->getAttribute($this->getContext($context, "ddpF"), "boton");
             echo " </td>
             </tr>
+<<<<<<< HEAD
 \t\t\t\t\t\t\t\t\t     IdInstitucion      Sancion       Expediente    
                                                                              
                                                                               SANCION            ID_INSTITUCION          RESOLUCION
+=======
+\t\t\t\t\t\t\t\t\t
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
 
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ddpF'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+<<<<<<< HEAD
         // line 121
+=======
+        // line 119
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
         echo "\t\t
 
 
@@ -226,6 +237,10 @@ class __TwigTemplate_c3ef503d1faca3d424a0e592ed2b59e9 extends Twig_Template
 
     public function getDebugInfo()
     {
+<<<<<<< HEAD
         return array (  208 => 121,  195 => 114,  191 => 113,  187 => 112,  182 => 110,  168 => 101,  140 => 75,  130 => 71,  126 => 70,  122 => 69,  116 => 66,  100 => 55,  74 => 31,  64 => 27,  60 => 26,  56 => 25,  52 => 24,  48 => 23,  41 => 21,  19 => 1,);
+=======
+        return array (  194 => 114,  191 => 113,  187 => 112,  182 => 110,  140 => 75,  130 => 71,  126 => 70,  122 => 69,  100 => 55,  64 => 27,  56 => 25,  48 => 23,  41 => 21,  205 => 119,  196 => 100,  192 => 99,  188 => 98,  184 => 97,  180 => 96,  176 => 95,  168 => 101,  145 => 71,  136 => 68,  132 => 67,  128 => 66,  124 => 65,  120 => 64,  116 => 66,  108 => 60,  81 => 35,  67 => 30,  59 => 28,  55 => 27,  51 => 26,  83 => 25,  74 => 31,  66 => 20,  63 => 29,  50 => 14,  46 => 13,  43 => 23,  34 => 9,  26 => 6,  19 => 1,  102 => 37,  99 => 36,  96 => 35,  93 => 34,  90 => 33,  88 => 32,  77 => 25,  72 => 32,  69 => 22,  60 => 26,  57 => 13,  54 => 16,  52 => 24,  47 => 10,  45 => 9,  38 => 5,  33 => 4,  30 => 7,);
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
     }
 }

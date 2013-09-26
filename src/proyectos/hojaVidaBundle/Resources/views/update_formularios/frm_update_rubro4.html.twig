@@ -26,11 +26,12 @@ $(document).ready(function(){
 
     <div id="tabs4-1">
     <div class="area-registro">
-        <form id="frm_info_registro">
+        <form id="frm_info_registro" action="{{path('_up_rubro4')}}" method="POST">
             <div class="tab-title">
                 INFORMACIÓN DEL REGISTRO DE <br>DEUDORES ALIMENTARIOS MOROSOS - REDAM
-                 <input type="submit" class="button" value="Guardar">
             </div>
+              <input type="submit" class="button" value="Actualizar">   
+              <input type="hidden" name="id_pos" value="{{codigo}}">
             {% for item in info_reg %}
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>
@@ -41,7 +42,6 @@ $(document).ready(function(){
             </table><br><br>
             <div class="tab-title">
                 INFORMACIÓN COMPLEMENTARIA
-                 <input type="submit" class="button" value="Guardar">
             </div>
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>

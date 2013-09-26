@@ -15,7 +15,7 @@ class rubro2Controller extends Controller {
      * @Route("/rubro2/{codigo}",name="_rubro2")
      */
     public function rubro2Action($codigo) {
- 
+
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
         $query = $em->createQuery('SELECT inf FROM hojaVidaBundle:InformacionOficinas inf where inf.pkDatPostulante=' . $codigo . ' and inf.estadoAudt=1');
         $InformacionOficinas = $query->getResult();
@@ -99,7 +99,7 @@ class rubro2Controller extends Controller {
         $m = new Mantenimiento();
         $m->insertarinfo_colegio($this, $request);
         return $this->redirect($this->generateUrl('_rubro2', array('codigo' => $codigo)));
- 
+
     }
 
 }

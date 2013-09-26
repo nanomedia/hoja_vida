@@ -82,7 +82,11 @@ class __TwigTemplate_34023543d9b92df0eb21e81ae395f1b4 extends Twig_Template
 
                         
                         
+<<<<<<< HEAD
                            var num_dec_bienes_rentas = (\$(\"#table_dec_bienes_rentas tbody tr\").size()-1);
+=======
+                           var num_dec_bienes_rentas = 0;
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
                         \$(\"#add_dec_bienes_rentas\").click(function() {
 
                             num_dec_bienes_rentas++;
@@ -459,6 +463,10 @@ class __TwigTemplate_34023543d9b92df0eb21e81ae395f1b4 extends Twig_Template
 
     public function getDebugInfo()
     {
+<<<<<<< HEAD
         return array (  19 => 1,);
+=======
+        return array (  63 => 40,  19 => 1,  513 => 379,  511 => 378,  505 => 375,  499 => 372,  492 => 368,  486 => 365,  471 => 353,  466 => 352,  461 => 350,  458 => 349,  349 => 244,  342 => 240,  325 => 226,  309 => 213,  292 => 199,  276 => 186,  260 => 173,  244 => 160,  225 => 144,  208 => 130,  188 => 113,  167 => 95,  136 => 67,  92 => 25,  89 => 24,  86 => 23,  83 => 22,  80 => 21,  77 => 20,  74 => 19,  71 => 18,  68 => 17,  65 => 16,  62 => 15,  60 => 14,  51 => 8,  47 => 27,  42 => 5,  38 => 4,  33 => 3,  30 => 2,);
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
     }
 }

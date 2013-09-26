@@ -16,6 +16,7 @@ class __TwigTemplate_fa7e65f0cefe8d8aa82dfa4e8ffd048a extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
+<<<<<<< HEAD
         echo "  
     function comboUniv() {
         var option_univ = \"";
@@ -26,11 +27,56 @@ class __TwigTemplate_fa7e65f0cefe8d8aa82dfa4e8ffd048a extends Twig_Template
         }
         
  \$(\".combo-univ\").html(comboUniv());
+=======
+        echo "function opt_nota(){
+    var opt=\"<option value='0'>-ELEGIR-</option>\";
+    for(var i=1;i<=20;i++){
+    opt+=\"<option value='\"+i+\"'>\"+i+\"</option>\";
+    }
+    opt+=\"<option value='21'>NP</option>\";
+    opt+=\"<option value='21'>EX</option>\";
+    
+ return opt;
+ }
+\$(\".opt_nota\").html(opt_nota());
+
+ function especialidad(){
+    var esp='<option value=\"0\">-ELEGIR-</option>';
+    esp+='<option value=\"1\">Penal</option>';
+    esp+='<option value=\"2\">Civil</option>';
+    esp+='<option value=\"3\">Contencioso</option>';
+    esp+='<option value=\"4\">Laboral</option>';
+ return esp;
+ }
+\$(\".opt_nota\").html(opt_nota());  
+
+ var cbouniv=\"\";
+    function comboUniv() {
+         \$.ajax({
+                        type: \"POST\",
+                        url: \"";
+        // line 27
+        echo $this->env->getExtension('routing')->getPath("_util_universidad");
+        echo "\",
+                        async: false,
+                        success: function(e) {
+                           cbouniv = e;
+                        }
+                    });
+        }
+    comboUniv();    
+        
+ \$(\".combo-univ\").html(cbouniv);
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
 
 
     function comboColegio() {
         var obj_col = \"";
+<<<<<<< HEAD
         // line 11
+=======
+        // line 40
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
         echo $this->getContext($context, "col");
         echo "\";
         return obj_col;
@@ -51,7 +97,24 @@ class __TwigTemplate_fa7e65f0cefe8d8aa82dfa4e8ffd048a extends Twig_Template
     }
     \$(\".cbo_anio\").html(comboanio());
 
+<<<<<<< HEAD
 
+=======
+ function especialidad(){
+    var esp='<option value=\"0\">-ELEGIR-</option>';
+    esp+='<option value=\"1\">Penal</option>';
+    esp+='<option value=\"2\">Civil</option>';
+    esp+='<option value=\"3\">Contencioso</option>';
+    esp+='<option value=\"4\">Laboral</option>';
+ return esp;
+ }
+ \$(\".opt_especialidad\").html(especialidad());
+    
+    
+    
+    
+    
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
     \$(\"#cues\").buttonset();
     \$(\".button\").button();
 
@@ -145,6 +208,10 @@ class __TwigTemplate_fa7e65f0cefe8d8aa82dfa4e8ffd048a extends Twig_Template
 
     public function getDebugInfo()
     {
+<<<<<<< HEAD
         return array (  34 => 11,  23 => 3,  19 => 1,  513 => 379,  511 => 378,  505 => 375,  499 => 372,  492 => 368,  486 => 365,  471 => 353,  466 => 352,  461 => 350,  458 => 349,  349 => 244,  342 => 240,  325 => 226,  309 => 213,  292 => 199,  276 => 186,  260 => 173,  244 => 160,  225 => 144,  208 => 130,  188 => 113,  167 => 95,  136 => 67,  92 => 25,  89 => 24,  86 => 23,  83 => 22,  80 => 21,  77 => 20,  74 => 19,  71 => 18,  68 => 17,  65 => 16,  62 => 15,  60 => 14,  51 => 8,  47 => 7,  42 => 5,  38 => 4,  33 => 3,  30 => 2,);
+=======
+        return array (  63 => 40,  19 => 1,  513 => 379,  511 => 378,  505 => 375,  499 => 372,  492 => 368,  486 => 365,  471 => 353,  466 => 352,  461 => 350,  458 => 349,  349 => 244,  342 => 240,  325 => 226,  309 => 213,  292 => 199,  276 => 186,  260 => 173,  244 => 160,  225 => 144,  208 => 130,  188 => 113,  167 => 95,  136 => 67,  92 => 25,  89 => 24,  86 => 23,  83 => 22,  80 => 21,  77 => 20,  74 => 19,  71 => 18,  68 => 17,  65 => 16,  62 => 15,  60 => 14,  51 => 8,  47 => 27,  42 => 5,  38 => 4,  33 => 3,  30 => 2,);
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
     }
 }

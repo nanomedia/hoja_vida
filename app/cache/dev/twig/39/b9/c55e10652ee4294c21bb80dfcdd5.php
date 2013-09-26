@@ -24,7 +24,11 @@ class __TwigTemplate_39b9c55e10652ee4294c21bb80dfcdd5 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
+<<<<<<< HEAD
         $context["__internal_6f0b734312c0c1b8bafeac33f757dd40e3801828"] = $this;
+=======
+        $context["__internal_e3352548bcdfa2bcf20d8b8ff4c35c56371cbe72"] = $this;
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -84,7 +88,11 @@ class __TwigTemplate_39b9c55e10652ee4294c21bb80dfcdd5 extends Twig_Template
             echo "</code></td>
                 <td><code>";
             // line 34
+<<<<<<< HEAD
             echo $context["__internal_6f0b734312c0c1b8bafeac33f757dd40e3801828"]->getdisplay_listener($this->getContext($context, "listener"));
+=======
+            echo $context["__internal_e3352548bcdfa2bcf20d8b8ff4c35c56371cbe72"]->getdisplay_listener($this->getContext($context, "listener"));
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
             echo "</code></td>
             </tr>
         ";
@@ -122,7 +130,11 @@ class __TwigTemplate_39b9c55e10652ee4294c21bb80dfcdd5 extends Twig_Template
                 echo "</code></td>
                     <td><code>";
                 // line 51
+<<<<<<< HEAD
                 echo $context["__internal_6f0b734312c0c1b8bafeac33f757dd40e3801828"]->getdisplay_listener($this->getAttribute($this->getContext($context, "listeners"), $this->getContext($context, "listener"), array(), "array"));
+=======
+                echo $context["__internal_e3352548bcdfa2bcf20d8b8ff4c35c56371cbe72"]->getdisplay_listener($this->getAttribute($this->getContext($context, "listeners"), $this->getContext($context, "listener"), array(), "array"));
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
                 echo "</code></td>
                 </tr>
             ";

@@ -478,7 +478,11 @@ class __TwigTemplate_3e2de178ebef52aed1d2fc86d8d44103 extends Twig_Template
             <li><a href=\"#tab-cuestionario-2\">RUBRO 2</a></li>
             <li><a href=\"#tab-cuestionario-3\">RUBRO 3</a></li>
             <li><a href=\"#tab-cuestionario-4\">RUBRO 4</a></li>
+<<<<<<< HEAD
             <li><a href=\"#tab-cuestionario-5\">RUBRO 5</a></li>
+=======
+            <!--<li><a href=\"#tab-cuestionario-5\">RUBRO 5</a></li>-->
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
         </ul>
         <div id=\"tab-cuestionario-1\">
             <div id=\"tabs1\">";
@@ -505,6 +509,7 @@ class __TwigTemplate_3e2de178ebef52aed1d2fc86d8d44103 extends Twig_Template
         $this->env->loadTemplate("hojaVidaBundle:cuestionarios:tab4.html.twig")->display($context);
         echo "</div>
         </div>
+<<<<<<< HEAD
         <div id=\"tab-cuestionario-5\">
                         ";
         // line 378
@@ -513,6 +518,14 @@ class __TwigTemplate_3e2de178ebef52aed1d2fc86d8d44103 extends Twig_Template
         echo "            </div>    
 
         </div>
+=======
+        <!--<div id=\"tab-cuestionario-5\">
+                        ";
+        // line 379
+        echo "            </div>    
+
+        </div>-->
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
         <div class=\"panel_guardar\">
             <div id=\"titulo_save\" class=\"titulo_save\">Mantenimiento</div>
             <div id=\"cargando\" style=\"display:none;\">
@@ -539,6 +552,10 @@ class __TwigTemplate_3e2de178ebef52aed1d2fc86d8d44103 extends Twig_Template
 
     public function getDebugInfo()
     {
+<<<<<<< HEAD
         return array (  513 => 379,  511 => 378,  505 => 375,  499 => 372,  492 => 368,  486 => 365,  471 => 353,  466 => 352,  461 => 350,  458 => 349,  349 => 244,  342 => 240,  325 => 226,  309 => 213,  292 => 199,  276 => 186,  260 => 173,  244 => 160,  225 => 144,  208 => 130,  188 => 113,  167 => 95,  136 => 67,  92 => 25,  89 => 24,  86 => 23,  83 => 22,  80 => 21,  77 => 20,  74 => 19,  71 => 18,  68 => 17,  65 => 16,  62 => 15,  60 => 14,  51 => 8,  47 => 7,  42 => 5,  38 => 4,  33 => 3,  30 => 2,);
+=======
+        return array (  511 => 379,  505 => 375,  499 => 372,  492 => 368,  486 => 365,  471 => 353,  466 => 352,  461 => 350,  458 => 349,  349 => 244,  342 => 240,  325 => 226,  309 => 213,  292 => 199,  276 => 186,  260 => 173,  244 => 160,  225 => 144,  208 => 130,  188 => 113,  167 => 95,  136 => 67,  92 => 25,  89 => 24,  86 => 23,  83 => 22,  80 => 21,  77 => 20,  74 => 19,  71 => 18,  68 => 17,  65 => 16,  62 => 15,  60 => 14,  51 => 8,  47 => 7,  42 => 5,  38 => 4,  33 => 3,  30 => 2,);
+>>>>>>> 7991ed05889c6f9fd7ed6df311218f701bda0941
     }
 }
