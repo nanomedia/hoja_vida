@@ -30,14 +30,11 @@
 
                 <tr>
                     <td><input type="hidden" name="tra_tipo_pjud[]" value="">
-                        <select name="tra_ins_pjud[]">
-                            <option value="1">MP</option>
-                            <option value="2">PJ</option>
-                        </select>{{ddpFA.IdInstitucion}}
+                        <textarea name="tra_ins_pjud[]" class="info_textarea">{{ddpFA.IdInstitucion}}</textarea>
                     </td>
                     <td>
 
-                        <textarea type="text" name="tra_exp_pjud[]" class="info_textarea">{{ddpFA.Expediente}}</textarea>
+                        <textarea name="tra_exp_pjud[]" class="info_textarea">{{ddpFA.Expediente}}</textarea>
                         <input type="hidden" name="tra_que_pjud[]">
                     </td>
                     <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFA.Motivo}}</textarea></td>
@@ -162,10 +159,7 @@
  
                 <tr>
                     <td><input type="hidden" name="con_tipo_pjud[]" value="1">
-                        <select name="con_ins_pjud[]">
-                            <option value="1">MP</option>
-                            <option value="2">PJ</option>
-                        </select>{{ddpFD.IdInstitucion}}
+                        <textarea name="con_ins_pjud[]" class="info_textarea">{{ddpFD.IdInstitucion}}</textarea>
                     </td>
                     <td>
                         <input type="hidden" name="con_que_pjud[]">
@@ -243,8 +237,6 @@
                     <td></td>
                 </tr>
                 {% endfor %}
-                
-                
             </tbody>
         </table>
     </div>

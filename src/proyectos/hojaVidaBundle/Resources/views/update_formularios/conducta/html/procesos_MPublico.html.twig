@@ -21,18 +21,14 @@
                 </tr>
             </thead>
             <tbody>
-			
-
-
-                                {% for ddpFA in ConprocesoenMinJudA%}  
+		 {% for ddpFA in ConprocesoenMinJudA%}  
 
 
                 <tr>
                     <td><input type="hidden" name="tra_tipo_mpub[]" value="1">
-                        <select name="tra_ins_mpub[]">
-                            <option value="1">MP</option>
-                            <option value="2">PJ</option>
-                        </select>{{ddpFA.IdInstitucion}}
+                        <textarea name="tra_ins_mpub[]" class="info_textarea">
+                        {{ddpFA.IdInstitucion}}
+                        </textarea>
                     </td>
                     <td>
                         <input type="hidden" name="tra_que_mpub[]">
@@ -163,10 +159,9 @@
 
               <tr>
                     <td><input type="hidden" name="con_tipo_mpub[]" value="1">
-                        <select name="con_ins_mpub[]">
-                            <option value="1">MP</option>
-                            <option value="2">PJ</option>
-                        </select>{{ddpFAV.IdInstitucion}}
+                        <textarea name="con_ins_mpub[]" class="info_textarea">
+                        {{ddpFAV.IdInstitucion}}
+                        </textarea>
                     </td>
                     <td>
                         <input type="hidden" name="con_que_mpub[]">
