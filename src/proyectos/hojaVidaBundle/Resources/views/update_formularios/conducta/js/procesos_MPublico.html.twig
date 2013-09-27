@@ -21,10 +21,7 @@
                 function add_min_pub_tra_proc_disc(){
                     var new_row = '<tr>';
                     new_row += '<td><input type="hidden" name="tra_tipo_mpub[]" value="1">';
-                    new_row += '<select name="tra_ins_mpub[]">';
-                    new_row += '<option value="1">MP</option>';
-                    new_row += '<option value="2">PJ</option>';
-                    new_row += '</select>';
+                    new_row += '<textarea name="tra_ins_mpub[]" class="info_textarea"></textarea>';
                     new_row += '</td><td>';
                     new_row += '<input type="hidden" name="tra_que_mpub[]">';
                     new_row += '<textarea name="tra_exp_mpub[]" class="info_textarea"></textarea></td>';
@@ -157,10 +154,7 @@
                 function add_min_pub_con_proc_desc() {
                     var new_row = '<tr>';
                     new_row += ' <td><input type="hidden" name="con_tipo_mpub[]" value="1">';
-                    new_row += '     <select name="con_ins_mpub[]">';
-                    new_row += '         <option value="1">MP</option>';
-                    new_row += '         <option value="2">PJ</option>';
-                    new_row += '     </select>';
+                    new_row += '     <textarea name="con_ins_mpub[]" class="info_textarea"></textarea>';
                     new_row += ' </td>';
                     new_row += ' <td>';
                     new_row += '     <input type="hidden" name="con_que_mpub[]">';
@@ -175,15 +169,6 @@
 
                 }
 
-                
-                
-                
-                
-                
-                
-                
-                
-                
                    var num_min_pub_con_den_fis = ($("#table_min_pub_con_den_fis tbody tr").size()-1);
                         $("#add_min_pub_con_den_fis").click(function() {
                             num_min_pub_con_den_fis++;
@@ -210,9 +195,9 @@
                             new_row += '<input type="hidden" name="con_tipo_mpub[]" value="2">';
                             new_row += '<input type="hidden"name="con_ins_mpub[]">';
                             new_row += '<input type="hidden" name="con_exp_mpub[]" >';
-                            new_row += '<td><input type="text" name="con_que_mpub[]" class="row-edit"></td>';
-                            new_row += '<td><input type="text" name="con_mot_mpub[]" class="row-edit"></td>';
-                            new_row += '<td><input type="text" name="con_est_mpub[]"class="row-edit"></td>';
+                            new_row += '<td><textarea name="con_que_mpub[]" class="info_textarea"></textarea></td>';
+                            new_row += '<td><textarea name="con_mot_mpub[]" class="info_textarea"></textarea></td>';
+                            new_row += '<td><textarea name="con_est_mpub[]" class="info_textarea"></textarea></td>';
                             new_row += '<td><input class="remove_min_pub_con_den_fis menos" type="button" value="-"></td>';
                             new_row += '</tr>';
                             $("#table_min_pub_con_den_fis tbody").append(new_row);
