@@ -1,0 +1,126 @@
+{% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+
+{% block titulo %}
+<div>MOVIMIENTO MIGRATORIO</div>
+{% endblock titulo %}
+{% block submenu%}
+{% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
+{% endblock submenu%}  
+
+{% block scripts %}
+{{ parent()}}
+<script>
+    $(document).ready(function() {
+        {% include 'hojaVidaBundle:update_formularios:util.html.twig' %}
+        var num_mov_migratorio = ($("#table_mov_migratorio tbody tr").size() - 1);
+        $("#add_mov_migratorio").click(function() {
+
+            num_mov_migratorio++;
+            add_mov_migratorio();
+            $(".menos").button();
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '<Ant',
+                nextText: 'Sig>',
+                currentText: 'Hoy', monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+            $(".datepicker").datepicker({
+                minDate: new Date(1900, 1 - 1, 1), maxDate: '-18Y',
+                dateFormat: 'dd/mm/yy',
+                defaultDate: new Date(1970, 1 - 1, 1),
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '-110:-18'
+            });
+
+        });
+        $("#table_mov_migratorio").delegate(".remove_mov_migratorio", "click", function() {
+            if (num_mov_migratorio > 0) {
+                var row_position = ($(".remove_mov_migratorio").index($(this)) + 1);
+                $("#table_mov_migratorio tbody tr").eq(row_position).remove();
+                num_mov_migratorio--;
+            }
+        });
+
+        function add_mov_migratorio() {
+            var new_row = '<tr>';
+            new_row += '<td align="center">';
+            new_row += '<select name="txt_tipo[]">';
+            new_row += '<option value="0">-ELEGIR-</option>';
+            new_row += '<option value="1">ENTRADA</option>';
+            new_row += '<option value="2">SALIDA</option>';
+            new_row += '</select>';
+            new_row += '</td>';
+            new_row += '<td><input name="txt_fecha[]" type="text" class="row-edit datepicker"></td>';
+            new_row += '<td><input name="txt_destino[]" type="text" class="row-edit"></td>';
+            new_row += '<td><input class="remove_mov_migratorio menos" type="button" value="-"></td>';
+            new_row += '</tr>';
+
+            $("#table_mov_migratorio tbody").append(new_row);
+
+        }
+
+    });
+
+
+    </script>
+
+
+
+
+{% endblock scripts %}
+
+{% block cuerpo %}   
+    <div class="area-registro">                        
+        <form id="frm_mov_migratorio" action="{{path('_update_movMigratorio')}}" method="POST">
+            <div class="tab-title">
+                MOVIMIENTO MIGRATORIO
+            </div> <input type="submit" class="button" value="Actualizar">
+            <input type="hidden" name="id_pos" value="{{codigo}}">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <div  class="add-icon" id="add_mov_migratorio" >Nueva fila</div><br><br>
+                        <table width="80%" id="table_mov_migratorio" class="table ui-widget ui-widget-content">
+                            <thead>
+
+                                <tr class="ui-widget-header">
+                                    <th  width="100px" align="center">Movimiento</th>
+                                    <th  width="100px" align="center">Fecha</th>
+                                    <th  align="center">Destino / Procedencia</th>
+                                    <th width="50px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for movi in MovimientoMigratorio %}
+                                    <tr>
+                                        <td align="center">
+                                            <select name="txt_tipo[]">
+                                          {{movi.Tipo|raw('html')}}
+                                                </select>
+                                            </td>
+                                            <td><input name="txt_fecha[]" type="text" class="row-edit datepicker" value="{{movi.Fecha}}"></td>
+                                            <td><input name="txt_destino[]" type="text" class="row-edit" value="{{movi.DestinoProcedencia}}"></td>
+                                            <td>{{movi.boton|raw('html')}}</td>
+                                        </tr>
+                                {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>  
+{% endblock cuerpo %}   

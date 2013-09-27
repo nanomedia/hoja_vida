@@ -21,7 +21,9 @@ $(document).ready(function(){
 {% block titulo %}
     <div>RUBRO 4</div>
     {% endblock titulo %}
-
+ {% block submenu%}
+{% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
+  {% endblock submenu%}      
 {% block cuerpo %}
 
     <div id="tabs4-1">

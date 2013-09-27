@@ -15,6 +15,7 @@
             $(document).ready(function() {
 
                 $("#menu").menu();
+                $("#menu2").menu();
 
 
             });
@@ -24,7 +25,7 @@
         <body>
 
             <div id="hoja-registro">
-                <div class="header" style="display:none;">
+                <div class="header" style="display:block;">
                     <div class="logo-cnm" style="float:left;"></div>
                     <div class="ui-widget-header panel-usuario">
                         <div class="ui-icon ui-icon-person" style="float:left;"></div>
@@ -34,10 +35,10 @@
                     <div style="clear: left;"></div>
                 </div> 
                 <div style="clear: left;"></div>
-                <div style="
+                <div style="position:relative;
                      border-top: 1px solid #A6C9E2;
                      padding-top: 6px;
-
+                     height: 110px;
                      border-radius: 10px 10px 0 0;
                      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0f0fc), to(#E4F2FD));
                      background: -webkit-linear-gradient(top ,#f0f0fc,#E4F2FD );
@@ -47,38 +48,35 @@
                      background: linear-background(top,#f0f0fc,#E4F2FD); 
 
                      ">
-                         <div style="width: 77%;
-                              float: left;
-                              color: #2e6e9e;
+                             <div style=" color: #2e6e9e;
                               text-align: center;
-                              margin-top: 32px;
+                              margin-top: 40px;
                               font-weight: bold;
-                              font-size: 18px;
-                              padding-left: 105px;
-                              ">
+                              font-size: 18px;">
                     {% block titulo%}
-                    {% endblock titulo%}                              
-                              </div>
-                              <div style="width:164px;float:left;height: 85px;">
-                                  <ul id="menu">
-                                      <li>
-                                          <a href="{{path('_lista_usuarios')}}">
-                                              <span class="ui-icon ui-icon-person"></span>Lista Usuarios
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="{{path('_lista_postulantes')}}">
-                                              <span class="ui-icon ui-icon-pencil"></span>Lista Postulantes
-                                          </a>
-                                      </li>
-                                      <li><a href="{{path('_logout')}}">
-                                              <span class="ui-icon ui-icon-gear"></span>
-                                              Cerrar Session
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <div style="clear: left;"></div>
+                    {% endblock titulo%} 
+                                  </div>                            
+                                  <div style="width:164px;height: 85px;position:absolute;top:15px;right: 10px;">
+                                      <ul id="menu">
+                                          <li>
+                                              <a href="{{path('_lista_usuarios')}}">
+                                                  <span class="ui-icon ui-icon-person"></span>Lista Usuarios
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="{{path('_lista_postulantes')}}">
+                                                  <span class="ui-icon ui-icon-pencil"></span>Lista Postulantes
+                                              </a>
+                                          </li>
+                                          <li><a href="{{path('_logout')}}">
+                                                  <span class="ui-icon ui-icon-gear"></span>
+                                                  Cerrar Session
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                         {% block submenu%}
+                         {% endblock submenu%} 
                          </div>
               {% block cuerpo %}
 

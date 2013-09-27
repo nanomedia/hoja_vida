@@ -7,8 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use proyectos\hojaVidaBundle\Util\Mantenimiento;
-use proyectos\hojaVidaBundle\Util\Actualizacion;
-use proyectos\hojaVidaBundle\Entity\OtrasDisciplinas;
 use proyectos\hojaVidaBundle\Util\cargaCombosUpdate;
 
 class DatosAcademicosController extends Controller {
@@ -81,7 +79,7 @@ class DatosAcademicosController extends Controller {
         }
 
 
-
+//      OtrasDisciplinas
         $query5 = $em->createQuery('SELECT otr FROM hojaVidaBundle:OtrasDisciplinas otr where otr.pkDatAcademicos=' . $DatosAcademicos[0]->getPkDatAcademicos() . ' and otr.estadoAudt=1');
         $OtrasDisciplinas = $query5->getResult();
         $data5 = array();
@@ -99,9 +97,69 @@ class DatosAcademicosController extends Controller {
             $i5++;
         }
 
-        $all_data = array("DatosAcademicos" => $data1, "MeritosUniv" => $data2, "DocDerecho" => $data3, "MaeDerecho" => $data4, "OtrasDisciplinas" => $data5);
+        $all_data = array("codigo" => $codigo, "DatosAcademicos" => $data1, "MeritosUniv" => $data2, "DocDerecho" => $data3, "MaeDerecho" => $data4, "OtrasDisciplinas" => $data5);
 
         return $this->render('hojaVidaBundle:update_formularios:frm_update_datosacademicos.html.twig', $all_data);
+    }
+
+    /**
+     * @Route("/update_datosAcademicos",name="_update_datosAcademicos")
+     */
+    public function ActualizaExpProfesionalAction(Request $request) {
+        $codigo = $request->request->get("id_pos");
+        $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+
+//      DatosAcademicos
+        $query = $em->createQuery('SELECT da FROM hojaVidaBundle:DatosAcademicos da where da.pkDatPostulante=' . $codigo . ' and da.estadoAudt=1');
+        $DatosAcademicos = $query->getResult();
+        $da = $DatosAcademicos[0];
+        $da->setEstadoAudt(2);
+        $em->persist($da);
+        $em->flush();
+
+//      MeritosUniv
+        $query2 = $em->createQuery('SELECT mer FROM hojaVidaBundle:MeritosUniv mer where mer.pkDatAcademicos=' . $DatosAcademicos[0]->getPkDatAcademicos() . ' and mer.estadoAudt=1');
+        $MeritosUniv = $query2->getResult();
+        $mer = $MeritosUniv[0];
+        $mer->setEstadoAudt(2);
+        $em->persist($mer);
+        $em->flush();
+
+
+//      DocDerecho
+        $query3 = $em->createQuery('SELECT doc FROM hojaVidaBundle:DocDerecho doc where doc.pkDatAcademicos=' . $DatosAcademicos[0]->getPkDatAcademicos() . ' and doc.estadoAudt=1');
+        $DocDerecho = $query3->getResult();
+
+        foreach ($DocDerecho as $doc) {
+            $doc->setEstadoAudt(2);
+            $em->persist($doc);
+            $em->flush();
+        }
+
+//      MaeDerecho
+        $query4 = $em->createQuery('SELECT mae FROM hojaVidaBundle:MaeDerecho mae where mae.pkDatAcademicos=' . $DatosAcademicos[0]->getPkDatAcademicos() . ' and mae.estadoAudt=1');
+        $MaeDerecho = $query4->getResult();
+
+        foreach ($MaeDerecho as $mae) {
+            $mae->setEstadoAudt(2);
+            $em->persist($mae);
+            $em->flush();
+        }
+
+//      OtrasDisciplinas
+        $query5 = $em->createQuery('SELECT otr FROM hojaVidaBundle:OtrasDisciplinas otr where otr.pkDatAcademicos=' . $DatosAcademicos[0]->getPkDatAcademicos() . ' and otr.estadoAudt=1');
+        $OtrasDisciplinas = $query5->getResult();
+
+        foreach ($OtrasDisciplinas as $otr) {
+            $otr->setEstadoAudt(2);
+            $em->persist($otr);
+            $em->flush();
+        }
+
+        $m = new Mantenimiento();
+        $m->insertarDatosAcademicos($this, $request);
+
+        return $this->redirect($this->generateUrl('_frm_update_datosacademicos', array('codigo' => $codigo)));
     }
 
 }

@@ -22,12 +22,19 @@ $(document).ready(function(){
 {% block titulo %}
     <div>CONDUCTA</div>
     {% endblock titulo %}
+ {% block submenu%}
+{% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
+  {% endblock submenu%}      
+    
+    
+    
 {% block cuerpo %}   
     <div class="area-registro">
 
         <div class="tab-title">CONDUCTA</div>
 
-        <form id="frm-conducta">
+        <form id="frm-conducta" action="{{path('_actualiza_conducta')}}" method="POST">
+            <input type="hidden" name="id_pos" value="{{codigo}}">
             <div id="ac_conducta">
                 {% include 'hojaVidaBundle:update_formularios/conducta/html:antecedentes.html.twig' %}
                 {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_judiciales.html.twig' %}

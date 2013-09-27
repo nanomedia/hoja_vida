@@ -1,0 +1,60 @@
+{% extends 'hojaVidaBundle:plantillas:index.html.twig' %}
+
+{% block titulo %}
+<div>INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS</div>
+    {% endblock titulo %}
+ {% block submenu%}
+{% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
+  {% endblock submenu%}       
+{% block scripts %}
+ {{ parent() }}
+<script>
+    $(document).ready(function() {
+        $(".button").button();
+
+    });
+
+    </script>
+{% endblock scripts %}
+
+{% block cuerpo %}   
+
+    <div class="area-registro">
+        <form id="frm_info_camara" action="{{path('_actualiza_expprofesional')}}" method="POST">
+            <div class="tab-title">
+                INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS
+            </div>
+            <input type="submit" class="button" value="Actualizar">
+            <table width="100%" border="0" cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <input type="hidden" name="id_pos" value="{{codigo}}">
+                        <table  width="80%" class="table ui-widget ui-widget-content">
+                            <tr>
+                                <td width="20%" class="ui-widget-header">Cámara de Comercio</td>
+                                <td>
+                                    <input type="hidden" name="hd_tipo[]" value="1">
+                                    <textarea class="info_textarea" type="text" name="txt_descripcion[]" >{{info1}}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">Infocorp</td>
+                                <td>
+                                    <input type="hidden" name="hd_tipo[]" value="2">
+                                    <textarea class="info_textarea" name="txt_descripcion[]" >{{info2}}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget-header">SBS</td>
+                                <td>
+                                    <input type="hidden" name="hd_tipo[]" value="3">
+                                    <textarea class="info_textarea" type="text" name="txt_descripcion[]">{{info3}}</textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>  
+{% endblock cuerpo %}   

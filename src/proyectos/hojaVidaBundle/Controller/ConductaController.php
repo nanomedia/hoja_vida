@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use proyectos\hojaVidaBundle\Util\Mantenimiento;
 
 class ConductaController extends Controller {
 
@@ -45,7 +46,7 @@ class ConductaController extends Controller {
         }
 
 
-        
+
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 
         $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
@@ -180,10 +181,10 @@ class ConductaController extends Controller {
             $dataF[$iF]["IdInstitucion"] = $dpF->getIdInstitucion();
             $dataF[$iF]["Sancion"] = $dpF->getSancion();
 
-	    $dataF[$iF]["Expediente"] = $dpF->getResolucion();	
+            $dataF[$iF]["Expediente"] = $dpF->getResolucion();
 //            $dataF[$iF]["Expediente"] = $dpF->getExpediente();
-	    $dataF[$iF]["boton"] = $boton3;	
-                                
+            $dataF[$iF]["boton"] = $boton3;
+
 
 
 
@@ -325,9 +326,6 @@ class ConductaController extends Controller {
 
 
 
-
-
-
         $queryFA2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=1 and ddp.estado=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFA2 = $queryFA2->getResult();
 //
@@ -422,8 +420,6 @@ class ConductaController extends Controller {
         }
 
 
-
-
         $queryFE2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=2 and ddp.estado=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFE2 = $queryFE2->getResult();
 //
@@ -451,6 +447,7 @@ class ConductaController extends Controller {
 
 
         return $this->render('hojaVidaBundle:update_formularios:frm_update_conducta.html.twig', array(
+                    "codigo" => $codigo,
                     "ConantecedentespenalesA" => $daA,
                     "ConantecedentespenalesB" => $daB,
                     "ConantecedentespenalesC" => $daC,
@@ -475,7 +472,7 @@ class ConductaController extends Controller {
     }
 
     /**
-     * @Route("/_frmupdate_conducta",name="_frmupdate_conducta")
+     * @Route("/actualiza_conducta",name="_actualiza_conducta")
      */
     public function ActualizaExpConductaAction(Request $request) {
 
@@ -541,6 +538,10 @@ class ConductaController extends Controller {
             $em->persist($ddpFA);
             $em->flush();
         }
+
+        $m = new Mantenimiento();
+        $m->insertarConducta($this, $request);
+        return $this->redirect($this->generateUrl('_frm_update_conducta', array('codigo' => $codigo)));
     }
 
 }

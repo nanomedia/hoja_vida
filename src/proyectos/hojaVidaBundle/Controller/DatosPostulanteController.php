@@ -42,7 +42,7 @@ class DatosPostulanteController extends Controller {
         $query_2->execute();
         $result = $query_2->fetchAll();
 
-        $data_postulante = array("id_postulante" => $codigo, "ConvocatoriasAnteriores" => $data, "variable" => $result);
+        $data_postulante = array("codigo" => $codigo, "ConvocatoriasAnteriores" => $data, "variable" => $result);
 
 
         return $this->render('hojaVidaBundle:update_formularios:frm_update_datospostulante.html.twig', $data_postulante);

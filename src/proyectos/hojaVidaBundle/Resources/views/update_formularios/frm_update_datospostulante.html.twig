@@ -44,6 +44,7 @@
         }
         {% include 'hojaVidaBundle:update_formularios:util.html.twig' %}
     });
+    
 
 </script>
 
@@ -51,8 +52,14 @@
 
 
 {% block titulo %}
-    <div>datos postulante</div>
-    {% endblock titulo %}
+    <div>DATOS POSTULANTE</div>
+{% endblock titulo %}
+    
+ {% block submenu%}
+{% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
+  {% endblock submenu%}   
+    
+    
 {% block cuerpo %}   
 
     <div id="tabs1-2">
@@ -62,7 +69,7 @@
                 <table width="65%" border="0" cellspacing="15px"  align="center">
                     {% for item in variable %}
                     <tr >
-                        <input type="hidden" name="id_pos" value="{{id_postulante}}">
+                        <input type="hidden" name="id_pos" value="{{codigo}}">
                         <td width="35%"><label class="labelText">Cargo al que postula:</label></td>
                         <td><input type="text" name="txt_cargoAPostular" class="textbox obligate" value="{{item.CARGO_A_POSTULAR}}" ></td>
                     </tr>

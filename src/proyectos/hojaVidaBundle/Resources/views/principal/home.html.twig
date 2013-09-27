@@ -12,90 +12,20 @@
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
 <script>
     $(document).ready(function() {
-
-        /* $(".auto").autocomplete({
-         source: "",
-         });
-         
-         $("#postulantes").click(function() {
-         var cadena = $("#txtdni").val() + "";
-         var cade = cadena.split("-");
-         if ($("#txtdni").val() !== "") {
-         if (cade[0].length !== "") {
-         location.href = "/hoja_vida/app_dev.php/registro/datos_mantenimiento/" + cade[0];
-         } else {
-         alert("Ingresa dni");
-         }
-         } else {
-         alert("Ingrese DNI");
-         }
-         });
-         */
-
-
-        /* $("#table-documento").jqGrid({
-         url: '{path('_gridPostulante')}',
-         datatype: 'json',
-         mtype: 'POST',
-         colNames: ["DNI", "NOMBRES", "APELLIDOS", "EDAD", ""],
-         colModel: [
-         {name: 'dni', width: "70px", index: 'dni', sortable: true, align: "center"},
-         {name: 'nombres', width: "80px", align: "center"},
-         {name: 'apellidos', width: "80px", align: "center"},
-         {name: 'edad', width: "50px", align: "center"},
-         {name: 'dato', width: 40, align: "center"},
-         ],
-         height: 320,
-         width: 800,
-         pager: "#table-documento-paginator",
-         rowNum: 15,
-         rowList: [15, 30],
-         caption: 'POSTULANTES'
-         });
-         
-         
-         $("#table_search_postulante").delegate(".row-update", "click", function() {
-         var url = $(this).attr("rel");
-         location.href = url;
-         //alert(codigo);
-         
-         });
-         */
-
         $("#options-form").menu();
+        $("#options2-form").menu();
         $(".button").button();
         $("#tab-listado").tabs();
         $(".boton").button({
             icons: {
                 primary: "ui-icon-zoomin"
             }});
-
-
-        $("#menu-formularios").dialog({
-            resizable: false,
-            height: 300,
-            width: 400,
-            modal: true,
-            autoOpen: false,
-        });
-
-        $("#content-menu").menu();
-
-        $(".item-formularios").click(function() {
-            $("#codigo_pos").val($(this).attr("rel"));
-            $("#menu-formularios").dialog("open");
-        });
-
-        $(".frm_url").click(function() {
-            var url = $(this).attr("rel");
-            location.href = url + "/" + $("#codigo_pos").val();
-        });
-
     });
 
 
 
     </script>
+
 {% endblock scripts %}      
     {% block titulo %}
     <div>LISTA DE POSTULANTES</div>
@@ -105,50 +35,38 @@
     <div id="tab-listado">
         <ul>
             <li><a href="#tab-listado-1">LISTA DE POSTULANTES</a></li>
-            <!--<li><div class="boton">BUSCAR</div></li>-->
         </ul>
 
         <div id="tab-listado-1">
             <div id="table_search_postulante" style="width:800px;margin:1px auto;">
 
-                <table border="1" width="700px">
-                    <tr>
+                <table width="700px" class="table ui-widget ui-widget-content">
+                    <head>
+                    <tr class="ui-widget-header" style="text-align:center;">
                         <td>DNI</td>
                         <td>NOMBRES</td>
                         <td>APELLIDOS</td>
                         <td>EDAD</td>
                         <td></td>
                     </tr>
+                    </head>
+                    <tbody>
                         {% for item in postulantes %}
-                    <tr>
-                        <td>{{item.dni}}</td>
-                        <td>{{item.nombres}}</td>
-                        <td>{{item.apellidos}}</td>
-                        <td>{{item.edad}}</td>
-                        <td><input type="button" rel="{{item.pk_dat_postulante}}" class="item-formularios" value="Actualizar"></td>
-                    </tr>
-                     {%endfor%}                
-                </table>
-                <input type="hidden" id="codigo_pos" value="">
-                <div id="menu-formularios">
-                    <ul id="content-menu">
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datospostulante" class="frm_url">DATOS POSTULANTE</a></li>
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_datosacademicos" class="frm_url">DATOS ACADEMICOS</a></li>
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_expprofesional" class="frm_url">EXPERIENCIA PROFESIONAL</a></li>
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/frm_update_conducta" class="frm_url">CONDUCTA</a></li>
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/rubro2" class="frm_url">RUBRO 2</a></li>
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/rubro3" class="frm_url">RUBRO 3</a></li>    
-                        <li><a href="#" rel="{{ app.request.getBaseURL() }}/registro/rubro4" class="frm_url">RUBRO 4</a></li>
-                    </ul>
+                            <tr>
+                                <td>{{item.dni}}</td>
+                                <td>{{item.nombres}}</td>
+                                <td>{{item.apellidos}}</td>
+                                <td>{{item.edad}}</td>
+                                <td style="text-align:center;"><a href="{{item.pk_dat_postulante}}"><input class="button" type="button" value="Actualizar" ></a></td>
+                            </tr>
+                     {%endfor%}    
+                        </tbody>
+                    </table>
+                    <input type="hidden" id="codigo_pos" value="">
+
                 </div>
-
-
-                <!--Buscar:
-                <input type="text" class="auto" id="txtdni" style="width:450px;">
-                <input type="button" id="postulantes" value="ver Postulantes">-->
             </div>
         </div>
-    </div>
 {% endblock cuerpo %}   
 
 

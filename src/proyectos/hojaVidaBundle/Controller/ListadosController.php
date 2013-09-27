@@ -24,24 +24,24 @@ class ListadosController extends Controller {
                     where dpe.estado_audt=1 and dp.estado_audt=1 and dpe.dni
                     like '%" . $_GET['term'] . "%' or dpe.apellidos like '%" . $_GET['term'] . "%'";
 
-            $query = $cn->prepare($sql); 
+            $query = $cn->prepare($sql);
             $query->execute();
-            $result = $query->fetchAll(); 
-            
+            $result = $query->fetchAll();
+
             $data = array();
             foreach ($result as $row) {
-                $data[] = array("label" => $row["pk_dat_postulante"]."-".$row['dni'] . ' - ' . utf8_encode($row['apellidos']) . ', ' . utf8_encode($row['nombres']),
+                $data[] = array("label" => $row["pk_dat_postulante"] . "-" . $row['dni'] . ' - ' . utf8_encode($row['apellidos']) . ', ' . utf8_encode($row['nombres']),
                     "dni" => $row['dni']);
             }
         }
 
-            $response = new Response();
-            $response->setContent(json_encode($data));
-            $response->headers->set('Content-Type', 'application/json');
-            return $response;
+        $response = new Response();
+        $response->setContent(json_encode($data));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
 
-            
-            
+
+
 
 
 //        $page = $request->request->get("page");
@@ -104,24 +104,28 @@ class ListadosController extends Controller {
      * @Route("/lista_postulantes",name="_lista_postulantes")
      */
     public function direcAction() {
-       
-            $cn = $this->getDoctrine()->getConnection("DB_HOJA_VIDA");
-            $sql = "SELECT dp.pk_dat_postulante,dpe.dni,dpe.nombres,dpe.apellidos,dpe.edad
+
+        $cn = $this->getDoctrine()->getConnection("DB_HOJA_VIDA");
+        $sql = "SELECT dp.pk_dat_postulante,dpe.dni,dpe.nombres,dpe.apellidos,dpe.edad
                     FROM datos_postulante dp inner join datos_personales dpe 
                     on dp.pk_susuario=dpe.dni
                     where dpe.estado_audt=1 and dp.estado_audt=1 and dpe.dni";
 
-            $query = $cn->prepare($sql); 
-            $query->execute();
-            $result = $query->fetchAll(); 
-            
-//            $data = array();
-//            foreach ($result as $row) {
-//                $data[] = array("label" => $row["pk_dat_postulante"]."-".$row['dni'] . ' - ' . utf8_encode($row['apellidos']) . ', ' . utf8_encode($row['nombres']),
-//                    "dni" => $row['dni']);
-//            }
-        
-        return $this->render('hojaVidaBundle:principal:home.html.twig',array("postulantes"=>$result));
+        $query = $cn->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll();
+        $data = array();
+        $i = 0;
+        foreach ($result as $value) {
+            $data[$i]["dni"] = $value["dni"];
+            $data[$i]["nombres"] = $value["nombres"];
+            $data[$i]["apellidos"] = $value["apellidos"];
+            $data[$i]["edad"] = $value["edad"];
+            $url = $this->generateUrl('_frm_update_datospostulante', array('codigo' => $value["pk_dat_postulante"]));
+            $data[$i]["pk_dat_postulante"] = $url;
+            $i++;
+        }
+        return $this->render('hojaVidaBundle:principal:home.html.twig', array("postulantes" => $data));
     }
 
     /**
@@ -139,15 +143,14 @@ class ListadosController extends Controller {
         $act = new Actualizacion();
         return new Response($act->actualizarDatosPostulante($this, $request));
     }
-    
+
     /**
      * @Route("/actualiza_dacademicos",name="_actualiza_dacademicos")
      */
-    public function actualizar_datosacademicos(Request $request){
+    public function actualizar_datosacademicos(Request $request) {
         $act = new Actualizacion();
-        
-        return new Response($act->ActualizarDatosAcademicos($this, $request));  
+
+        return new Response($act->ActualizarDatosAcademicos($this, $request));
     }
-    
 
 }

@@ -44,21 +44,7 @@ class rubro4Controller extends Controller {
         $m = new Mantenimiento();
         $m->insertarInformacionRegistroDe($this, $request);
         return $this->redirect($this->generateUrl('_rubro4', array('codigo' => $codigo)));
-        
-        
-        
-        
-        //$InformacionRegistroDe();
 
-        return new Response(var_dump($rubro4));
-//        $dpo = $rubro4[0];
-//        $dpo->setEstadoAudt(2);
-//        $em->persist($dpo);
-//        $em->flush();
-//        
-//        $m = new Mantenimiento();
-//        $m->insertarInformacionRegistroDe($this, $request);
-//        return $this->redirect($this->generateUrl('_rubro4', array('codigo' => $codigo)));
     }
 
 }

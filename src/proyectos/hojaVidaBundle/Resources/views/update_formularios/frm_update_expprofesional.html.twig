@@ -364,6 +364,14 @@
 {% block titulo %}
     <div>EXPERIENCIA PROFESIONAL</div>
     {% endblock titulo %}
+ {% block submenu%}
+{% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
+  {% endblock submenu%}    
+    
+    
+    
+    
+    
 {% block cuerpo %}   
 
     <div class="area-registro">
@@ -373,7 +381,7 @@
             <table width="100%" border="0" cellspacing="10px" align="center">
                 <tr>
                     <td >
-                        <input type="hidden" name="id_pos" value="{{id_postulante}}">
+                        <input type="hidden" name="id_pos" value="{{codigo}}">
                         <label class="labelText">
                             1. Documentos Calificados de DESEMPEÑO PROFESIONAL:<input type="submit" class="button" value="Actualizar">
                         </label>

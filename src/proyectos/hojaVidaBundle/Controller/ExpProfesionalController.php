@@ -139,7 +139,7 @@ class ExpProfesionalController extends Controller {
 
 
         $data_content = array(
-            "id_postulante" => $codigo,
+            "codigo" => $codigo,
             "DocDesProfesional" => $data,
             "CalJudFis" => $data2,
             "SitLaboral" => $data3[0]["SituacionLaboral"],

@@ -1,0 +1,32 @@
+<style>
+        #menu2 .ui-menu { width: 250px; }
+    </style>
+    <div style="width:164px;height: 85px;position:absolute;top:0px;left: 10px;">
+        <ul id="menu2">
+            <li>
+                <a href="#"><span class="ui-icon ui-icon-folder-open"></span>Rubro 1</a>
+                <ul>
+                    <li><a href="{{path('_frm_update_datospostulante',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>DATOS COMO POSTULANTE</a></li>
+                    <li><a href="{{path('_frm_update_datosacademicos',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>DATOS ACADEMICOS</a></li>
+                    <li><a href="{{path('_frm_update_expprofesional',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>EXPERIENCIA PROFESIONAL</a></li>
+                    <li><a href="{{path('_frm_update_conducta',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>CONDUCTA</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{path('_rubro2',{'codigo':codigo})}}"><span class="ui-icon ui-icon-folder-open"></span>Rubro 2</a>
+            </li>
+            <li>
+                <a href=""><span class="ui-icon ui-icon-folder-open"></span>Rubro 3</a>
+                <ul>
+                    <li><a href="{{path('_frm_updateInfoPatrimonial',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>INFORMACI&Oacute; PATRIMONIAL</a></li>
+                    <li><a href="{{path('_frm_update_movMigratorio',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>MOVIMIENTO MIGRATORIO</a></li>
+                    <li><a href="{{path('_frm_update_info_cam',{'codigo':codigo})}}"><span class="ui-icon ui-icon-refresh"></span>INFO. INFOCORP Y SBS</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{path('_rubro4',{'codigo':codigo})}}">
+                    <span class="ui-icon ui-icon-folder-open"></span>Rubro 4
+                </a>
+            </li>
+        </ul>
+    </div>

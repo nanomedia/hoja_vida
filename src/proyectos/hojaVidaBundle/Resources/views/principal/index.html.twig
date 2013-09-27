@@ -71,16 +71,7 @@
                             $("#guardar_frm").attr("rel", "frm-datos-academicos");
 
                             frm_datos_personales();
-                            frm_exp_profesional();
-                            frm_mov_migratorio();
-                            frm_datos_academicos();
-                            frm_conducta();
-                            frm_info_jue_fis();
-                            frm_direc_proc();
-                            frm_info_colegio();
-                            frm_info_patrimonial();
-                            frm_info_camara();
-                            frm_info_registro();
+                            
                             $("#guardar_frm").button({disabled: true});
 
                         }
@@ -96,14 +87,31 @@
                         data: form,
                         success: function(e) {
 
-                            $("#guardar_frm").attr("rel", "frm-exp-profesional");
-
+                           frm_exp_profesional();
+                           
 
                         }
 
                     });
                 }
 
+                function frm_exp_profesional() {
+
+                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
+                    cargando();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{path('_newExpProfesional')}}",
+                        data: form,
+                        success: function(e) {
+                             frm_datos_academicos();
+                           
+                           
+
+                        }
+
+                    });
+                }
                 function frm_datos_academicos() {
 
                     var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
@@ -114,23 +122,9 @@
                         data: form,
                         success: function(e) {
 
-                            $("#guardar_frm").attr("rel", "frm-exp-profesional");
+                            frm_conducta();
+                           
 
-
-                        }
-
-                    });
-                }
-                function frm_exp_profesional() {
-
-                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newExpProfesional')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm-conducta");
 
                         }
 
@@ -144,7 +138,8 @@
                         url: "{{path('_newConducta')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_jue_fis");
+                            frm_info_jue_fis();
+                           
                         }
 
                     });
@@ -160,8 +155,8 @@
                         url: "{{path('_infojuefis')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_direc_proc");
-
+                            frm_direc_proc();
+                            
                         }
                     });
                 }
@@ -173,7 +168,8 @@
                         url: "{{path('_direcproc')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_colegio");
+                            frm_info_colegio();
+                           
 
                         }
                     });
@@ -186,7 +182,8 @@
                         url: "{{path('_infocolegio')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_patrimonial");
+                            frm_info_patrimonial();
+                            
 
                         }
                     });
@@ -199,7 +196,8 @@
                         url: "{{path('_info_patrimonial')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_mov_migratorio");
+                            frm_mov_migratorio();
+                           
 
 
                         }
@@ -213,7 +211,8 @@
                         url: "{{path('_mov_migratorio')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_camara");
+                            frm_info_camara();
+                           
 
                         }
                     });
@@ -226,7 +225,7 @@
                         url: "{{path('_info_camara')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_registro");
+                            frm_info_registro();
 
                         }
                     });
@@ -240,9 +239,7 @@
                         url: "{{path('_info_registro')}}",
                         data: form,
                         success: function(e) {
-                            $("#guardar_frm").attr("rel", "frm_info_registro");
                             //location.href="{{path('_lista_postulantes')}}";
-
                         }
                     });
                 }
