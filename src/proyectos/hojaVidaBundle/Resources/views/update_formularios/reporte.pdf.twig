@@ -5,15 +5,186 @@
         <div id="layer-1" color="black" font-type="judson" font-size="16px">
             <stylesheet>
                 <complex-attribute name="border" color="black" />
-                <complex-attribute name="background" color="white" />
+                <complex-attribute name="background" color="#cccccc" />
             </stylesheet>
         </div>
+            
+        <placeholders>
+            <header>
+                <div height="55px" width="100%"   color="blue" text-align="center" font-style="bold" >
+                  ------------------------------------------------------------------------------------------            
+                </div>
+            </header>
+        </placeholders>
+
+            
+          <br></br> 
+          <br></br> 
+          <br></br> 
+          <br></br> 
+          
+        <div extends="layer-1"   >
+            I.	DATOS PERSONALES
+        </div>
+        
+            
+            <table>
+                <tr>
+                    <td>1.	Nombre:  
+                    </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>2.	Lugar y fecha de
+                    Nacimiento:  
+                    </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>3.	Edad (a la fecha de entrevista):  
+                    </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>4.	Persona con Discapacidad </td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>5.	Certificación de Discapacidad/ 
+                        Resolución CONADIS:  </td>
+                    <td>    </td>
+                </tr>
+              
+            </table>
+            
+            
+        <div extends="layer-1">
+           II. 	DATOS COMO POSTULANTE
+        </div>
+            <table> 
+               {%for item in DatosPostulante %}
+                        <tr>
+                        <td>1.Cargo al que postula   </td>
+                        <td>{{item.cargoAPostular}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>2.Condición</td>
+                            <td>{{item.condicion}}</td>
+                        </tr>     
+
+                        <tr>
+                            <td>3.Curso de PROFA o Ascenso en la AMAG  </td>
+                            <td>PROFA o Ascenso (*)	{{item.tipoCurso}}  Nota: {{item.nota}} </td>
+                        </tr>
+ 
+                        <tr>
+                            <td>4.Pre-Promedio {{item.prePromedio}} Orden de Mérito {{item.ordenMerito}} Plazas Vacantes  {{item.plazasVacantes}}</td>
+                            <td>    </td>
+                        </tr>
+ 
+                        <tr>
+                            <td>5.Examen de Conocimientos Calificación{{item.examenConocimientos}}  Curricular{{item.afiliacionCurricular}}  </td>
+                            <td> </td>
+                        </tr>
+ 
+                        <tr>
+                            <td>6.Postulación en Convocatorias anteriores</td>
+                            <td> </td>
+                        </tr>
+               {%endfor%}        
+                        
+            </table>
 
         <div extends="layer-1">
-            {{name}}
+            III. 	DATOS ACADÉMICOS
+        </div>
+          
+             <table>
+                <tr>
+                    <td></td>
+                    <td>{}</td>
+                    <td></td>
+                    <td>{</td>
+                    <td></td>
+                    <td>{}</td>
+                    
+                </tr>
+            </table>
+            
+        <div extends="layer-1">
+           IV. 	EXPERIENCIA PROFESIONAL  
+        </div>
+            
+                <br></br> 
+                <br></br> 
+            
+        <div extends="layer-1">
+        V. CONDUCTA  
+        </div>
+            
+                <br></br> 
+                <br></br> 
+        
+        <div extends="layer-1">
+        VI. 	INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL  CNM
         </div>
 
+                <br></br> 
+                <br></br>         
+        <div extends="layer-1">         
+        VII. INFORMACIÓN DE LA DIRECCIÓN DE PROCESOS DISCIPLINARIOS DEL CNM
+        </div>  
+                <br></br> 
+                <br></br> 
+                    
+        <div extends="layer-1">
+        VIII. INFORMACIÓN DEL COLEGIO DE ABOGADOS
+        </div>
+            
+                <br></br> 
+                <br></br> 
+        
+        <div extends="layer-1">
+        X. INFORMACIÓN PATRIMONIAL (ECONÓMICA E INMOBILIARIA)
+        </div>
 
+                <br></br> 
+                <br></br>         
+        <div extends="layer-1">         
+        XI.	MOVIMIENTO MIGRATORIO
+        </div>  
+                
+               
+                <br></br> 
+                <br></br> 
+        
+        <div extends="layer-1">
+     XII.	INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS   
+        </div>
+
+                <br></br> 
+                <br></br>         
+        <div extends="layer-1">         
+      
+
+XIII.	INFORMACIÓN DEL REGISTRO DE DEUDORES ALIMENTARIOS MOROSOS - REDAM  
+        </div>          
+       
+                
+             <br></br> 
+             <br></br>         
+        <div extends="layer-1">         
+XIV.	INFORMACIÓN COMPLEMENTARIA 
+        </div>         
+
+
+
+
+
+                
+                
+                
         </dynamic-page>
 
 

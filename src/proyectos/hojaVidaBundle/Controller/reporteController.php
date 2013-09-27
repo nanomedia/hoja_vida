@@ -13,24 +13,29 @@ class reporteController extends Controller {
   
     /**
      * @Pdf()
-     * @Route("/pdf", name="_pdf")
+     * @Route("/pdf/{codigo}", name="_pdf")
      */
-    public function pdfAction() {
+    public function pdfAction($codigo) {
         /*
          * https://github.com/psliwa/PHPPdf#intro
          */
         $facade = $this->get('ps_pdf.facade');
         $response = new Response();
 
-//        $DB_CONFLICTOS_SOCIALES = $this->getDoctrine()->getConnection("DB_CONFLICTOS_SOCIALES");
-//        $sql2 = "select region_id, region_nombre, region_variable from region";
-//        $query2 = $DB_CONFLICTOS_SOCIALES->prepare($sql2);
-//        $query2->execute();
-//        $regiones = $query2->fetchAll();
 
-
-
-        $this->render('hojaVidaBundle:update_formularios:reporte.pdf.twig', array("name" => "luis"), $response);
+        $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        
+                
+        $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:DatosPostulante ddp where ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $DatosPostulante = $query->getResult();
+        
+        
+        
+//        $query1 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ConvocatoriasAnteriores ddp where ddp.pkDatPostulante=' . $codigo . 'and ddp.estadoAudt=1');
+//        $dpostul_rep = $query1->getResult();
+//        
+        
+        $this->render('hojaVidaBundle:update_formularios:reporte.pdf.twig', array("DatosPostulante" => $DatosPostulante), $response);
         $xml = $response->getContent();
         $content = $facade->render($xml);
 
