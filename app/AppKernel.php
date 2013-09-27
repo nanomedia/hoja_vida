@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new proyectos\hojaVidaBundle\hojaVidaBundle(),
             new proyectos\curriculoBundle\curriculoBundle(),
             new proyectos\AccesoBundle\AccesoBundle(),
+            new Ps\PdfBundle\PsPdfBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
