@@ -1,192 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pdf SYSTEM "%resources%/dtd/doctype.dtd">
 <pdf>
-    <dynamic-page>
-        <div id="layer-1" color="black" font-type="judson" font-size="16px">
+    <dynamic-page  page-size="a4" font-type="DejaVuSans">
+
+        <span id="labels" color="#000000" font-type="DejaVuSans" font-size="13px">
             <stylesheet>
-                <complex-attribute name="border" color="black" />
-                <complex-attribute name="background" color="#cccccc" />
+                <complex-attribute name="background" color="#ffffff" />
             </stylesheet>
-        </div>
-            
+        </span>          
+
+
         <placeholders>
             <header>
-                <div height="55px" width="100%"   color="blue" text-align="center" font-style="bold" >
-                  ------------------------------------------------------------------------------------------            
+                <div height="55px" width="100%" font-size="20px" color="black"  text-align="center" font-style="bold" >
+                    HOJA DE VIDA     
                 </div>
             </header>
         </placeholders>
 
-            
-          <br></br> 
-          <br></br> 
-          <br></br> 
-          <br></br> 
-          
-        <div extends="layer-1"   >
-            I.	DATOS PERSONALES
+        <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
+            I.&nbsp;DATOS PERSONALES
         </div>
-        
-            
-            <table>
-                <tr>
-                    <td>1.	Nombre:  
-                    </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>2.	Lugar y fecha de
-                    Nacimiento:  
-                    </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>3.	Edad (a la fecha de entrevista):  
-                    </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>4.	Persona con Discapacidad </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>5.	Certificación de Discapacidad/ 
-                        Resolución CONADIS:  </td>
-                    <td>    </td>
-                </tr>
-              
-            </table>
-            
-            
-        <div extends="layer-1">
-           II. 	DATOS COMO POSTULANTE
+        <br></br><br></br>
+        <span extends="labels">1. Nombre:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;dfdfdf&nbsp;</span>
+        <br></br><br></br>
+
+        <span extends="labels">2. Lugar y fecha de Nacimiento:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;dfdfdf&nbsp;</span>
+        <span font-size="17px" border.size="2px">&nbsp;dfdfdf&nbsp;</span>
+        <br></br><br></br>
+
+        <span extends="labels">3. Edad (a la fecha de entrevista):</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;dfdfdf&nbsp;</span>
+        <br></br><br></br>
+        <span extends="labels">4. Persona con Discapacidad:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;dfdfdf&nbsp;</span>
+        <br></br><br></br>
+        <span extends="labels">5. Certificación de Discapacidad/Resolución CONADIS:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;dfdfdf&nbsp;</span>
+        <br></br><br></br><br></br>
+
+
+
+
+        <div color="black" height="20px" background.color="#cccccc" font-style="bold" font-size="13px"   >
+            II.&nbsp;DATOS COMO POSTULANTE
         </div>
-            <table> 
-               {%for item in DatosPostulante %}
-                        <tr>
-                        <td>1.Cargo al que postula   </td>
-                        <td>{{item.cargoAPostular}}</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>2.Condición</td>
-                            <td>{{item.condicion}}</td>
-                        </tr>     
+        <br></br><br></br>
+        <span extends="labels">1. Cargo al que postula:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{{DatosPostulante.cargoAPostular}}&nbsp;</span>
+        <br></br><br></br>
 
-                        <tr>
-                            <td>3.Curso de PROFA o Ascenso en la AMAG  </td>
-                            <td>PROFA o Ascenso (*)	{{item.tipoCurso}}  Nota: {{item.nota}} </td>
-                        </tr>
- 
-                        <tr>
-                            <td>4.Pre-Promedio {{item.prePromedio}} Orden de Mérito {{item.ordenMerito}} Plazas Vacantes  {{item.plazasVacantes}}</td>
-                            <td>    </td>
-                        </tr>
- 
-                        <tr>
-                            <td>5.Examen de Conocimientos Calificación{{item.examenConocimientos}}  Curricular{{item.afiliacionCurricular}}  </td>
-                            <td> </td>
-                        </tr>
- 
-                        <tr>
-                            <td>6.Postulación en Convocatorias anteriores</td>
-                            <td> </td>
-                        </tr>
-               {%endfor%}        
-                        
-            </table>
+        <span extends="labels">2. Condición:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{{DatosPostulante.condicion}}&nbsp;</span>
+        <br></br><br></br>
 
-        <div extends="layer-1">
-            III. 	DATOS ACADÉMICOS
+        <span extends="labels">3. Curso de PROFA o Ascenso en la AMAG:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{% if DatosPostulante.tipoCurso==1 %} PROFA  {%else%}  Ascenso {%endif %}&nbsp;</span>
+        <span font-size="17px" border.size="2px">&nbsp;NOTA: {{DatosPostulante.nota}}  &nbsp;</span>
+        <br></br><br></br>
+
+        <span extends="labels">4. Pre-Promedio:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{{DatosPostulante.prePromedio}}&nbsp;</span>
+        <span extends="labels">Orden de Mérito:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{{DatosPostulante.ordenMerito}}&nbsp;</span>
+        <span extends="labels">Plazas Vacantes:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{{DatosPostulante.plazasVacantes}}&nbsp;</span>
+        <br></br><br></br>
+
+        <span extends="labels">5. Examen de Conocimientos:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="2px">&nbsp;{{DatosPostulante.examenConocimientos}}&nbsp;</span>
+        <br></br><br></br>
+        <span extends="labels">6. Postulación en Convocatorias anteriores:</span>&nbsp;&nbsp;
+        <br></br><br></br>
+        <table>
+            <tr background.color="#cccccc" text-align="center" font-style="bold">
+                <td>CONVOCATORIA</td>
+                <td>PLAZA</td>
+                <td>ETAPA</td>             
+            </tr>
+             {% for conv in ConvocatoriasAnteriores %}
+            <tr text-align="center">
+                <td>{{conv.convocatoria}}</td>
+                <td>{{conv.plaza}}</td>
+                <td>{{conv.etapa}}</td>
+
+            </tr>
+             {% endfor %}
+
+        </table>
+         <br></br><br></br><br></br>
+        <div color="black" height="20px" background.color="#cccccc" font-style="bold" font-size="13px"   >
+           III.&nbsp;DATOS ACADÉMICOS
         </div>
-          
-             <table>
-                <tr>
-                    <td></td>
-                    <td>{}</td>
-                    <td></td>
-                    <td>{</td>
-                    <td></td>
-                    <td>{}</td>
-                    
-                </tr>
-            </table>
-            
-        <div extends="layer-1">
-           IV. 	EXPERIENCIA PROFESIONAL  
-        </div>
-            
-                <br></br> 
-                <br></br> 
-            
-        <div extends="layer-1">
-        V. CONDUCTA  
-        </div>
-            
-                <br></br> 
-                <br></br> 
-        
-        <div extends="layer-1">
-        VI. 	INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL  CNM
-        </div>
-
-                <br></br> 
-                <br></br>         
-        <div extends="layer-1">         
-        VII. INFORMACIÓN DE LA DIRECCIÓN DE PROCESOS DISCIPLINARIOS DEL CNM
-        </div>  
-                <br></br> 
-                <br></br> 
-                    
-        <div extends="layer-1">
-        VIII. INFORMACIÓN DEL COLEGIO DE ABOGADOS
-        </div>
-            
-                <br></br> 
-                <br></br> 
-        
-        <div extends="layer-1">
-        X. INFORMACIÓN PATRIMONIAL (ECONÓMICA E INMOBILIARIA)
-        </div>
-
-                <br></br> 
-                <br></br>         
-        <div extends="layer-1">         
-        XI.	MOVIMIENTO MIGRATORIO
-        </div>  
-                
-               
-                <br></br> 
-                <br></br> 
-        
-        <div extends="layer-1">
-     XII.	INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS   
-        </div>
-
-                <br></br> 
-                <br></br>         
-        <div extends="layer-1">         
-      
-
-XIII.	INFORMACIÓN DEL REGISTRO DE DEUDORES ALIMENTARIOS MOROSOS - REDAM  
-        </div>          
-       
-                
-             <br></br> 
-             <br></br>         
-        <div extends="layer-1">         
-XIV.	INFORMACIÓN COMPLEMENTARIA 
-        </div>         
+        <br></br><br></br>
+        <span extends="labels">1. Universidad de Procedencia:</span>
+        <br></br><br></br>
+        <span font-size="17px" border.size="2px">&nbsp;{{daUniv}}&nbsp;</span>
+        <br></br><br></br>
+        <span extends="labels">2. Colegio Profesional y fecha de incorporación:</span>
+        <br></br><br></br>
+        <span font-size="17px" border.size="2px">&nbsp;{{daCole}}&nbsp;</span>
+        <br></br><br></br>
+         <span extends="labels">6. Título Profesional en Otras Disciplinas::</span>
+        <br></br><br></br>
+        <span font-size="17px" border.size="2px">&nbsp;df&nbsp;</span>
+        <br></br><br></br>
+         <span extends="labels">7. Tesis para obtener el Título Profesional:</span>
+        <br></br><br></br>
+        <span font-size="17px" border.size="2px">&nbsp;df&nbsp;</span>
+        <br></br><br></br>
+    </dynamic-page>
 
 
 
-
-
-                
-                
-                
-        </dynamic-page>
-
-
-
-    </pdf>
+</pdf>

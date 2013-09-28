@@ -291,7 +291,6 @@ class ConductaController extends Controller {
         $dataFE = array();
         $iFE = 0;
         foreach ($dpostul_repFE as $dpFE) {
-
             $boton3 = '<input class="remove_min_pub_tra_proc_disc menos" type="button" value="--">';
             if ($iFE == 0) {
                 $boton3 = "";
@@ -304,7 +303,7 @@ class ConductaController extends Controller {
             $dataFE[$iFE]["boton"] = $boton3;
             $iFE++;
         }
-
+         var_dump($dataFE);
 
         $queryFF = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=2 and  ddp.tipo=3 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFF = $queryFF->getResult();

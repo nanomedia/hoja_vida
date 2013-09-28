@@ -134,7 +134,7 @@ class cargaCombosUpdate {
     }
 
     public function cboPuestos($codigo) {
-        $data = array("-ELEGIR-", "PRIMER PUESTO", "QUINTO SUPERIOR","TERCER PUESTO");
+        $data = array("-ELEGIR-", "PRIMER PUESTO", "QUINTO SUPERIOR", "TERCER PUESTO");
         $cbo = "";
 
         for ($i = 0; $i < count($data); $i++) {
@@ -146,10 +146,9 @@ class cargaCombosUpdate {
         }
         return $cbo;
     }
-    
-    
+
     public function cboNiveles($codigo) {
-        $data = array("-ELEGIR-", "TITULADO", "EGRESADO","ESTUDIOS INCOMPLETOS");
+        $data = array("-ELEGIR-", "TITULADO", "EGRESADO", "ESTUDIOS INCOMPLETOS");
         $cbo = "";
 
         for ($i = 0; $i < count($data); $i++) {
@@ -161,7 +160,32 @@ class cargaCombosUpdate {
         }
         return $cbo;
     }
-    
+
+    public function MuestraUniv($c, $codigo) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        if ($codigo != 0) {
+            $query = $em->createQuery('SELECT uni FROM hojaVidaBundle:Universidades uni where uni.idUniv=' . $codigo);
+            $Universidades = $query->getResult();
+            $univ = $Universidades[0]->getNombreUniv();
+
+            return $univ;
+        } else {
+
+            return "No Selecciono";
+        }
+    }
+
+    public function MuestraColegio($c, $codigo) {
+        $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
+        if ($codigo != 0) {
+            $query = $em->createQuery('SELECT cole FROM hojaVidaBundle:ColegiosProfesionales cole where cole.idColegio=' . $codigo);
+            $colegios = $query->getResult();
+            $cole = $colegios[0]->getNombreColegio();
+            return $cole;
+        } else {
+            return "No Selecciono";
+        }
+    }
 
 }
 
