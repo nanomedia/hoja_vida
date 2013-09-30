@@ -8,7 +8,15 @@
                     Dirección de Selección y Nombramiento
                     <hr></hr>
                 </div>
+                <div height="20px">
+                    <page-info offset="1" format="page %s for %s" />
+                </div>
             </header>
+            <footer>
+                <div height="21px" text-align="right" padding-top="30px" padding-right="30px" border.type="bottom" border.size="1px">
+                    <page-info offset="0" format="Página %s de %s" />
+                </div>
+            </footer>
         </placeholders>
 
         <span id="labels" color="#000000" font-type="DejaVuSans" font-size="13px">
@@ -16,20 +24,24 @@
                 <complex-attribute name="background" color="#ffffff" />
             </stylesheet>
         </span>  
-        <div font-size="20px" color="black"  text-align="center" font-style="bold" >
-            Consejo Nacional de la Magistratura
-        </div>
-        <div font-size="12px" color="#000000"  text-align="center" >
-            Dirección de Selección y Nombramiento
+        <div>
+            <div  width="530px"  float="left">
+                <div font-size="20px" color="black"  text-align="center" font-style="bold" >
+                    Consejo Nacional de la Magistratura
+                </div>
+                <div font-size="12px" color="#000000"  text-align="center" >
+                    Dirección de Selección y Nombramiento
+                </div>
+                <div margin-top="12px" font-size="14px" color="black"  text-align="center" font-style="bold" >
+                    Convocatoria N° 001-2013-SN/CNM
+                </div> 
+                <div text-decoration="underline" height="55px" font-size="20px" color="black"  text-align="center" font-style="bold" >
+                    HOJA DE VIDA
+                </div>
+            </div>   
+            <div width="100px" float="left"><img src="web/fotos/{{DatosPersonales.foto}}" height="125px" width="100px"/></div>   
         </div>
 
-        <div margin-top="12px" width="100%" font-size="14px" color="black"  text-align="center" font-style="bold" >
-            Convocatoria N° 001-2013-SN/CNM
-        </div>    
-
-        <div text-decoration="underline" height="55px" width="100%" font-size="20px" color="black"  text-align="center" font-style="bold" >
-           HOJA DE VIDA
-        </div>
         <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
             I.&nbsp;DATOS PERSONALES
         </div>
@@ -67,7 +79,7 @@
         <span font-size="17px" border.size="1px">&nbsp;{{DatosPostulante.condicion}}&nbsp;</span>
         <br></br><br></br>
 
-        <span extends="labels">3. Curso de PROFA o Ascenso en la AMAG:</span>&nbsp;&nbsp;
+        <span extends="labels">3. Curso en la AMAG:</span>&nbsp;&nbsp;
         <span font-size="17px" border.size="1px">&nbsp;{% if DatosPostulante.tipoCurso==1 %} PROFA  {%else%}  Ascenso {%endif %}&nbsp;</span>
         <span font-size="17px" border.size="1px">&nbsp;NOTA: {{DatosPostulante.nota}}  &nbsp;</span>
         <br></br><br></br>
@@ -93,9 +105,9 @@
             </tr>
              {% for conv in ConvocatoriasAnteriores %}
             <tr text-align="center">
-                <td height="25px">{{conv.convocatoria}}</td>
-                <td>{{conv.plaza}}</td>
-                <td>{{conv.etapa}}</td>
+                <td padding="10px">{{conv.convocatoria}}</td>
+                <td padding="10px">{{conv.plaza}}</td>
+                <td padding="10px">{{conv.etapa}}</td>
 
             </tr>
              {% endfor %}
@@ -120,20 +132,20 @@
         {%for doc in DocDerecho%}
         <table font-size="13px">
             <tr >
-                <td width="100px" height="25px" font-style="bold">&nbsp;Universidad:</td>
-                <td>{{doc.Universidad}}</td>
+                <td width="100px" padding="10px" font-style="bold">&nbsp;Universidad:</td>
+                <td padding="10px">{{doc.Universidad}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Nivel</td>
-                <td>{{doc.Nivel}}</td>
+                <td width="100px" padding="10px" font-style="bold">Nivel</td>
+                <td padding="10px">{{doc.Nivel}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Mensión</td>
-                <td>{{doc.Mension}}</td>
+                <td width="100px" padding="10px" font-style="bold">Mensión</td>
+                <td padding="10px">{{doc.Mension}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Año</td>
-                <td>{{doc.Anio}}</td>
+                <td width="100px" padding="10px" font-style="bold">Año</td>
+                <td padding="10px">{{doc.Anio}}</td>
             </tr>
 
         </table>
@@ -143,21 +155,21 @@
         <br></br><br></br>
         {%for mae in MaeDerecho%}
         <table font-size="13px">
-            <tr >
-                <td width="100px" height="25px" font-style="bold">&nbsp;Universidad:</td>
-                <td>{{mae.Universidad}}</td>
+            <tr>
+                <td width="100px" padding="10px" font-style="bold">&nbsp;Universidad:</td>
+                <td padding="10px">{{mae.Universidad}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Nivel</td>
-                <td>{{mae.Nivel}}</td>
+                <td width="100px" padding="10px" font-style="bold">Nivel</td>
+                <td padding="10px">{{mae.Nivel}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Mensión</td>
-                <td>{{mae.Mension}}</td>
+                <td width="100px" padding="10px" font-style="bold">Mensión</td>
+                <td padding="10px">{{mae.Mension}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Año</td>
-                <td>{{mae.Anio}}</td>
+                <td width="100px" padding="10px" font-style="bold">Año</td>
+                <td padding="10px">{{mae.Anio}}</td>
             </tr>
         </table>
         <br></br><br></br>
@@ -166,21 +178,21 @@
         <br></br><br></br>
         {%for otr in OtrasDisciplinas%}
         <table  font-size="13px">
-            <tr >
-                <td width="100px" height="25px" font-style="bold">&nbsp;Universidad:</td>
-                <td>{{otr.Universidad}}</td>
+            <tr>
+                <td width="100px" padding="10px" font-style="bold">&nbsp;Universidad:</td>
+                <td padding="10px">{{otr.Universidad}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Nivel</td>
-                <td>{{otr.Nivel}}</td>
+                <td width="100px" padding="10px" font-style="bold">Nivel</td>
+                <td padding="10px">{{otr.Nivel}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Mensión</td>
-                <td>{{otr.Mension}}</td>
+                <td width="100px" padding="10px" font-style="bold">Mensión</td>
+                <td padding="10px">{{otr.Mension}}</td>
             </tr>
             <tr>
-                <td width="100px" height="25px" font-style="bold">Año</td>
-                <td>{{otr.Anio}}</td>
+                <td width="100px" padding="10px" font-style="bold">Año</td>
+                <td padding="10px">{{otr.Anio}}</td>
             </tr>
         </table>
         <br></br><br></br>
@@ -207,25 +219,25 @@
         <br></br><br></br>
         <table>
             <tr text-align="center" background.color="#cccccc" font-style="bold">
-                <td width="30px" text-align="center">N°</td>
-                <td width="40px" text-align="center">N° Exp.</td>
-                <td>Demandante/<br></br>Denunciante/<br></br>Agraviado/<br></br>Solicitante</td>
-                <td>Demandado/<br></br>Denunciado/<br></br>Agresor/<br></br>Entidad</td>
-                <td>Materia</td>
-                <td>Especialidad</td>
-                <td>1° <br></br>Calificación</td>
-                <td>2°<br></br>Calificación<br></br>(R.R)</td>
+                <td padding="10px" width="30px" text-align="center">N°</td>
+                <td padding="10px" width="40px" text-align="center">N° Exp.</td>
+                <td padding="10px">Demandante/<br></br>Denunciante/<br></br>Agraviado/<br></br>Solicitante</td>
+                <td padding="10px">Demandado/<br></br>Denunciado/<br></br>Agresor/<br></br>Entidad</td>
+                <td padding="10px" text-align="center">Materia</td>
+                <td padding="10px">Especialidad</td>
+                <td padding="10px">1° <br></br>Calificación</td>
+                <td padding="10px">2°<br></br>Calificación<br></br>(R.R)</td>
             </tr>
             {% for docdes in DocDesProfesional%}
             <tr>
-                <td text-align="center" height="50px">{{docdes.Num}}</td>
-                <td text-align="center">{{docdes.NumExp}}</td>
-                <td>{{docdes.Ddas}}</td>
-                <td>{{docdes.Ddae}}</td>
-                <td>{{docdes.Materia}}</td>
-                <td>{{docdes.Especialidad}}</td>
-                <td text-align="center">{{docdes.Calificacion1}}</td>
-                <td text-align="center">{{docdes.Calificacion2}}</td>
+                <td text-align="center" padding="10px">{{docdes.Num}}</td>
+                <td text-align="center" padding="10px">{{docdes.NumExp}}</td>
+                <td padding="10px">{{docdes.Ddas}}</td>
+                <td padding="10px">{{docdes.Ddae}}</td>
+                <td padding="10px">{{docdes.Materia}}</td>
+                <td padding="10px">{{docdes.Especialidad}}</td>
+                <td padding="10px" text-align="center">{{docdes.Calificacion1}}</td>
+                <td padding="10px" text-align="center">{{docdes.Calificacion2}}</td>
             </tr>
             {% endfor%}
         </table>
@@ -251,28 +263,27 @@
             <br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td width="30px" text-align="center">N°</td>
-                    <td width="40px" text-align="center">N° Exp.</td>
-                    <td>Tipo de <br></br>Resolución</td>
-                    <td>Fecha<br></br> de Res.</td>
-
-                    <td>Demandante/<br></br>Denunciante/<br></br>Agraviado</td>
-                    <td>Demandado/<br></br>Denunciado/<br></br>Agresor</td>
-                    <td>Materia</td>
-                    <td>Especialidad</td>
-                    <td>Nota</td>
+                    <td padding="10px" width="30px" text-align="center">N°</td>
+                    <td padding="10px" width="30px" text-align="center">N° Exp.</td>
+                    <td padding="10px">Tipo de <br></br>Resolución</td>
+                    <td padding="10px">Fecha<br></br> de Res.</td>
+                    <td padding="10px">Demandante/<br></br>Denunciante/<br></br>Agraviado</td>
+                    <td padding="10px">Demandado/<br></br>Denunciado/<br></br>Agresor</td>
+                    <td padding="10px">Materia</td>
+                    <td padding="10px">Especialidad</td>
+                    <td padding="10px">Nota</td>
                 </tr>
             {% for cal in CalJudFis%}
                 <tr>
-                    <td text-align="center" height="50px">{{cal.Num}}</td>
-                    <td text-align="center">{{cal.NumExp}}</td>
-                    <td>{{cal.TipResolucion}}</td>
-                    <td>{{cal.FechaRes}}</td>
-                    <td>{{cal.Ddagraviado}}</td>
-                    <td>{{cal.Ddagresor}}</td>
-                    <td>{{cal.Materia}}</td>
-                    <td>{{cal.Especialidad}}</td>
-                    <td text-align="center">{{cal.Nota}}</td>
+                    <td text-align="center" padding="10px">{{cal.Num}}</td>
+                    <td text-align="center" padding="10px">{{cal.NumExp}}</td>
+                    <td padding="10px">{{cal.TipResolucion}}</td>
+                    <td padding="10px">{{cal.FechaRes}}</td>
+                    <td padding="10px">{{cal.Ddagraviado}}</td>
+                    <td padding="10px">{{cal.Ddagresor}}</td>
+                    <td padding="10px">{{cal.Materia}}</td>
+                    <td padding="10px">{{cal.Especialidad}}</td>
+                    <td padding="10px" text-align="center">{{cal.Nota}}</td>
                 </tr>
            {% endfor%}
             </table>
@@ -286,16 +297,16 @@
                 {% for detsit in DetSituacionLaboral%}
             <table>
                 <tr>
-                    <td width="150px" height="25px">Centro de Trabajo:</td>
-                    <td>{{detsit.CentroTrabajo}}</td>
+                    <td width="150px" padding="10px">Centro de Trabajo:</td>
+                    <td padding="10px">{{detsit.CentroTrabajo}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Cargo:</td>
-                    <td>{{detsit.Cargo}}</td>
+                    <td padding="10px">Cargo:</td>
+                    <td padding="10px">{{detsit.Cargo}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Periodo:</td>
-                    <td>{{detsit.Periodo}}</td>
+                    <td padding="10px">Periodo:</td>
+                    <td padding="10px">{{detsit.Periodo}}</td>
                 </tr>
             </table>
             <br></br><br></br><br></br>
@@ -305,28 +316,28 @@
                 {% for docuni in DocenciaUniversitaria%}
             <table>
                 <tr>
-                    <td width="150px" height="25px">Universidad:</td>
-                    <td>{{docuni.Universidad}}</td>
+                    <td width="150px" padding="10px">Universidad:</td>
+                    <td padding="10px">{{docuni.Universidad}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Facultad:</td>
-                    <td>{{docuni.Facultad}}</td>
+                    <td padding="10px">Facultad:</td>
+                    <td padding="10px">{{docuni.Facultad}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Condición:</td>
-                    <td>{{docuni.Condicion}}</td>
+                    <td padding="10px">Condición:</td>
+                    <td padding="10px">{{docuni.Condicion}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Categoria:</td>
-                    <td>{{docuni.Categoria}}</td>
+                    <td padding="10px">Categoria:</td>
+                    <td padding="10px">{{docuni.Categoria}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Cursos:</td>
-                    <td>{{docuni.Cursos}}</td>
+                    <td padding="10px">Cursos:</td>
+                    <td padding="10px">{{docuni.Cursos}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Periodo:</td>
-                    <td>{{docuni.Periodo}}</td>
+                    <td padding="10px">Periodo:</td>
+                    <td padding="10px">{{docuni.Periodo}}</td>
                 </tr>
             </table> <br></br><br></br><br></br>
                 {% endfor %}
@@ -359,20 +370,20 @@
             <br></br><br></br><br></br>
             <table>
                 <tr >
-                    <td height="25px" width="50px" text-align="center">AÑO</td>
-                    <td text-align="center">MOTIVO</td>
-                    <td width="50px" text-align="center">DÍAS</td>
+                    <td padding="10px" width="50px" text-align="center">AÑO</td>
+                    <td padding="10px" text-align="center">MOTIVO</td>
+                    <td padding="10px" width="50px" text-align="center">DÍAS</td>
                 </tr>
                 {%for lic in LicenciasOtorgadas%}
                 <tr >
-                    <td text-align="center" height="25px">{{lic.Anio}}</td>
-                    <td>{{lic.Motivo}}</td>
-                    <td text-align="center">{{lic.Dias}}</td>
+                    <td text-align="center" padding="10px">{{lic.Anio}}</td>
+                    <td padding="10px">{{lic.Motivo}}</td>
+                    <td padding="10px" text-align="center">{{lic.Dias}}</td>
                 </tr>
                 {% endfor%}
                 <tr>
-                    <td height="25px" colspan="2"><div text-align="right">TOTAL:</div></td>
-                    <td text-align="center">{{SumDias}}</td>
+                    <td padding="10px" colspan="2"><div text-align="right">TOTAL:</div></td>
+                    <td padding="10px" text-align="center">{{SumDias}}</td>
                 </tr>
             </table>          
             <br></br><br></br><br></br>
@@ -385,17 +396,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td width="140px" height="25px">Antecedentes Penales</td>
-                    <td>{{anteA}}</td>
+                    <td width="140px" padding="10px">Antecedentes Penales</td>
+                    <td padding="10px">{{anteA}}</td>
                 </tr>
                 <tr>
-                    <td height="25px">Antecedente Judiciales</td>
-                    <td>{{anteB}}</td>
+                    <td padding="10px">Antecedente Judiciales</td>
+                    <td padding="10px">{{anteB}}</td>
                 </tr>
 
                 <tr>
-                    <td height="25px">Antecedente Policiales</td>
-                    <td>{{anteC}}</td>
+                    <td padding="10px">Antecedente Policiales</td>
+                    <td padding="10px">{{anteC}}</td>
                 </tr>
 
             </table>
@@ -406,19 +417,19 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td>Expediente</td>
-                    <td>Órgano<br></br>Jurisdiccional</td>
-                    <td>Demandado/<br></br>Denunciado</td>
-                    <td>Materia</td>
-                    <td>Estado</td>
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Órgano<br></br>Jurisdiccional</td>
+                    <td padding="10px">Demandado/<br></br>Denunciado</td>
+                    <td padding="10px">Materia</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {%for item in dpostul_rep%}
                 <tr>
-                    <td height="35px">{{item.expediente}}</td>
-                    <td>{{item.organo}}</td>
-                    <td>{{item.demandadoagresor}}</td>
-                    <td>{{item.materia}}</td>
-                    <td>{{item.estado}}</td>
+                    <td padding="10px">{{item.expediente}}</td>
+                    <td padding="10px">{{item.organo}}</td>
+                    <td padding="10px">{{item.demandadoagresor}}</td>
+                    <td padding="10px">{{item.materia}}</td>
+                    <td padding="10px">{{item.estado}}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -428,19 +439,19 @@
 
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td>Expediente</td>
-                    <td>Órgano<br></br>Jurisdiccional</td>
-                    <td>Demandado/<br></br>Denunciado</td>
-                    <td>Materia</td>
-                    <td>Estado</td>
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Órgano<br></br>Jurisdiccional</td>
+                    <td padding="10px">Demandado/<br></br>Denunciado</td>
+                    <td padding="10px">Materia</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {% for item in dpostul_repB%}
                 <tr>
-                    <td height="35px">{{item.expediente}}</td>
-                    <td>{{item.organo}}</td>
-                    <td>{{item.demandadoagresor}}</td>
-                    <td>{{item.materia}}</td>
-                    <td>{{item.estado}}</td>
+                    <td padding="10px">{{item.expediente}}</td>
+                    <td padding="10px">{{item.organo}}</td>
+                    <td padding="10px">{{item.demandadoagresor}}</td>
+                    <td padding="10px">{{item.materia}}</td>
+                    <td padding="10px">{{item.estado}}</td>
                 </tr>
                 {%endfor%}
             </table>
@@ -449,19 +460,19 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td>Expediente</td>
-                    <td>Órgano<br></br>Jurisdiccional</td>
-                    <td>Agresor</td>
-                    <td>Materia</td>
-                    <td>Estado</td>
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Órgano<br></br>Jurisdiccional</td>
+                    <td padding="10px">Agresor</td>
+                    <td padding="10px">Materia</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {%for item in dpostul_repC%}
                 <tr>
-                    <td height="35px">{{item.expediente}}</td>
-                    <td>{{item.organo}}</td>
-                    <td>{{item.demandadoagresor}}</td>
-                    <td>{{item.materia}}</td>
-                    <td>{{item.estado}}</td>
+                    <td padding="10px">{{item.expediente}}</td>
+                    <td padding="10px">{{item.organo}}</td>
+                    <td padding="10px">{{item.demandadoagresor}}</td>
+                    <td padding="10px">{{item.materia}}</td>
+                    <td padding="10px">{{item.estado}}</td>
                 </tr>
                 {% endfor%}
             </table>
@@ -472,17 +483,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px">Institución</td>
-                    <td>Resolución</td>
-                    <td>Sanción</td>
-                    <td>Estado</td>
+                    <td padding="10px">Institución</td>
+                    <td padding="10px">Resolución</td>
+                    <td padding="10px">Sanción</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {% for item in dpostul_repD%}
                 <tr>
-                    <td height="35px">{{item.idinstitucion}}</td>
-                    <td>{{item.resolucion}}</td>
-                    <td>{{item.sancion}}</td>
-                    <td>{{item.estado}}</td>
+                    <td padding="10px">{{item.idinstitucion}}</td>
+                    <td padding="10px">{{item.resolucion}}</td>
+                    <td padding="10px">{{item.sancion}}</td>
+                    <td padding="10px">{{item.estado}}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -493,15 +504,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px">Institución</td>
-                    <td>Resolución</td>
-                    <td>Sanción</td>
+                    <td padding="10px">Institución</td>
+                    <td padding="10px">Resolución</td>
+                    <td padding="10px">Sanción</td>
                 </tr>
                     {% for item in dpostul_repE%}
                 <tr>
-                    <td height="35px">{{item.idinstitucion}}</td>
-                    <td>{{item.resolucion}}</td>
-                    <td>{{item.sancion}}</td>
+                    <td padding="10px">{{item.idinstitucion}}</td>
+                    <td padding="10px">{{item.resolucion}}</td>
+                    <td padding="10px">{{item.sancion}}</td>
                 </tr>
                     {% endfor%}
             </table>
@@ -512,15 +523,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px">Institución</td>
-                    <td>Sanción</td>
-                    <td>Expediente, Resolución y Motivo</td>
+                    <td padding="10px">Institución</td>
+                    <td padding="10px">Sanción</td>
+                    <td padding="10px">Expediente, Resolución y Motivo</td>
                 </tr>
                 {% for item in dpostul_repF%}
                 <tr>
-                    <td height="35px">{{item.idinstitucion}}</td>
-                    <td>{{item.sancion}}</td>
-                    <td>{{item.resolucion}}</td>
+                    <td padding="10px">{{item.idinstitucion}}</td>
+                    <td padding="10px">{{item.sancion}}</td>
+                    <td padding="10px">{{item.resolucion}}</td>
                 </tr>
                 {% endfor%}
             </table>
@@ -537,15 +548,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px">Expediente</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {% for item in dpostul_repFA%}
                 <tr>
-                    <td height="35px">{{item.expediente}}</td>
-                    <td>{{item.motivo}}</td>
-                    <td>{{item.estadoproc}}</td>
+                    <td padding="10px">{{item.expediente}}</td>
+                    <td padding="10px">{{item.motivo}}</td>
+                    <td padding="10px">{{item.estadoproc}}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -556,17 +567,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Quejas, Visitas e<br></br>Investigaciones</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Quejas, Visitas e<br></br>Investigaciones</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {% for item in dpostul_repFB %}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Quejas}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Quejas}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>
 
                 </tr>
                 {% endfor %}
@@ -578,15 +589,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>
                 </tr>
                 {% for item in dpostul_repFC%}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -601,17 +612,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px">Institución</td>
-                    <td>Expediente</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px">Institución</td>
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFD %}
                 <tr>
-                    <td height="35px">{{item.IdInstitucion}}</td>
-                    <td>{{item.Expediente}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px">{{item.IdInstitucion}}</td>
+                    <td padding="10px">{{item.Expediente}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>
                 {% endfor %}
             </table>
@@ -622,17 +633,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Quejas, Visitas e <br></br>Investigaciones</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Quejas, Visitas e <br></br>Investigaciones</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFE%}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Quejas}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Quejas}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>
                 {% endfor %}
             </table>
@@ -643,15 +654,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFF%}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>
                 {% endfor %}
             </table>
@@ -668,15 +679,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px">Expediente</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFA2%}
                 <tr>
-                    <td height="35px">{{item.Expediente}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px">{{item.Expediente}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>                
                 {% endfor %}
             </table>
@@ -687,17 +698,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Denuncia y/o Queja</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Denuncia y/o Queja</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFB2%}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Quejas}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Quejas}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>                
                 {% endfor %}
             </table>
@@ -709,15 +720,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {%for item in dpostul_repFC2%}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>  
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>  
                 </tr>     
                 {% endfor %}
             </table>
@@ -730,17 +741,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" text-align="center">Institución</td>
-                    <td>Expediente</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px" text-align="center">Institución</td>
+                    <td padding="10px">Expediente</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFD2 %}
                 <tr>
-                    <td height="35px">{{item.IdInstitucion}}</td>
-                    <td>{{item.Expediente}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px">{{item.IdInstitucion}}</td>
+                    <td padding="10px">{{item.Expediente}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>
                 {% endfor %}
             </table>
@@ -751,17 +762,17 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="30px" text-align="center">Nº</td>
-                    <td>Quejas, Visitas e <br></br>Investigaciones</td>
-                    <td>Motivo</td>
-                    <td>Estado</td>                    
+                    <td padding="10px" width="30px" text-align="center">Nº</td>
+                    <td padding="10px">Quejas, Visitas e <br></br>Investigaciones</td>
+                    <td padding="10px">Motivo</td>
+                    <td padding="10px">Estado</td>                    
                 </tr>
                 {% for item in dpostul_repFE2%}
                 <tr>
-                    <td height="35px" text-align="center">{{item.Num}}</td>
-                    <td>{{item.Quejas}}</td>
-                    <td>{{item.Motivo}}</td>
-                    <td>{{item.EstadoProc}}</td>                    
+                    <td padding="10px" text-align="center">{{item.Num}}</td>
+                    <td padding="10px">{{item.Quejas}}</td>
+                    <td padding="10px">{{item.Motivo}}</td>
+                    <td padding="10px">{{item.EstadoProc}}</td>                    
                 </tr>
                 {% endfor %}
             </table>
@@ -803,23 +814,23 @@
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td colspan="3" height="35px" text-align="center" background.color="#cccccc" font-style="bold">INGRESOS</td>
+                    <td colspan="3" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">INGRESOS</td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="40px">Año</td>
-                    <td>Descripción</td>
-                    <td  width="45px">Valor</td>                    
+                    <td padding="10px" width="40px">Año</td>
+                    <td padding="10px">Descripción</td>
+                    <td padding="10px" width="45px">Valor</td>                    
                 </tr>
                 {% for item in Ingresos1%}
                 <tr>
-                    <td text-align="center" height="35px">{{item.anio}}</td>
-                    <td>{{item.descripcion}}</td>
-                    <td text-align="center">{{item.valor}}</td>
+                    <td text-align="center" padding="10px">{{item.anio}}</td>
+                    <td padding="10px">{{item.descripcion}}</td>
+                    <td padding="10px" text-align="center">{{item.valor}}</td>
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td height="35px" colspan="2" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum1}}</td>
+                    <td padding="10px" colspan="2" text-align="right">TOTAL:</td>
+                    <td padding="10px" text-align="center">{{sum1}}</td>
                 </tr>
             </table>
 
@@ -827,21 +838,21 @@
 
             <table>
                 <tr>
-                    <td colspan="2" height="35px" text-align="center" background.color="#cccccc" font-style="bold">OTROS INGRESOS</td>
+                    <td colspan="2" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">OTROS INGRESOS</td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" width="40px">Ingresos del declarante y de la sociedad de gananciales</td>
-                    <td  width="45px">Valor</td>                    
+                    <td padding="10px" width="40px">Ingresos del declarante y de la sociedad de gananciales</td>
+                    <td padding="10px" width="45px">Valor</td>                    
                 </tr>
                 {% for item in otrosingresos%}
                 <tr>
-                    <td height="35px">{{item.Descripcion}}</td>
-                    <td width="40px" text-align="center">{{item.Monto}}</td>
+                    <td padding="10px">{{item.Descripcion}}</td>
+                    <td padding="10px" width="40px" text-align="center">{{item.Monto}}</td>
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td height="35px" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum2}}</td>
+                    <td padding="10px" text-align="right">TOTAL:</td>
+                    <td padding="10px" text-align="center">{{sum2}}</td>
                 </tr>
             </table>
 
@@ -852,126 +863,126 @@
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td colspan="4" height="35px" text-align="center" background.color="#cccccc" font-style="bold">
+                    <td colspan="4" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">
                         Bienes inmuebles: 
                     </td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" >Tipo de Bien</td>
-                    <td>Ubicación</td>
-                    <td>Fecha de Adquisición</td>
-                    <td>Valor de <br></br> Autovalúo S/.</td>
+                    <td padding="10px" >Tipo de Bien</td>
+                    <td padding="10px">Ubicación</td>
+                    <td padding="10px">Fecha de Adquisición</td>
+                    <td padding="10px">Valor de <br></br> Autovalúo S/.</td>
                 </tr>
                 {% for item in dpostul%}
                 <tr>
-                    <td height="35px">{{item.TipoBien}}</td>
-                    <td>{{item.Ubicacion}}</td>
-                    <td text-align="center">{{item.Fecha}}</td>
-                    <td text-align="center">{{item.Monto}}</td>
+                    <td padding="10px">{{item.TipoBien}}</td>
+                    <td padding="10px">{{item.Ubicacion}}</td>
+                    <td padding="10px" text-align="center">{{item.Fecha}}</td>
+                    <td padding="10px" text-align="center">{{item.Monto}}</td>
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td colspan="3" height="35px" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum3}}</td>
+                    <td colspan="3" padding="10px" text-align="right">TOTAL:</td>
+                    <td padding="10px" text-align="center">{{sum3}}</td>
                 </tr>
             </table>
 
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td colspan="4" height="35px" text-align="center" background.color="#cccccc" font-style="bold">
+                    <td colspan="4" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">
                         Bienes muebles: 
                     </td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" >Tipo de Bien</td>
-                    <td>Ubicación</td>
-                    <td>Fecha de Adquisición</td>
-                    <td>Valor de <br></br> Autovalúo S/.</td>
+                    <td padding="10px" >Tipo de Bien</td>
+                    <td padding="10px">Ubicación</td>
+                    <td padding="10px">Fecha de Adquisición</td>
+                    <td padding="10px">Valor de <br></br> Autovalúo S/.</td>
                 </tr>
                 {% for item in dpo%}
                 <tr>
-                    <td height="35px">{{item.TipoBien}}</td>
-                    <td>{{item.Ubicacion}}</td>
-                    <td text-align="center">{{item.Fecha}}</td>
-                    <td text-align="center">{{item.Monto}}</td>
+                    <td padding="10px">{{item.TipoBien}}</td>
+                    <td padding="10px">{{item.Ubicacion}}</td>
+                    <td padding="10px" text-align="center">{{item.Fecha}}</td>
+                    <td padding="10px" text-align="center">{{item.Monto}}</td>
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td colspan="3" height="35px" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum4}}</td>
+                    <td colspan="3" padding="10px" text-align="right">TOTAL:</td>
+                    <td padding="10px" text-align="center">{{sum4}}</td>
                 </tr>
             </table>
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td colspan="2" height="35px" text-align="center" background.color="#cccccc" font-style="bold">
+                    <td colspan="2" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">
                         Otros Bienes: 
                     </td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" >Detallar</td>
-                    <td width="40px">Valor</td>
+                    <td padding="10px">Detallar</td>
+                    <td padding="10px" width="40px">Valor</td>
                 </tr>
                 {% for item in dpatri%}
                 <tr>
-                    <td height="35px">{{item.Descripcion}}</td>
-                    <td text-align="center">{{item.Valor}}</td>
+                    <td padding="10px">{{item.Descripcion}}</td>
+                    <td padding="10px" text-align="center">{{item.Valor}}</td>
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td height="35px" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum5}}</td>
+                    <td padding="10px" text-align="right">TOTAL:</td>
+                    <td padding="10px" text-align="center">{{sum5}}</td>
                 </tr>
             </table>
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td colspan="3" height="35px" text-align="center" background.color="#cccccc" font-style="bold">
+                    <td colspan="3" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">
                         Sistema Financiero
                     </td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" >Clase</td>
-                    <td>Entidad o Tercero</td>
-                    <td>Monto S/.</td>
+                    <td padding="10px">Clase</td>
+                    <td padding="10px">Entidad o Tercero</td>
+                    <td padding="10px">Monto S/.</td>
                 </tr>
 
                 {% for item in Financi%}
                 <tr>
-                    <td height="35px" >{{item.Clase}}</td>
-                    <td>{{item.Entidad}}</td>
-                    <td text-align="center">{{item.Valor}}</td>
+                    <td padding="10px">{{item.Clase}}</td>
+                    <td padding="10px">{{item.Entidad}}</td>
+                    <td padding="10px" text-align="center">{{item.Valor}}</td>
                 </tr>
                 {% endfor %}
 
                 <tr>
-                    <td colspan="2" height="35px" text-align="right">TOTAL:</td>
+                    <td colspan="2" padding="10px" text-align="right">TOTAL:</td>
                     <td text-align="center">{{sum6}}</td>
                 </tr>
             </table>
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td colspan="3" height="35px" text-align="center" background.color="#cccccc" font-style="bold">
+                    <td colspan="3" padding="10px" text-align="center" background.color="#cccccc" font-style="bold">
                         Acreencias y Obligaciones a su cargo
                     </td>
                 </tr>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" >Naturaleza de la deuda</td>
-                    <td>Entidad o Tercero</td>
-                    <td>Monto S/.</td>
+                    <td padding="10px" >Naturaleza de la deuda</td>
+                    <td padding="10px">Entidad o Tercero</td>
+                    <td padding="10px">Monto S/.</td>
                 </tr>
                 {%for item in Acre_array%}
                 <tr>
-                    <td height="35px" >{{item.Naturaleza}}</td>
-                    <td>{{item.Entidad}}</td>
-                    <td text-align="center">{{item.Valor}}</td>
+                    <td padding="10px">{{item.Naturaleza}}</td>
+                    <td padding="10px">{{item.Entidad}}</td>
+                    <td padding="10px" text-align="center">{{item.Valor}}</td>
                 </tr>
                 {% endfor %}
 
                 <tr>
-                    <td colspan="2" height="35px" text-align="right">TOTAL:</td>
+                    <td colspan="2" padding="10px" text-align="right">TOTAL:</td>
                     <td text-align="center">{{sum7}}</td>
                 </tr>
             </table>
@@ -982,15 +993,15 @@
             <br></br><br></br><br></br>
             <table>
                 <tr text-align="center" background.color="#cccccc" font-style="bold">
-                    <td height="35px" >Movimiento</td>
-                    <td>Fecha</td>
-                    <td>Destino / Procedencia</td>
+                    <td padding="10px">Movimiento</td>
+                    <td padding="10px">Fecha</td>
+                    <td padding="10px">Destino / Procedencia</td>
                 </tr>
                 {% for item in dataMovMig%}
                 <tr>
-                    <td text-align="center" height="35px">{{item.Tipo}}</td>
-                    <td text-align="center">{{item.Fecha}}</td>
-                    <td>{{item.DestinoProcedencia}}</td>
+                    <td text-align="center" padding="10px">{{item.Tipo}}</td>
+                    <td text-align="center" padding="10px">{{item.Fecha}}</td>
+                    <td padding="10px">{{item.DestinoProcedencia}}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -1001,16 +1012,16 @@
             <br></br><br></br><br></br>
             <table>
                 <tr>
-                    <td text-align="center" width="120px" height="35px">Cámara de Comercio</td>
-                    <td>{{info21}}</td>
+                    <td text-align="center" width="120px" padding="10px">Cámara de Comercio</td>
+                    <td padding="10px">{{info21}}</td>
                 </tr>
                 <tr>
-                    <td text-align="center" height="35px">Infocorp</td>
-                    <td>{{info22}}</td>
+                    <td text-align="center" padding="10px">Infocorp</td>
+                    <td padding="10px">{{info22}}</td>
                 </tr>
                 <tr>
-                    <td text-align="center" height="35px">SBS</td>
-                    <td>{{info23}}</td>
+                    <td text-align="center" padding="10px">SBS</td>
+                    <td padding="10px">{{info23}}</td>
                 </tr>
             </table>
             <br></br><br></br><br></br>
@@ -1026,9 +1037,5 @@
             </div>
             <br></br><br></br><br></br>
             <div border.color="black" padding="10px">{{rubro4.Complementaria}}</div>
-
         </dynamic-page>
-
-
-
     </pdf>

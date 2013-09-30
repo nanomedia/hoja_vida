@@ -17,7 +17,6 @@
                     <td>
                         <input type="text" disabled id="txt_apellidos" class="textbox" value="{{datos_personales.apellido}}">
                         <input type="hidden" name="txt_apellidos" value="{{datos_personales.apellido}}">
-                    
                     </td>
                 </tr>
                 <tr>
@@ -28,11 +27,6 @@
                     <td><label class="labelText">Fecha de Nacimiento:</label></td>
                     <td><input type="text" name="txt_fechaNac" id="txt_fechaNac" class="datepicker textbox txt_fechaNac"></td>
                 </tr>
-                <!--<tr>
-                    <td><label class="labelText">Foto:</label></td>
-                    <td><input type="file" name="file_foto" id="file_foto"></td>
-                </tr>-->
-
                 <tr>
                     <td><label class="labelText">Edad (a la fecha de Entrevista):</label></td>
                     <td><b><label id="lbledad">0</label></b>
@@ -43,7 +37,7 @@
                     <td>
                         <input type="text" disabled id="txt_dni"  class="textbox numeric" value="{{datos_personales.dni}}">
                         <input type="hidden" name="txt_dni" value="{{datos_personales.dni}}">
-                    
+
                     </td>
                 </tr>
                 <tr>
@@ -63,8 +57,18 @@
                         </div>
                     </td>
                 </tr>
-
             </table>
         </form>
+        <table width="65%" border="0" cellspacing="10px" align="center">
+            <tr>
+                <td><label class="labelText">Cargar Foto:</label></td>
+                <td>
+                    <form action="{{path('_uploadFoto')}}" method="POST" id="UploadPhoto" enctype="multipart/form-data"> 
+                        <input type="hidden" name="txt_dni" value="{{datos_personales.dni}}">
+                        <input type="file" name="foto" id="idfoto" />
+                    </form>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>

@@ -84,6 +84,7 @@ class Mantenimiento {
         $dper->setFechaNac($txt_fechaNac);
         $dper->setEdad($txt_edad);
         $dper->setDni($txt_dni);
+        $dper->setFoto($txt_dni.".jpg");
         $dper->setDiscapacidad($rad_discapacidad);
         if ($rad_discapacidad == "SI") {
             $dper->setCertDiscapacidad($txt_certDiscapacidad);

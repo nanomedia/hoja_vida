@@ -9,22 +9,24 @@ use proyectos\hojaVidaBundle\Util\Mantenimiento;
 use proyectos\hojaVidaBundle\Util\Actualizacion;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\File\UploadedFile; //upload de archivos pdf
+
 class MantenimientoController extends Controller {
 
     /**
      * @Route("/index/{dni}",name="_index")
      */
-    public function indexAction($dni){
-       
-        
+    public function indexAction($dni) {
+
+
         $cn = $this->getDoctrine()->getConnection("DB_CURRICULO");
-        $sql = "SELECT dni,nombre,apellido FROM s_usuario where dni='".$dni."'";
-        $query = $cn->prepare($sql); 
-        $query->execute(); 
-        $user = $query->fetch(); 
-               
+        $sql = "SELECT dni,nombre,apellido FROM s_usuario where dni='" . $dni . "'";
+        $query = $cn->prepare($sql);
+        $query->execute();
+        $user = $query->fetch();
+
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-        
+
         $query = $em->createQuery('SELECT u FROM hojaVidaBundle:Universidades u');
         $universidades = $query->getResult();
         $option = "<option value='0'>-ELEGIR-</option>";
@@ -39,8 +41,21 @@ class MantenimientoController extends Controller {
             $option2 .= "<option value='" . $value->getIdColegio() . "'>" . $value->getNombreColegio() . "</option>";
         }
 
-        $data = array("dni" => $dni, "univ" => $option, "col" => $option2,"datos_personales"=>$user);
+        $data = array("dni" => $dni, "univ" => $option, "col" => $option2, "datos_personales" => $user);
         return $this->render('hojaVidaBundle:principal:index.html.twig', $data);
+    }
+
+    /**
+     * @Route("/uploadFoto",name="_uploadFoto")
+     */
+    public function uploadFotoAction(Request $request) {
+
+        $uploadedFile = $request->files->get('foto');
+        $destino = __DIR__ ."/../../../../web/fotos";
+        $dni = $request->request->get('txt_dni');
+        $uploadedFile->move($destino, "$dni.jpg");
+        
+        return $this->redirect($this->generateUrl('_lista_postulantes'));
     }
 
     /**
@@ -55,12 +70,11 @@ class MantenimientoController extends Controller {
      */
     public function insertarDatosPersonales(Request $request) {
         $m = new Mantenimiento();
-        
+
         $res = $m->insertarDatosPersonales($this, $request);
         return new Response($res);
     }
-    
-    
+
     /**
      * @Route("/newDatosPostulante",name="_newDatosPostulante")
      */
