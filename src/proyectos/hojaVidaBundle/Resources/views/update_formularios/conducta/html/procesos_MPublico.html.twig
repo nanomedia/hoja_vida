@@ -12,7 +12,6 @@
         <table id="table_min_pub_tra_proc_disc" width="80%" class="table ui-widget ui-widget-content">
             <thead>
                 <tr class="ui-widget-header">
-                    <th>Institución </th>
                     <th>Expediente</th>
                     <th>Motivo</th>
                     <th>Estado</th>
@@ -25,12 +24,10 @@
 
 
                 <tr>
-                    <td><input type="hidden" name="tra_tipo_mpub[]" value="1">
-                        <textarea name="tra_ins_mpub[]" class="info_textarea">
-                        {{ddpFA.IdInstitucion}}
-                        </textarea>
-                    </td>
+                    
                     <td>
+                        <input type="hidden" name="tra_tipo_mpub[]" value="1">
+                        <input type="hidden" name="tra_ins_mpub[]" value="{{ddpFA.IdInstitucion}}">
                         <input type="hidden" name="tra_que_mpub[]">
                         <textarea type="text" name="tra_exp_mpub[]" class="info_textarea">{{ddpFA.Expediente}}</textarea>
                     </td>

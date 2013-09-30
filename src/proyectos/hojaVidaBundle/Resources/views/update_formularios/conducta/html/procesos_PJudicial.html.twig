@@ -15,7 +15,6 @@
             <thead>
 
                 <tr class="ui-widget-header">
-                    <th>Institución </th>
                     <th>Expediente</th>
                     <th>Motivo</th>
                     <th>Estado</th>
@@ -23,52 +22,37 @@
                 </tr>
             </thead>
             <tbody>
-			
-			
+                   {% for ddpFA in ConprocesoenPodJudA%}
+                    <tr>
+                        <td><input type="hidden" name="tra_tipo_pjud[]" value="1">
+                            <input hidden="hidden" name="tra_ins_pjud[]" value="{{ddpFA.IdInstitucion}}">
+                            <textarea name="tra_exp_pjud[]" class="info_textarea">{{ddpFA.Expediente}}</textarea>
+                            <input type="hidden" name="tra_que_pjud[]">
+                        </td>
+                        <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFA.Motivo}}</textarea></td>
+                        <td><textarea name="tra_est_pjud[]" class="info_textarea">{{ddpFA.EstadoProc}}</textarea></td>
+                        <td> {{ ddpFA.boton|raw('html')}} </td>
+                    </tr>
 
-                                {% for ddpFA in ConprocesoenPodJudA%}
-
-                <tr>
-                    <td><input type="hidden" name="tra_tipo_pjud[]" value="1">
-                        <textarea name="tra_ins_pjud[]" class="info_textarea">{{ddpFA.IdInstitucion}}</textarea>
-                    </td>
-                    <td>
-
-                        <textarea name="tra_exp_pjud[]" class="info_textarea">{{ddpFA.Expediente}}</textarea>
-                        <input type="hidden" name="tra_que_pjud[]">
-                    </td>
-                    <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFA.Motivo}}</textarea></td>
-                    <td><textarea name="tra_est_pjud[]" class="info_textarea">{{ddpFA.EstadoProc}}</textarea></td>
-                    <td> {{ ddpFA.boton|raw('html')}} </td>
-                </tr>
-								
                                 {% endfor %}
-								
-								
-
-			
-    
-				
-				
-
-            </tbody>
-        </table>
-        <br>
-        <label class="labelform">
-            2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
-        </label>Total:<br><br>
-        <div  class="add-icon" id="add_que_vis_inv" >Nueva fila</div><br><br>
-        <table id="table_que_vis_inv" width="80%" class="table ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header">
-                    <th>Nº</th>
-                    <th>Quejas, Visitas e Investigaciones</th>
-                    <th>Motivo</th>
-                    <th>Estado</th>
-                    <th width="50px"></th>
-                </tr>
-            </thead>
-            <tbody>
+                </tbody>
+            </table>
+            <br>
+            <label class="labelform">
+                2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
+            </label>Total:<br><br>
+            <div  class="add-icon" id="add_que_vis_inv" >Nueva fila</div><br><br>
+            <table id="table_que_vis_inv" width="80%" class="table ui-widget ui-widget-content">
+                <thead>
+                    <tr class="ui-widget-header">
+                        <th>Nº</th>
+                        <th>Quejas, Visitas e Investigaciones</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>
+                        <th width="50px"></th>
+                    </tr>
+                </thead>
+                <tbody>
 
 
 
@@ -78,167 +62,167 @@
 
 
 
-                <tr>
-                    <td align="center"><b>{{ddpFB.Num}}</b></td>
-                    <td>
-                        <input type="hidden" name="tra_tipo_pjud[]" value="2">
-                        <input type="hidden" name="tra_ins_pjud[]">
-                        <input type="hidden" name="tra_exp_pjud[]" >
-                        <textarea  type="hidden" name="tra_que_pjud[]" class="info_textarea">{{ddpFB.Quejas}}</textarea>
-                    </td>
-                    <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFB.Motivo}}</textarea></td>
-                    <td><textarea name="tra_est_pjud[]" class="info_textarea">{{ddpFB.EstadoProc}}</textarea></td>
-                      <td> {{ ddpFB.boton|raw('html')}} </td>
-                </tr>
+                    <tr>
+                        <td align="center"><b>{{ddpFB.Num}}</b></td>
+                        <td>
+                            <input type="hidden" name="tra_tipo_pjud[]" value="2">
+                            <input type="hidden" name="tra_ins_pjud[]">
+                            <input type="hidden" name="tra_exp_pjud[]" >
+                            <textarea  type="hidden" name="tra_que_pjud[]" class="info_textarea">{{ddpFB.Quejas}}</textarea>
+                        </td>
+                        <td><textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFB.Motivo}}</textarea></td>
+                        <td><textarea name="tra_est_pjud[]" class="info_textarea">{{ddpFB.EstadoProc}}</textarea></td>
+                        <td> {{ ddpFB.boton|raw('html')}} </td>
+                    </tr>
 
 
-								
+
                                 {% endfor %}
-								
-								
 
-            </tbody>
-        </table>
 
-        <br>
 
-        <label class="labelform">
-            3. INVESTIGACIONES PRELIMINARES:
-        </label><br><br>
-        <div  class="add-icon" id="add_invs_preliminares" >Nueva fila</div><br><br>
-        <table width="80%" id="table_invs_preliminares" class="table ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header">
-                    <th>Nº</th>
-                    <th>Motivo</th>
-                    <th>Estado</th>
-                    <th width="50px"></th>
-                </tr>
-            </thead>
-            <tbody>
+                </tbody>
+            </table>
+
+            <br>
+
+            <label class="labelform">
+                3. INVESTIGACIONES PRELIMINARES:
+            </label><br><br>
+            <div  class="add-icon" id="add_invs_preliminares" >Nueva fila</div><br><br>
+            <table width="80%" id="table_invs_preliminares" class="table ui-widget ui-widget-content">
+                <thead>
+                    <tr class="ui-widget-header">
+                        <th>Nº</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>
+                        <th width="50px"></th>
+                    </tr>
+                </thead>
+                <tbody>
 
 
                                 {% for ddpFC in ConprocesoenPodJudC%}  
 
 
-                <tr>
-                    <td><b>{{ddpFC.Num}}</b></td>
-                    <td>
-                        <input type="hidden" name="tra_tipo_pjud[]" value="3">
-                        <input type="hidden"name="tra_ins_pjud[]">
-                        <input type="hidden" name="tra_que_pjud[]">
-                        <input type="hidden" name="tra_exp_pjud[]">
-                        <textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFC.Motivo}}</textarea>
-                    </td>
-                    <td><textarea type="text" name="tra_est_pjud[]" class="info_textarea">{{ddpFC.EstadoProc}}</textarea></td>
-                    <td> {{ ddpFC.boton|raw('html')}} </td>
-                </tr>			
+                    <tr>
+                        <td><b>{{ddpFC.Num}}</b></td>
+                        <td>
+                            <input type="hidden" name="tra_tipo_pjud[]" value="3">
+                            <input type="hidden"name="tra_ins_pjud[]">
+                            <input type="hidden" name="tra_que_pjud[]">
+                            <input type="hidden" name="tra_exp_pjud[]">
+                            <textarea name="tra_mot_pjud[]" class="info_textarea">{{ddpFC.Motivo}}</textarea>
+                        </td>
+                        <td><textarea type="text" name="tra_est_pjud[]" class="info_textarea">{{ddpFC.EstadoProc}}</textarea></td>
+                        <td> {{ ddpFC.boton|raw('html')}} </td>
+                    </tr>			
                                 {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <b>CONCLUIDAS:</b>
-    <div style="padding: 13px 0 0 21px;">
-        <label class="labelform">
-            1. PROCESOS DISCIPLINARIOS:
-        </label><br><br>
-        <div  class="add-icon" id="add_proc_desciplinarios" >Nueva fila</div><br><br>
-        <table id="table_proc_desciplinarios" width="80%" class="table ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header">
-                    <th>Institución </th>
-                    <th>Expediente</th>
-                    <th>Motivo</th>
-                    <th>Estado</th>
-                    <th width="50px"></th>
+                </tbody>
+            </table>
+        </div>
+        <b>CONCLUIDAS:</b>
+        <div style="padding: 13px 0 0 21px;">
+            <label class="labelform">
+                1. PROCESOS DISCIPLINARIOS:
+            </label><br><br>
+            <div  class="add-icon" id="add_proc_desciplinarios" >Nueva fila</div><br><br>
+            <table id="table_proc_desciplinarios" width="80%" class="table ui-widget ui-widget-content">
+                <thead>
+                    <tr class="ui-widget-header">
+                        <th>Institución </th>
+                        <th>Expediente</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>
+                        <th width="50px"></th>
 
-                </tr>
-            </thead>
-            <tbody>
+                    </tr>
+                </thead>
+                <tbody>
                {% for ddpFD in ConprocesoenPodJudD%}  
- 
-                <tr>
-                    <td><input type="hidden" name="con_tipo_pjud[]" value="1">
-                        <textarea name="con_ins_pjud[]" class="info_textarea">{{ddpFD.IdInstitucion}}</textarea>
-                    </td>
-                    <td>
-                        <input type="hidden" name="con_que_pjud[]">
-                        <textarea name="con_exp_pjud[]" class="info_textarea">{{ddpFD.Expediente}}</textarea>
-                    </td>
-                    <td><textarea  name="con_mot_pjud[]" class="info_textarea">{{ddpFD.Motivo}}</textarea></td>
-                    <td><textarea  name="con_est_pjud[]" class="info_textarea">{{ddpFD.EstadoProc}}</textarea></td>
-                    <td>{{ddpFD.boton|raw('html')}}</td>
-                </tr>
+
+                        <tr>
+                            <td><input type="hidden" name="con_tipo_pjud[]" value="1">
+                                <textarea name="con_ins_pjud[]" class="info_textarea">{{ddpFD.IdInstitucion}}</textarea>
+                            </td>
+                            <td>
+                                <input type="hidden" name="con_que_pjud[]">
+                                <textarea name="con_exp_pjud[]" class="info_textarea">{{ddpFD.Expediente}}</textarea>
+                            </td>
+                            <td><textarea  name="con_mot_pjud[]" class="info_textarea">{{ddpFD.Motivo}}</textarea></td>
+                            <td><textarea  name="con_est_pjud[]" class="info_textarea">{{ddpFD.EstadoProc}}</textarea></td>
+                            <td>{{ddpFD.boton|raw('html')}}</td>
+                        </tr>
 		 {% endfor %}
 
-            </tbody>
-        </table>
-        <br>
-        <label class="labelform">
-            2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
-        </label>Total:<br><br>
-        <div  class="add-icon" id="add_que_vis_ocma" >Nueva fila</div><br><br>
-        <table id="table_que_vis_ocma"  width="80%" class="table ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header">
-                    <th>Nº</th>
-                    <th>Quejas, Visitas e Investigaciones</th>
-                    <th>Motivo</th>
-                    <th>Estado</th>
-                    <th width="50px"></th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                
+                    </tbody>
+                </table>
+                <br>
+                <label class="labelform">
+                    2. QUEJAS, VISITAS E INVESTIGACIONES ANTE LA OCMA / ODECMA
+                </label>Total:<br><br>
+                <div  class="add-icon" id="add_que_vis_ocma" >Nueva fila</div><br><br>
+                <table id="table_que_vis_ocma"  width="80%" class="table ui-widget ui-widget-content">
+                    <thead>
+                        <tr class="ui-widget-header">
+                            <th>Nº</th>
+                            <th>Quejas, Visitas e Investigaciones</th>
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                            <th width="50px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
                 {% for ddpFE in ConprocesoenPodJudE%}  
-                <tr>
-                    <td><b>{{ddpFE.Num}}</b></td>
-                    <td>
-                        <input type="hidden" name="con_tipo_pjud[]" value="2">
-                        <input type="hidden"name="con_ins_pjud[]">
-                        <input type="hidden" name="con_exp_pjud[]">
-                        <textarea name="con_que_pjud[]" class="info_textarea">{{ddpFE.Quejas}}</textarea></td>
-                    <td><textarea name="con_mot_pjud[]" class="info_textarea">{{ddpFE.Motivo}}</textarea></td>
-                    <td><textarea name="con_est_pjud[]" class="info_textarea">{{ddpFE.EstadoProc}}</textarea></td>
-                    <td>{{ddpFE.boton|raw('html')}}</td>
-                </tr>
+                        <tr>
+                            <td><b>{{ddpFE.Num}}</b></td>
+                            <td>
+                                <input type="hidden" name="con_tipo_pjud[]" value="2">
+                                <input type="hidden"name="con_ins_pjud[]">
+                                <input type="hidden" name="con_exp_pjud[]">
+                                <textarea name="con_que_pjud[]" class="info_textarea">{{ddpFE.Quejas}}</textarea></td>
+                            <td><textarea name="con_mot_pjud[]" class="info_textarea">{{ddpFE.Motivo}}</textarea></td>
+                            <td><textarea name="con_est_pjud[]" class="info_textarea">{{ddpFE.EstadoProc}}</textarea></td>
+                            <td>{{ddpFE.boton|raw('html')}}</td>
+                        </tr>
                 {% endfor %}
-                
 
-            </tbody>
-        </table><br>
 
-        <label class="labelform">
-            3. INVESTIGACIONES PRELIMINARES:
-        </label><br><br>
-        <div  class="add-icon" id="add_inv_preli">Nueva fila</div><br><br>
-        <table width="80%" id="table_inv_preli" class="table ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header">
-                    <th>Nº</th>
-                    <th>Motivo</th>
-                    <th>Estado</th>
-                    <th width="50px"></th>
-                </tr>
-            </thead>
-            <tbody>
-                
+                    </tbody>
+                </table><br>
+
+                <label class="labelform">
+                    3. INVESTIGACIONES PRELIMINARES:
+                </label><br><br>
+                <div  class="add-icon" id="add_inv_preli">Nueva fila</div><br><br>
+                <table width="80%" id="table_inv_preli" class="table ui-widget ui-widget-content">
+                    <thead>
+                        <tr class="ui-widget-header">
+                            <th>Nº</th>
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                            <th width="50px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
                 {% for ddpFF in ConprocesoenPodJudF%}  
-                <tr>
-                    <td><b>{{ddpFF.Num}}</b></td>
-                    <td>
-                        <input type="hidden" name="con_tipo_pjud[]" value="3">
-                        <input type="hidden"name="con_ins_pjud[]">
-                        <input type="hidden" name="con_que_pjud[]">
-                        <input type="hidden" name="con_exp_pjud[]">
-                        <textarea  name="con_mot_pjud[]" class="info_textarea" >{{ddpFF.Motivo}}</textarea></td>
-                    <td><textarea  name="con_est_pjud[]" class="info_textarea">{{ddpFF.EstadoProc}}</textarea></td>
-                    <td>{{ddpFF.boton|raw('html')}}</td>
-                </tr>
+                        <tr>
+                            <td><b>{{ddpFF.Num}}</b></td>
+                            <td>
+                                <input type="hidden" name="con_tipo_pjud[]" value="3">
+                                <input type="hidden"name="con_ins_pjud[]">
+                                <input type="hidden" name="con_que_pjud[]">
+                                <input type="hidden" name="con_exp_pjud[]">
+                                <textarea  name="con_mot_pjud[]" class="info_textarea" >{{ddpFF.Motivo}}</textarea></td>
+                            <td><textarea  name="con_est_pjud[]" class="info_textarea">{{ddpFF.EstadoProc}}</textarea></td>
+                            <td>{{ddpFF.boton|raw('html')}}</td>
+                        </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                    </tbody>
+                </table>
+            </div>
 
-</div>
+        </div>
