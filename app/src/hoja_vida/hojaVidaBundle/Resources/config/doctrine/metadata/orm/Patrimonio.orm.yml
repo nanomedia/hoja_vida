@@ -16,8 +16,9 @@ Patrimonio:
             nullable: true
             column: TIPO_PATRIMONIO
         tipoBien:
-            type: integer
-            unsigned: false
+            type: string
+            length: 350
+            fixed: false
             nullable: true
             column: TIPO_BIEN
         ubicacion:

@@ -29,7 +29,7 @@
                                 {% for ddpFA in ConprocesoenPodJudA%}
 
                 <tr>
-                    <td><input type="hidden" name="tra_tipo_pjud[]" value="">
+                    <td><input type="hidden" name="tra_tipo_pjud[]" value="1">
                         <textarea name="tra_ins_pjud[]" class="info_textarea">{{ddpFA.IdInstitucion}}</textarea>
                     </td>
                     <td>
@@ -79,7 +79,7 @@
 
 
                 <tr>
-                    <td align="center"><b>1</b></td>
+                    <td align="center"><b>{{ddpFB.Num}}</b></td>
                     <td>
                         <input type="hidden" name="tra_tipo_pjud[]" value="2">
                         <input type="hidden" name="tra_ins_pjud[]">
@@ -122,7 +122,7 @@
 
 
                 <tr>
-                    <td><b>1</b></td>
+                    <td><b>{{ddpFC.Num}}</b></td>
                     <td>
                         <input type="hidden" name="tra_tipo_pjud[]" value="3">
                         <input type="hidden"name="tra_ins_pjud[]">
@@ -167,7 +167,7 @@
                     </td>
                     <td><textarea  name="con_mot_pjud[]" class="info_textarea">{{ddpFD.Motivo}}</textarea></td>
                     <td><textarea  name="con_est_pjud[]" class="info_textarea">{{ddpFD.EstadoProc}}</textarea></td>
-                    <td></td>
+                    <td>{{ddpFD.boton|raw('html')}}</td>
                 </tr>
 		 {% endfor %}
 
@@ -193,7 +193,7 @@
                 
                 {% for ddpFE in ConprocesoenPodJudE%}  
                 <tr>
-                    <td><b>1</b></td>
+                    <td><b>{{ddpFE.Num}}</b></td>
                     <td>
                         <input type="hidden" name="con_tipo_pjud[]" value="2">
                         <input type="hidden"name="con_ins_pjud[]">
@@ -201,7 +201,7 @@
                         <textarea name="con_que_pjud[]" class="info_textarea">{{ddpFE.Quejas}}</textarea></td>
                     <td><textarea name="con_mot_pjud[]" class="info_textarea">{{ddpFE.Motivo}}</textarea></td>
                     <td><textarea name="con_est_pjud[]" class="info_textarea">{{ddpFE.EstadoProc}}</textarea></td>
-                    <td></td>
+                    <td>{{ddpFE.boton|raw('html')}}</td>
                 </tr>
                 {% endfor %}
                 
@@ -213,7 +213,7 @@
             3. INVESTIGACIONES PRELIMINARES:
         </label><br><br>
         <div  class="add-icon" id="add_inv_preli">Nueva fila</div><br><br>
-        <table width="80%" id="table_inv_preli"class="table ui-widget ui-widget-content">
+        <table width="80%" id="table_inv_preli" class="table ui-widget ui-widget-content">
             <thead>
                 <tr class="ui-widget-header">
                     <th>Nº</th>
@@ -226,7 +226,7 @@
                 
                 {% for ddpFF in ConprocesoenPodJudF%}  
                 <tr>
-                    <td><b>1</b></td>
+                    <td><b>{{ddpFF.Num}}</b></td>
                     <td>
                         <input type="hidden" name="con_tipo_pjud[]" value="3">
                         <input type="hidden"name="con_ins_pjud[]">
@@ -234,7 +234,7 @@
                         <input type="hidden" name="con_exp_pjud[]">
                         <textarea  name="con_mot_pjud[]" class="info_textarea" >{{ddpFF.Motivo}}</textarea></td>
                     <td><textarea  name="con_est_pjud[]" class="info_textarea">{{ddpFF.EstadoProc}}</textarea></td>
-                    <td></td>
+                    <td>{{ddpFF.boton|raw('html')}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

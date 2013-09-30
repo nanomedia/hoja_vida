@@ -1,0 +1,58 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TdCurriculoEvaluacion
+ *
+ * @ORM\Table(name="td_curriculo_evaluacion")
+ * @ORM\Entity
+ */
+class TdCurriculoEvaluacion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_evaluacion", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idEvaluacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usuario", type="string", length=50, nullable=false)
+     */
+    private $usuario;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="inicio_evaluacion", type="datetime", nullable=true)
+     */
+    private $inicioEvaluacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fin_evaluacion", type="datetime", nullable=true)
+     */
+    private $finEvaluacion;
+
+    /**
+     * @var \TmCurriculo
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="TmCurriculo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_curriculo", referencedColumnName="id_curriculo")
+     * })
+     */
+    private $idCurriculo;
+
+
+}

@@ -29,9 +29,9 @@ class ProcesosAdministrativos
     private $tipo;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="ID_INSTITUCION", type="integer", nullable=true)
+     * @ORM\Column(name="ID_INSTITUCION", type="string", length=350, nullable=true)
      */
     private $idInstitucion;
 
@@ -139,7 +139,7 @@ class ProcesosAdministrativos
     /**
      * Set idInstitucion
      *
-     * @param integer $idInstitucion
+     * @param string $idInstitucion
      * @return ProcesosAdministrativos
      */
     public function setIdInstitucion($idInstitucion)
@@ -152,7 +152,7 @@ class ProcesosAdministrativos
     /**
      * Get idInstitucion
      *
-     * @return integer 
+     * @return string 
      */
     public function getIdInstitucion()
     {

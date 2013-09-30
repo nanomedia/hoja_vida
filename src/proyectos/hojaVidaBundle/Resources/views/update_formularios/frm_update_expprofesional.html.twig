@@ -345,8 +345,6 @@
                 //magistrado_ratificado
                 $("#cboMagRatificado").val("{{MagistradoRatificado.respuesta1}}");
                 $('input:radio[name=rad-resp2][value="{{MagistradoRatificado.respuesta2}}"]').attr('checked', true);
-                $("#txt_resolucion").val("{{MagistradoRatificado.resolucion}}");
-                $("#txt_fec_res").val("{{MagistradoRatificado.fechaRes}}");
                 $("#det_mag_rat").val("{{MagistradoRatificado.respuesta3}}");
 
                 $("#cboMagRatificado").trigger("change");
@@ -469,7 +467,9 @@
                                             <input type="text" name="txt_resp_3" class="textbox" id="det_mag_rat">
 
                                             <div id="opcn2">
-                                                Resolución N° <input type="text" name="txt_resolucion" size="5"> de fecha <input name="txt_fec_res"type="text" class="datepicker">
+                                                Resolución N°
+                                                <input type="text" name="txt_resolucion" size="5" value="{{MagistradoRatificado.resolucion}}"> de fecha
+                                                <input name="txt_fec_res"type="text" class="datepicker" value="{{MagistradoRatificado.fechaRes}}">
                                             </div>
                                         </td>
                                     </tr>

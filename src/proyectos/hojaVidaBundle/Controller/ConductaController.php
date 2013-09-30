@@ -35,7 +35,6 @@ class ConductaController extends Controller {
             $daB[$i]["descripcion"] = $dp->getDescripcion();
             $i++;
         }
-
         $quey = $em->createQuery('SELECT ddp FROM hojaVidaBundle:Antecedentes ddp where ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dante_repC = $quey->getResult();
         $daC = array();
@@ -44,9 +43,6 @@ class ConductaController extends Controller {
             $daC[$i]["descripcion"] = $dp->getDescripcion();
             $i++;
         }
-
-
-
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 
         $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
@@ -114,12 +110,6 @@ class ConductaController extends Controller {
             $dataC[$iC]["boton"] = $boton3;
             $iC++;
         }
-
-
-
-
-
-
         $queryD = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosAdministrativos ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . 'and ddp.estadoAudt=1');
         $dpostul_repD = $queryD->getResult();
 //
@@ -193,8 +183,6 @@ class ConductaController extends Controller {
 
 // $dataF[$iF]["Expediente"] = $dpF->getExpediente();			
 //var_dump($dpostul_repF);
-
-
 
         $queryFA = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=1 and  ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFA = $queryFA->getResult();
@@ -271,7 +259,9 @@ class ConductaController extends Controller {
         $iFD = 0;
         foreach ($dpostul_repFD as $dpFD) {
 
-            $boton3 = '<input class="remove_min_pub_tra_proc_disc menos" type="button" value="--">';
+//            $boton3 = '<input class="remove_min_pub_tra_proc_disc menos" type="button" value="--">';
+            $boton3 = '<input class="remove_proc_desciplinarios menos" type="button" value="--">';
+
             if ($iFD == 0) {
                 $boton3 = "";
             }
@@ -291,7 +281,7 @@ class ConductaController extends Controller {
         $dataFE = array();
         $iFE = 0;
         foreach ($dpostul_repFE as $dpFE) {
-            $boton3 = '<input class="remove_min_pub_tra_proc_disc menos" type="button" value="--">';
+            $boton3 = '<input class="remove_que_vis_ocma menos" type="button" value="-">';
             if ($iFE == 0) {
                 $boton3 = "";
             }
@@ -303,7 +293,7 @@ class ConductaController extends Controller {
             $dataFE[$iFE]["boton"] = $boton3;
             $iFE++;
         }
-         var_dump($dataFE);
+
 
         $queryFF = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=2 and  ddp.tipo=3 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFF = $queryFF->getResult();
@@ -312,7 +302,7 @@ class ConductaController extends Controller {
         $iFF = 0;
         foreach ($dpostul_repFF as $dpFF) {
 
-            $boton3 = '<input class="remove_min_pub_tra_proc_disc menos" type="button" value="--">';
+            $boton3 = '<input class="remove_inv_preli menos" type="button" value="-">';
             if ($iFF == 0) {
                 $boton3 = "";
             }
@@ -378,7 +368,7 @@ class ConductaController extends Controller {
 //
         $dataFC2 = array();
         $iFC2 = 0;
-        foreach ($dpostul_repFC as $dpFC2) {
+        foreach ($dpostul_repFC2 as $dpFC2) {
 
             $boton3 = '<input class="remove_min_pub_tra_inv_prel menos" type="button" value="-">';
             if ($iFC2 == 0) {
@@ -391,11 +381,6 @@ class ConductaController extends Controller {
             $dataFC2[$iFC2]["boton"] = $boton3;
             $iFC2++;
         }
-
-
-
-
-
 
         $queryFD2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=1 and ddp.estado=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFD2 = $queryFD2->getResult();
@@ -418,6 +403,7 @@ class ConductaController extends Controller {
             $iFD2++;
         }
 
+//gh
 
         $queryFE2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=2 and ddp.estado=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFE2 = $queryFE2->getResult();
@@ -478,66 +464,162 @@ class ConductaController extends Controller {
         $codigo = $request->request->get("id_pos");
         $em = $this->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
 
-
-        $queryA = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
-        $dpostul_repA = $queryA->getResult();
-        foreach ($dpostul_repA as $ddp) {
+        $quey = $em->createQuery('SELECT ddp FROM hojaVidaBundle:Antecedentes ddp where ddp.tipo=0 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dante_repA = $quey->getResult();
+        foreach ($dante_repA as $ddp) {
             $ddp->setEstadoAudt(2);
             $em->persist($ddp);
             $em->flush();
         }
 
-
-        $queryB = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
-        $dpostul_repB = $queryB->getResult();
-        foreach ($dpostul_repB as $ddpB) {
-            $ddpB->setEstadoAudt(2);
-            $em->persist($ddpB);
+        $quey = $em->createQuery('SELECT ddp FROM hojaVidaBundle:Antecedentes ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dante_repB = $quey->getResult();
+        foreach ($dante_repB as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
             $em->flush();
         }
 
+        $quey = $em->createQuery('SELECT ddp FROM hojaVidaBundle:Antecedentes ddp where ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dante_repC = $quey->getResult();
+        foreach ($dante_repC as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
 
+        $query = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_rep = $query->getResult();
+        foreach ($dpostul_rep as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        $queryB = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repB = $queryB->getResult();
+
+        foreach ($dpostul_repB as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
         $queryC = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosJudiciales ddp where ddp.tipo=3 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repC = $queryC->getResult();
-        foreach ($dpostul_repC as $ddpC) {
-            $ddpC->setEstadoAudt(2);
-            $em->persist($ddpC);
+        foreach ($dpostul_repC as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
             $em->flush();
         }
 
         $queryD = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosAdministrativos ddp where ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . 'and ddp.estadoAudt=1');
         $dpostul_repD = $queryD->getResult();
-        foreach ($dpostul_repD as $ddpD) {
-            $ddpD->setEstadoAudt(2);
-            $em->persist($ddpD);
+        foreach ($dpostul_repD as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
             $em->flush();
         }
 
         $queryE = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosAdministrativos ddp where ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repE = $queryE->getResult();
-        foreach ($dpostul_repE as $ddpE) {
-            $ddpE->setEstadoAudt(2);
-            $em->persist($ddpE);
+        foreach ($dpostul_repE as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
             $em->flush();
         }
 
         $queryF = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosAdministrativos ddp where ddp.tipo=3 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repF = $queryF->getResult();
-        foreach ($dpostul_repF as $ddpF) {
-            $ddpF->setEstadoAudt(2);
-            $em->persist($ddpF);
+        foreach ($dpostul_repF as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
             $em->flush();
         }
-
 
         $queryFA = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=1 and  ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
         $dpostul_repFA = $queryFA->getResult();
-        foreach ($dpostul_repFA as $ddpFA) {
-            $ddpFA->setEstadoAudt(2);
-            $em->persist($ddpFA);
+        foreach ($dpostul_repFA as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
             $em->flush();
         }
 
+        $queryFB = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=1 and  ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFB = $queryFB->getResult();
+        foreach ($dpostul_repFB as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        $queryFC = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=1 and  ddp.tipo=3 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFC = $queryFC->getResult();
+        foreach ($dpostul_repFC as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+
+        $queryFD = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=2 and  ddp.tipo=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFD = $queryFD->getResult();
+        foreach ($dpostul_repFD as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        
+        $queryFE = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=2 and  ddp.tipo=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFE = $queryFE->getResult();
+        foreach ($dpostul_repFE as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        $queryFF = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnPoderJud ddp where ddp.estado=2 and  ddp.tipo=3 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFF = $queryFF->getResult();
+        foreach ($dpostul_repFF as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        $queryFA2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=1 and ddp.estado=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFA2 = $queryFA2->getResult();
+        
+        foreach ($dpostul_repFA2 as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        
+        $queryFB2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=2 and ddp.estado=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFB2 = $queryFB2->getResult();
+        foreach ($dpostul_repFB2 as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        
+        $queryFC2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=3 and ddp.estado=1 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFC2 = $queryFC2->getResult();
+        foreach ($dpostul_repFC2 as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        
+        $queryFD2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=1 and ddp.estado=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFD2 = $queryFD2->getResult();
+        foreach ($dpostul_repFD2 as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        $queryFE2 = $em->createQuery('SELECT ddp FROM hojaVidaBundle:ProcesosEnMinPub ddp where ddp.tipo=2 and ddp.estado=2 and ddp.pkDatPostulante=' . $codigo . ' and ddp.estadoAudt=1');
+        $dpostul_repFE2 = $queryFE2->getResult();
+        foreach ($dpostul_repFE2 as $ddp) {
+            $ddp->setEstadoAudt(2);
+            $em->persist($ddp);
+            $em->flush();
+        }
+        
         $m = new Mantenimiento();
         $m->insertarConducta($this, $request);
         return $this->redirect($this->generateUrl('_frm_update_conducta', array('codigo' => $codigo)));

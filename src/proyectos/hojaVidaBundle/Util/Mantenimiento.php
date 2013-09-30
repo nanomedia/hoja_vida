@@ -41,13 +41,14 @@ class Mantenimiento {
     public function insertarDatosPersonales($c, $request) {
 
         $em = $c->getDoctrine()->getEntityManager("ENTITY_DB_HOJA_VIDA");
-
+//        $id_cod = $request->request->get("id_cod");
         $txt_nombres = $request->request->get('txt_nombres');
         $txt_apellidos = $request->request->get('txt_apellidos');
         $txt_lugarNac = $request->request->get('txt_lugarNac');
         $txt_fechaNac = $request->request->get('txt_fechaNac');
         $txt_edad = $request->request->get('txt_edad');
         $txt_dni = $request->request->get('txt_dni');
+        $id_pos = $request->request->get("id_pos");
         $hoy = new DateTime();
         $ip = $request->getClientIp();
         $member = $c->get('security.context')->getToken()->getUser();
@@ -76,6 +77,7 @@ class Mantenimiento {
         $txt_certDiscapacidad = $request->request->get('txt_certDiscapacidad');
 
         $dper = new DatosPersonales();
+        $dper->setPkDatPostulante($id_pos);
         $dper->setNombres($txt_nombres);
         $dper->setApellidos($txt_apellidos);
         $dper->setLugarNac($txt_lugarNac);

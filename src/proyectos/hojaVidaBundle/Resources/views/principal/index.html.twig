@@ -25,320 +25,317 @@
 
 
 
-                function cargando() {
-                    $("#boton-guardar").css("display", "none");
-                    $("#cargando").css("display", "block");
-                    var val = 0;
-                    var interval = setInterval(function() {
-                        val++;
-                        $('#prog').progressbar({value: val});
-                        $("#prog_per").text(val + "%");
-                        if (val === 100) {
-                            clearInterval(interval);
-                            $("#cargando").css("display", "none");
-                            $("#boton-guardar").css("display", "block");
-                        }
-                    }, 25);
+        function cargando() {
+            $("#boton-guardar").css("display", "none");
+            $("#cargando").css("display", "block");
+            var val = 0;
+            var interval = setInterval(function() {
+                val++;
+                $('#prog').progressbar({value: val});
+                $("#prog_per").text(val + "%");
+                if (val === 100) {
+                    clearInterval(interval);
+                    $("#cargando").css("display", "none");
+                    $("#boton-guardar").css("display", "block");
                 }
+            }, 25);
+        }
 
 
 
 
-                $("#guardar_frm").click(function() {
-                    /* var val=true;
-                     $(".obligate").each(function(){
-                     if($(this).val()===""){
-                     val=false;
-                     return false;   
-                     }
-                     
-                     });
-                     alert(val+"d");*/
+        $("#guardar_frm").click(function() {
+            /* var val=true;
+             $(".obligate").each(function(){
+             if($(this).val()===""){
+             val=false;
+             return false;   
+             }
+             
+             });
+             alert(val+"d");*/
 
-                    frm_como_postulante();
-                });
-
-
-                function frm_como_postulante() {
-                    var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosPostulante')}}",
-                        data: form,
-                        success: function(e) {
-                            $("#id_pos").val(e);
-                            $("#guardar_frm").attr("rel", "frm-datos-academicos");
-
-                            frm_datos_personales();
-                            
-                            $("#guardar_frm").button({disabled: true});
-
-                        }
-                    });
-                }
-
-                function frm_datos_personales() {
-                    var form = $("#frm-datos-personales").serialize();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosPersonales')}}",
-                        data: form,
-                        success: function(e) {
-
-                           frm_exp_profesional();
-                           
-
-                        }
-
-                    });
-                }
-
-                function frm_exp_profesional() {
-
-                    var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newExpProfesional')}}",
-                        data: form,
-                        success: function(e) {
-                             frm_datos_academicos();
-                           
-                           
-
-                        }
-
-                    });
-                }
-                function frm_datos_academicos() {
-
-                    var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newDatosAcademicos')}}",
-                        data: form,
-                        success: function(e) {
-
-                            frm_conducta();
-                           
+            frm_como_postulante();
+        });
 
 
-                        }
+        function frm_como_postulante() {
+            var form = $("#frm-como-postulante").serialize() + "&id_cod=" + $("#id_cod").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newDatosPostulante')}}",
+                data: form,
+                success: function(e) {
+                    $("#id_pos").val(e);
+                    $("#guardar_frm").attr("rel", "frm-datos-academicos");
 
-                    });
-                }
-                function frm_conducta() {
-                    var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_newConducta')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_info_jue_fis();
-                           
-                        }
+                    frm_datos_personales();
 
-                    });
+                    $("#guardar_frm").button({disabled: true});
 
                 }
+            });
+        }
 
-
-                function frm_info_jue_fis() {
-                    var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_infojuefis')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_direc_proc();
-                            
-                        }
-                    });
+        function frm_datos_personales() {
+            var form = $("#frm-datos-personales").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newDatosPersonales')}}",
+                data: form,
+                success: function(e) {
+                    frm_exp_profesional();
                 }
-                function frm_direc_proc() {
-                    var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_direcproc')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_info_colegio();
-                           
-
-                        }
-                    });
-                }
-                function frm_info_colegio() {
-                    var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_infocolegio')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_info_patrimonial();
-                            
-
-                        }
-                    });
-                }
-                function frm_info_patrimonial() {
-                    var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_info_patrimonial')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_mov_migratorio();
-                           
-
-
-                        }
-                    });
-                }
-                function frm_mov_migratorio() {
-                    var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_mov_migratorio')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_info_camara();
-                           
-
-                        }
-                    });
-                }
-                function frm_info_camara() {
-                    var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_info_camara')}}",
-                        data: form,
-                        success: function(e) {
-                            frm_info_registro();
-
-                        }
-                    });
-                }
-
-                function frm_info_registro() {
-                    var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
-                    cargando();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{path('_info_registro')}}",
-                        data: form,
-                        success: function(e) {
-                            //location.href="{{path('_lista_postulantes')}}";
-                        }
-                    });
-                }
-
-                var num_infopat1 = ($("#tbody_infopat1 tr") - 1);
-                $("#add_infopat1").click(function() {
-                    num_infopat1++;
-                    add_infopat1();
-                    $(".menos").button();
-
-                });
-                $("#table_infopat1").delegate(".remove_infopat1", "click", function() {
-                    if (num_infopat1 > 0) {
-                        var row_position = ($(".remove_infopat1").index($(this)) + 1);
-                        $("#tbody_infopat1 tr").eq(row_position).remove();
-                        num_infopat1--;
-
-                    }
-                });
-
-                function add_infopat1() {
-                    var new_row = '<tr>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input class="remove_infopat1 menos" type="button" value="-"></td>';
-                    new_row += '</tr>';
-
-                    $("#tbody_infopat1").append(new_row);
-
-                }
-                
-                
-                
-                  var num_infopat2 = ($("#tbody_infopat2 tr") - 1);
-                $("#add_infopat2").click(function() {
-                    num_infopat2++;
-                    add_infopat2();
-                    $(".menos").button();
-
-                });
-                $("#table_infopat2").delegate(".remove_infopat2", "click", function() {
-                    if (num_infopat2 > 0) {
-                        var row_position = ($(".remove_infopat2").index($(this)) + 1);
-                        $("#tbody_infopat2 tr").eq(row_position).remove();
-                        num_infopat2--;
-
-                    }
-                });
-
-                function add_infopat2() {
-                    var new_row = '<tr>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input type="text" class="row-edit"></td>';
-                    new_row += '<td><input class="remove_infopat1 menos" type="button" value="-"></td>';
-                    new_row += '</tr>';
-
-                    $("#tbody_infopat2").append(new_row);
-
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             });
+        }
+
+        function frm_exp_profesional() {
+
+            var form = $("#frm-exp-profesional").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newExpProfesional')}}",
+                data: form,
+                success: function(e) {
+                    frm_datos_academicos();
+
+
+
+                }
+
+            });
+        }
+        function frm_datos_academicos() {
+
+            var form = $("#frm-datos-academicos").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newDatosAcademicos')}}",
+                data: form,
+                success: function(e) {
+
+                    frm_conducta();
+
+
+
+                }
+
+            });
+        }
+        function frm_conducta() {
+            var form = $("#frm-conducta").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_newConducta')}}",
+                data: form,
+                success: function(e) {
+                    frm_info_jue_fis();
+
+                }
+
+            });
+
+        }
+
+
+        function frm_info_jue_fis() {
+            var form = $("#frm_info_jue_fis").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_infojuefis')}}",
+                data: form,
+                success: function(e) {
+                    frm_direc_proc();
+
+                }
+            });
+        }
+        function frm_direc_proc() {
+            var form = $("#frm_direc_proc").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_direcproc')}}",
+                data: form,
+                success: function(e) {
+                    frm_info_colegio();
+
+
+                }
+            });
+        }
+        function frm_info_colegio() {
+            var form = $("#frm_info_colegio").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_infocolegio')}}",
+                data: form,
+                success: function(e) {
+                    frm_info_patrimonial();
+
+
+                }
+            });
+        }
+        function frm_info_patrimonial() {
+            var form = $("#frm_info_patrimonial").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_info_patrimonial')}}",
+                data: form,
+                success: function(e) {
+                    frm_mov_migratorio();
+
+
+
+                }
+            });
+        }
+        function frm_mov_migratorio() {
+            var form = $("#frm_mov_migratorio").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_mov_migratorio')}}",
+                data: form,
+                success: function(e) {
+                    frm_info_camara();
+
+
+                }
+            });
+        }
+        function frm_info_camara() {
+            var form = $("#frm_info_camara").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_info_camara')}}",
+                data: form,
+                success: function(e) {
+                    frm_info_registro();
+
+                }
+            });
+        }
+
+        function frm_info_registro() {
+            var form = $("#frm_info_registro").serialize() + "&id_pos=" + $("#id_pos").val();
+            cargando();
+            $.ajax({
+                type: "POST",
+                url: "{{path('_info_registro')}}",
+                data: form,
+                success: function(e) {
+                    location.href="{{path('_lista_postulantes')}}";
+                }
+            });
+        }
+
+        var num_infopat1 = ($("#tbody_infopat1 tr") - 1);
+        $("#add_infopat1").click(function() {
+            num_infopat1++;
+            add_infopat1();
+            $(".menos").button();
+
+        });
+        $("#table_infopat1").delegate(".remove_infopat1", "click", function() {
+            if (num_infopat1 > 0) {
+                var row_position = ($(".remove_infopat1").index($(this)) + 1);
+                $("#tbody_infopat1 tr").eq(row_position).remove();
+                num_infopat1--;
+
+            }
+        });
+
+        function add_infopat1() {
+            var new_row = '<tr>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input class="remove_infopat1 menos" type="button" value="-"></td>';
+            new_row += '</tr>';
+
+            $("#tbody_infopat1").append(new_row);
+
+        }
+
+
+
+        var num_infopat2 = ($("#tbody_infopat2 tr") - 1);
+        $("#add_infopat2").click(function() {
+            num_infopat2++;
+            add_infopat2();
+            $(".menos").button();
+
+        });
+        $("#table_infopat2").delegate(".remove_infopat2", "click", function() {
+            if (num_infopat2 > 0) {
+                var row_position = ($(".remove_infopat2").index($(this)) + 1);
+                $("#tbody_infopat2 tr").eq(row_position).remove();
+                num_infopat2--;
+
+            }
+        });
+
+        function add_infopat2() {
+            var new_row = '<tr>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input type="text" class="row-edit"></td>';
+            new_row += '<td><input class="remove_infopat1 menos" type="button" value="-"></td>';
+            new_row += '</tr>';
+
+            $("#tbody_infopat2").append(new_row);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
 
 
     </script>

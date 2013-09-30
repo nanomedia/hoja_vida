@@ -1,0 +1,89 @@
+TmItem:
+    type: entity
+    table: tm_item
+    fields:
+        idItem:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_item
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        puntaje:
+            type: decimal
+            nullable: true
+        puntajeMaximo:
+            type: decimal
+            nullable: true
+            column: puntaje_maximo
+        formato:
+            type: string
+            length: 1
+            fixed: false
+            nullable: true
+        flag:
+            type: integer
+            unsigned: false
+            nullable: true
+        flagUpload:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: flag_upload
+        fff:
+            type: integer
+            unsigned: false
+            nullable: true
+        muestraReporte:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: muestra_reporte
+        flagCalculofecha:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: flag_calculofecha
+    manyToMany:
+        idCampo:
+            targetEntity: TdCampos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idItem
+            joinTable:
+                name: td_item_campos
+                joinColumns:
+                    -
+                        name: id_item
+                        referencedColumnName: id_item
+                inverseJoinColumns:
+                    -
+                        name: id_campo
+                        referencedColumnName: id_campo
+            orderBy: null
+    manyToOne:
+        idItemPadre:
+            targetEntity: TmItem
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_item_padre:
+                    referencedColumnName: id_item
+            orphanRemoval: false
+        idTipoCargo:
+            targetEntity: TrTipoCargo
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo_cargo:
+                    referencedColumnName: id_tipo_cargo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

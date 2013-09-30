@@ -21,8 +21,9 @@ ProcesosEnMinPub:
             nullable: true
             column: TIPO
         idInstitucion:
-            type: integer
-            unsigned: false
+            type: string
+            length: 350
+            fixed: false
             nullable: true
             column: ID_INSTITUCION
         expediente:

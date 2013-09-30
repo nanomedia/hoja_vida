@@ -1,0 +1,185 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TdCurriculoItem
+ *
+ * @ORM\Table(name="td_curriculo_item")
+ * @ORM\Entity
+ */
+class TdCurriculoItem
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_curriculo_item", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCurriculoItem;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_auditoria", type="datetime", nullable=true)
+     */
+    private $fechaAuditoria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string", length=10, nullable=true)
+     */
+    private $extension;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_anulacion", type="datetime", nullable=true)
+     */
+    private $fechaAnulacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=1, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="evaluacion1", type="decimal", nullable=false)
+     */
+    private $evaluacion1;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="evaluacion2", type="decimal", nullable=false)
+     */
+    private $evaluacion2;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="consensuado", type="decimal", nullable=false)
+     */
+    private $consensuado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag_eval", type="integer", nullable=false)
+     */
+    private $flagEval;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag_eval2", type="integer", nullable=false)
+     */
+    private $flagEval2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="evaluado1", type="integer", nullable=false)
+     */
+    private $evaluado1;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="evaluado2", type="integer", nullable=false)
+     */
+    private $evaluado2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="foja", type="string", length=50, nullable=true)
+     */
+    private $foja;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="string", length=500, nullable=true)
+     */
+    private $observacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nuevo_item", type="integer", nullable=true)
+     */
+    private $nuevoItem;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="puntaje_reporte", type="decimal", nullable=true)
+     */
+    private $puntajeReporte;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="evaluado_aux", type="integer", nullable=false)
+     */
+    private $evaluadoAux;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag_eval_aux", type="integer", nullable=false)
+     */
+    private $flagEvalAux;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="puntaje_aux", type="decimal", nullable=false)
+     */
+    private $puntajeAux;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="foja2", type="string", length=50, nullable=true)
+     */
+    private $foja2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion2", type="string", length=255, nullable=true)
+     */
+    private $observacion2;
+
+    /**
+     * @var \TmCurriculo
+     *
+     * @ORM\ManyToOne(targetEntity="TmCurriculo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_curriculo", referencedColumnName="id_curriculo")
+     * })
+     */
+    private $idCurriculo;
+
+    /**
+     * @var \TmItem
+     *
+     * @ORM\ManyToOne(targetEntity="TmItem")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_item", referencedColumnName="id_item")
+     * })
+     */
+    private $idItem;
+
+
+}

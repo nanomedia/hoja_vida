@@ -21,20 +21,20 @@
 
 
                                 {% for ddp in ConprocesojudicialesA%}  
-								<tr>
-									<td><input name="hd_tipo_jud[]" type="hidden" value="1">
-										<textarea name="txt_exp_con[]" class="info_textarea">{{ddp.Expediente}}</textarea></td>
-									<td><textarea name="txt_exp_org_con[]" class="info_textarea">{{ddp.Organo}}</textarea></td>
-									<td><textarea name="txt_dem_agre_con[]" class="info_textarea">{{ddp.Demandadoagresor}}</textarea></td>
-									<td><textarea name="txt_materia_con[]" class="info_textarea">{{ddp.Materia}}</textarea></td>
-									<td><textarea name="txt_estado_con[]" class="info_textarea">{{ddp.Estado}}</textarea></td>
-                                                                       
-                                                                        <td>{{ddp.boton|raw('html')}}</td>
-								</tr>
-                                {% endfor %}
-								
+            <tr>
+                <td><input name="hd_tipo_jud[]" type="hidden" value="1">
+                    <textarea name="txt_exp_con[]" class="info_textarea">{{ddp.Expediente}}</textarea></td>
+                <td><textarea name="txt_exp_org_con[]" class="info_textarea">{{ddp.Organo}}</textarea></td>
+                <td><textarea name="txt_dem_agre_con[]" class="info_textarea">{{ddp.Demandadoagresor}}</textarea></td>
+                <td><textarea name="txt_materia_con[]" class="info_textarea">{{ddp.Materia}}</textarea></td>
+                <td><textarea name="txt_estado_con[]" class="info_textarea">{{ddp.Estado}}</textarea></td>
 
-		
+                <td>{{ddp.boton|raw('html')}}</td>
+            </tr>
+                                {% endfor %}
+
+
+
 
         </tbody>
 
@@ -58,17 +58,17 @@
 
 
                                 {% for ddpB in ConprocesojudicialesB%}  
-								<tr>
-									<td><input name="hd_tipo_jud[]" type="hidden" value="1">
-										<textarea name="txt_exp_con[]" class="info_textarea">{{ddpB.Expediente}}</textarea></td>
-									<td><textarea name="txt_exp_org_con[]" class="info_textarea">{{ddpB.Organo}}</textarea></td>
-									<td><textarea name="txt_dem_agre_con[]" class="info_textarea">{{ddpB.Demandadoagresor}}</textarea></td>
-									<td><textarea name="txt_materia_con[]" class="info_textarea">{{ddpB.Materia}}</textarea></td>
-									<td><textarea name="txt_estado_con[]" class="info_textarea">{{ddpB.Estado}}</textarea></td>
-									 <td>{{ddpB.boton|raw('html')}}</td>
-								</tr>
+            <tr>
+                <td><input name="hd_tipo_jud[]" type="hidden" value="2">
+                    <textarea name="txt_exp_con[]" class="info_textarea">{{ddpB.Expediente}}</textarea></td>
+                <td><textarea name="txt_exp_org_con[]" class="info_textarea">{{ddpB.Organo}}</textarea></td>
+                <td><textarea name="txt_dem_agre_con[]" class="info_textarea">{{ddpB.Demandadoagresor}}</textarea></td>
+                <td><textarea name="txt_materia_con[]" class="info_textarea">{{ddpB.Materia}}</textarea></td>
+                <td><textarea name="txt_estado_con[]" class="info_textarea">{{ddpB.Estado}}</textarea></td>
+                <td>{{ddpB.boton|raw('html')}}</td>
+            </tr>
                                 {% endfor %}
-								
+
 
         </tbody>
 
@@ -90,17 +90,17 @@
         <tbody>
 
                                 {% for ddpC in ConprocesojudicialesC %}  
-								<tr>
-									<td><input name="hd_tipo_jud[]" type="hidden" value="1">
-									<textarea name="txt_exp_con[]" class="info_textarea">{{ddpC.Expediente}}</textarea></td>
-									<td><textarea name="txt_exp_org_con[]" class="info_textarea">{{ddpC.Organo}}</textarea></td>
-									<td><textarea name="txt_dem_agre_con[]" class="info_textarea">{{ddpC.Demandadoagresor}}</textarea></td>
-									<td><textarea name="txt_materia_con[]" class="info_textarea">{{ddpC.Materia}}</textarea></td>
-									<td><textarea name="txt_estado_con[]" class="info_textarea">{{ddpC.Estado}}</textarea></td>
-									<td> {{ ddpC.boton|raw('html')}} </td>
-								</tr>
+            <tr>
+                <td><input name="hd_tipo_jud[]" type="hidden" value="3">
+                    <textarea name="txt_exp_con[]" class="info_textarea">{{ddpC.Expediente}}</textarea></td>
+                <td><textarea name="txt_exp_org_con[]" class="info_textarea">{{ddpC.Organo}}</textarea></td>
+                <td><textarea name="txt_dem_agre_con[]" class="info_textarea">{{ddpC.Demandadoagresor}}</textarea></td>
+                <td><textarea name="txt_materia_con[]" class="info_textarea">{{ddpC.Materia}}</textarea></td>
+                <td><textarea name="txt_estado_con[]" class="info_textarea">{{ddpC.Estado}}</textarea></td>
+                <td> {{ ddpC.boton|raw('html')}} </td>
+            </tr>
                                 {% endfor %}
-           
+
         </tbody>
     </table>
     <br><br>

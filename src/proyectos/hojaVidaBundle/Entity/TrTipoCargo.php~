@@ -1,0 +1,52 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TrTipoCargo
+ *
+ * @ORM\Table(name="tr_tipo_cargo")
+ * @ORM\Entity
+ */
+class TrTipoCargo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_tipo_cargo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTipoCargo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \TmConvocatoria
+     *
+     * @ORM\ManyToOne(targetEntity="TmConvocatoria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_convocatoria", referencedColumnName="id_convocatoria")
+     * })
+     */
+    private $idConvocatoria;
+
+    /**
+     * @var \TrPlaza
+     *
+     * @ORM\ManyToOne(targetEntity="TrPlaza")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_plaza", referencedColumnName="id_plaza")
+     * })
+     */
+    private $idPlaza;
+
+
+}

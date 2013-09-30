@@ -1,0 +1,102 @@
+<?php
+
+namespace proyectos\hojaVidaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TmCurriculo
+ *
+ * @ORM\Table(name="tm_curriculo")
+ * @ORM\Entity
+ */
+class TmCurriculo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_curriculo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCurriculo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_auditoria", type="datetime", nullable=true)
+     */
+    private $fechaAuditoria;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flag_completo", type="integer", nullable=true)
+     */
+    private $flagCompleto;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado_evaluador1", type="integer", nullable=false)
+     */
+    private $estadoEvaluador1;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado_evaluador2", type="integer", nullable=false)
+     */
+    private $estadoEvaluador2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado_evaluado", type="integer", nullable=false)
+     */
+    private $estadoEvaluado;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="SUsuario", inversedBy="idCurriculo")
+     * @ORM\JoinTable(name="td_usuario_curriculo",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_curriculo", referencedColumnName="id_curriculo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="dni", referencedColumnName="dni")
+     *   }
+     * )
+     */
+    private $dni;
+
+    /**
+     * @var \TrPlaza
+     *
+     * @ORM\ManyToOne(targetEntity="TrPlaza")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_plaza", referencedColumnName="id_plaza")
+     * })
+     */
+    private $idPlaza;
+
+    /**
+     * @var \TrTipoCargo
+     *
+     * @ORM\ManyToOne(targetEntity="TrTipoCargo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_cargo", referencedColumnName="id_tipo_cargo")
+     * })
+     */
+    private $idTipoCargo;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dni = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+}

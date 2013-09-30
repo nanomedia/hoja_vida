@@ -10,6 +10,11 @@ DatosPersonales:
             column: ID_DAT_PERSONAL
             generator:
                 strategy: IDENTITY
+        pkDatPostulante:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: PK_DAT_POSTULANTE
         nombres:
             type: string
             length: 50

@@ -38,17 +38,8 @@
                     <td><textarea name="tra_est_mpub[]" class="info_textarea">{{ddpFA.EstadoProc}}</textarea></td>
                       <td> {{ ddpFA.boton|raw('html')}} </td>
                 </tr>
-
-								
                                 {% endfor %}
-											
-			
-			
-
-				
-				
-				
-				
+	
             </tbody>
         </table>
         <br>
@@ -76,7 +67,7 @@
 
                 <tr>
                     <td align="center">
-                        <b>1</b>
+                        <b>{{ddpFB.Num}}</b>
                     </td>
                     <td>
                         <input type="hidden" name="tra_tipo_mpub[]" value="2">
@@ -111,14 +102,10 @@
                 </tr>
             </thead>
             <tbody>
-			
-
-
-
-                                {% for ddpFC in ConprocesoenMinJudC%}  
+	     {% for ddpFC in ConprocesoenMinJudC%}  
 
                 <tr>
-                    <td align="center"><b>1</b></td>
+                    <td align="center"><b>{{ddpFC.Num}}</b></td>
                     <td>
                         <input type="hidden" name="tra_tipo_mpub[]" value="3">
                         <input type="hidden"name="tra_ins_mpub[]">
@@ -154,9 +141,7 @@
             <tbody>
 			
 
-                                {% for ddpFAV in ConprocesoenadmA%}  
-
-
+         {% for ddpFAV in ConprocesoenadmA%}  
               <tr>
                     <td><input type="hidden" name="con_tipo_mpub[]" value="1">
                         <textarea name="con_ins_mpub[]" class="info_textarea">
@@ -171,10 +156,7 @@
                     <td><textarea name="con_est_mpub[]" class="info_textarea">{{ddpFAV.EstadoProc}}</textarea></td>
                      <td> {{ ddpFAV.boton|raw('html')}} </td>
                 </tr>
-				
-
-								
-                                {% endfor %}
+{% endfor %}
 			
   
             </tbody>
@@ -206,14 +188,11 @@
 
 
               <tr>
-                    <td align="center"><b>1</b></td>
+                    <td align="center"><b>{{ddpFBV.Num}}</b></td>
                         <input type="hidden" name="con_tipo_mpub[]" value="2">
                         <input type="hidden"name="con_ins_mpub[]">
                         <input type="hidden" name="con_exp_mpub[]" >
-                    <td>
-                        <input type="hidden" name="con_que_mpub[]">
-                        <textarea name="con_que_mpub[]" class="info_textarea">{{ddpFBV.Quejas}}</textarea>
-                    </td>
+                    <td><textarea name="con_que_mpub[]" class="info_textarea">{{ddpFBV.Quejas}}</textarea></td>
                     <td><textarea name="con_mot_mpub[]" class="info_textarea">{{ddpFBV.Motivo}}</textarea></td>
                     <td><textarea name="con_est_mpub[]" class="info_textarea">{{ddpFBV.EstadoProc}}</textarea></td>
                     <td> {{ ddpFBV.boton|raw('html')}} </td>

@@ -27,8 +27,6 @@ class rubro2Controller extends Controller {
 
         foreach ($InformacionOficinas as $info) {
 
-            $i = new InformacionOficinas();
-
             if ($info->getIdOficina() == "1") {
                 $info1 = $info->getDescripcion();
             }

@@ -1,0 +1,28 @@
+TdCampoDetalle:
+    type: entity
+    table: td_campo_detalle
+    fields:
+        idCampoDetalle:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_campo_detalle
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+    manyToOne:
+        idCampo:
+            targetEntity: TdCampos
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_campo:
+                    referencedColumnName: id_campo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

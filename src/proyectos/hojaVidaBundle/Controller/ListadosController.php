@@ -106,10 +106,9 @@ class ListadosController extends Controller {
     public function direcAction() {
 
         $cn = $this->getDoctrine()->getConnection("DB_HOJA_VIDA");
-        $sql = "SELECT dp.pk_dat_postulante,dpe.dni,dpe.nombres,dpe.apellidos,dpe.edad
-                    FROM datos_postulante dp inner join datos_personales dpe 
-                    on dp.pk_susuario=dpe.dni
-                    where dpe.estado_audt=1 and dp.estado_audt=1 and dpe.dni";
+        $sql = "SELECT dp.dni,dp.pk_dat_postulante,dp.nombres,dp.apellidos,dp.edad
+                    FROM datos_personales dp 
+                    where dp.estado_audt=1";
 
         $query = $cn->prepare($sql);
         $query->execute();
@@ -123,6 +122,9 @@ class ListadosController extends Controller {
             $data[$i]["edad"] = $value["edad"];
             $url = $this->generateUrl('_frm_update_datospostulante', array('codigo' => $value["pk_dat_postulante"]));
             $data[$i]["pk_dat_postulante"] = $url;
+            $url_pdf = $this->generateUrl('_pdf', array('codigo' => $value["pk_dat_postulante"]));
+            $data[$i]["url_pdf"]=$url_pdf;
+            
             $i++;
         }
         return $this->render('hojaVidaBundle:principal:home.html.twig', array("postulantes" => $data));

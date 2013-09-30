@@ -29,9 +29,9 @@ class Patrimonio
     private $tipoPatrimonio;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="TIPO_BIEN", type="integer", nullable=true)
+     * @ORM\Column(name="TIPO_BIEN", type="string", length=350, nullable=true)
      */
     private $tipoBien;
 
@@ -132,7 +132,7 @@ class Patrimonio
     /**
      * Set tipoBien
      *
-     * @param integer $tipoBien
+     * @param string $tipoBien
      * @return Patrimonio
      */
     public function setTipoBien($tipoBien)
@@ -145,7 +145,7 @@ class Patrimonio
     /**
      * Get tipoBien
      *
-     * @return integer 
+     * @return string 
      */
     public function getTipoBien()
     {

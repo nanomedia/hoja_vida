@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use proyectos\hojaVidaBundle\Entity\DocDesProfesional;
 use proyectos\hojaVidaBundle\Util\cargaCombosUpdate;
 use proyectos\hojaVidaBundle\Util\Mantenimiento;
 

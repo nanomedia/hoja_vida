@@ -3,13 +3,11 @@
 {% block scripts %}
         {{ parent() }}
 <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/jqgrid/css/ui.jqgrid.css')}}" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{asset('web/plugins/cus-icons/cus-icons.css')}}" />
 
 
 <script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery-1.7.2.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('web/bundles/hoja_vida/jquery-ui/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/i18n/grid.locale-es.js')}}"></script>
-<script type="text/javascript" src="{{asset('web/plugins/jqgrid/js/jquery.jqGrid.src.js')}}"></script>
 <script>
     $(document).ready(function() {
         $("#options-form").menu();
@@ -47,7 +45,7 @@
                         <td>NOMBRES</td>
                         <td>APELLIDOS</td>
                         <td>EDAD</td>
-                        <td></td>
+                        <td colspan="2"></td>
                     </tr>
                     </head>
                     <tbody>
@@ -57,7 +55,20 @@
                                 <td>{{item.nombres}}</td>
                                 <td>{{item.apellidos}}</td>
                                 <td>{{item.edad}}</td>
-                                <td style="text-align:center;"><a href="{{item.pk_dat_postulante}}"><input class="button" type="button" value="Actualizar" ></a></td>
+                                <td>
+                                    <a href="{{item.url_pdf}}" target="_blank">
+                                        <div title="Reporte" class="row-update ui-state-default ui-corner-all" style="float: left; margin-left: 10px;padding:6px;">
+                                            <i class="cus  cus-page-white-acrobat"></i>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td style="text-align:center;">
+                                    <a href="{{item.pk_dat_postulante}}">
+                                        <div title="Actualizar" class="row-update ui-state-default ui-corner-all" style="float: left; margin-left: 10px;padding:6px;">
+                                            <i class="cus cus-application-form-add"></i>
+                                        </div>
+                                    </a>
+                                </td>
                             </tr>
                      {%endfor%}    
                         </tbody>

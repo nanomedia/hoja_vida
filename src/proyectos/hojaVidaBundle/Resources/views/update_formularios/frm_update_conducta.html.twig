@@ -5,16 +5,16 @@
 <link href="{{asset('web/bundles/hoja_vida/css/style.css')}}" rel="stylesheet">
 
 <script>
-$(document).ready(function(){
+    $(document).ready(function() {
     {% include 'hojaVidaBundle:update_formularios:util.html.twig' %}
-    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_judiciales.html.twig' %} 
+    {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_judiciales.html.twig' %}
     {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_MPublico.html.twig' %}
     {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_PJudicial.html.twig' %}
     {% include 'hojaVidaBundle:update_formularios/conducta/js:procesos_administrativos.html.twig' %}
-        
-});
-    
-    
+
+    });
+
+
     </script>
 {% endblock%}
 
@@ -25,9 +25,9 @@ $(document).ready(function(){
  {% block submenu%}
 {% include 'hojaVidaBundle:update_formularios:menu_actualizacion.html.twig' %}
   {% endblock submenu%}      
-    
-    
-    
+
+
+
 {% block cuerpo %}   
     <div class="area-registro">
 
@@ -41,8 +41,17 @@ $(document).ready(function(){
                 {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_administrativos.html.twig' %}
                 {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_PJudicial.html.twig' %}
                 {% include 'hojaVidaBundle:update_formularios/conducta/html:procesos_MPublico.html.twig' %}
-            </div>
+                </div>
+                <div class="panel_guardar">
+                    <div id="titulo_save" class="titulo_save">Conducta</div>
+                    <div id="cargando" style="display:none;">
+                        <div id="prog" style="margin: 0 5px 0 5px;"></div>
+                        <div id="prog_per"></div>
+                    </div>
+                    <div id="boton-guardar" style="text-align: center;">
+                        <input type="submit" class="button"value="Guardar">
+                    </div>
+                </div>
             </form>
         </div>  
 {% endblock%}   
-    

@@ -1,0 +1,82 @@
+SUsuario:
+    type: entity
+    table: s_usuario
+    fields:
+        dni:
+            id: true
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        contrasena:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+        nombre:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        apellido:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        email:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        descripcion:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        estadoContrasena:
+            type: string
+            length: 1
+            fixed: false
+            nullable: true
+            column: estado_contrasena
+        estado:
+            type: string
+            length: 1
+            fixed: false
+            nullable: true
+        intentos:
+            type: integer
+            unsigned: false
+            nullable: true
+        email2:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        idCnm:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: id_cnm
+        contrasenaAdm:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: contrasena_adm
+        observaciones:
+            type: string
+            length: 512
+            fixed: false
+            nullable: true
+    manyToMany:
+        idCurriculo:
+            targetEntity: TmCurriculo
+            cascade: {  }
+            mappedBy: dni
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

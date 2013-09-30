@@ -10,6 +10,7 @@ parameters:
     database_host2: 127.0.0.1
     database_port2: null
     database_name2: curriculo
+#    
     database_user2: root
     database_password2: null
     

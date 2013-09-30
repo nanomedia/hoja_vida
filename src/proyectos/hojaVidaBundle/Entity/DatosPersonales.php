@@ -22,6 +22,13 @@ class DatosPersonales
     private $idDatPersonal;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="PK_DAT_POSTULANTE", type="integer", nullable=true)
+     */
+    private $pkDatPostulante;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="NOMBRES", type="string", length=50, nullable=true)
@@ -122,6 +129,29 @@ class DatosPersonales
     public function getIdDatPersonal()
     {
         return $this->idDatPersonal;
+    }
+
+    /**
+     * Set pkDatPostulante
+     *
+     * @param integer $pkDatPostulante
+     * @return DatosPersonales
+     */
+    public function setPkDatPostulante($pkDatPostulante)
+    {
+        $this->pkDatPostulante = $pkDatPostulante;
+    
+        return $this;
+    }
+
+    /**
+     * Get pkDatPostulante
+     *
+     * @return integer 
+     */
+    public function getPkDatPostulante()
+    {
+        return $this->pkDatPostulante;
     }
 
     /**
