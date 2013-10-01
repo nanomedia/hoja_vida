@@ -47,6 +47,7 @@ class Mantenimiento {
         $txt_lugarNac = $request->request->get('txt_lugarNac');
         $txt_fechaNac = $request->request->get('txt_fechaNac');
         $txt_edad = $request->request->get('txt_edad');
+        $txt_calcur = $request->request->get('txt_calcur');
         $txt_dni = $request->request->get('txt_dni');
         $id_pos = $request->request->get("id_pos");
         $hoy = new DateTime();
@@ -83,6 +84,7 @@ class Mantenimiento {
         $dper->setLugarNac($txt_lugarNac);
         $dper->setFechaNac($txt_fechaNac);
         $dper->setEdad($txt_edad);
+        $dper->setCalCurricular($txt_calcur);
         $dper->setDni($txt_dni);
         $dper->setFoto($txt_dni.".jpg");
         $dper->setDiscapacidad($rad_discapacidad);

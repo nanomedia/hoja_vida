@@ -60,9 +60,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
             <div width=\"100px\" float=\"left\"><img src=\"web/fotos/";
         // line 42
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPersonales"), "foto"), "html", null, true);
-        echo "\" height=\"125px\" width=\"100px\"/></div>   
+        echo "\" height=\"125px\" width=\"100px\"/></div> 
         </div>
-
+        
         <div color=\"black\" height=\"20px\"  background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
             I.&nbsp;DATOS PERSONALES
         </div>
@@ -94,46 +94,61 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPersonales"), "edad"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
-        <span extends=\"labels\">4. Persona con Discapacidad:</span>&nbsp;&nbsp;
+        
+        <span extends=\"labels\">4. Calificación Curricular:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 63
+        // line 64
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPersonales"), "calCurricular"), "html", null, true);
+        echo "&nbsp;</span>
+        <br></br><br></br>
+        
+        <span extends=\"labels\">5. DNI:</span>&nbsp;&nbsp;
+        <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
+        // line 68
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPersonales"), "dni"), "html", null, true);
+        echo "&nbsp;</span>
+        <br></br><br></br>
+        
+        <span extends=\"labels\">6. Persona con Discapacidad:</span>&nbsp;&nbsp;
+        <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
+        // line 72
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPersonales"), "discapacidad"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
         ";
-        // line 65
+        // line 74
         if (($this->getAttribute($this->getContext($context, "DatosPersonales"), "discapacidad") == "SI")) {
-            // line 66
-            echo "        <span extends=\"labels\">5. Certificación de Discapacidad/Resolución CONADIS:</span>&nbsp;&nbsp;
+            // line 75
+            echo "        <span extends=\"labels\">7. Certificación de Discapacidad/Resolución CONADIS:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-            // line 67
+            // line 76
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPersonales"), "certDiscapacidad"), "html", null, true);
             echo "&nbsp;</span>
         <br></br><br></br><br></br>
         ";
         }
-        // line 70
+        // line 79
         echo "        <div color=\"black\" height=\"20px\" background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
             II.&nbsp;DATOS COMO POSTULANTE
         </div>
         <br></br><br></br>
         <span extends=\"labels\">1. Cargo al que postula:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 75
+        // line 84
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "cargoAPostular"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
 
         <span extends=\"labels\">2. Condición:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 79
+        // line 88
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "condicion"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
 
         <span extends=\"labels\">3. Curso en la AMAG:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 83
+        // line 92
         if (($this->getAttribute($this->getContext($context, "DatosPostulante"), "tipoCurso") == 1)) {
             echo " PROFA  ";
         } else {
@@ -141,31 +156,31 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         }
         echo "&nbsp;</span>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;NOTA: ";
-        // line 84
+        // line 93
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "nota"), "html", null, true);
         echo "  &nbsp;</span>
         <br></br><br></br>
 
         <span extends=\"labels\">4. Pre-Promedio:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 88
+        // line 97
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "prePromedio"), "html", null, true);
         echo "&nbsp;</span>
         <span extends=\"labels\">Orden de Mérito:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 90
+        // line 99
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "ordenMerito"), "html", null, true);
         echo "&nbsp;</span>
         <span extends=\"labels\">Plazas Vacantes:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 92
+        // line 101
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "plazasVacantes"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
 
         <span extends=\"labels\">5. Examen de Conocimientos:</span>&nbsp;&nbsp;
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 96
+        // line 105
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosPostulante"), "examenConocimientos"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
@@ -178,22 +193,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                 <td>ETAPA</td>             
             </tr>
              ";
-        // line 106
+        // line 115
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "ConvocatoriasAnteriores"));
         foreach ($context['_seq'] as $context["_key"] => $context["conv"]) {
-            // line 107
+            // line 116
             echo "            <tr text-align=\"center\">
                 <td padding=\"10px\">";
-            // line 108
+            // line 117
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "conv"), "convocatoria"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\">";
-            // line 109
+            // line 118
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "conv"), "plaza"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\">";
-            // line 110
+            // line 119
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "conv"), "etapa"), "html", null, true);
             echo "</td>
 
@@ -203,10 +218,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['conv'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 114
-        echo "
-        </table>
-        <br></br><br></br><br></br>
+        // line 123
+        echo "        </table>
+        <page-break></page-break>
         <div color=\"black\" height=\"20px\" background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
             III.&nbsp;DATOS ACADÉMICOS
         </div>
@@ -214,55 +228,55 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         <span extends=\"labels\">1. Universidad de Procedencia:</span>
         <br></br><br></br>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 123
+        // line 131
         echo twig_escape_filter($this->env, $this->getContext($context, "daUniv"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
         <span extends=\"labels\">2. Colegio Profesional y fecha de incorporación:</span>
         <br></br><br></br>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 127
+        // line 135
         echo twig_escape_filter($this->env, $this->getContext($context, "daCole"), "html", null, true);
         echo "&nbsp;</span>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 128
+        // line 136
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosAcademicos"), "fechaIncorporacion"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
         <span extends=\"labels\">3. Doctorado en Derecho:</span>
         <br></br><br></br>
         ";
-        // line 132
+        // line 140
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DocDerecho"));
         foreach ($context['_seq'] as $context["_key"] => $context["doc"]) {
-            // line 133
+            // line 141
             echo "        <table font-size=\"13px\">
             <tr >
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">&nbsp;Universidad:</td>
                 <td padding=\"10px\">";
-            // line 136
+            // line 144
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "doc"), "Universidad"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Nivel</td>
                 <td padding=\"10px\">";
-            // line 140
+            // line 148
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "doc"), "Nivel"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
-                <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Mensión</td>
+                <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Mención</td>
                 <td padding=\"10px\">";
-            // line 144
+            // line 152
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "doc"), "Mension"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Año</td>
                 <td padding=\"10px\">";
-            // line 148
+            // line 156
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "doc"), "Anio"), "html", null, true);
             echo "</td>
             </tr>
@@ -274,41 +288,41 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['doc'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 154
+        // line 162
         echo "        <span extends=\"labels\">4. Maestría en Derecho:</span>
         <br></br><br></br>
         ";
-        // line 156
+        // line 164
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "MaeDerecho"));
         foreach ($context['_seq'] as $context["_key"] => $context["mae"]) {
-            // line 157
+            // line 165
             echo "        <table font-size=\"13px\">
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">&nbsp;Universidad:</td>
                 <td padding=\"10px\">";
-            // line 160
+            // line 168
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "mae"), "Universidad"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Nivel</td>
                 <td padding=\"10px\">";
-            // line 164
+            // line 172
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "mae"), "Nivel"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
-                <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Mensión</td>
+                <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Mención</td>
                 <td padding=\"10px\">";
-            // line 168
+            // line 176
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "mae"), "Mension"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Año</td>
                 <td padding=\"10px\">";
-            // line 172
+            // line 180
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "mae"), "Anio"), "html", null, true);
             echo "</td>
             </tr>
@@ -319,41 +333,41 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['mae'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 177
+        // line 185
         echo "        <span extends=\"labels\">5. Doctorado / Maestría en otras Disciplinas:</span>
         <br></br><br></br>
         ";
-        // line 179
+        // line 187
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "OtrasDisciplinas"));
         foreach ($context['_seq'] as $context["_key"] => $context["otr"]) {
-            // line 180
+            // line 188
             echo "        <table  font-size=\"13px\">
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">&nbsp;Universidad:</td>
                 <td padding=\"10px\">";
-            // line 183
+            // line 191
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "otr"), "Universidad"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Nivel</td>
                 <td padding=\"10px\">";
-            // line 187
+            // line 195
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "otr"), "Nivel"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
-                <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Mensión</td>
+                <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Mención</td>
                 <td padding=\"10px\">";
-            // line 191
+            // line 199
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "otr"), "Mension"), "html", null, true);
             echo "</td>
             </tr>
             <tr>
                 <td width=\"100px\" padding=\"10px\" font-style=\"bold\">Año</td>
                 <td padding=\"10px\">";
-            // line 195
+            // line 203
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "otr"), "Anio"), "html", null, true);
             echo "</td>
             </tr>
@@ -364,36 +378,36 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['otr'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 200
+        // line 208
         echo "        <span extends=\"labels\">6. Título Profesional en Otras Disciplinas:</span>
         <br></br><br></br>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;&nbsp;";
-        // line 202
+        // line 210
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosAcademicos"), "tituloOtros"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
         <span extends=\"labels\">7. Tesis para obtener el Título Profesional:</span>
         <br></br><br></br>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;&nbsp;";
-        // line 206
+        // line 214
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "DatosAcademicos"), "tesisTitular"), "html", null, true);
         echo "&nbsp;</span>
         <br></br><br></br>
         <span extends=\"labels\">8. Méritos Universitarios:</span>
         <br></br><br></br>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 210
+        // line 218
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MeritosUniv"), "Puesto"), "html", null, true);
         echo "&nbsp;</span>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 211
+        // line 219
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MeritosUniv"), "Universidad"), "html", null, true);
         echo "&nbsp;</span>
         <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-        // line 212
+        // line 220
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MeritosUniv"), "Anio"), "html", null, true);
         echo "&nbsp;</span>
-        <br></br><br></br>
+        <page-break></page-break>
         <div color=\"black\" height=\"20px\" background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
             IV.&nbsp;EXPERIENCIA PROFESIONAL
         </div>
@@ -412,42 +426,42 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                 <td padding=\"10px\">2°<br></br>Calificación<br></br>(R.R)</td>
             </tr>
             ";
-        // line 231
+        // line 239
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DocDesProfesional"));
         foreach ($context['_seq'] as $context["_key"] => $context["docdes"]) {
-            // line 232
+            // line 240
             echo "            <tr>
                 <td text-align=\"center\" padding=\"10px\">";
-            // line 233
+            // line 241
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Num"), "html", null, true);
             echo "</td>
                 <td text-align=\"center\" padding=\"10px\">";
-            // line 234
+            // line 242
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "NumExp"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\">";
-            // line 235
+            // line 243
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Ddas"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\">";
-            // line 236
+            // line 244
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Ddae"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\">";
-            // line 237
+            // line 245
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Materia"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\">";
-            // line 238
+            // line 246
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Especialidad"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\" text-align=\"center\">";
-            // line 239
+            // line 247
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Calificacion1"), "html", null, true);
             echo "</td>
                 <td padding=\"10px\" text-align=\"center\">";
-            // line 240
+            // line 248
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docdes"), "Calificacion2"), "html", null, true);
             echo "</td>
             </tr>
@@ -456,52 +470,52 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['docdes'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 243
+        // line 251
         echo "        </table>
         <br></br><br></br>
         <span extends=\"labels\">2. Magistrado Ratificado:</span>
 
         <b>
         ";
-        // line 248
+        // line 256
         if (($this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1") == 0)) {
             echo "NO,
         ";
         } elseif (($this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1") == 1)) {
-            // line 249
+            // line 257
             echo "SI,
         ";
         } elseif (($this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1") == 2)) {
-            // line 250
+            // line 258
             echo "Aun no ha sido objeto de proceso de ratificación,
         ";
         } elseif (($this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1") == 3)) {
-            // line 251
+            // line 259
             echo "En convocatoria,
         ";
         }
-        // line 252
+        // line 260
         echo " </b>&nbsp;";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta2"), "html", null, true);
         echo "&nbsp;
             <br></br><br></br>
         ";
-        // line 254
+        // line 262
         if ((($this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1") == 0) || ($this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta1") == 1))) {
-            // line 255
+            // line 263
             echo "            <b> Resolución N°</b> <span font-size=\"17px\" border.size=\"1px\">&nbsp;";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "resolucion"), "html", null, true);
             echo "</span>
             <b> de fecha </b><span font-size=\"17px\" border.size=\"1px\">&nbsp;";
-            // line 256
+            // line 264
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "fechaRes"), "html", null, true);
             echo "</span>
         ";
         }
-        // line 258
+        // line 266
         echo "
             <span font-size=\"17px\" border.size=\"1px\">";
-        // line 259
+        // line 267
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "MagistradoRatificado"), "respuesta3"), "html", null, true);
         echo "</span>
             <br></br><br></br>
@@ -521,46 +535,46 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Nota</td>
                 </tr>
             ";
-        // line 276
+        // line 284
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "CalJudFis"));
         foreach ($context['_seq'] as $context["_key"] => $context["cal"]) {
-            // line 277
+            // line 285
             echo "                <tr>
                     <td text-align=\"center\" padding=\"10px\">";
-            // line 278
+            // line 286
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "Num"), "html", null, true);
             echo "</td>
                     <td text-align=\"center\" padding=\"10px\">";
-            // line 279
+            // line 287
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "NumExp"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 280
+            // line 288
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "TipResolucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 281
+            // line 289
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "FechaRes"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 282
+            // line 290
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "Ddagraviado"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 283
+            // line 291
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "Ddagresor"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 284
+            // line 292
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "Materia"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 285
+            // line 293
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "Especialidad"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 286
+            // line 294
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "cal"), "Nota"), "html", null, true);
             echo "</td>
                 </tr>
@@ -569,43 +583,43 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cal'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 289
+        // line 297
         echo "            </table>
             <br></br><br></br>
             <span extends=\"labels\">4. SITUACIÓN LABORAL ACTUAL:</span>
             <br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 293
+        // line 301
         echo twig_escape_filter($this->env, $this->getContext($context, "SitLaboral"), "html", null, true);
         echo "</div>
             <br></br><br></br>
             <span extends=\"labels\">(Tres últimas)</span>
             <br></br><br></br>
                 ";
-        // line 297
+        // line 305
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DetSituacionLaboral"));
         foreach ($context['_seq'] as $context["_key"] => $context["detsit"]) {
-            // line 298
+            // line 306
             echo "            <table>
                 <tr>
                     <td width=\"150px\" padding=\"10px\">Centro de Trabajo:</td>
                     <td padding=\"10px\">";
-            // line 301
+            // line 309
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "detsit"), "CentroTrabajo"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Cargo:</td>
                     <td padding=\"10px\">";
-            // line 305
+            // line 313
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "detsit"), "Cargo"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Periodo:</td>
                     <td padding=\"10px\">";
-            // line 309
+            // line 317
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "detsit"), "Periodo"), "html", null, true);
             echo "</td>
                 </tr>
@@ -616,55 +630,55 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['detsit'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 314
+        // line 322
         echo "            <span extends=\"labels\">5. DOCENCIA UNIVERSITARIA</span>
             <br></br><br></br>
                 ";
-        // line 316
+        // line 324
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "DocenciaUniversitaria"));
         foreach ($context['_seq'] as $context["_key"] => $context["docuni"]) {
-            // line 317
+            // line 325
             echo "            <table>
                 <tr>
                     <td width=\"150px\" padding=\"10px\">Universidad:</td>
                     <td padding=\"10px\">";
-            // line 320
+            // line 328
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docuni"), "Universidad"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Facultad:</td>
                     <td padding=\"10px\">";
-            // line 324
+            // line 332
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docuni"), "Facultad"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Condición:</td>
                     <td padding=\"10px\">";
-            // line 328
+            // line 336
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docuni"), "Condicion"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Categoria:</td>
                     <td padding=\"10px\">";
-            // line 332
+            // line 340
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docuni"), "Categoria"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Cursos:</td>
                     <td padding=\"10px\">";
-            // line 336
+            // line 344
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docuni"), "Cursos"), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Periodo:</td>
                     <td padding=\"10px\">";
-            // line 340
+            // line 348
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "docuni"), "Periodo"), "html", null, true);
             echo "</td>
                 </tr>
@@ -674,50 +688,50 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['docuni'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 344
+        // line 352
         echo "
             <span extends=\"labels\">6. PUBLICACIONES:</span><br></br><br></br><br></br>
             <span extends=\"labels\">6.1. Libros o Textos Universitarios</span>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 348
+        // line 356
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "librosTextosUniv"), "html", null, true);
         echo "</div>
             <br></br><br></br><br></br>
             <span extends=\"labels\">6.2. Investigaciones Jurídicas Doctrinarias o de Campo</span>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 352
+        // line 360
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "invJuridicas"), "html", null, true);
         echo "</div>
             <br></br><br></br><br></br>
             <span extends=\"labels\">6.3. Ensayos en materia Jurídica</span>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 356
+        // line 364
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "ensayosJuridico"), "html", null, true);
         echo "</div>
             <br></br><br></br><br></br>
             <span extends=\"labels\">6.4. Artículos en materia Jurídica</span>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 360
+        // line 368
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "articulosJuridicos"), "html", null, true);
         echo "</div>
             <br></br><br></br><br></br>
             <span extends=\"labels\">6.5. Artículos en materia No Jurídica</span>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 364
+        // line 372
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "Publicaciones"), "articulosNoJuridicos"), "html", null, true);
         echo "</div>
             <br></br><br></br><br></br>
             <span extends=\"labels\">7. Producción Jurisdiccional o Fiscal:&nbsp;</span><b>";
-        // line 366
+        // line 374
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ProdJurFiscal"), "Respuesta"), "html", null, true);
         echo "</b><br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 367
+        // line 375
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "ProdJurFiscal"), "DetRespuesta"), "html", null, true);
         echo "</div>
             <br></br><br></br><br></br>
@@ -730,22 +744,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\" width=\"50px\" text-align=\"center\">DÍAS</td>
                 </tr>
                 ";
-        // line 377
+        // line 385
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "LicenciasOtorgadas"));
         foreach ($context['_seq'] as $context["_key"] => $context["lic"]) {
-            // line 378
+            // line 386
             echo "                <tr >
                     <td text-align=\"center\" padding=\"10px\">";
-            // line 379
+            // line 387
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "lic"), "Anio"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 380
+            // line 388
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "lic"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 381
+            // line 389
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "lic"), "Dias"), "html", null, true);
             echo "</td>
                 </tr>
@@ -754,17 +768,17 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['lic'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 384
+        // line 392
         echo "                <tr>
                     <td padding=\"10px\" colspan=\"2\"><div text-align=\"right\">TOTAL:</div></td>
                     <td padding=\"10px\" text-align=\"center\">";
-        // line 386
+        // line 394
         echo twig_escape_filter($this->env, $this->getContext($context, "SumDias"), "html", null, true);
         echo "</td>
                 </tr>
             </table>          
             <br></br><br></br><br></br>
-
+            <page-break></page-break>
             <div color=\"black\" height=\"20px\" background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
                 V. &nbsp;CONDUCTA
             </div>      
@@ -775,14 +789,14 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                 <tr>
                     <td width=\"140px\" padding=\"10px\">Antecedentes Penales</td>
                     <td padding=\"10px\">";
-        // line 400
+        // line 408
         echo twig_escape_filter($this->env, $this->getContext($context, "anteA"), "html", null, true);
         echo "</td>
                 </tr>
                 <tr>
                     <td padding=\"10px\">Antecedente Judiciales</td>
                     <td padding=\"10px\">";
-        // line 404
+        // line 412
         echo twig_escape_filter($this->env, $this->getContext($context, "anteB"), "html", null, true);
         echo "</td>
                 </tr>
@@ -790,13 +804,13 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                 <tr>
                     <td padding=\"10px\">Antecedente Policiales</td>
                     <td padding=\"10px\">";
-        // line 409
+        // line 417
         echo twig_escape_filter($this->env, $this->getContext($context, "anteC"), "html", null, true);
         echo "</td>
                 </tr>
 
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends=\"labels\">2. PROCESOS JUDICIALES</span>
             <br></br><br></br><br></br>
             <span extends=\"labels\">PROCESOS JUDICIALES CIVILES, PENALES, DE FAMILIA, LABORALES COMO DEMANDANTE / DENUNCIANTE</span>
@@ -810,30 +824,30 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 426
+        // line 434
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_rep"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 427
+            // line 435
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 428
+            // line 436
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 429
+            // line 437
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "organo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 430
+            // line 438
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "demandadoagresor"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 431
+            // line 439
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "materia"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 432
+            // line 440
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "estado"), "html", null, true);
             echo "</td>
                 </tr>
@@ -842,7 +856,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 435
+        // line 443
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">COMO DEMANDADO / DENUNCIADO</span>
@@ -857,30 +871,30 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 448
+        // line 456
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repB"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 449
+            // line 457
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 450
+            // line 458
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 451
+            // line 459
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "organo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 452
+            // line 460
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "demandadoagresor"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 453
+            // line 461
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "materia"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 454
+            // line 462
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "estado"), "html", null, true);
             echo "</td>
                 </tr>
@@ -889,7 +903,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 457
+        // line 465
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">COMO AGRAVIADO</span>
@@ -903,30 +917,30 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 469
+        // line 477
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repC"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 470
+            // line 478
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 471
+            // line 479
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 472
+            // line 480
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "organo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 473
+            // line 481
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "demandadoagresor"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 474
+            // line 482
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "materia"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 475
+            // line 483
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "estado"), "html", null, true);
             echo "</td>
                 </tr>
@@ -935,7 +949,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 478
+        // line 486
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -950,26 +964,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 491
+        // line 499
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repD"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 492
+            // line 500
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 493
+            // line 501
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "idinstitucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 494
+            // line 502
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "resolucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 495
+            // line 503
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "sancion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 496
+            // line 504
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "estado"), "html", null, true);
             echo "</td>
                 </tr>
@@ -978,7 +992,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 499
+        // line 507
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -992,22 +1006,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Sanción</td>
                 </tr>
                     ";
-        // line 511
+        // line 519
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repE"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 512
+            // line 520
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 513
+            // line 521
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "idinstitucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 514
+            // line 522
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "resolucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 515
+            // line 523
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "sancion"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1016,7 +1030,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 518
+        // line 526
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1030,22 +1044,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Expediente, Resolución y Motivo</td>
                 </tr>
                 ";
-        // line 530
+        // line 538
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repF"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 531
+            // line 539
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 532
+            // line 540
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "idinstitucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 533
+            // line 541
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "sancion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 534
+            // line 542
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "resolucion"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1054,9 +1068,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 537
+        // line 545
         echo "            </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends=\"labels\">
                 6. EN EL PODER JUDICIAL
             </span>
@@ -1074,22 +1088,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 555
+        // line 563
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFA"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 556
+            // line 564
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 557
+            // line 565
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 558
+            // line 566
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 559
+            // line 567
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "estadoproc"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1098,7 +1112,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 562
+        // line 570
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1113,26 +1127,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 575
+        // line 583
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFB"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 576
+            // line 584
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 577
+            // line 585
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 578
+            // line 586
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Quejas"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 579
+            // line 587
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 580
+            // line 588
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>
 
@@ -1142,7 +1156,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 584
+        // line 592
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1156,22 +1170,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>
                 </tr>
                 ";
-        // line 596
+        // line 604
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFC"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 597
+            // line 605
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 598
+            // line 606
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 599
+            // line 607
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 600
+            // line 608
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1180,9 +1194,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 603
+        // line 611
         echo "            </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
 
             <span background.color=\"#000000\" font-style=\"bold\"  color=\"#ffffff\">&nbsp;CONCLUIDAS&nbsp;</span>
             <br></br><br></br><br></br>
@@ -1199,26 +1213,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 620
+        // line 628
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFD"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 621
+            // line 629
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 622
+            // line 630
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "IdInstitucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 623
+            // line 631
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 624
+            // line 632
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 625
+            // line 633
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>
@@ -1227,7 +1241,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 628
+        // line 636
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1242,26 +1256,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 641
+        // line 649
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFE"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 642
+            // line 650
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 643
+            // line 651
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 644
+            // line 652
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Quejas"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 645
+            // line 653
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 646
+            // line 654
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>
@@ -1270,7 +1284,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 649
+        // line 657
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1284,22 +1298,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 661
+        // line 669
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFF"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 662
+            // line 670
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 663
+            // line 671
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 664
+            // line 672
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 665
+            // line 673
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>
@@ -1308,9 +1322,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 668
+        // line 676
         echo "            </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends=\"labels\">
                 7. EN EL MINISTERIO PÚBLICO
             </span>
@@ -1328,22 +1342,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 686
+        // line 694
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFA2"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 687
+            // line 695
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 688
+            // line 696
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 689
+            // line 697
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 690
+            // line 698
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>                
@@ -1352,7 +1366,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 693
+        // line 701
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1367,26 +1381,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 706
+        // line 714
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFB2"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 707
+            // line 715
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 708
+            // line 716
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 709
+            // line 717
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Quejas"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 710
+            // line 718
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 711
+            // line 719
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>                
@@ -1395,7 +1409,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 714
+        // line 722
         echo "            </table>
 
             <br></br><br></br><br></br>
@@ -1410,22 +1424,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 727
+        // line 735
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFC2"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 728
+            // line 736
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 729
+            // line 737
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 730
+            // line 738
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 731
+            // line 739
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>  
                 </tr>     
@@ -1434,9 +1448,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 734
+        // line 742
         echo "            </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span background.color=\"#000000\" font-style=\"bold\"  color=\"#ffffff\">&nbsp;CONCLUIDAS&nbsp;</span>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1451,26 +1465,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 749
+        // line 757
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFD2"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 750
+            // line 758
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 751
+            // line 759
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "IdInstitucion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 752
+            // line 760
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Expediente"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 753
+            // line 761
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 754
+            // line 762
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>
@@ -1479,7 +1493,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 757
+        // line 765
         echo "            </table>
             <br></br><br></br><br></br>
             <span extends=\"labels\">
@@ -1494,26 +1508,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Estado</td>                    
                 </tr>
                 ";
-        // line 770
+        // line 778
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul_repFE2"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 771
+            // line 779
             echo "                <tr>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 772
+            // line 780
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Num"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 773
+            // line 781
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Quejas"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 774
+            // line 782
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Motivo"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 775
+            // line 783
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "EstadoProc"), "html", null, true);
             echo "</td>                    
                 </tr>
@@ -1522,16 +1536,16 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 778
+        // line 786
         echo "            </table>
 
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <div color=\"black\" height=\"20px\"  background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
                 VI.&nbsp;INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL CNM
             </div>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 785
+        // line 793
         echo twig_escape_filter($this->env, $this->getContext($context, "info1"), "html", null, true);
         echo "</div>
 
@@ -1541,11 +1555,11 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
             </div>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 792
+        // line 800
         echo twig_escape_filter($this->env, $this->getContext($context, "info2"), "html", null, true);
         echo "</div>
-
             <br></br><br></br><br></br>
+
             <div color=\"black\" height=\"20px\"  background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
                 VIII.&nbsp;INFORMACIÓN DEL COLEGIO DE ABOGADOS
             </div>
@@ -1555,10 +1569,10 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
             </span>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 803
+        // line 811
         echo twig_escape_filter($this->env, $this->getContext($context, "info3"), "html", null, true);
         echo "</div>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
 
             <div color=\"black\" height=\"20px\"  background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
                 X. INFORMACIÓN PATRIMONIAL (ECONÓMICA E INMOBILIARIA)
@@ -1579,22 +1593,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\" width=\"45px\">Valor</td>                    
                 </tr>
                 ";
-        // line 824
+        // line 832
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "Ingresos1"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 825
+            // line 833
             echo "                <tr>
                     <td text-align=\"center\" padding=\"10px\">";
-            // line 826
+            // line 834
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "anio"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 827
+            // line 835
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "descripcion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 828
+            // line 836
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "valor"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1603,11 +1617,11 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 831
+        // line 839
         echo "                <tr>
                     <td padding=\"10px\" colspan=\"2\" text-align=\"right\">TOTAL:</td>
                     <td padding=\"10px\" text-align=\"center\">";
-        // line 833
+        // line 841
         echo twig_escape_filter($this->env, $this->getContext($context, "sum1"), "html", null, true);
         echo "</td>
                 </tr>
@@ -1624,18 +1638,18 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\" width=\"45px\">Valor</td>                    
                 </tr>
                 ";
-        // line 847
+        // line 855
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "otrosingresos"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 848
+            // line 856
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 849
+            // line 857
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Descripcion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" width=\"40px\" text-align=\"center\">";
-            // line 850
+            // line 858
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Monto"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1644,17 +1658,17 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 853
+        // line 861
         echo "                <tr>
                     <td padding=\"10px\" text-align=\"right\">TOTAL:</td>
                     <td padding=\"10px\" text-align=\"center\">";
-        // line 855
+        // line 863
         echo twig_escape_filter($this->env, $this->getContext($context, "sum2"), "html", null, true);
         echo "</td>
                 </tr>
             </table>
 
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends=\"labels\">
                 2. Cuadro de su Patrimonio Inmobiliario
             </span>
@@ -1672,26 +1686,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Valor de <br></br> Autovalúo S/.</td>
                 </tr>
                 ";
-        // line 876
+        // line 884
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpostul"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 877
+            // line 885
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 878
+            // line 886
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "TipoBien"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 879
+            // line 887
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Ubicacion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 880
+            // line 888
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Fecha"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 881
+            // line 889
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Monto"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1700,11 +1714,11 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 884
+        // line 892
         echo "                <tr>
                     <td colspan=\"3\" padding=\"10px\" text-align=\"right\">TOTAL:</td>
                     <td padding=\"10px\" text-align=\"center\">";
-        // line 886
+        // line 894
         echo twig_escape_filter($this->env, $this->getContext($context, "sum3"), "html", null, true);
         echo "</td>
                 </tr>
@@ -1724,26 +1738,26 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Valor de <br></br> Autovalúo S/.</td>
                 </tr>
                 ";
-        // line 903
+        // line 911
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpo"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 904
+            // line 912
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 905
+            // line 913
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "TipoBien"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 906
+            // line 914
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Ubicacion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 907
+            // line 915
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Fecha"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 908
+            // line 916
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Monto"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1752,11 +1766,11 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 911
+        // line 919
         echo "                <tr>
                     <td colspan=\"3\" padding=\"10px\" text-align=\"right\">TOTAL:</td>
                     <td padding=\"10px\" text-align=\"center\">";
-        // line 913
+        // line 921
         echo twig_escape_filter($this->env, $this->getContext($context, "sum4"), "html", null, true);
         echo "</td>
                 </tr>
@@ -1773,18 +1787,18 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\" width=\"40px\">Valor</td>
                 </tr>
                 ";
-        // line 927
+        // line 935
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dpatri"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 928
+            // line 936
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 929
+            // line 937
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Descripcion"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 930
+            // line 938
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Valor"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1793,11 +1807,11 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 933
+        // line 941
         echo "                <tr>
                     <td padding=\"10px\" text-align=\"right\">TOTAL:</td>
                     <td padding=\"10px\" text-align=\"center\">";
-        // line 935
+        // line 943
         echo twig_escape_filter($this->env, $this->getContext($context, "sum5"), "html", null, true);
         echo "</td>
                 </tr>
@@ -1816,22 +1830,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                 </tr>
 
                 ";
-        // line 951
+        // line 959
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "Financi"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 952
+            // line 960
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 953
+            // line 961
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Clase"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 954
+            // line 962
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Entidad"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 955
+            // line 963
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Valor"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1840,12 +1854,12 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 958
+        // line 966
         echo "
                 <tr>
                     <td colspan=\"2\" padding=\"10px\" text-align=\"right\">TOTAL:</td>
-                    <td text-align=\"center\">";
-        // line 961
+                    <td padding=\"10px\" text-align=\"center\">";
+        // line 969
         echo twig_escape_filter($this->env, $this->getContext($context, "sum6"), "html", null, true);
         echo "</td>
                 </tr>
@@ -1863,22 +1877,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Monto S/.</td>
                 </tr>
                 ";
-        // line 976
+        // line 984
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "Acre_array"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 977
+            // line 985
             echo "                <tr>
                     <td padding=\"10px\">";
-            // line 978
+            // line 986
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Naturaleza"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 979
+            // line 987
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Entidad"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\" text-align=\"center\">";
-            // line 980
+            // line 988
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Valor"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1887,17 +1901,17 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 983
+        // line 991
         echo "
                 <tr>
                     <td colspan=\"2\" padding=\"10px\" text-align=\"right\">TOTAL:</td>
-                    <td text-align=\"center\">";
-        // line 986
+                    <td padding=\"10px\" text-align=\"center\">";
+        // line 994
         echo twig_escape_filter($this->env, $this->getContext($context, "sum7"), "html", null, true);
         echo "</td>
                 </tr>
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <div color=\"black\" height=\"20px\"  background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
                 XI. MOVIMIENTO MIGRATORIO
             </div>
@@ -1909,22 +1923,22 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                     <td padding=\"10px\">Destino / Procedencia</td>
                 </tr>
                 ";
-        // line 1000
+        // line 1008
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "dataMovMig"));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 1001
+            // line 1009
             echo "                <tr>
                     <td text-align=\"center\" padding=\"10px\">";
-            // line 1002
+            // line 1010
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Tipo"), "html", null, true);
             echo "</td>
                     <td text-align=\"center\" padding=\"10px\">";
-            // line 1003
+            // line 1011
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "Fecha"), "html", null, true);
             echo "</td>
                     <td padding=\"10px\">";
-            // line 1004
+            // line 1012
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "item"), "DestinoProcedencia"), "html", null, true);
             echo "</td>
                 </tr>
@@ -1933,9 +1947,9 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 1007
+        // line 1015
         echo "            </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <div color=\"black\" height=\"20px\"  background.color=\"#cccccc\" font-style=\"bold\" font-size=\"13px\"   >
                 XII.INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS
             </div>
@@ -1944,21 +1958,21 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
                 <tr>
                     <td text-align=\"center\" width=\"120px\" padding=\"10px\">Cámara de Comercio</td>
                     <td padding=\"10px\">";
-        // line 1016
+        // line 1024
         echo twig_escape_filter($this->env, $this->getContext($context, "info21"), "html", null, true);
         echo "</td>
                 </tr>
                 <tr>
                     <td text-align=\"center\" padding=\"10px\">Infocorp</td>
                     <td padding=\"10px\">";
-        // line 1020
+        // line 1028
         echo twig_escape_filter($this->env, $this->getContext($context, "info22"), "html", null, true);
         echo "</td>
                 </tr>
                 <tr>
                     <td text-align=\"center\" padding=\"10px\">SBS</td>
                     <td padding=\"10px\">";
-        // line 1024
+        // line 1032
         echo twig_escape_filter($this->env, $this->getContext($context, "info23"), "html", null, true);
         echo "</td>
                 </tr>
@@ -1969,7 +1983,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
             </div>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 1032
+        // line 1040
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "rubro4"), "DeudoresAlimentarios"), "html", null, true);
         echo "</div>
 
@@ -1979,7 +1993,7 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
             </div>
             <br></br><br></br><br></br>
             <div border.color=\"black\" padding=\"10px\">";
-        // line 1039
+        // line 1047
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "rubro4"), "Complementaria"), "html", null, true);
         echo "</div>
         </dynamic-page>
@@ -1998,6 +2012,6 @@ class __TwigTemplate_6fef0ca33f7df4c23e911f3e0f100975 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  1983 => 1039,  1973 => 1032,  1962 => 1024,  1955 => 1020,  1948 => 1016,  1937 => 1007,  1928 => 1004,  1924 => 1003,  1920 => 1002,  1917 => 1001,  1913 => 1000,  1896 => 986,  1891 => 983,  1882 => 980,  1878 => 979,  1874 => 978,  1871 => 977,  1867 => 976,  1849 => 961,  1844 => 958,  1835 => 955,  1831 => 954,  1827 => 953,  1824 => 952,  1820 => 951,  1801 => 935,  1797 => 933,  1788 => 930,  1784 => 929,  1781 => 928,  1777 => 927,  1760 => 913,  1756 => 911,  1747 => 908,  1743 => 907,  1739 => 906,  1735 => 905,  1732 => 904,  1728 => 903,  1708 => 886,  1704 => 884,  1695 => 881,  1691 => 880,  1687 => 879,  1683 => 878,  1680 => 877,  1676 => 876,  1652 => 855,  1648 => 853,  1639 => 850,  1635 => 849,  1632 => 848,  1628 => 847,  1611 => 833,  1607 => 831,  1598 => 828,  1594 => 827,  1590 => 826,  1587 => 825,  1583 => 824,  1559 => 803,  1545 => 792,  1535 => 785,  1526 => 778,  1517 => 775,  1513 => 774,  1509 => 773,  1505 => 772,  1502 => 771,  1498 => 770,  1483 => 757,  1474 => 754,  1470 => 753,  1466 => 752,  1462 => 751,  1459 => 750,  1455 => 749,  1438 => 734,  1429 => 731,  1425 => 730,  1421 => 729,  1418 => 728,  1414 => 727,  1399 => 714,  1390 => 711,  1386 => 710,  1382 => 709,  1378 => 708,  1375 => 707,  1371 => 706,  1356 => 693,  1347 => 690,  1343 => 689,  1339 => 688,  1336 => 687,  1332 => 686,  1312 => 668,  1303 => 665,  1299 => 664,  1295 => 663,  1292 => 662,  1288 => 661,  1274 => 649,  1265 => 646,  1261 => 645,  1257 => 644,  1253 => 643,  1250 => 642,  1246 => 641,  1231 => 628,  1222 => 625,  1218 => 624,  1214 => 623,  1210 => 622,  1207 => 621,  1203 => 620,  1184 => 603,  1175 => 600,  1171 => 599,  1167 => 598,  1164 => 597,  1160 => 596,  1146 => 584,  1136 => 580,  1132 => 579,  1128 => 578,  1124 => 577,  1121 => 576,  1117 => 575,  1102 => 562,  1093 => 559,  1089 => 558,  1085 => 557,  1082 => 556,  1078 => 555,  1058 => 537,  1049 => 534,  1045 => 533,  1041 => 532,  1038 => 531,  1034 => 530,  1020 => 518,  1011 => 515,  1007 => 514,  1003 => 513,  1000 => 512,  996 => 511,  982 => 499,  973 => 496,  969 => 495,  965 => 494,  961 => 493,  958 => 492,  954 => 491,  939 => 478,  930 => 475,  926 => 474,  922 => 473,  918 => 472,  914 => 471,  911 => 470,  907 => 469,  893 => 457,  884 => 454,  880 => 453,  876 => 452,  872 => 451,  868 => 450,  865 => 449,  861 => 448,  846 => 435,  837 => 432,  833 => 431,  829 => 430,  825 => 429,  821 => 428,  818 => 427,  814 => 426,  794 => 409,  786 => 404,  779 => 400,  762 => 386,  758 => 384,  749 => 381,  745 => 380,  741 => 379,  738 => 378,  734 => 377,  721 => 367,  717 => 366,  712 => 364,  705 => 360,  698 => 356,  691 => 352,  684 => 348,  678 => 344,  668 => 340,  661 => 336,  654 => 332,  647 => 328,  640 => 324,  633 => 320,  628 => 317,  624 => 316,  620 => 314,  609 => 309,  602 => 305,  595 => 301,  590 => 298,  586 => 297,  579 => 293,  573 => 289,  564 => 286,  560 => 285,  556 => 284,  552 => 283,  548 => 282,  544 => 281,  540 => 280,  536 => 279,  532 => 278,  529 => 277,  525 => 276,  505 => 259,  502 => 258,  497 => 256,  492 => 255,  490 => 254,  484 => 252,  480 => 251,  476 => 250,  472 => 249,  467 => 248,  460 => 243,  451 => 240,  447 => 239,  443 => 238,  439 => 237,  435 => 236,  431 => 235,  427 => 234,  423 => 233,  420 => 232,  416 => 231,  394 => 212,  390 => 211,  386 => 210,  379 => 206,  372 => 202,  368 => 200,  357 => 195,  350 => 191,  343 => 187,  336 => 183,  331 => 180,  327 => 179,  323 => 177,  312 => 172,  305 => 168,  298 => 164,  291 => 160,  286 => 157,  282 => 156,  278 => 154,  266 => 148,  259 => 144,  252 => 140,  245 => 136,  240 => 133,  236 => 132,  229 => 128,  225 => 127,  218 => 123,  207 => 114,  197 => 110,  193 => 109,  189 => 108,  186 => 107,  182 => 106,  169 => 96,  162 => 92,  157 => 90,  152 => 88,  145 => 84,  137 => 83,  130 => 79,  123 => 75,  116 => 70,  110 => 67,  107 => 66,  105 => 65,  100 => 63,  94 => 60,  87 => 56,  83 => 55,  74 => 51,  62 => 42,  19 => 1,);
+        return array (  1997 => 1047,  1987 => 1040,  1976 => 1032,  1969 => 1028,  1962 => 1024,  1951 => 1015,  1942 => 1012,  1938 => 1011,  1934 => 1010,  1931 => 1009,  1927 => 1008,  1910 => 994,  1905 => 991,  1896 => 988,  1892 => 987,  1888 => 986,  1885 => 985,  1881 => 984,  1863 => 969,  1858 => 966,  1849 => 963,  1845 => 962,  1841 => 961,  1838 => 960,  1834 => 959,  1815 => 943,  1811 => 941,  1802 => 938,  1798 => 937,  1795 => 936,  1791 => 935,  1774 => 921,  1770 => 919,  1761 => 916,  1757 => 915,  1753 => 914,  1749 => 913,  1746 => 912,  1742 => 911,  1722 => 894,  1718 => 892,  1709 => 889,  1705 => 888,  1701 => 887,  1697 => 886,  1694 => 885,  1690 => 884,  1666 => 863,  1662 => 861,  1653 => 858,  1649 => 857,  1646 => 856,  1642 => 855,  1625 => 841,  1621 => 839,  1612 => 836,  1608 => 835,  1604 => 834,  1601 => 833,  1597 => 832,  1573 => 811,  1559 => 800,  1549 => 793,  1540 => 786,  1531 => 783,  1527 => 782,  1523 => 781,  1519 => 780,  1516 => 779,  1512 => 778,  1497 => 765,  1488 => 762,  1484 => 761,  1480 => 760,  1476 => 759,  1473 => 758,  1469 => 757,  1452 => 742,  1443 => 739,  1439 => 738,  1435 => 737,  1432 => 736,  1428 => 735,  1413 => 722,  1404 => 719,  1400 => 718,  1396 => 717,  1392 => 716,  1389 => 715,  1385 => 714,  1370 => 701,  1361 => 698,  1357 => 697,  1353 => 696,  1350 => 695,  1346 => 694,  1326 => 676,  1317 => 673,  1313 => 672,  1309 => 671,  1306 => 670,  1302 => 669,  1288 => 657,  1279 => 654,  1275 => 653,  1271 => 652,  1267 => 651,  1264 => 650,  1260 => 649,  1245 => 636,  1236 => 633,  1232 => 632,  1228 => 631,  1224 => 630,  1221 => 629,  1217 => 628,  1198 => 611,  1189 => 608,  1185 => 607,  1181 => 606,  1178 => 605,  1174 => 604,  1160 => 592,  1150 => 588,  1146 => 587,  1142 => 586,  1138 => 585,  1135 => 584,  1131 => 583,  1116 => 570,  1107 => 567,  1103 => 566,  1099 => 565,  1096 => 564,  1092 => 563,  1072 => 545,  1063 => 542,  1059 => 541,  1055 => 540,  1052 => 539,  1048 => 538,  1034 => 526,  1025 => 523,  1021 => 522,  1017 => 521,  1014 => 520,  1010 => 519,  996 => 507,  987 => 504,  983 => 503,  979 => 502,  975 => 501,  972 => 500,  968 => 499,  953 => 486,  944 => 483,  940 => 482,  936 => 481,  932 => 480,  928 => 479,  925 => 478,  921 => 477,  907 => 465,  898 => 462,  894 => 461,  890 => 460,  886 => 459,  882 => 458,  879 => 457,  875 => 456,  860 => 443,  851 => 440,  847 => 439,  843 => 438,  839 => 437,  835 => 436,  832 => 435,  828 => 434,  808 => 417,  800 => 412,  793 => 408,  776 => 394,  772 => 392,  763 => 389,  759 => 388,  755 => 387,  752 => 386,  748 => 385,  735 => 375,  731 => 374,  726 => 372,  719 => 368,  712 => 364,  705 => 360,  698 => 356,  692 => 352,  682 => 348,  675 => 344,  668 => 340,  661 => 336,  654 => 332,  647 => 328,  642 => 325,  638 => 324,  634 => 322,  623 => 317,  616 => 313,  609 => 309,  604 => 306,  600 => 305,  593 => 301,  587 => 297,  578 => 294,  574 => 293,  570 => 292,  566 => 291,  562 => 290,  558 => 289,  554 => 288,  550 => 287,  546 => 286,  543 => 285,  539 => 284,  519 => 267,  516 => 266,  511 => 264,  506 => 263,  504 => 262,  498 => 260,  494 => 259,  490 => 258,  486 => 257,  481 => 256,  474 => 251,  465 => 248,  461 => 247,  457 => 246,  453 => 245,  449 => 244,  445 => 243,  441 => 242,  437 => 241,  434 => 240,  430 => 239,  408 => 220,  404 => 219,  400 => 218,  393 => 214,  386 => 210,  382 => 208,  371 => 203,  364 => 199,  357 => 195,  350 => 191,  345 => 188,  341 => 187,  337 => 185,  326 => 180,  319 => 176,  312 => 172,  305 => 168,  300 => 165,  296 => 164,  292 => 162,  280 => 156,  273 => 152,  266 => 148,  259 => 144,  254 => 141,  250 => 140,  243 => 136,  239 => 135,  232 => 131,  222 => 123,  212 => 119,  208 => 118,  204 => 117,  201 => 116,  197 => 115,  184 => 105,  177 => 101,  172 => 99,  167 => 97,  160 => 93,  152 => 92,  145 => 88,  138 => 84,  131 => 79,  125 => 76,  122 => 75,  120 => 74,  115 => 72,  108 => 68,  101 => 64,  94 => 60,  87 => 56,  83 => 55,  74 => 51,  62 => 42,  19 => 1,);
     }
 }

@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="datos_personales")
  * @ORM\Entity
  */
-class DatosPersonales
-{
+class DatosPersonales {
+
     /**
      * @var integer
      *
@@ -73,6 +73,13 @@ class DatosPersonales
     /**
      * @var string
      *
+     * @ORM\Column(name="CAL_CURRICULAR", type="string", length=100, nullable=true)
+     */
+    private $calCurricular;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="DISCAPACIDAD", type="string", length=2, nullable=true)
      */
     private $discapacidad;
@@ -119,15 +126,12 @@ class DatosPersonales
      */
     private $estadoAudt;
 
-
-
     /**
      * Get idDatPersonal
      *
      * @return integer 
      */
-    public function getIdDatPersonal()
-    {
+    public function getIdDatPersonal() {
         return $this->idDatPersonal;
     }
 
@@ -137,10 +141,9 @@ class DatosPersonales
      * @param integer $pkDatPostulante
      * @return DatosPersonales
      */
-    public function setPkDatPostulante($pkDatPostulante)
-    {
+    public function setPkDatPostulante($pkDatPostulante) {
         $this->pkDatPostulante = $pkDatPostulante;
-    
+
         return $this;
     }
 
@@ -149,8 +152,7 @@ class DatosPersonales
      *
      * @return integer 
      */
-    public function getPkDatPostulante()
-    {
+    public function getPkDatPostulante() {
         return $this->pkDatPostulante;
     }
 
@@ -160,10 +162,9 @@ class DatosPersonales
      * @param string $nombres
      * @return DatosPersonales
      */
-    public function setNombres($nombres)
-    {
+    public function setNombres($nombres) {
         $this->nombres = $nombres;
-    
+
         return $this;
     }
 
@@ -172,8 +173,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getNombres()
-    {
+    public function getNombres() {
         return $this->nombres;
     }
 
@@ -183,10 +183,9 @@ class DatosPersonales
      * @param string $apellidos
      * @return DatosPersonales
      */
-    public function setApellidos($apellidos)
-    {
+    public function setApellidos($apellidos) {
         $this->apellidos = $apellidos;
-    
+
         return $this;
     }
 
@@ -195,8 +194,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getApellidos()
-    {
+    public function getApellidos() {
         return $this->apellidos;
     }
 
@@ -206,10 +204,9 @@ class DatosPersonales
      * @param string $lugarNac
      * @return DatosPersonales
      */
-    public function setLugarNac($lugarNac)
-    {
+    public function setLugarNac($lugarNac) {
         $this->lugarNac = $lugarNac;
-    
+
         return $this;
     }
 
@@ -218,8 +215,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getLugarNac()
-    {
+    public function getLugarNac() {
         return $this->lugarNac;
     }
 
@@ -229,10 +225,9 @@ class DatosPersonales
      * @param string $fechaNac
      * @return DatosPersonales
      */
-    public function setFechaNac($fechaNac)
-    {
+    public function setFechaNac($fechaNac) {
         $this->fechaNac = $fechaNac;
-    
+
         return $this;
     }
 
@@ -241,8 +236,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getFechaNac()
-    {
+    public function getFechaNac() {
         return $this->fechaNac;
     }
 
@@ -252,10 +246,9 @@ class DatosPersonales
      * @param integer $edad
      * @return DatosPersonales
      */
-    public function setEdad($edad)
-    {
+    public function setEdad($edad) {
         $this->edad = $edad;
-    
+
         return $this;
     }
 
@@ -264,8 +257,7 @@ class DatosPersonales
      *
      * @return integer 
      */
-    public function getEdad()
-    {
+    public function getEdad() {
         return $this->edad;
     }
 
@@ -275,10 +267,9 @@ class DatosPersonales
      * @param string $dni
      * @return DatosPersonales
      */
-    public function setDni($dni)
-    {
+    public function setDni($dni) {
         $this->dni = $dni;
-    
+
         return $this;
     }
 
@@ -287,9 +278,29 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getDni()
-    {
+    public function getDni() {
         return $this->dni;
+    }
+
+    /**
+     * Set calCurricular
+     *
+     * @param string $calCurricular
+     * @return DatosPersonales
+     */
+    public function setCalCurricular($dni) {
+        $this->calCurricular = $dni;
+
+        return $this;
+    }
+
+    /**
+     * Get calCurricular
+     *
+     * @return string 
+     */
+    public function getCalCurricular() {
+        return $this->calCurricular;
     }
 
     /**
@@ -298,10 +309,9 @@ class DatosPersonales
      * @param string $discapacidad
      * @return DatosPersonales
      */
-    public function setDiscapacidad($discapacidad)
-    {
+    public function setDiscapacidad($discapacidad) {
         $this->discapacidad = $discapacidad;
-    
+
         return $this;
     }
 
@@ -310,8 +320,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getDiscapacidad()
-    {
+    public function getDiscapacidad() {
         return $this->discapacidad;
     }
 
@@ -321,10 +330,9 @@ class DatosPersonales
      * @param string $certDiscapacidad
      * @return DatosPersonales
      */
-    public function setCertDiscapacidad($certDiscapacidad)
-    {
+    public function setCertDiscapacidad($certDiscapacidad) {
         $this->certDiscapacidad = $certDiscapacidad;
-    
+
         return $this;
     }
 
@@ -333,8 +341,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getCertDiscapacidad()
-    {
+    public function getCertDiscapacidad() {
         return $this->certDiscapacidad;
     }
 
@@ -344,10 +351,9 @@ class DatosPersonales
      * @param string $foto
      * @return DatosPersonales
      */
-    public function setFoto($foto)
-    {
+    public function setFoto($foto) {
         $this->foto = $foto;
-    
+
         return $this;
     }
 
@@ -356,8 +362,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getFoto()
-    {
+    public function getFoto() {
         return $this->foto;
     }
 
@@ -367,10 +372,9 @@ class DatosPersonales
      * @param string $usuarioAudt
      * @return DatosPersonales
      */
-    public function setUsuarioAudt($usuarioAudt)
-    {
+    public function setUsuarioAudt($usuarioAudt) {
         $this->usuarioAudt = $usuarioAudt;
-    
+
         return $this;
     }
 
@@ -379,8 +383,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getUsuarioAudt()
-    {
+    public function getUsuarioAudt() {
         return $this->usuarioAudt;
     }
 
@@ -390,10 +393,9 @@ class DatosPersonales
      * @param \DateTime $fechaAudt
      * @return DatosPersonales
      */
-    public function setFechaAudt($fechaAudt)
-    {
+    public function setFechaAudt($fechaAudt) {
         $this->fechaAudt = $fechaAudt;
-    
+
         return $this;
     }
 
@@ -402,8 +404,7 @@ class DatosPersonales
      *
      * @return \DateTime 
      */
-    public function getFechaAudt()
-    {
+    public function getFechaAudt() {
         return $this->fechaAudt;
     }
 
@@ -413,10 +414,9 @@ class DatosPersonales
      * @param string $ipAudt
      * @return DatosPersonales
      */
-    public function setIpAudt($ipAudt)
-    {
+    public function setIpAudt($ipAudt) {
         $this->ipAudt = $ipAudt;
-    
+
         return $this;
     }
 
@@ -425,8 +425,7 @@ class DatosPersonales
      *
      * @return string 
      */
-    public function getIpAudt()
-    {
+    public function getIpAudt() {
         return $this->ipAudt;
     }
 
@@ -436,10 +435,9 @@ class DatosPersonales
      * @param integer $estadoAudt
      * @return DatosPersonales
      */
-    public function setEstadoAudt($estadoAudt)
-    {
+    public function setEstadoAudt($estadoAudt) {
         $this->estadoAudt = $estadoAudt;
-    
+
         return $this;
     }
 
@@ -448,8 +446,8 @@ class DatosPersonales
      *
      * @return integer 
      */
-    public function getEstadoAudt()
-    {
+    public function getEstadoAudt() {
         return $this->estadoAudt;
     }
+
 }

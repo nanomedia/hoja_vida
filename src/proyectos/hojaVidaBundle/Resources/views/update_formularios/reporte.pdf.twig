@@ -39,9 +39,9 @@
                     HOJA DE VIDA
                 </div>
             </div>   
-            <div width="100px" float="left"><img src="web/fotos/{{DatosPersonales.foto}}" height="125px" width="100px"/></div>   
+            <div width="100px" float="left"><img src="web/fotos/{{DatosPersonales.foto}}" height="125px" width="100px"/></div> 
         </div>
-
+        
         <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
             I.&nbsp;DATOS PERSONALES
         </div>
@@ -59,11 +59,20 @@
         <span extends="labels">3. Edad (a la fecha de entrevista):</span>&nbsp;&nbsp;
         <span font-size="17px" border.size="1px">&nbsp;{{DatosPersonales.edad}}&nbsp;</span>
         <br></br><br></br>
-        <span extends="labels">4. Persona con Discapacidad:</span>&nbsp;&nbsp;
+        
+        <span extends="labels">4. Calificación Curricular:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="1px">&nbsp;{{DatosPersonales.calCurricular}}&nbsp;</span>
+        <br></br><br></br>
+        
+        <span extends="labels">5. DNI:</span>&nbsp;&nbsp;
+        <span font-size="17px" border.size="1px">&nbsp;{{DatosPersonales.dni}}&nbsp;</span>
+        <br></br><br></br>
+        
+        <span extends="labels">6. Persona con Discapacidad:</span>&nbsp;&nbsp;
         <span font-size="17px" border.size="1px">&nbsp;{{DatosPersonales.discapacidad}}&nbsp;</span>
         <br></br><br></br>
         {% if DatosPersonales.discapacidad=="SI"%}
-        <span extends="labels">5. Certificación de Discapacidad/Resolución CONADIS:</span>&nbsp;&nbsp;
+        <span extends="labels">7. Certificación de Discapacidad/Resolución CONADIS:</span>&nbsp;&nbsp;
         <span font-size="17px" border.size="1px">&nbsp;{{DatosPersonales.certDiscapacidad}}&nbsp;</span>
         <br></br><br></br><br></br>
         {% endif %}
@@ -111,9 +120,8 @@
 
             </tr>
              {% endfor %}
-
         </table>
-        <br></br><br></br><br></br>
+        <page-break></page-break>
         <div color="black" height="20px" background.color="#cccccc" font-style="bold" font-size="13px"   >
             III.&nbsp;DATOS ACADÉMICOS
         </div>
@@ -140,7 +148,7 @@
                 <td padding="10px">{{doc.Nivel}}</td>
             </tr>
             <tr>
-                <td width="100px" padding="10px" font-style="bold">Mensión</td>
+                <td width="100px" padding="10px" font-style="bold">Mención</td>
                 <td padding="10px">{{doc.Mension}}</td>
             </tr>
             <tr>
@@ -164,7 +172,7 @@
                 <td padding="10px">{{mae.Nivel}}</td>
             </tr>
             <tr>
-                <td width="100px" padding="10px" font-style="bold">Mensión</td>
+                <td width="100px" padding="10px" font-style="bold">Mención</td>
                 <td padding="10px">{{mae.Mension}}</td>
             </tr>
             <tr>
@@ -187,7 +195,7 @@
                 <td padding="10px">{{otr.Nivel}}</td>
             </tr>
             <tr>
-                <td width="100px" padding="10px" font-style="bold">Mensión</td>
+                <td width="100px" padding="10px" font-style="bold">Mención</td>
                 <td padding="10px">{{otr.Mension}}</td>
             </tr>
             <tr>
@@ -210,7 +218,7 @@
         <span font-size="17px" border.size="1px">&nbsp;{{MeritosUniv.Puesto}}&nbsp;</span>
         <span font-size="17px" border.size="1px">&nbsp;{{MeritosUniv.Universidad}}&nbsp;</span>
         <span font-size="17px" border.size="1px">&nbsp;{{MeritosUniv.Anio}}&nbsp;</span>
-        <br></br><br></br>
+        <page-break></page-break>
         <div color="black" height="20px" background.color="#cccccc" font-style="bold" font-size="13px"   >
             IV.&nbsp;EXPERIENCIA PROFESIONAL
         </div>
@@ -387,7 +395,7 @@
                 </tr>
             </table>          
             <br></br><br></br><br></br>
-
+            <page-break></page-break>
             <div color="black" height="20px" background.color="#cccccc" font-style="bold" font-size="13px"   >
                 V. &nbsp;CONDUCTA
             </div>      
@@ -410,7 +418,7 @@
                 </tr>
 
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends="labels">2. PROCESOS JUDICIALES</span>
             <br></br><br></br><br></br>
             <span extends="labels">PROCESOS JUDICIALES CIVILES, PENALES, DE FAMILIA, LABORALES COMO DEMANDANTE / DENUNCIANTE</span>
@@ -535,7 +543,7 @@
                 </tr>
                 {% endfor%}
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends="labels">
                 6. EN EL PODER JUDICIAL
             </span>
@@ -601,7 +609,7 @@
                 </tr>
                 {% endfor %}
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
 
             <span background.color="#000000" font-style="bold"  color="#ffffff">&nbsp;CONCLUIDAS&nbsp;</span>
             <br></br><br></br><br></br>
@@ -666,7 +674,7 @@
                 </tr>
                 {% endfor %}
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends="labels">
                 7. EN EL MINISTERIO PÚBLICO
             </span>
@@ -732,7 +740,7 @@
                 </tr>     
                 {% endfor %}
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span background.color="#000000" font-style="bold"  color="#ffffff">&nbsp;CONCLUIDAS&nbsp;</span>
             <br></br><br></br><br></br>
             <span extends="labels">
@@ -777,7 +785,7 @@
                 {% endfor %}
             </table>
 
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
                 VI.&nbsp;INFORMACIÓN DE LA OFICINA DE REGISTRO DE JUECES Y FISCALES DEL CNM
             </div>
@@ -790,8 +798,8 @@
             </div>
             <br></br><br></br><br></br>
             <div border.color="black" padding="10px">{{info2}}</div>
-
             <br></br><br></br><br></br>
+
             <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
                 VIII.&nbsp;INFORMACIÓN DEL COLEGIO DE ABOGADOS
             </div>
@@ -801,7 +809,7 @@
             </span>
             <br></br><br></br><br></br>
             <div border.color="black" padding="10px">{{info3}}</div>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
 
             <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
                 X. INFORMACIÓN PATRIMONIAL (ECONÓMICA E INMOBILIARIA)
@@ -856,7 +864,7 @@
                 </tr>
             </table>
 
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <span extends="labels">
                 2. Cuadro de su Patrimonio Inmobiliario
             </span>
@@ -958,7 +966,7 @@
 
                 <tr>
                     <td colspan="2" padding="10px" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum6}}</td>
+                    <td padding="10px" text-align="center">{{sum6}}</td>
                 </tr>
             </table>
             <br></br><br></br><br></br>
@@ -983,10 +991,10 @@
 
                 <tr>
                     <td colspan="2" padding="10px" text-align="right">TOTAL:</td>
-                    <td text-align="center">{{sum7}}</td>
+                    <td padding="10px" text-align="center">{{sum7}}</td>
                 </tr>
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
                 XI. MOVIMIENTO MIGRATORIO
             </div>
@@ -1005,7 +1013,7 @@
                 </tr>
                 {% endfor %}
             </table>
-            <br></br><br></br><br></br>
+            <page-break></page-break>
             <div color="black" height="20px"  background.color="#cccccc" font-style="bold" font-size="13px"   >
                 XII.INFORMACIÓN DE LA CÁMARA DE COMERCIO, INFOCORP Y SBS
             </div>

@@ -135,6 +135,18 @@ class DatosPersonales extends \proyectos\hojaVidaBundle\Entity\DatosPersonales i
         return parent::getDni();
     }
 
+    public function setCalCurricular($dni)
+    {
+        $this->__load();
+        return parent::setCalCurricular($dni);
+    }
+
+    public function getCalCurricular()
+    {
+        $this->__load();
+        return parent::getCalCurricular();
+    }
+
     public function setDiscapacidad($discapacidad)
     {
         $this->__load();
@@ -222,7 +234,7 @@ class DatosPersonales extends \proyectos\hojaVidaBundle\Entity\DatosPersonales i
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'idDatPersonal', 'pkDatPostulante', 'nombres', 'apellidos', 'lugarNac', 'fechaNac', 'edad', 'dni', 'discapacidad', 'certDiscapacidad', 'foto', 'usuarioAudt', 'fechaAudt', 'ipAudt', 'estadoAudt');
+        return array('__isInitialized__', 'idDatPersonal', 'pkDatPostulante', 'nombres', 'apellidos', 'lugarNac', 'fechaNac', 'edad', 'dni', 'calCurricular', 'discapacidad', 'certDiscapacidad', 'foto', 'usuarioAudt', 'fechaAudt', 'ipAudt', 'estadoAudt');
     }
 
     public function __clone()
